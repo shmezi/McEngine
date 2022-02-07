@@ -1,4 +1,4 @@
-package me.alexirving.crates.utils
+package me.alexirving.core.utils
 /* Copyright (C) AlexIrving - All Rights Reserved
  * Unauthorized copying of this file, via any medium is strictly prohibited
  * Proprietary and confidential

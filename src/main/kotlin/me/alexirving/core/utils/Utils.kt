@@ -1,10 +1,10 @@
-package me.alexirving.crates.utils
+package me.alexirving.core.utils
 /* Copyright (C) AlexIrving - All Rights Reserved
  * Unauthorized copying of this file, via any medium is strictly prohibited
  * Proprietary and confidential
  * Written by Alex Irving <alexirving992@gmail.com>, February 2022
  */
-import me.alexirving.crates.SuperbCrates
+import me.alexirving.core.McEngine
 import org.bukkit.ChatColor
 import org.bukkit.event.Listener
 import org.bukkit.plugin.java.JavaPlugin
@@ -29,7 +29,7 @@ fun copyOver(dataFolder: File, vararg fileNames: String) {
             continue
         if (name.matches(".+\\..+\$".toRegex()))
             Files.copy(
-                SuperbCrates::class.java.classLoader.getResourceAsStream(name),
+                McEngine::class.java.classLoader.getResourceAsStream(name),
                 tc.toPath(),
                 StandardCopyOption.REPLACE_EXISTING
             )
