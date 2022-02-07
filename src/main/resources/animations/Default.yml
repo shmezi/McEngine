@@ -1,0 +1,6 @@
+FrameDelay: 5 #Delay between each frame (In ticks)
+Frames:
+  - "Tp(A;[0,1,0])"
+  - "Tp(B;[0,2,0])"
+  - "Tp(A;[0,3,0])"
+  - "Skip()"
