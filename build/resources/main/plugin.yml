@@ -1,0 +1,13 @@
+name: McEngine
+main: me.alexirving.core.McEngine
+version: 1.0
+description: Main core for plugins.
+depend: [ ProtocolLib ]
+authors: [ Alexirving ]
+commands:
+  Admin:
+    permission: mcengine.admin
+  GetItem:
+  test:
+  Animation:
+    permission: mcengine.animation.use
