@@ -8,9 +8,9 @@ import me.alexirving.core.animation.actions.Action
 import org.bukkit.Location
 
 class Frame(val actions: MutableList<Action>) {
-    fun run(session: AnimationSession, zeroPoint: Location) {
+    fun run(session: AnimationSession, zeroPoint: Location, direction: Direction) {
         for (action in actions.withIndex())
-            action.value.run(session, zeroPoint)
+            action.value.run(session, zeroPoint, direction)
     }
 
 }

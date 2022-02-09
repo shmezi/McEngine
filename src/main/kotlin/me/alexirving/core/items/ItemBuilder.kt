@@ -1,4 +1,5 @@
 package me.alexirving.core.items
+
 import org.bukkit.Color
 import org.bukkit.DyeColor
 import org.bukkit.Material
@@ -15,8 +16,14 @@ class ItemBuilder {
     private var stack: ItemStack
 
     constructor(mat: Material?) {
-        stack = ItemStack(mat)
+        stack = if (mat == Material.SKULL_ITEM)
+            ItemStack(mat, 1, 3)
+        else {
+            println("Not a player skull")
+            ItemStack(mat)
+        }
     }
+
 
     constructor(mat: Material?, sh: Short) {
         stack = ItemStack(mat, 1, sh)

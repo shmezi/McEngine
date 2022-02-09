@@ -4,11 +4,9 @@ package me.alexirving.core.animation.actions.actionables
  * Proprietary and confidential
  * Written by Alex Irving <alexirving992@gmail.com>, February 2022
  */
-import me.alexirving.core.animation.AnimationSession
-import me.alexirving.core.animation.Offset
+import me.alexirving.core.animation.*
 import me.alexirving.core.animation.actions.Action
 import me.alexirving.core.animation.packets.PacketManager
-import me.alexirving.core.animation.toLocation
 import me.alexirving.core.items.ItemManager
 import org.bukkit.Location
 
@@ -26,8 +24,13 @@ class Tp(pm: PacketManager, im: ItemManager, args: List<String>) : Action(pm, im
     }
 
 
-    override fun run(session: AnimationSession, zeroPoint: Location) {
-        session.pm.tp(session.standMap[args[0]]!!, offset!!.getOffset(zeroPoint).add(0.5, -1.2, 0.5))
+    override fun run(session: AnimationSession, zeroPoint: Location, direction: Direction) {
+        val t = session.standMap[args[0]]
+        if (t == null) {
+            println("ERROR, stand \"${args[0]}\" was not found!")
+            return
+        }
+        session.pm.tp(t, offset!!.getOffset(zeroPoint).add(0.5, -1.2, 0.5))
 
     }
 

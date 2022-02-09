@@ -20,7 +20,7 @@ class AnimationSession(
     private val viewers: MutableList<Player>,
     private val location: Location,
     val animation: Animation,
-    val facing: Facing
+    val direction: Direction
 ) {
     val standMap: MutableMap<String, Int> = mutableMapOf() //Map of stand name to stand id in the packetMap
     private val scheduler = plugin.server.scheduler
@@ -35,7 +35,7 @@ class AnimationSession(
         var timeStamp = 0
         for (frame in animation.sequence) {
             scheduler.runTaskLaterAsynchronously(plugin, {
-                frame.run(this, location)
+                frame.run(this, location, direction)
             }, timeStamp.toLong())
             timeStamp += animation.frameDelay
         }

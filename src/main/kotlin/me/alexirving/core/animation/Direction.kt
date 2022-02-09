@@ -4,9 +4,9 @@ package me.alexirving.core.animation
  * Proprietary and confidential
  * Written by Alex Irving <alexirving992@gmail.com>, February 2022
  */
-enum class Facing {
+enum class Direction {
     NORTH,
-    EAST,
     SOUTH,
+    EAST,
     WEST
 }

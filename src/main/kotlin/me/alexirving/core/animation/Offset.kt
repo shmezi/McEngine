@@ -55,12 +55,11 @@ class Offset {
      * @return the offset [Location] based on the given [location]
      */
     fun getOffset(location: Location): Location {
-        println(location.getFacing())
         return when (location.clone().getFacing()) {
-            Facing.NORTH -> location.clone().add(x, y, z)
-            Facing.SOUTH -> location.clone().add((-1 * x), y, (-1 * z))
-            Facing.EAST -> location.clone().add(z, y, x)
-            Facing.WEST -> location.clone().add((-1 * z), y, (-1 * x))
+            Direction.NORTH -> location.clone().add(x, y, z)
+            Direction.SOUTH -> location.clone().add((-1 * x), y, (-1 * z))
+            Direction.EAST -> location.clone().add(z, y, x)
+            Direction.WEST -> location.clone().add((-1 * z), y, (-1 * x))
         }
 
     }

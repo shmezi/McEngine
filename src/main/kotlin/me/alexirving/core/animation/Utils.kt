@@ -18,21 +18,21 @@ fun asyncNonBukkit(task: Runnable) {
     exe.submit(task)
 }
 
-fun Location.getFacing(): Facing {
+fun Location.getFacing(): Direction {
     var rotation: Float = (yaw - 180) % 360
     if (rotation < 0) {
         rotation += 360.0f
     }
     return if (0 <= rotation && rotation < 22.5) {
-        Facing.NORTH
+        Direction.NORTH
     } else if (67.5 <= rotation && rotation < 112.5) {
-        Facing.EAST
+        Direction.EAST
     } else if (157.5 <= rotation && rotation < 202.5) {
-        Facing.SOUTH
+        Direction.SOUTH
     } else if (247.5 <= rotation && rotation < 292.5) {
-        Facing.WEST
+        Direction.WEST
     } else {
-        Facing.NORTH
+        Direction.NORTH
     }
 
 }
@@ -71,4 +71,3 @@ fun toLocation(eval: String): List<Double>? {
 fun String.space(): String {
     return this.replace(" ", "")
 }
-

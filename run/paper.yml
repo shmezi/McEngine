@@ -8,49 +8,37 @@
 # IRC: #paperspigot @ irc.spi.gt ( http://irc.spi.gt/iris/?channels=PaperSpigot )
 
 config-version: 9
+effect-modifiers:
+  strength: 1.3
+  weakness: -0.5
 stackable-buckets:
   lava: false
   water: false
   milk: false
-effect-modifiers:
-  strength: 1.3
-  weakness: -0.5
 data-value-allowed-items: []
-warnWhenSettingExcessiveVelocity: true
 settings:
   baby-zombie-movement-speed: 0.5
   limit-player-interactions: true
+warnWhenSettingExcessiveVelocity: true
 world-settings:
   default:
     verbose: true
-    disable-explosion-knockback: false
-    water-over-lava-flow-speed: 5
-    tnt-entity-height-nerf: 0
-    fix-cannons: false
+    cache-chunk-maps: false
     remove-invalid-mob-spawner-tile-entities: true
-    nether-ceiling-void-damage: false
-    player-blocking-damage-multiplier: 0.5
+    tnt-explosion-volume: 4.0
     max-growth-height:
       cactus: 3
       reeds: 3
-    tnt-explosion-volume: 4.0
     falling-block-height-nerf: 0
     mob-spawner-tick-rate: 1
+    player-blocking-damage-multiplier: 0.5
     optimize-explosions: false
+    nether-ceiling-void-damage: false
+    water-over-lava-flow-speed: 5
+    tnt-entity-height-nerf: 0
+    fix-cannons: false
+    disable-explosion-knockback: false
     use-hopper-check: false
-    all-chunks-are-slime-chunks: false
-    allow-undead-horse-leashing: false
-    container-update-tick-rate: 1
-    game-mechanics:
-      disable-end-credits: false
-      boats-drop-boats: false
-      disable-player-crits: false
-      disable-chest-cat-detection: false
-    falling-blocks-collide-with-signs: false
-    keep-spawn-loaded: true
-    disable-mood-sounds: false
-    portal-search-radius: 128
-    disable-ice-and-snow: false
     generator-settings:
       canyon: true
       caves: true
@@ -63,35 +51,47 @@ world-settings:
       village: true
       flat-bedrock: false
     allow-block-location-tab-completion: true
-    cache-chunk-maps: false
-    remove-unloaded:
-      enderpearls: true
-      tnt-entities: true
-      falling-blocks: true
+    all-chunks-are-slime-chunks: false
+    allow-undead-horse-leashing: false
+    game-mechanics:
+      disable-end-credits: false
+      boats-drop-boats: false
+      disable-player-crits: false
+      disable-chest-cat-detection: false
+    container-update-tick-rate: 1
+    keep-spawn-loaded: true
+    disable-mood-sounds: false
+    falling-blocks-collide-with-signs: false
+    disable-ice-and-snow: false
+    portal-search-radius: 128
+    fishing-time-range:
+      MinimumTicks: 100
+      MaximumTicks: 900
     squid-spawn-height:
       minimum: 45.0
       maximum: 63.0
-    load-chunks:
-      enderpearls: false
-      tnt-entities: false
-      falling-blocks: false
-    player-exhaustion:
-      block-break: 0.02500000037252903
-      swimming: 0.014999999664723873
     despawn-ranges:
       soft: 32
       hard: 128
     fast-drain:
       lava: false
       water: false
+    player-exhaustion:
+      block-break: 0.02500000037252903
+      swimming: 0.014999999664723873
+    remove-unloaded:
+      enderpearls: true
+      tnt-entities: true
+      falling-blocks: true
+    load-chunks:
+      enderpearls: false
+      tnt-entities: false
+      falling-blocks: false
     lava-flow-speed:
       normal: 30
       nether: 10
-    fishing-time-range:
-      MinimumTicks: 100
-      MaximumTicks: 900
-    disable-teleportation-suffocation-check: false
     use-async-lighting: false
     disable-thunder: false
     tick-next-tick-list-cap: 10000
     tick-next-tick-list-cap-ignores-redstone: false
+    disable-teleportation-suffocation-check: false

@@ -5,6 +5,7 @@ package me.alexirving.core.animation.actions.actionables
  * Written by Alex Irving <alexirving992@gmail.com>, February 2022
  */
 import me.alexirving.core.animation.AnimationSession
+import me.alexirving.core.animation.Direction
 import me.alexirving.core.animation.Offset
 import me.alexirving.core.animation.actions.Action
 import me.alexirving.core.animation.packets.PacketManager
@@ -25,7 +26,7 @@ class Particle(pm: PacketManager, im: ItemManager, args: List<String>) : Action(
     }
 
 
-    override fun run(session: AnimationSession, zeroPoint: Location) {
+    override fun run(session: AnimationSession, zeroPoint: Location, direction: Direction) {
         zeroPoint.world.playEffect(
             offset!!.getOffset(zeroPoint),
             Effect.valueOf(args[1]),
