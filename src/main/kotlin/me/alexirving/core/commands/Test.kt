@@ -2,6 +2,7 @@ package me.alexirving.core.commands
 
 import me.alexirving.core.animation.getFacing
 import me.alexirving.core.testing.GolemSword
+import org.bukkit.Material
 import org.bukkit.command.Command
 import org.bukkit.command.CommandExecutor
 import org.bukkit.command.CommandSender
@@ -22,6 +23,13 @@ class Test : CommandExecutor {
             }
             "B" -> {
                 player.sendMessage("You are facing: ${player.location.getFacing().name}")
+            }
+            "C" -> {
+                player.sendMessage(
+                    "Block selected is facing ${
+                        player.getTargetBlock(setOf(Material.AIR), 10)
+                    }"
+                )
             }
         }
 

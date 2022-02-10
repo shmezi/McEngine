@@ -7,6 +7,6 @@ package me.alexirving.core.animation
 enum class Direction {
     NORTH,
     SOUTH,
-    EAST,
-    WEST
+    WEST,
+    EAST
 }

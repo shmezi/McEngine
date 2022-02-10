@@ -4,6 +4,7 @@ package me.alexirving.core.animation
  * Proprietary and confidential
  * Written by Alex Irving <alexirving992@gmail.com>, February 2022
  */
+import me.alexirving.core.McEngine
 import me.alexirving.core.animation.actions.Action
 import me.alexirving.core.animation.actions.SuperAction
 import me.alexirving.core.animation.exceptions.CompileError
@@ -39,32 +40,30 @@ object AniCompiler {
         return !sActions.none { it.simpleName == name }
     }
 
-    fun compileAction(pm: PacketManager, im: ItemManager, toCompile: String): Action {
-        val rawAction = ac.matcher(toCompile.space())
+    fun compileAction(pl: McEngine, toCompile: String): Action {
+        val rawAction = ac.matcher(toCompile)
         if (!rawAction.matches()) throw CompileError("Improper written action: \"$toCompile\"")
         if (!doesActionExist(rawAction.group(1))) throw CompileError("Function does not exist:\"${rawAction.group(1)}\" in: \"$toCompile\"")
 
         return getActionClassFromName(rawAction.group(1)).getDeclaredConstructor(
-            PacketManager::class.java,
-            ItemManager::class.java,
+            McEngine::class.java,
             List::class.java
-        ).newInstance(pm, im, rawAction.group(2).split(";"))
+        ).newInstance(pl, rawAction.group(2).split(";"))
     }
 
-    fun compileSuperAction(pm: PacketManager, im: ItemManager, toCompile: String, start: Int): SuperAction {
-        val rawAction = sav.matcher(toCompile.space())
+    fun compileSuperAction(pl: McEngine, toCompile: String, start: Int): SuperAction {
+        val rawAction = sav.matcher(toCompile)
         if (!rawAction.matches()) throw CompileError("Improper written action: \"$toCompile\"")
         if (!doesSuperActionExist(rawAction.group(1))) throw CompileError("Function does not exist:\"${rawAction.group(1)}\" in: \"$toCompile\"")
         return getSuperActionClassFromName(rawAction.group(1)).getDeclaredConstructor(
-            PacketManager::class.java,
-            ItemManager::class.java,
+            McEngine::class.java,
             String::class.java,
             Int::class.java
-        ).newInstance(pm, im, toCompile, start)
+        ).newInstance(pl, toCompile, start)
     }
 
 
-    fun compileAnimation(pm: PacketManager, im: ItemManager, aniFile: FileConfiguration): Animation {
+    fun compileAnimation(pl: McEngine, aniFile: FileConfiguration): Animation {
         val names = mutableMapOf<String, EntityType>()
         for (set in aniFile.getConfigurationSection("Stands").getKeys(false)) {
             names[set] = EntityType.valueOf(aniFile.getString("Stands.$set").uppercase())
@@ -78,19 +77,19 @@ object AniCompiler {
             for (rawAction in rawFrame.value.split("|")) {
                 if (sav.matcher(rawAction.space()).matches()) {
                     if (toBeDone.containsKey(rawFrame.index)) {
-                        toBeDone[rawFrame.index]!!.add(rawAction.space())
+                        toBeDone[rawFrame.index]!!.add(rawAction)
                     } else {
-                        toBeDone[rawFrame.index] = mutableListOf(rawAction.space())
+                        toBeDone[rawFrame.index] = mutableListOf(rawAction)
                     }
                 } else
-                    currentFrame.add(compileAction(pm, im, rawAction.space()))
+                    currentFrame.add(compileAction(pl, rawAction))
             }
             frames.add(Frame(currentFrame))
         }
         //Second pass of adding frames (Super actions)
         for (superActions in toBeDone) { //Starting frame | List of raw super actions
             for (rawSuper in superActions.value) {
-                val comp = compileSuperAction(pm, im, rawSuper, superActions.key)
+                val comp = compileSuperAction(pl, rawSuper, superActions.key)
                 for (action in comp.build()) {
                     if (frames.size > action.key)
                         frames[action.key].actions.add(action.value)

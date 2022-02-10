@@ -2,7 +2,7 @@ FrameDelay: 5 #Delay between each frame (In ticks)
 Stands:
   A: ARMOR_STAND
 Frames:
-  - "Tp(A;[0,1,0])"
-  - "Tp(B;[0,2,0])"
+  - "Tp(A;[0,1,0])|SetItem(A;4;Skull)"
+  - "Tp(A;[0,2,0])"
   - "Tp(A;[0,3,0])"
-  - "Empty()"McEngineAPI.getMcEngine().am
+  - "Empty()"

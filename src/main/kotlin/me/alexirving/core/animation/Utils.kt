@@ -4,9 +4,17 @@ package me.alexirving.core.animation
  * Proprietary and confidential
  * Written by Alex Irving <alexirving992@gmail.com>, February 2022
  */
+
+import com.comphenix.protocol.PacketType
+import com.comphenix.protocol.ProtocolLibrary
+import com.comphenix.protocol.events.PacketContainer
+import com.comphenix.protocol.wrappers.BlockPosition
 import org.bukkit.Location
+import org.bukkit.block.Block
+import java.lang.reflect.InvocationTargetException
 import java.util.concurrent.Executors
 import java.util.regex.Pattern
+
 
 private val exe = Executors.newCachedThreadPool()
 
@@ -69,5 +77,5 @@ fun toLocation(eval: String): List<Double>? {
 }
 
 fun String.space(): String {
-    return this.replace(" ", "")
+    return replace(" ", "")
 }

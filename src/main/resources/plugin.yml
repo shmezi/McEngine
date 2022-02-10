@@ -10,4 +10,6 @@ commands:
   GetItem:
   test:
   Animation:
-    permission: mcengine.animation.use
+    permission: mcengine.animation.useObfuscate
+  McEngineReloadCMD:
+    permission: mcengine.reload

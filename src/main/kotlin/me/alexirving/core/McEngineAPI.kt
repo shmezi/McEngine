@@ -1,6 +1,5 @@
-package me.alexirving.core.public
+package me.alexirving.core
 
-import me.alexirving.core.McEngine
 import me.alexirving.core.animation.AnimationManager
 import me.alexirving.core.animation.AnimationSession
 import me.alexirving.core.animation.getFacing
@@ -16,8 +15,19 @@ object McEngineAPI {
     /**
      * Get instance of plugin
      */
+    fun getMcEngine(run: () -> Unit): McEngine {
+        return if (instance != null) {
+            run()
+            instance!!
+        } else
+            throw IllegalStateException("McEngine has not been loaded yet")
+
+    }
     fun getMcEngine(): McEngine {
-        return instance ?: throw IllegalStateException("McEngine has not been loaded yet")
+        return if (instance != null) {
+            instance!!
+        } else
+            throw IllegalStateException("McEngine has not been loaded yet")
     }
 
 
@@ -42,5 +52,9 @@ object McEngineAPI {
             getMcEngine().am.getAnimation(animation)!!,
             location.getFacing()
         )
+    }
+
+    fun reload() {
+        instance?.reload()
     }
 }

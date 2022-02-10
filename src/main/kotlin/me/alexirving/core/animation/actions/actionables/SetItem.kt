@@ -4,17 +4,16 @@ package me.alexirving.core.animation.actions.actionables
  * Proprietary and confidential
  * Written by Alex Irving <alexirving992@gmail.com>, February 2022
  */
+import me.alexirving.core.McEngine
 import me.alexirving.core.animation.AnimationSession
 import me.alexirving.core.animation.Direction
 import me.alexirving.core.animation.actions.Action
-import me.alexirving.core.animation.packets.PacketManager
-import me.alexirving.core.items.ItemManager
 import org.bukkit.Location
 
-class SetItem(pm: PacketManager, im: ItemManager, args: List<String>) : Action(pm, im, args) {
+class SetItem(pl: McEngine, args: List<String>) : Action(pl, args) {
 
     override fun run(session: AnimationSession, zeroPoint: Location, direction: Direction) {
-        pm.setItem(session.standMap[args[0]]!!, args[1].toInt(), im.getItem(args[2]))
+        pl.am.pm.setItem(session.standMap[args[0]]!!, args[1].toInt(), pl.im.getItem(args[2]))
 
     }
 }

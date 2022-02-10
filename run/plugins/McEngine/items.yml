@@ -1,0 +1,10 @@
+ItemId:
+  Material: STONE #Material of the item
+  Name: "An item" #Name of the item
+  Amount: 1 #1-64
+  Lore: #A list of the lore for the item
+    - "A Cool lore"
+Skull:
+  Material: Skull_item
+  Name: "&cAnvil"
+  Amount: 1

@@ -15,7 +15,6 @@ class GolemSword : BaseItem(ItemStack(Material.IRON_SWORD)) {
         val slotMap = mutableMapOf<ItemSlot, List<String>>()
         slotMap[ItemSlot.PREFIX] = listOf("PREFIX")
         m.createLevel(slotMap)
-        println("WORKED: ${mg.addModifier(m)}")
         addGroupModifier(mg, m)
     }
 }

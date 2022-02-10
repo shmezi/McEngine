@@ -4,16 +4,14 @@ package me.alexirving.core.animation.actions
  * Proprietary and confidential
  * Written by Alex Irving <alexirving992@gmail.com>, February 2022
  */
-import me.alexirving.core.animation.packets.PacketManager
-import me.alexirving.core.items.ItemManager
+import me.alexirving.core.McEngine
 
 /**
  * Represents a super action.
  * A super action is a function that generates other actions. (Example: )
  */
 abstract class SuperAction(
-    val pm: PacketManager,
-    val im: ItemManager,
+    val pl: McEngine,
     val raw: String,
     val start: Int
 ) {

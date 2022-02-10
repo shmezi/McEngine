@@ -30,8 +30,16 @@ class AnimationSession(
      * Starts the animation session.
      */
     fun start(done: () -> Unit) {
+        val yaw = when (direction) {
+            Direction.NORTH -> 0f
+            Direction.EAST -> 90f
+            Direction.SOUTH -> 180f
+            Direction.WEST -> 270f
+        }
+        val loc = location.clone()
+        loc.yaw = yaw
         for (name in animation.standNames)
-            standMap[name.key] = pm.spawn(name.value, viewers, location)
+            standMap[name.key] = pm.spawn(name.value, viewers, loc)
         var timeStamp = 0
         for (frame in animation.sequence) {
             scheduler.runTaskLaterAsynchronously(plugin, {

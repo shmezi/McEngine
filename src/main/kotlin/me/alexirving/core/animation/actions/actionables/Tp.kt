@@ -4,13 +4,15 @@ package me.alexirving.core.animation.actions.actionables
  * Proprietary and confidential
  * Written by Alex Irving <alexirving992@gmail.com>, February 2022
  */
-import me.alexirving.core.animation.*
+import me.alexirving.core.McEngine
+import me.alexirving.core.animation.AnimationSession
+import me.alexirving.core.animation.Direction
+import me.alexirving.core.animation.Offset
 import me.alexirving.core.animation.actions.Action
-import me.alexirving.core.animation.packets.PacketManager
-import me.alexirving.core.items.ItemManager
+import me.alexirving.core.animation.toLocation
 import org.bukkit.Location
 
-class Tp(pm: PacketManager, im: ItemManager, args: List<String>) : Action(pm, im, args) {
+class Tp(pl: McEngine, args: List<String>) : Action(pl, args) {
 
     var offset: Offset? = null
 
@@ -20,7 +22,7 @@ class Tp(pm: PacketManager, im: ItemManager, args: List<String>) : Action(pm, im
         if (cords != null) {
             this.offset = Offset(cords[0], cords[1], cords[2])
         } else
-            println("ERROR, location is not correctly formatted! Given: \"${args[0]}\"")
+            println("Error while compiling Tp, location is not correctly formatted! Given: \"$args\"")
     }
 
 
@@ -30,7 +32,15 @@ class Tp(pm: PacketManager, im: ItemManager, args: List<String>) : Action(pm, im
             println("ERROR, stand \"${args[0]}\" was not found!")
             return
         }
-        session.pm.tp(t, offset!!.getOffset(zeroPoint).add(0.5, -1.2, 0.5))
+        val yaw = when (direction) {
+            Direction.NORTH -> 0f
+            Direction.EAST -> 90f
+            Direction.SOUTH -> 180f
+            Direction.WEST -> 270f
+        }
+        val loc = zeroPoint.clone()
+        loc.yaw = yaw
+        session.pm.tp(t, offset!!.getOffset(loc, direction).add(0.5, -1.2, 0.5))
 
     }
 

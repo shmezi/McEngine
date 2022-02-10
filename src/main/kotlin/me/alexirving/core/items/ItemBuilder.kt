@@ -18,10 +18,9 @@ class ItemBuilder {
     constructor(mat: Material?) {
         stack = if (mat == Material.SKULL_ITEM)
             ItemStack(mat, 1, 3)
-        else {
-            println("Not a player skull")
+        else
             ItemStack(mat)
-        }
+
     }
 
 
@@ -89,7 +88,7 @@ class ItemBuilder {
     fun setHead(owner: String?): ItemBuilder {
         if (stack.type != Material.SKULL_ITEM) return this
         val meta = stack.itemMeta as SkullMeta
-        meta.setOwner(owner)
+        meta.owner = owner
         setItemMeta(meta)
         return this
     }
