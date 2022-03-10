@@ -5,8 +5,8 @@ package me.alexirving.core.animation.actions
  * Written by Alex Irving <alexirving992@gmail.com>, February 2022
  */
 import me.alexirving.core.McEngine
-import me.alexirving.core.animation.AnimationSession
-import me.alexirving.core.animation.Direction
+import me.alexirving.core.animation.objects.AnimationSession
+import me.alexirving.core.animation.utils.Direction
 import org.bukkit.Location
 
 /**

@@ -1,482 +1,172 @@
-[02:53:44] [Server thread/INFO]: Starting minecraft server version 1.8.8
-[02:53:44] [Server thread/INFO]: Loading properties
-[02:53:44] [Server thread/INFO]: Default game type: SURVIVAL
-[02:53:44] [Server thread/INFO]: This server is running CraftBukkit version git-PaperSpigot-445 (MC: 1.8.8) (Implementing API version 1.8.8-R0.1-SNAPSHOT)
-[02:53:44] [Server thread/INFO]: Debug logging is disabled
-[02:53:44] [Server thread/INFO]: Spigot Timings: true - Verbose: true - Interval: 5m - Length: 60m
-[02:53:44] [Server thread/INFO]: Server Ping Player Sample Count: 12
-[02:53:44] [Server thread/INFO]: Using 4 threads for Netty based IO
-[02:53:44] [Server thread/INFO]: Data value allowed items: 
-[02:53:44] [Server thread/INFO]: Generating keypair
-[02:53:44] [Server thread/INFO]: Starting Minecraft server on *:25565
-[02:53:44] [Server thread/INFO]: Using default channel type
-[02:53:44] [Server thread/INFO]: Set PluginClassLoader as parallel capable
-[02:53:44] [Server thread/INFO]: [ProtocolLib] Loading ProtocolLib v4.7.0
-[02:53:44] [Server thread/INFO]: [McEngine] Loading McEngine v1.0
-[02:53:44] [Server thread/INFO]: [ProtocolLib] Enabling ProtocolLib v4.7.0
-[02:53:44] [Server thread/INFO]: [ProtocolLib] Started structure compiler thread.
-[02:53:44] [Server thread/INFO]: **** Beginning UUID conversion, this may take A LONG time ****
-[02:53:44] [Server thread/INFO]: Preparing level "world"
-[02:53:44] [Server thread/INFO]: -------- World Settings For [world] --------
-[02:53:44] [Server thread/INFO]: Item Merge Radius: 2.5
-[02:53:44] [Server thread/INFO]: Item Despawn Rate: 6000
-[02:53:44] [Server thread/INFO]: Allow Zombie Pigmen to spawn from portal blocks: true
-[02:53:44] [Server thread/INFO]: Arrow Despawn Rate: 1200
-[02:53:44] [Server thread/INFO]: View Distance: 10
-[02:53:44] [Server thread/INFO]: Zombie Aggressive Towards Villager: true
-[02:53:44] [Server thread/INFO]: Chunks to Grow per Tick: 650
-[02:53:44] [Server thread/INFO]: Clear tick list: false
-[02:53:44] [Server thread/INFO]: Experience Merge Radius: 3.0
-[02:53:44] [Server thread/INFO]: Custom Map Seeds:  Village: 10387312 Feature: 14357617
-[02:53:44] [Server thread/INFO]: Max Entity Collisions: 8
-[02:53:44] [Server thread/INFO]: Anti X-Ray: true
-[02:53:44] [Server thread/INFO]: 	Engine Mode: 1
-[02:53:44] [Server thread/INFO]: 	Hidden Blocks: [14, 15, 16, 21, 48, 49, 54, 56, 73, 74, 82, 129, 130]
-[02:53:44] [Server thread/INFO]: 	Replace Blocks: [1, 5]
-[02:53:44] [Server thread/INFO]: Mob Spawn Range: 4
-[02:53:44] [Server thread/INFO]: Nerfing mobs spawned from spawners: false
-[02:53:44] [Server thread/INFO]: Entity Activation Range: An 32 / Mo 32 / Mi 16
-[02:53:44] [Server thread/INFO]: Entity Tracking Range: Pl 48 / An 48 / Mo 48 / Mi 32 / Other 64
-[02:53:44] [Server thread/INFO]: Hopper Transfer: 8 Hopper Check: 8 Hopper Amount: 1
-[02:53:44] [Server thread/INFO]: Structure Info Saving: true
-[02:53:44] [Server thread/INFO]: Cactus Growth Modifier: 100%
-[02:53:44] [Server thread/INFO]: Cane Growth Modifier: 100%
-[02:53:44] [Server thread/INFO]: Melon Growth Modifier: 100%
-[02:53:44] [Server thread/INFO]: Mushroom Growth Modifier: 100%
-[02:53:44] [Server thread/INFO]: Pumpkin Growth Modifier: 100%
-[02:53:44] [Server thread/INFO]: Sapling Growth Modifier: 100%
-[02:53:44] [Server thread/INFO]: Wheat Growth Modifier: 100%
-[02:53:44] [Server thread/INFO]: NetherWart Growth Modifier: 100%
-[02:53:44] [Server thread/INFO]: Sending up to 10 chunks per packet
-[02:53:44] [Server thread/INFO]: Tile Max Tick Time: 50ms Entity max Tick Time: 50ms
-[02:53:44] [Server thread/INFO]: Random Lighting Updates: false
-[02:53:44] [Server thread/INFO]: Max TNT Explosions: 100
-[02:53:44] [Server thread/INFO]: -------- World Settings For [world] --------
-[02:53:44] [Server thread/INFO]: Water over lava flow speed: 5
-[02:53:44] [Server thread/INFO]: Fix TNT cannons: false
-[02:53:44] [Server thread/INFO]: World async lighting: false
-[02:53:44] [Server thread/INFO]: WorldServer TickNextTick cap set at 10000
-[02:53:44] [Server thread/INFO]: WorldServer TickNextTickList cap always processes redstone: false
-[02:53:44] [Server thread/INFO]: Allow undead horse types to be leashed: false
-[02:53:44] [Server thread/INFO]: Keep spawn chunk loaded: true
-[02:53:44] [Server thread/INFO]: Remove invalid mob spawner tile entities: true
-[02:53:44] [Server thread/INFO]: Max height for cactus growth 3. Max height for reed growth 3
-[02:53:44] [Server thread/INFO]: Player blocking damage multiplier set to 0.5
-[02:53:44] [Server thread/INFO]: Living Entity Despawn Ranges:  Soft: 32 Hard: 128
-[02:53:44] [Server thread/INFO]: Squids will spawn between Y: 45.0 and Y: 63.0
-[02:53:44] [Server thread/INFO]: -------- World Settings For [world_nether] --------
-[02:53:44] [Server thread/INFO]: Item Merge Radius: 2.5
-[02:53:44] [Server thread/INFO]: Item Despawn Rate: 6000
-[02:53:44] [Server thread/INFO]: Allow Zombie Pigmen to spawn from portal blocks: true
-[02:53:44] [Server thread/INFO]: Arrow Despawn Rate: 1200
-[02:53:44] [Server thread/INFO]: View Distance: 10
-[02:53:44] [Server thread/INFO]: Zombie Aggressive Towards Villager: true
-[02:53:44] [Server thread/INFO]: Chunks to Grow per Tick: 650
-[02:53:44] [Server thread/INFO]: Clear tick list: false
-[02:53:44] [Server thread/INFO]: Experience Merge Radius: 3.0
-[02:53:44] [Server thread/INFO]: Custom Map Seeds:  Village: 10387312 Feature: 14357617
-[02:53:44] [Server thread/INFO]: Max Entity Collisions: 8
-[02:53:44] [Server thread/INFO]: Anti X-Ray: true
-[02:53:44] [Server thread/INFO]: 	Engine Mode: 1
-[02:53:44] [Server thread/INFO]: 	Hidden Blocks: [14, 15, 16, 21, 48, 49, 54, 56, 73, 74, 82, 129, 130]
-[02:53:44] [Server thread/INFO]: 	Replace Blocks: [1, 5]
-[02:53:44] [Server thread/INFO]: Mob Spawn Range: 4
-[02:53:44] [Server thread/INFO]: Nerfing mobs spawned from spawners: false
-[02:53:44] [Server thread/INFO]: Entity Activation Range: An 32 / Mo 32 / Mi 16
-[02:53:44] [Server thread/INFO]: Entity Tracking Range: Pl 48 / An 48 / Mo 48 / Mi 32 / Other 64
-[02:53:44] [Server thread/INFO]: Hopper Transfer: 8 Hopper Check: 8 Hopper Amount: 1
-[02:53:44] [Server thread/INFO]: Structure Info Saving: true
-[02:53:44] [Server thread/INFO]: Cactus Growth Modifier: 100%
-[02:53:44] [Server thread/INFO]: Cane Growth Modifier: 100%
-[02:53:44] [Server thread/INFO]: Melon Growth Modifier: 100%
-[02:53:44] [Server thread/INFO]: Mushroom Growth Modifier: 100%
-[02:53:44] [Server thread/INFO]: Pumpkin Growth Modifier: 100%
-[02:53:44] [Server thread/INFO]: Sapling Growth Modifier: 100%
-[02:53:44] [Server thread/INFO]: Wheat Growth Modifier: 100%
-[02:53:44] [Server thread/INFO]: NetherWart Growth Modifier: 100%
-[02:53:44] [Server thread/INFO]: Sending up to 10 chunks per packet
-[02:53:44] [Server thread/INFO]: Tile Max Tick Time: 50ms Entity max Tick Time: 50ms
-[02:53:44] [Server thread/INFO]: Random Lighting Updates: false
-[02:53:44] [Server thread/INFO]: Max TNT Explosions: 100
-[02:53:44] [Server thread/INFO]: -------- World Settings For [world_nether] --------
-[02:53:44] [Server thread/INFO]: Water over lava flow speed: 5
-[02:53:44] [Server thread/INFO]: Fix TNT cannons: false
-[02:53:44] [Server thread/INFO]: World async lighting: false
-[02:53:44] [Server thread/INFO]: WorldServer TickNextTick cap set at 10000
-[02:53:44] [Server thread/INFO]: WorldServer TickNextTickList cap always processes redstone: false
-[02:53:44] [Server thread/INFO]: Allow undead horse types to be leashed: false
-[02:53:44] [Server thread/INFO]: Keep spawn chunk loaded: true
-[02:53:44] [Server thread/INFO]: Remove invalid mob spawner tile entities: true
-[02:53:44] [Server thread/INFO]: Max height for cactus growth 3. Max height for reed growth 3
-[02:53:44] [Server thread/INFO]: Player blocking damage multiplier set to 0.5
-[02:53:44] [Server thread/INFO]: Living Entity Despawn Ranges:  Soft: 32 Hard: 128
-[02:53:44] [Server thread/INFO]: Squids will spawn between Y: 45.0 and Y: 63.0
-[02:53:44] [Server thread/INFO]: -------- World Settings For [world_the_end] --------
-[02:53:44] [Server thread/INFO]: Item Merge Radius: 2.5
-[02:53:44] [Server thread/INFO]: Item Despawn Rate: 6000
-[02:53:44] [Server thread/INFO]: Allow Zombie Pigmen to spawn from portal blocks: true
-[02:53:44] [Server thread/INFO]: Arrow Despawn Rate: 1200
-[02:53:44] [Server thread/INFO]: View Distance: 10
-[02:53:44] [Server thread/INFO]: Zombie Aggressive Towards Villager: true
-[02:53:44] [Server thread/INFO]: Chunks to Grow per Tick: 650
-[02:53:44] [Server thread/INFO]: Clear tick list: false
-[02:53:44] [Server thread/INFO]: Experience Merge Radius: 3.0
-[02:53:44] [Server thread/INFO]: Custom Map Seeds:  Village: 10387312 Feature: 14357617
-[02:53:44] [Server thread/INFO]: Max Entity Collisions: 8
-[02:53:44] [Server thread/INFO]: Anti X-Ray: true
-[02:53:44] [Server thread/INFO]: 	Engine Mode: 1
-[02:53:44] [Server thread/INFO]: 	Hidden Blocks: [14, 15, 16, 21, 48, 49, 54, 56, 73, 74, 82, 129, 130]
-[02:53:44] [Server thread/INFO]: 	Replace Blocks: [1, 5]
-[02:53:44] [Server thread/INFO]: Mob Spawn Range: 4
-[02:53:44] [Server thread/INFO]: Nerfing mobs spawned from spawners: false
-[02:53:44] [Server thread/INFO]: Entity Activation Range: An 32 / Mo 32 / Mi 16
-[02:53:44] [Server thread/INFO]: Entity Tracking Range: Pl 48 / An 48 / Mo 48 / Mi 32 / Other 64
-[02:53:44] [Server thread/INFO]: Hopper Transfer: 8 Hopper Check: 8 Hopper Amount: 1
-[02:53:44] [Server thread/INFO]: Structure Info Saving: true
-[02:53:44] [Server thread/INFO]: Cactus Growth Modifier: 100%
-[02:53:44] [Server thread/INFO]: Cane Growth Modifier: 100%
-[02:53:44] [Server thread/INFO]: Melon Growth Modifier: 100%
-[02:53:44] [Server thread/INFO]: Mushroom Growth Modifier: 100%
-[02:53:44] [Server thread/INFO]: Pumpkin Growth Modifier: 100%
-[02:53:44] [Server thread/INFO]: Sapling Growth Modifier: 100%
-[02:53:44] [Server thread/INFO]: Wheat Growth Modifier: 100%
-[02:53:44] [Server thread/INFO]: NetherWart Growth Modifier: 100%
-[02:53:44] [Server thread/INFO]: Sending up to 10 chunks per packet
-[02:53:44] [Server thread/INFO]: Tile Max Tick Time: 50ms Entity max Tick Time: 50ms
-[02:53:44] [Server thread/INFO]: Random Lighting Updates: false
-[02:53:44] [Server thread/INFO]: Max TNT Explosions: 100
-[02:53:44] [Server thread/INFO]: -------- World Settings For [world_the_end] --------
-[02:53:44] [Server thread/INFO]: Water over lava flow speed: 5
-[02:53:44] [Server thread/INFO]: Fix TNT cannons: false
-[02:53:44] [Server thread/INFO]: World async lighting: false
-[02:53:44] [Server thread/INFO]: WorldServer TickNextTick cap set at 10000
-[02:53:44] [Server thread/INFO]: WorldServer TickNextTickList cap always processes redstone: false
-[02:53:44] [Server thread/INFO]: Allow undead horse types to be leashed: false
-[02:53:44] [Server thread/INFO]: Keep spawn chunk loaded: true
-[02:53:44] [Server thread/INFO]: Remove invalid mob spawner tile entities: true
-[02:53:44] [Server thread/INFO]: Max height for cactus growth 3. Max height for reed growth 3
-[02:53:44] [Server thread/INFO]: Player blocking damage multiplier set to 0.5
-[02:53:44] [Server thread/INFO]: Living Entity Despawn Ranges:  Soft: 32 Hard: 128
-[02:53:44] [Server thread/INFO]: Squids will spawn between Y: 45.0 and Y: 63.0
-[02:53:44] [Server thread/INFO]: Preparing start region for level 0 (Seed: 6968294573588985866)
-[02:53:45] [Server thread/INFO]: Preparing start region for level 1 (Seed: 6968294573588985866)
-[02:53:45] [Server thread/INFO]: Preparing start region for level 2 (Seed: 6968294573588985866)
-[02:53:45] [Server thread/INFO]: [McEngine] Enabling McEngine v1.0
-[02:53:46] [Server thread/INFO]: 02:53:46.096 [Server thread] INFO org.reflections.Reflections - Reflections took 48 ms to scan 1 urls, producing 3 keys and 27 values
-
-[02:53:46] [Server thread/INFO]: [45m[34mLoaded animation: Default!
-[02:53:46] [Server thread/INFO]: Server permissions file permissions.yml is empty, ignoring it
-[02:53:46] [Server thread/INFO]: Done (1.354s)! For help, type "help" or "?"
-[02:53:46] [Server thread/INFO]: Timings Reset
-[02:53:50] [User Authenticator #1/INFO]: UUID of player shmezi is 8b33b9e1-da73-446b-a70b-788191cc2c59
-[02:53:50] [Server thread/INFO]: shmezi[/127.0.0.1:58934] logged in with entity id 874 at ([world]181.1937877270178, 74.89207288757112, 545.1146736281968)
-[02:53:52] [Server thread/INFO]: shmezi issued server command: /animation Default world 181 75 539 East
-[02:53:55] [Server thread/INFO]: shmezi issued server command: /animation Default world 181 75 539 South
-[02:53:59] [Server thread/INFO]: shmezi issued server command: /animation Default world 181 75 539 East
-[02:54:05] [Server thread/INFO]: shmezi issued server command: /animation Default world 181 75 539 North
-[02:54:08] [Server thread/INFO]: shmezi issued server command: /animation Default world 181 75 539 South
-[02:54:12] [Server thread/INFO]: shmezi issued server command: /animation Default world 181 75 539 East
-[02:54:21] [Server thread/INFO]: shmezi issued server command: /weather clear
-[02:54:21] [Server thread/INFO]: [shmezi: Changing to clear weather]
-[02:54:39] [Server thread/INFO]: shmezi issued server command: /animation Default world 181 75 539 East
-[02:54:42] [Server thread/INFO]: shmezi issued server command: /animation Default world 181 75 539 North
-[02:56:20] [Server thread/INFO]: shmezi issued server command: /animation Default world 181 75 539 North
-[02:56:27] [Server thread/INFO]: shmezi issued server command: /animation Default world 181 75 539 North
-[02:56:32] [Server thread/INFO]: shmezi issued server command: /animation Default world 181 75 539 North
-[02:56:39] [Server thread/INFO]: shmezi issued server command: /animation Default world 181 75 539 North
-[02:56:49] [Server thread/INFO]: shmezi issued server command: /animation Default world 181 75 539 North
-[02:56:59] [Server thread/INFO]: shmezi issued server command: /animation Default world 181 75 539 North
-[02:57:12] [Server thread/INFO]: shmezi issued server command: /animation Default world 181 75 539 North
-[02:57:19] [Server thread/INFO]: shmezi issued server command: /animation Default world 181 75 539 North
-[02:59:34] [Server thread/INFO]: shmezi issued server command: /animation Default world 181 75 539 East
-[02:59:37] [Server thread/INFO]: shmezi issued server command: /animation Default world 181 75 539 South
-[03:00:39] [Server thread/INFO]: shmezi lost connection: Disconnected
-[03:00:39] [Server thread/INFO]: shmezi left the game.
-[03:08:12] [User Authenticator #2/INFO]: UUID of player shmezi is 8b33b9e1-da73-446b-a70b-788191cc2c59
-[03:08:12] [Server thread/INFO]: shmezi[/127.0.0.1:54700] logged in with entity id 3147 at ([world]210.54789003176236, 69.0, 570.1227006080524)
-[03:14:39] [Server thread/INFO]: shmezi issued server command: /mcenginereloadcmd
-[03:14:39] [Server thread/ERROR]: null
-org.bukkit.command.CommandException: Unhandled exception executing command 'mcenginereloadcmd' in plugin McEngine v1.0
-	at org.bukkit.command.PluginCommand.execute(PluginCommand.java:47) ~[patched_1.8.8.jar:git-PaperSpigot-445]
-	at org.bukkit.command.SimpleCommandMap.dispatch(SimpleCommandMap.java:146) ~[patched_1.8.8.jar:git-PaperSpigot-445]
-	at org.bukkit.craftbukkit.v1_8_R3.CraftServer.dispatchCommand(CraftServer.java:666) ~[patched_1.8.8.jar:git-PaperSpigot-445]
-	at net.minecraft.server.v1_8_R3.PlayerConnection.handleCommand(PlayerConnection.java:1189) [patched_1.8.8.jar:git-PaperSpigot-445]
-	at net.minecraft.server.v1_8_R3.PlayerConnection.a(PlayerConnection.java:1001) [patched_1.8.8.jar:git-PaperSpigot-445]
-	at net.minecraft.server.v1_8_R3.PacketPlayInChat.a(PacketPlayInChat.java:45) [patched_1.8.8.jar:git-PaperSpigot-445]
-	at net.minecraft.server.v1_8_R3.PacketPlayInChat.a(PacketPlayInChat.java:1) [patched_1.8.8.jar:git-PaperSpigot-445]
-	at net.minecraft.server.v1_8_R3.PlayerConnectionUtils$1.run(SourceFile:13) [patched_1.8.8.jar:git-PaperSpigot-445]
-	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511) [?:1.8.0_312]
-	at java.util.concurrent.FutureTask.run(FutureTask.java:266) [?:1.8.0_312]
-	at net.minecraft.server.v1_8_R3.SystemUtils.a(SourceFile:44) [patched_1.8.8.jar:git-PaperSpigot-445]
-	at net.minecraft.server.v1_8_R3.MinecraftServer.B(MinecraftServer.java:774) [patched_1.8.8.jar:git-PaperSpigot-445]
-	at net.minecraft.server.v1_8_R3.DedicatedServer.B(DedicatedServer.java:378) [patched_1.8.8.jar:git-PaperSpigot-445]
-	at net.minecraft.server.v1_8_R3.MinecraftServer.A(MinecraftServer.java:713) [patched_1.8.8.jar:git-PaperSpigot-445]
-	at net.minecraft.server.v1_8_R3.MinecraftServer.run(MinecraftServer.java:616) [patched_1.8.8.jar:git-PaperSpigot-445]
-	at java.lang.Thread.run(Thread.java:748) [?:1.8.0_312]
-Caused by: me.alexirving.core.animation.exceptions.CompileError: Improper written action: ""
-	at me.alexirving.core.animation.AniCompiler.compileAction(AniCompiler.kt:45) ~[?:?]
-	at me.alexirving.core.animation.AniCompiler.compileAnimation(AniCompiler.kt:85) ~[?:?]
-	at me.alexirving.core.animation.AnimationManager.reload(AnimationManager.kt:32) ~[?:?]
-	at me.alexirving.core.McEngine.reload(McEngine.kt:30) ~[?:?]
-	at me.alexirving.core.animation.cmds.McEngineReloadCMD.onCommand(McEngineReloadCMD.kt:10) ~[?:?]
-	at org.bukkit.command.PluginCommand.execute(PluginCommand.java:45) ~[patched_1.8.8.jar:git-PaperSpigot-445]
-	... 15 more
-[03:14:55] [Server thread/INFO]: shmezi issued server command: /mcenginereloadcmd
-[03:14:55] [Server thread/INFO]: [45m[34mLoaded animation: Default!
-[03:15:05] [Server thread/INFO]: shmezi issued server command: /mcenginereloadcmd
-[03:15:05] [Server thread/INFO]: [45m[34mLoaded animation: Default!
-[03:15:09] [Server thread/INFO]: shmezi issued server command: /animation Default world 181 75 539 South
-[03:15:15] [Server thread/INFO]: shmezi issued server command: /animation Default world 181 75 539 North
-[03:15:45] [Server thread/INFO]: shmezi issued server command: /mcenginereloadcmd
-[03:15:45] [Server thread/INFO]: [45m[34mLoaded animation: Default!
-[03:15:47] [Server thread/INFO]: shmezi issued server command: /animation Default world 181 75 539 North
-[03:16:34] [Server thread/INFO]: shmezi issued server command: /mcenginereloadcmd
-[03:16:34] [Server thread/INFO]: [45m[34mLoaded animation: Default!
-[03:16:35] [Server thread/INFO]: shmezi issued server command: /animation Default world 181 75 539 North
-[03:16:44] [Server thread/INFO]: shmezi issued server command: /animation Default world 181 75 539 North
-[03:17:01] [Server thread/INFO]: shmezi issued server command: /mcenginereloadcmd
-[03:17:01] [Server thread/INFO]: [45m[34mLoaded animation: Default!
-[03:17:05] [Server thread/INFO]: shmezi issued server command: /animation Default world 181 75 539 North
-[03:17:40] [Server thread/INFO]: shmezi issued server command: /mcenginereloadcmd
-[03:17:40] [Server thread/INFO]: [45m[34mLoaded animation: Default!
-[03:17:41] [Server thread/INFO]: shmezi issued server command: /animation Default world 181 75 539 North
-[03:18:14] [Server thread/INFO]: shmezi issued server command: /animation Default world 181 75 539 North
-[03:19:59] [Server thread/INFO]: shmezi issued server command: /mcenginereloadcmd
-[03:19:59] [Server thread/INFO]: Error: Invalid DrawCircle statement "DrawCircle(Tp(C;[X,Y,0]);[0,0,0];[-0.75,1.29903810568,0];-300;40)SetItem(D;4;Skull)"
-[03:19:59] [Server thread/INFO]: [45m[34mLoaded animation: Default!
-[03:19:59] [Server thread/INFO]: shmezi issued server command: /animation Default world 181 75 539 North
-[03:20:45] [Server thread/INFO]: shmezi issued server command: /mcenginereloadcmd
-[03:20:45] [Server thread/INFO]: Error: Invalid DrawCircle statement "DrawCircle(Tp(C;[X,Y,0]);[0,0,0];[-0.75,1.29903810568,0];-300;40)SetItem(D;4;Skull)"
-[03:20:45] [Server thread/INFO]: [45m[34mLoaded animation: Default!
-[03:20:46] [Server thread/INFO]: shmezi issued server command: /mcenginereloadcmd
-[03:20:46] [Server thread/INFO]: Error: Invalid DrawCircle statement "DrawCircle(Tp(C;[X,Y,0]);[0,0,0];[-0.75,1.29903810568,0];-300;40)SetItem(D;4;Skull)"
-[03:20:46] [Server thread/INFO]: [45m[34mLoaded animation: Default!
-[03:20:48] [Server thread/INFO]: shmezi issued server command: /
-[03:20:51] [Server thread/INFO]: shmezi issued server command: /mcenginereloadcmd
-[03:20:51] [Server thread/INFO]: Error: Invalid DrawCircle statement "DrawCircle(Tp(C;[X,Y,0]);[0,0,0];[-0.75,1.29903810568,0];-300;40)SetItem(D;4;Skull)"
-[03:20:51] [Server thread/INFO]: [45m[34mLoaded animation: Default!
-[03:21:36] [Server thread/INFO]: shmezi issued server command: /mcenginereloadcmd
-[03:21:36] [Server thread/ERROR]: null
-org.bukkit.command.CommandException: Unhandled exception executing command 'mcenginereloadcmd' in plugin McEngine v1.0
-	at org.bukkit.command.PluginCommand.execute(PluginCommand.java:47) ~[patched_1.8.8.jar:git-PaperSpigot-445]
-	at org.bukkit.command.SimpleCommandMap.dispatch(SimpleCommandMap.java:146) ~[patched_1.8.8.jar:git-PaperSpigot-445]
-	at org.bukkit.craftbukkit.v1_8_R3.CraftServer.dispatchCommand(CraftServer.java:666) ~[patched_1.8.8.jar:git-PaperSpigot-445]
-	at net.minecraft.server.v1_8_R3.PlayerConnection.handleCommand(PlayerConnection.java:1189) [patched_1.8.8.jar:git-PaperSpigot-445]
-	at net.minecraft.server.v1_8_R3.PlayerConnection.a(PlayerConnection.java:1001) [patched_1.8.8.jar:git-PaperSpigot-445]
-	at net.minecraft.server.v1_8_R3.PacketPlayInChat.a(PacketPlayInChat.java:45) [patched_1.8.8.jar:git-PaperSpigot-445]
-	at net.minecraft.server.v1_8_R3.PacketPlayInChat.a(PacketPlayInChat.java:1) [patched_1.8.8.jar:git-PaperSpigot-445]
-	at net.minecraft.server.v1_8_R3.PlayerConnectionUtils$1.run(SourceFile:13) [patched_1.8.8.jar:git-PaperSpigot-445]
-	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511) [?:1.8.0_312]
-	at java.util.concurrent.FutureTask.run(FutureTask.java:266) [?:1.8.0_312]
-	at net.minecraft.server.v1_8_R3.SystemUtils.a(SourceFile:44) [patched_1.8.8.jar:git-PaperSpigot-445]
-	at net.minecraft.server.v1_8_R3.MinecraftServer.B(MinecraftServer.java:774) [patched_1.8.8.jar:git-PaperSpigot-445]
-	at net.minecraft.server.v1_8_R3.DedicatedServer.B(DedicatedServer.java:378) [patched_1.8.8.jar:git-PaperSpigot-445]
-	at net.minecraft.server.v1_8_R3.MinecraftServer.A(MinecraftServer.java:713) [patched_1.8.8.jar:git-PaperSpigot-445]
-	at net.minecraft.server.v1_8_R3.MinecraftServer.run(MinecraftServer.java:616) [patched_1.8.8.jar:git-PaperSpigot-445]
-	at java.lang.Thread.run(Thread.java:748) [?:1.8.0_312]
-Caused by: me.alexirving.core.animation.exceptions.CompileError: Function does not exist:"DrawCircle(Tp" in: "DrawCircle(Tp(C;[X,Y,0]);[0,0,0];[-0.75,1.29903810568,0];-300;40)SetItem(D;4;Skull))"
-	at me.alexirving.core.animation.AniCompiler.compileSuperAction(AniCompiler.kt:57) ~[?:?]
-	at me.alexirving.core.animation.AniCompiler.compileAnimation(AniCompiler.kt:92) ~[?:?]
-	at me.alexirving.core.animation.AnimationManager.reload(AnimationManager.kt:32) ~[?:?]
-	at me.alexirving.core.McEngine.reload(McEngine.kt:30) ~[?:?]
-	at me.alexirving.core.animation.cmds.McEngineReloadCMD.onCommand(McEngineReloadCMD.kt:10) ~[?:?]
-	at org.bukkit.command.PluginCommand.execute(PluginCommand.java:45) ~[patched_1.8.8.jar:git-PaperSpigot-445]
-	... 15 more
-[03:22:11] [Server thread/INFO]: shmezi issued server command: /mcenginereloadcmd
-[03:22:11] [Server thread/INFO]: Error: Invalid DrawCircle statement "DrawCircle(Tp(C;[X,Y,0]);[0,0,0];[-0.75,1.29903810568,0];-300;40)SetItem(D;4;Skull)"
-[03:22:11] [Server thread/INFO]: [45m[34mLoaded animation: Default!
-[03:22:39] [Server thread/INFO]: shmezi issued server command: /mcenginereloadcmd
-[03:22:39] [Server thread/INFO]: [45m[34mLoaded animation: Default!
-[03:22:44] [Server thread/INFO]: shmezi issued server command: /mcenginereloadcmd
-[03:22:44] [Server thread/INFO]: [45m[34mLoaded animation: Default!
-[03:22:47] [Server thread/INFO]: shmezi issued server command: /animation Default world 181 75 539 North
-[03:23:11] [Server thread/INFO]: shmezi issued server command: /animation Default world 181 75 539 North
-[03:24:27] [Server thread/INFO]: shmezi issued server command: /mcenginereloadcmd
-[03:24:27] [Server thread/INFO]: [45m[34mLoaded animation: Default!
-[03:24:28] [Server thread/INFO]: shmezi issued server command: /animation Default world 181 75 539 North
-[03:24:41] [Server thread/INFO]: shmezi issued server command: /mcenginereloadcmd
-[03:24:41] [Server thread/INFO]: [45m[34mLoaded animation: Default!
-[03:24:44] [Server thread/INFO]: shmezi issued server command: /animation Default world 181 75 539 North
-[03:24:58] [Server thread/INFO]: shmezi issued server command: /animation Default world 181 75 539 North
-[03:25:06] [Server thread/INFO]: shmezi issued server command: /weather clear
-[03:25:06] [Server thread/INFO]: [shmezi: Changing to clear weather]
-[03:25:09] [Server thread/INFO]: shmezi issued server command: /weather clear
-[03:25:09] [Server thread/INFO]: [shmezi: Changing to clear weather]
-[03:25:11] [Server thread/INFO]: shmezi issued server command: /
-[03:25:14] [Server thread/INFO]: shmezi issued server command: /animation Default world 181 75 539 North
-[03:25:30] [Server thread/INFO]: shmezi issued server command: /animation Default world 181 75 539 North
-[03:28:37] [Server thread/INFO]: shmezi issued server command: /animation Default world 181 75 539 North
-[03:28:45] [Server thread/INFO]: shmezi issued server command: /mcenginereloadcmd
-[03:28:45] [Server thread/INFO]: Error: Invalid DrawLine statement "DrawLine(Tp(B;[X,Y,Z]);6;[0,1,0];[1.414213562371.41421356237,0])"
-[03:28:45] [Server thread/INFO]: Error: Invalid DrawLine statement "DrawLine(Tp(B;[X,Y,Z]);6;[0,1,0];[1.414213562371.41421356237,0])"
-[03:28:45] [Server thread/INFO]: Error: Invalid DrawLine statement "DrawLine(Tp(B;[X,Y,Z]);6;[0,1,0];[1.414213562371.41421356237,0])"
-[03:28:45] [Server thread/INFO]: Error: Invalid DrawLine statement "DrawLine(Tp(B;[X,Y,Z]);6;[0,1,0];[1.414213562371.41421356237,0])"
-[03:28:45] [Server thread/INFO]: [45m[34mLoaded animation: Default!
-[03:28:51] [Server thread/INFO]: shmezi issued server command: /animation Default world 181 75 539 North
-[03:28:59] [Server thread/INFO]: shmezi issued server command: /animation Default world 181 75 539 North
-[03:30:02] [Server thread/INFO]: shmezi issued server command: /mcenginereloadcmd
-[03:30:02] [Server thread/INFO]: Error: Invalid DrawLine statement "DrawLine(Tp(A;[X,Y,Z]);6;[0,1,0];[1.414213562371.41421356237,0])"
-[03:30:02] [Server thread/INFO]: Error: Invalid DrawLine statement "DrawLine(Tp(B;[X,Y,Z]);6;[0,1,0];[1.414213562371.41421356237,0])"
-[03:30:02] [Server thread/INFO]: Error: Invalid DrawLine statement "DrawLine(Tp(B;[X,Y,Z]);6;[0,1,0];[1.414213562371.41421356237,0])"
-[03:30:02] [Server thread/INFO]: Error: Invalid DrawLine statement "DrawLine(Tp(C;[X,Y,Z]);6;[0,1,0];[1.414213562371.41421356237,0])"
-[03:30:02] [Server thread/INFO]: [45m[34mLoaded animation: Default!
-[03:30:03] [Server thread/INFO]: shmezi issued server command: /animation Default world 181 75 539 North
-[03:30:46] [Server thread/INFO]: shmezi issued server command: /mcenginereloadcmd
-[03:30:46] [Server thread/INFO]: [45m[34mLoaded animation: Default!
-[03:30:47] [Server thread/INFO]: shmezi issued server command: /animation Default world 181 75 539 North
-[03:31:32] [Server thread/INFO]: shmezi issued server command: /mcenginereloadcmd
-[03:31:32] [Server thread/INFO]: [45m[34mLoaded animation: Default!
-[03:31:33] [Server thread/INFO]: shmezi issued server command: /animation Default world 181 75 539 North
-[03:34:53] [Server thread/INFO]: shmezi lost connection: Disconnected
-[03:34:53] [Server thread/INFO]: shmezi left the game.
-[03:51:40] [User Authenticator #3/INFO]: UUID of player shmezi is 8b33b9e1-da73-446b-a70b-788191cc2c59
-[03:51:40] [Server thread/INFO]: shmezi[/127.0.0.1:63171] logged in with entity id 4846 at ([world]181.2636336929702, 75.18836501315012, 544.7236154549314)
-[03:51:56] [Server thread/INFO]: shmezi issued server command: /animation Default world 181 75 539 North
-[03:52:12] [Server thread/INFO]: shmezi issued server command: /animation Default world 181 75 539 North
-[03:52:33] [Server thread/INFO]: shmezi issued server command: /animation Default world 181 75 539 North
-[03:52:51] [Server thread/INFO]: shmezi issued server command: /animation Default world 181 75 539 North
-[03:54:13] [Server thread/INFO]: shmezi issued server command: /mcenginereloadcmd
-[03:54:13] [Server thread/ERROR]: null
-org.bukkit.command.CommandException: Unhandled exception executing command 'mcenginereloadcmd' in plugin McEngine v1.0
-	at org.bukkit.command.PluginCommand.execute(PluginCommand.java:47) ~[patched_1.8.8.jar:git-PaperSpigot-445]
-	at org.bukkit.command.SimpleCommandMap.dispatch(SimpleCommandMap.java:146) ~[patched_1.8.8.jar:git-PaperSpigot-445]
-	at org.bukkit.craftbukkit.v1_8_R3.CraftServer.dispatchCommand(CraftServer.java:666) ~[patched_1.8.8.jar:git-PaperSpigot-445]
-	at net.minecraft.server.v1_8_R3.PlayerConnection.handleCommand(PlayerConnection.java:1189) [patched_1.8.8.jar:git-PaperSpigot-445]
-	at net.minecraft.server.v1_8_R3.PlayerConnection.a(PlayerConnection.java:1001) [patched_1.8.8.jar:git-PaperSpigot-445]
-	at net.minecraft.server.v1_8_R3.PacketPlayInChat.a(PacketPlayInChat.java:45) [patched_1.8.8.jar:git-PaperSpigot-445]
-	at net.minecraft.server.v1_8_R3.PacketPlayInChat.a(PacketPlayInChat.java:1) [patched_1.8.8.jar:git-PaperSpigot-445]
-	at net.minecraft.server.v1_8_R3.PlayerConnectionUtils$1.run(SourceFile:13) [patched_1.8.8.jar:git-PaperSpigot-445]
-	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511) [?:1.8.0_312]
-	at java.util.concurrent.FutureTask.run(FutureTask.java:266) [?:1.8.0_312]
-	at net.minecraft.server.v1_8_R3.SystemUtils.a(SourceFile:44) [patched_1.8.8.jar:git-PaperSpigot-445]
-	at net.minecraft.server.v1_8_R3.MinecraftServer.B(MinecraftServer.java:774) [patched_1.8.8.jar:git-PaperSpigot-445]
-	at net.minecraft.server.v1_8_R3.DedicatedServer.B(DedicatedServer.java:378) [patched_1.8.8.jar:git-PaperSpigot-445]
-	at net.minecraft.server.v1_8_R3.MinecraftServer.A(MinecraftServer.java:713) [patched_1.8.8.jar:git-PaperSpigot-445]
-	at net.minecraft.server.v1_8_R3.MinecraftServer.run(MinecraftServer.java:616) [patched_1.8.8.jar:git-PaperSpigot-445]
-	at java.lang.Thread.run(Thread.java:748) [?:1.8.0_312]
-Caused by: me.alexirving.core.animation.exceptions.CompileError: Improper written action: "DrawLine(Tp(E;[X,Y,Z]);6;[0,1,0];[-1.41421356237,1.41421356237,0]"
-	at me.alexirving.core.animation.AniCompiler.compileAction(AniCompiler.kt:45) ~[?:?]
-	at me.alexirving.core.animation.AniCompiler.compileAnimation(AniCompiler.kt:85) ~[?:?]
-	at me.alexirving.core.animation.AnimationManager.reload(AnimationManager.kt:32) ~[?:?]
-	at me.alexirving.core.McEngine.reload(McEngine.kt:30) ~[?:?]
-	at me.alexirving.core.animation.cmds.McEngineReloadCMD.onCommand(McEngineReloadCMD.kt:10) ~[?:?]
-	at org.bukkit.command.PluginCommand.execute(PluginCommand.java:45) ~[patched_1.8.8.jar:git-PaperSpigot-445]
-	... 15 more
-[03:54:43] [Server thread/INFO]: shmezi issued server command: /mcenginereloadcmd
-[03:54:43] [Server thread/INFO]: [45m[34mLoaded animation: Default!
-[03:54:44] [Server thread/INFO]: shmezi issued server command: /animation Default world 181 75 539 North
-[03:54:53] [Server thread/INFO]: shmezi issued server command: /animation Default world 181 75 539 North
-[03:55:51] [Server thread/INFO]: shmezi issued server command: /mcenginereloadcmd
-[03:55:51] [Server thread/INFO]: [45m[34mLoaded animation: Default!
-[03:55:52] [Server thread/INFO]: shmezi issued server command: /animation Default world 181 75 539 North
-[03:57:04] [Server thread/INFO]: shmezi issued server command: /mcenginereloadcmd
-[03:57:04] [Server thread/INFO]: [45m[34mLoaded animation: Default!
-[03:57:05] [Server thread/INFO]: shmezi issued server command: /animation Default world 181 75 539 North
-[03:57:42] [Server thread/INFO]: shmezi issued server command: /mcenginereloadcmd
-[03:57:42] [Server thread/INFO]: [45m[34mLoaded animation: Default!
-[03:57:43] [Server thread/INFO]: shmezi issued server command: /animation Default world 181 75 539 North
-[03:58:17] [Server thread/INFO]: shmezi issued server command: /animation Default world 181 75 539 North
-[03:59:15] [Server thread/INFO]: shmezi issued server command: /mcenginereloadcmd
-[03:59:15] [Server thread/INFO]: [45m[34mLoaded animation: Default!
-[03:59:19] [Server thread/INFO]: shmezi issued server command: /mcenginereloadcmd
-[03:59:19] [Server thread/INFO]: [45m[34mLoaded animation: Default!
-[03:59:21] [Server thread/INFO]: shmezi issued server command: /animation Default world 181 75 539 North
-[04:00:34] [Server thread/INFO]: shmezi issued server command: /mcenginereloadcmd
-[04:00:34] [Server thread/INFO]: [45m[34mLoaded animation: Default!
-[04:00:35] [Server thread/INFO]: shmezi issued server command: /animation Default world 181 75 539 North
-[04:00:52] [Server thread/INFO]: shmezi issued server command: /animation Default world 181 75 539 North
-[04:02:26] [Server thread/INFO]: shmezi issued server command: /mcenginereloadcmd
-[04:02:26] [Server thread/INFO]: [45m[34mLoaded animation: Default!
-[04:02:28] [Server thread/INFO]: shmezi issued server command: /gmsp
-[04:02:35] [Server thread/INFO]: shmezi issued server command: /gamemode spectator
-[04:02:35] [Server thread/INFO]: [shmezi: Set own game mode to Spectator Mode]
-[04:02:38] [Server thread/INFO]: shmezi issued server command: /animation Default world 181 75 539 North
-[04:02:54] [Server thread/INFO]: shmezi issued server command: /animation Default world 181 75 539 North
-[04:03:07] [Server thread/INFO]: shmezi issued server command: /gamemode creative
-[04:03:07] [Server thread/INFO]: [shmezi: Set own game mode to Creative Mode]
-[04:06:45] [Server thread/INFO]: shmezi issued server command: /gamemode spectator
-[04:06:45] [Server thread/INFO]: [shmezi: Set own game mode to Spectator Mode]
-[04:06:48] [Server thread/INFO]: shmezi issued server command: /mcenginereloadcmd
-[04:06:48] [Server thread/INFO]: [45m[34mLoaded animation: Default!
-[04:06:50] [Server thread/INFO]: shmezi issued server command: /animation Default world 181 75 539 North
-[04:09:04] [Server thread/INFO]: shmezi issued server command: /mcenginereloadcmd
-[04:09:04] [Server thread/INFO]: [45m[34mLoaded animation: Default!
-[04:09:05] [Server thread/INFO]: shmezi issued server command: /animation Default world 181 75 539 North
-[04:11:27] [Server thread/INFO]: shmezi issued server command: /mcenginereloadcmd
-[04:11:27] [Server thread/INFO]: [45m[34mLoaded animation: Default!
-[04:11:27] [Server thread/INFO]: shmezi issued server command: /animation Default world 181 75 539 North
-[04:13:38] [Server thread/INFO]: shmezi issued server command: /mcenginereloadcmd
-[04:13:38] [Server thread/INFO]: [45m[34mLoaded animation: Default!
-[04:13:39] [Server thread/INFO]: shmezi issued server command: /animation Default world 181 75 539 North
-[04:13:55] [Server thread/INFO]: shmezi issued server command: /mcenginereloadcmd
-[04:13:55] [Server thread/INFO]: [45m[34mLoaded animation: Default!
-[04:13:56] [Server thread/INFO]: shmezi issued server command: /animation Default world 181 75 539 North
-[04:14:20] [Server thread/INFO]: shmezi issued server command: /gmc
-[04:14:25] [Server thread/INFO]: shmezi issued server command: /gamemode creative
-[04:14:25] [Server thread/INFO]: [shmezi: Set own game mode to Creative Mode]
-[04:15:53] [Server thread/INFO]: shmezi issued server command: /mcenginereloadcmd
-[04:15:53] [Server thread/INFO]: [45m[34mLoaded animation: Default!
-[04:15:56] [Server thread/INFO]: shmezi issued server command: /gamemode creative
-[04:15:56] [Server thread/INFO]: [shmezi: Set own game mode to Creative Mode]
-[04:15:58] [Server thread/INFO]: shmezi issued server command: /animation Default world 181 75 539 North
-[04:16:36] [Server thread/INFO]: shmezi issued server command: /animation Default world 181 75 539 North
-[04:16:52] [Server thread/INFO]: shmezi issued server command: /animation Default world 181 75 539 North
-[04:20:33] [Server thread/INFO]: shmezi issued server command: /mcenginereloadcmd
-[04:20:33] [Server thread/INFO]: [45m[34mLoaded animation: Default!
-[04:20:35] [Server thread/INFO]: shmezi issued server command: /animation Default world 181 75 539 North
-[04:20:49] [Server thread/INFO]: shmezi issued server command: /animation Default world 181 75 539 North
-[04:21:49] [Server thread/INFO]: shmezi issued server command: /mcenginereloadcmd
-[04:21:49] [Server thread/INFO]: [45m[34mLoaded animation: Default!
-[04:21:51] [Server thread/INFO]: shmezi issued server command: /animation Default world 181 75 539 North
-[04:23:04] [Server thread/INFO]: shmezi issued server command: /mcenginereloadcmd
-[04:23:04] [Server thread/INFO]: [45m[34mLoaded animation: Default!
-[04:23:05] [Server thread/INFO]: shmezi issued server command: /animation Default world 181 75 539 North
-[04:23:42] [Server thread/INFO]: shmezi issued server command: /animation Default world 181 75 539 North
-[04:23:51] [Server thread/INFO]: shmezi issued server command: /animation Default world 181 75 539 North
-[04:24:05] [Server thread/INFO]: shmezi issued server command: /animation Default world 181 75 539 North
-[04:24:22] [Server thread/INFO]: shmezi issued server command: /mcenginereloadcmd
-[04:24:22] [Server thread/INFO]: [45m[34mLoaded animation: Default!
-[04:24:23] [Server thread/INFO]: shmezi issued server command: /animation Default world 181 75 539 North
-[04:25:33] [Server thread/INFO]: shmezi issued server command: /animation Default world 181 75 539 North
-[04:26:26] [Server thread/INFO]: shmezi issued server command: /mcenginereloadcmd
-[04:26:26] [Server thread/INFO]: Error: Invalid DrawLine statement "DrawLine(Tp(B;[X,Y,Z]);[0,1.5,0];[0,1,0])"
-[04:26:26] [Server thread/INFO]: [45m[34mLoaded animation: Default!
-[04:26:27] [Server thread/INFO]: shmezi issued server command: /animation Default world 181 75 539 North
-[04:27:04] [Server thread/INFO]: shmezi issued server command: /animation Default world 181 75 539 North
-[04:27:08] [Server thread/INFO]: shmezi issued server command: /mcenginereloadcmd
-[04:27:08] [Server thread/INFO]: [45m[34mLoaded animation: Default!
-[04:27:14] [Server thread/INFO]: shmezi issued server command: /animation Default world 181 75 539 North
-[04:27:33] [Server thread/INFO]: shmezi issued server command: /mcenginereloadcmd
-[04:27:33] [Server thread/INFO]: [45m[34mLoaded animation: Default!
-[04:27:35] [Server thread/INFO]: shmezi issued server command: /animation Default world 181 75 539 North
-[04:28:57] [Server thread/INFO]: shmezi issued server command: /mcenginereloadcmd
-[04:28:57] [Server thread/INFO]: [45m[34mLoaded animation: Default!
-[04:28:59] [Server thread/INFO]: shmezi issued server command: /mcenginereloadcmd
-[04:28:59] [Server thread/INFO]: [45m[34mLoaded animation: Default!
-[04:29:06] [Server thread/INFO]: shmezi issued server command: /animation Default world 181 75 539 North
-[04:29:08] [Server thread/INFO]: shmezi issued server command: /weather clear
-[04:29:08] [Server thread/INFO]: [shmezi: Changing to clear weather]
-[04:29:54] [Server thread/INFO]: shmezi issued server command: /animation Default world 181 75 539 North
-[04:29:57] [Server thread/INFO]: shmezi issued server command: /mcenginereloadcmd
-[04:29:57] [Server thread/INFO]: [45m[34mLoaded animation: Default!
-[04:30:00] [Server thread/INFO]: shmezi issued server command: /animation Default world 181 75 539 North
-[04:30:26] [Server thread/INFO]: shmezi issued server command: /animation Default world 181 75 539 North
-[04:31:20] [Server thread/INFO]: shmezi issued server command: /animation Default world 181 75 539 North
-[04:38:02] [Server thread/INFO]: shmezi issued server command: /mcenginereloadcmd
-[04:38:02] [Server thread/INFO]: [45m[34mLoaded animation: Default!
-[04:38:03] [Server thread/INFO]: shmezi issued server command: /animation Default world 181 75 539 North
-[04:39:53] [Server thread/INFO]: shmezi issued server command: /mcenginereloadcmd
-[04:39:53] [Server thread/INFO]: [45m[34mLoaded animation: Default!
-[04:39:56] [Server thread/INFO]: shmezi issued server command: /animation Default world 181 75 539 North
-[04:40:31] [Server thread/INFO]: shmezi issued server command: /animation Default world 181 75 539 North
-[04:40:55] [Server thread/INFO]: shmezi issued server command: /weather clear
-[04:40:55] [Server thread/INFO]: [shmezi: Changing to clear weather]
-[04:42:10] [Server thread/INFO]: shmezi issued server command: /weather clear
-[04:42:10] [Server thread/INFO]: [shmezi: Changing to clear weather]
-[04:42:12] [Server thread/INFO]: shmezi issued server command: /animation Default world 181 75 539 North
-[04:42:28] [Server thread/INFO]: shmezi issued server command: /animation Default world 181 75 539 North
-[04:44:36] [Server thread/INFO]: shmezi issued server command: /mcenginereloadcmd
-[04:44:36] [Server thread/INFO]: [45m[34mLoaded animation: Default!
-[04:44:38] [Server thread/INFO]: shmezi issued server command: /animation Default world 181 75 539 North
-[04:47:01] [Server thread/INFO]: shmezi issued server command: /animation Default world 181 75 539 North
-[04:55:17] [Server thread/INFO]: shmezi issued server command: /crate admin
+[01:21:23] [Server thread/INFO]: Starting minecraft server version 1.8.8
+[01:21:23] [Server thread/INFO]: Loading properties
+[01:21:23] [Server thread/INFO]: Default game type: SURVIVAL
+[01:21:23] [Server thread/INFO]: This server is running CraftBukkit version git-PaperSpigot-445 (MC: 1.8.8) (Implementing API version 1.8.8-R0.1-SNAPSHOT)
+[01:21:23] [Server thread/INFO]: Debug logging is disabled
+[01:21:23] [Server thread/INFO]: Spigot Timings: true - Verbose: true - Interval: 5m - Length: 60m
+[01:21:23] [Server thread/INFO]: Server Ping Player Sample Count: 12
+[01:21:23] [Server thread/INFO]: Using 4 threads for Netty based IO
+[01:21:23] [Server thread/INFO]: Data value allowed items: 
+[01:21:23] [Server thread/INFO]: Generating keypair
+[01:21:23] [Server thread/INFO]: Starting Minecraft server on *:25565
+[01:21:23] [Server thread/INFO]: Using default channel type
+[01:21:23] [Server thread/INFO]: Set PluginClassLoader as parallel capable
+[01:21:23] [Server thread/INFO]: [ProtocolLib] Loading ProtocolLib v4.7.0
+[01:21:24] [Server thread/INFO]: [McEngine] Loading McEngine v1.0
+[01:21:24] [Server thread/INFO]: [ProtocolLib] Enabling ProtocolLib v4.7.0
+[01:21:24] [Server thread/INFO]: [ProtocolLib] Started structure compiler thread.
+[01:21:24] [Server thread/INFO]: **** Beginning UUID conversion, this may take A LONG time ****
+[01:21:24] [Server thread/INFO]: Preparing level "world"
+[01:21:24] [Server thread/INFO]: -------- World Settings For [world] --------
+[01:21:24] [Server thread/INFO]: Max Entity Collisions: 8
+[01:21:24] [Server thread/INFO]: Custom Map Seeds:  Village: 10387312 Feature: 14357617
+[01:21:24] [Server thread/INFO]: Item Merge Radius: 2.5
+[01:21:24] [Server thread/INFO]: Item Despawn Rate: 6000
+[01:21:24] [Server thread/INFO]: Allow Zombie Pigmen to spawn from portal blocks: true
+[01:21:24] [Server thread/INFO]: Arrow Despawn Rate: 1200
+[01:21:24] [Server thread/INFO]: View Distance: 10
+[01:21:24] [Server thread/INFO]: Chunks to Grow per Tick: 650
+[01:21:24] [Server thread/INFO]: Clear tick list: false
+[01:21:24] [Server thread/INFO]: Experience Merge Radius: 3.0
+[01:21:24] [Server thread/INFO]: Zombie Aggressive Towards Villager: true
+[01:21:24] [Server thread/INFO]: Anti X-Ray: true
+[01:21:24] [Server thread/INFO]: 	Engine Mode: 1
+[01:21:24] [Server thread/INFO]: 	Hidden Blocks: [14, 15, 16, 21, 48, 49, 54, 56, 73, 74, 82, 129, 130]
+[01:21:24] [Server thread/INFO]: 	Replace Blocks: [1, 5]
+[01:21:24] [Server thread/INFO]: Mob Spawn Range: 4
+[01:21:24] [Server thread/INFO]: Nerfing mobs spawned from spawners: false
+[01:21:24] [Server thread/INFO]: Sending up to 10 chunks per packet
+[01:21:24] [Server thread/INFO]: Entity Activation Range: An 32 / Mo 32 / Mi 16
+[01:21:24] [Server thread/INFO]: Tile Max Tick Time: 50ms Entity max Tick Time: 50ms
+[01:21:24] [Server thread/INFO]: Hopper Transfer: 8 Hopper Check: 8 Hopper Amount: 1
+[01:21:24] [Server thread/INFO]: Cactus Growth Modifier: 100%
+[01:21:24] [Server thread/INFO]: Cane Growth Modifier: 100%
+[01:21:24] [Server thread/INFO]: Melon Growth Modifier: 100%
+[01:21:24] [Server thread/INFO]: Mushroom Growth Modifier: 100%
+[01:21:24] [Server thread/INFO]: Pumpkin Growth Modifier: 100%
+[01:21:24] [Server thread/INFO]: Sapling Growth Modifier: 100%
+[01:21:24] [Server thread/INFO]: Wheat Growth Modifier: 100%
+[01:21:24] [Server thread/INFO]: NetherWart Growth Modifier: 100%
+[01:21:24] [Server thread/INFO]: Entity Tracking Range: Pl 48 / An 48 / Mo 48 / Mi 32 / Other 64
+[01:21:24] [Server thread/INFO]: Structure Info Saving: true
+[01:21:24] [Server thread/INFO]: Random Lighting Updates: false
+[01:21:24] [Server thread/INFO]: Max TNT Explosions: 100
+[01:21:24] [Server thread/INFO]: -------- World Settings For [world] --------
+[01:21:24] [Server thread/INFO]: Remove invalid mob spawner tile entities: true
+[01:21:24] [Server thread/INFO]: Player blocking damage multiplier set to 0.5
+[01:21:24] [Server thread/INFO]: Max height for cactus growth 3. Max height for reed growth 3
+[01:21:24] [Server thread/INFO]: Fix TNT cannons: false
+[01:21:24] [Server thread/INFO]: Water over lava flow speed: 5
+[01:21:24] [Server thread/INFO]: World async lighting: false
+[01:21:24] [Server thread/INFO]: WorldServer TickNextTick cap set at 10000
+[01:21:24] [Server thread/INFO]: WorldServer TickNextTickList cap always processes redstone: false
+[01:21:24] [Server thread/INFO]: Allow undead horse types to be leashed: false
+[01:21:24] [Server thread/INFO]: Keep spawn chunk loaded: true
+[01:21:24] [Server thread/INFO]: Living Entity Despawn Ranges:  Soft: 32 Hard: 128
+[01:21:24] [Server thread/INFO]: Squids will spawn between Y: 45.0 and Y: 63.0
+[01:21:24] [Server thread/INFO]: -------- World Settings For [world_nether] --------
+[01:21:24] [Server thread/INFO]: Max Entity Collisions: 8
+[01:21:24] [Server thread/INFO]: Custom Map Seeds:  Village: 10387312 Feature: 14357617
+[01:21:24] [Server thread/INFO]: Item Merge Radius: 2.5
+[01:21:24] [Server thread/INFO]: Item Despawn Rate: 6000
+[01:21:24] [Server thread/INFO]: Allow Zombie Pigmen to spawn from portal blocks: true
+[01:21:24] [Server thread/INFO]: Arrow Despawn Rate: 1200
+[01:21:24] [Server thread/INFO]: View Distance: 10
+[01:21:24] [Server thread/INFO]: Chunks to Grow per Tick: 650
+[01:21:24] [Server thread/INFO]: Clear tick list: false
+[01:21:24] [Server thread/INFO]: Experience Merge Radius: 3.0
+[01:21:24] [Server thread/INFO]: Zombie Aggressive Towards Villager: true
+[01:21:24] [Server thread/INFO]: Anti X-Ray: true
+[01:21:24] [Server thread/INFO]: 	Engine Mode: 1
+[01:21:24] [Server thread/INFO]: 	Hidden Blocks: [14, 15, 16, 21, 48, 49, 54, 56, 73, 74, 82, 129, 130]
+[01:21:24] [Server thread/INFO]: 	Replace Blocks: [1, 5]
+[01:21:24] [Server thread/INFO]: Mob Spawn Range: 4
+[01:21:24] [Server thread/INFO]: Nerfing mobs spawned from spawners: false
+[01:21:24] [Server thread/INFO]: Sending up to 10 chunks per packet
+[01:21:24] [Server thread/INFO]: Entity Activation Range: An 32 / Mo 32 / Mi 16
+[01:21:24] [Server thread/INFO]: Tile Max Tick Time: 50ms Entity max Tick Time: 50ms
+[01:21:24] [Server thread/INFO]: Hopper Transfer: 8 Hopper Check: 8 Hopper Amount: 1
+[01:21:24] [Server thread/INFO]: Cactus Growth Modifier: 100%
+[01:21:24] [Server thread/INFO]: Cane Growth Modifier: 100%
+[01:21:24] [Server thread/INFO]: Melon Growth Modifier: 100%
+[01:21:24] [Server thread/INFO]: Mushroom Growth Modifier: 100%
+[01:21:24] [Server thread/INFO]: Pumpkin Growth Modifier: 100%
+[01:21:24] [Server thread/INFO]: Sapling Growth Modifier: 100%
+[01:21:24] [Server thread/INFO]: Wheat Growth Modifier: 100%
+[01:21:24] [Server thread/INFO]: NetherWart Growth Modifier: 100%
+[01:21:24] [Server thread/INFO]: Entity Tracking Range: Pl 48 / An 48 / Mo 48 / Mi 32 / Other 64
+[01:21:24] [Server thread/INFO]: Structure Info Saving: true
+[01:21:24] [Server thread/INFO]: Random Lighting Updates: false
+[01:21:24] [Server thread/INFO]: Max TNT Explosions: 100
+[01:21:24] [Server thread/INFO]: -------- World Settings For [world_nether] --------
+[01:21:24] [Server thread/INFO]: Remove invalid mob spawner tile entities: true
+[01:21:24] [Server thread/INFO]: Player blocking damage multiplier set to 0.5
+[01:21:24] [Server thread/INFO]: Max height for cactus growth 3. Max height for reed growth 3
+[01:21:24] [Server thread/INFO]: Fix TNT cannons: false
+[01:21:24] [Server thread/INFO]: Water over lava flow speed: 5
+[01:21:24] [Server thread/INFO]: World async lighting: false
+[01:21:24] [Server thread/INFO]: WorldServer TickNextTick cap set at 10000
+[01:21:24] [Server thread/INFO]: WorldServer TickNextTickList cap always processes redstone: false
+[01:21:24] [Server thread/INFO]: Allow undead horse types to be leashed: false
+[01:21:24] [Server thread/INFO]: Keep spawn chunk loaded: true
+[01:21:24] [Server thread/INFO]: Living Entity Despawn Ranges:  Soft: 32 Hard: 128
+[01:21:24] [Server thread/INFO]: Squids will spawn between Y: 45.0 and Y: 63.0
+[01:21:24] [Server thread/INFO]: -------- World Settings For [world_the_end] --------
+[01:21:24] [Server thread/INFO]: Max Entity Collisions: 8
+[01:21:24] [Server thread/INFO]: Custom Map Seeds:  Village: 10387312 Feature: 14357617
+[01:21:24] [Server thread/INFO]: Item Merge Radius: 2.5
+[01:21:24] [Server thread/INFO]: Item Despawn Rate: 6000
+[01:21:24] [Server thread/INFO]: Allow Zombie Pigmen to spawn from portal blocks: true
+[01:21:24] [Server thread/INFO]: Arrow Despawn Rate: 1200
+[01:21:24] [Server thread/INFO]: View Distance: 10
+[01:21:24] [Server thread/INFO]: Chunks to Grow per Tick: 650
+[01:21:24] [Server thread/INFO]: Clear tick list: false
+[01:21:24] [Server thread/INFO]: Experience Merge Radius: 3.0
+[01:21:24] [Server thread/INFO]: Zombie Aggressive Towards Villager: true
+[01:21:24] [Server thread/INFO]: Anti X-Ray: true
+[01:21:24] [Server thread/INFO]: 	Engine Mode: 1
+[01:21:24] [Server thread/INFO]: 	Hidden Blocks: [14, 15, 16, 21, 48, 49, 54, 56, 73, 74, 82, 129, 130]
+[01:21:24] [Server thread/INFO]: 	Replace Blocks: [1, 5]
+[01:21:24] [Server thread/INFO]: Mob Spawn Range: 4
+[01:21:24] [Server thread/INFO]: Nerfing mobs spawned from spawners: false
+[01:21:24] [Server thread/INFO]: Sending up to 10 chunks per packet
+[01:21:24] [Server thread/INFO]: Entity Activation Range: An 32 / Mo 32 / Mi 16
+[01:21:24] [Server thread/INFO]: Tile Max Tick Time: 50ms Entity max Tick Time: 50ms
+[01:21:24] [Server thread/INFO]: Hopper Transfer: 8 Hopper Check: 8 Hopper Amount: 1
+[01:21:24] [Server thread/INFO]: Cactus Growth Modifier: 100%
+[01:21:24] [Server thread/INFO]: Cane Growth Modifier: 100%
+[01:21:24] [Server thread/INFO]: Melon Growth Modifier: 100%
+[01:21:24] [Server thread/INFO]: Mushroom Growth Modifier: 100%
+[01:21:24] [Server thread/INFO]: Pumpkin Growth Modifier: 100%
+[01:21:24] [Server thread/INFO]: Sapling Growth Modifier: 100%
+[01:21:24] [Server thread/INFO]: Wheat Growth Modifier: 100%
+[01:21:24] [Server thread/INFO]: NetherWart Growth Modifier: 100%
+[01:21:24] [Server thread/INFO]: Entity Tracking Range: Pl 48 / An 48 / Mo 48 / Mi 32 / Other 64
+[01:21:24] [Server thread/INFO]: Structure Info Saving: true
+[01:21:24] [Server thread/INFO]: Random Lighting Updates: false
+[01:21:24] [Server thread/INFO]: Max TNT Explosions: 100
+[01:21:24] [Server thread/INFO]: -------- World Settings For [world_the_end] --------
+[01:21:24] [Server thread/INFO]: Remove invalid mob spawner tile entities: true
+[01:21:24] [Server thread/INFO]: Player blocking damage multiplier set to 0.5
+[01:21:24] [Server thread/INFO]: Max height for cactus growth 3. Max height for reed growth 3
+[01:21:24] [Server thread/INFO]: Fix TNT cannons: false
+[01:21:24] [Server thread/INFO]: Water over lava flow speed: 5
+[01:21:24] [Server thread/INFO]: World async lighting: false
+[01:21:24] [Server thread/INFO]: WorldServer TickNextTick cap set at 10000
+[01:21:24] [Server thread/INFO]: WorldServer TickNextTickList cap always processes redstone: false
+[01:21:24] [Server thread/INFO]: Allow undead horse types to be leashed: false
+[01:21:24] [Server thread/INFO]: Keep spawn chunk loaded: true
+[01:21:24] [Server thread/INFO]: Living Entity Despawn Ranges:  Soft: 32 Hard: 128
+[01:21:24] [Server thread/INFO]: Squids will spawn between Y: 45.0 and Y: 63.0
+[01:21:24] [Server thread/INFO]: Preparing start region for level 0 (Seed: 6968294573588985866)
+[01:21:24] [Server thread/INFO]: Preparing start region for level 1 (Seed: 6968294573588985866)
+[01:21:25] [Server thread/INFO]: Preparing start region for level 2 (Seed: 6968294573588985866)
+[01:21:25] [Server thread/INFO]: [McEngine] Enabling McEngine v1.0
+[01:21:25] [Server thread/INFO]: Super pickaxe
+[01:21:25] [Server thread/INFO]: Server permissions file permissions.yml is empty, ignoring it
+[01:21:25] [Server thread/INFO]: Done (1.264s)! For help, type "help" or "?"
+[01:21:25] [Server thread/INFO]: Timings Reset
+[01:45:34] [User Authenticator #1/INFO]: UUID of player shmezi is 8b33b9e1-da73-446b-a70b-788191cc2c59
+[01:45:34] [Server thread/INFO]: shmezi[/127.0.0.1:55568] logged in with entity id 957 at ([world]578.8286718191106, 65.0, 393.18799233771324)
+[01:45:39] [Server thread/INFO]: shmezi issued server command: /test A
+[01:45:39] [Server thread/INFO]: Super pickaxe

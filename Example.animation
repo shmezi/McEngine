@@ -4,7 +4,10 @@
 @Name('Example')
 @Description ('An example of an animation script')
 
-let x = 1 #Define variables
+let xval gson = Gson()
+         fun load(name: String) {
+             gson.fromJson(BufferedReader(FileReader("SuperPick.json")), BaseItem::class.java)
+         } = 1 #Define variables
 fun run: #Main method, run when script is run
   for x in range(0,100): #Simple loop
     Action() #Predefined Action stuff for the animation like draw circle etc.

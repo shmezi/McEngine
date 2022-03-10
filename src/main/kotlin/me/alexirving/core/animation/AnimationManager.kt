@@ -5,9 +5,10 @@ package me.alexirving.core.animation
  * Written by Alex Irving <alexirving992@gmail.com>, February 2022
  */
 import me.alexirving.core.McEngine
-import me.alexirving.core.animation.exceptions.NotADirectory
+import me.alexirving.core.animation.objects.Animation
 import me.alexirving.core.animation.packets.PacketManager
 import me.alexirving.core.utils.Colors
+import me.alexirving.core.utils.FileExtensionFilter
 import org.bukkit.configuration.file.YamlConfiguration
 import java.io.File
 
@@ -22,18 +23,17 @@ class AnimationManager(private val aniFolder: File, private val pl: McEngine) {
 
     fun reload() {
         if (!aniFolder.isDirectory)
-            throw NotADirectory("Animation folder provided is not a directory!")
+            println("Animation folder is not a directory!")
         loadedAnimations.clear()
-        for (file in aniFolder.listFiles())
-            if (file.extension == "yml") {
-                val a = YamlConfiguration()
-                a.load(file)
+        for (file in aniFolder.listFiles(FileExtensionFilter("yml")) ?: return) {
+            val a = YamlConfiguration().also { it.load(file) }
+//            a.load(file) //fixme not sure if this will work or not, we will have to see :)
 
-                val ani = AniCompiler.compileAnimation(pl, a)
-                val name = file.nameWithoutExtension
-                loadedAnimations[name] = ani
-                println("${Colors.BG_PURPLE}${Colors.BLUE}Loaded animation: $name!")
-            }
+            val name = file.nameWithoutExtension
+            loadedAnimations[name] = AniCompiler.compileAnimation(pl, a)
+            println("${Colors.BG_PURPLE}${Colors.BLUE}Loaded animation: $name!")
+        }
+
     }
 
     fun getAnimation(name: String): Animation? {

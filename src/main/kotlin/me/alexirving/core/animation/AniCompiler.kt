@@ -8,8 +8,9 @@ import me.alexirving.core.McEngine
 import me.alexirving.core.animation.actions.Action
 import me.alexirving.core.animation.actions.SuperAction
 import me.alexirving.core.animation.exceptions.CompileError
-import me.alexirving.core.animation.packets.PacketManager
-import me.alexirving.core.items.ItemManager
+import me.alexirving.core.animation.objects.Animation
+import me.alexirving.core.animation.objects.Frame
+import me.alexirving.core.animation.utils.space
 import org.bukkit.configuration.file.FileConfiguration
 import org.bukkit.entity.EntityType
 import org.reflections.Reflections
@@ -65,8 +66,10 @@ object AniCompiler {
 
     fun compileAnimation(pl: McEngine, aniFile: FileConfiguration): Animation {
         val names = mutableMapOf<String, EntityType>()
-        for (set in aniFile.getConfigurationSection("Stands").getKeys(false)) {
-            names[set] = EntityType.valueOf(aniFile.getString("Stands.$set").uppercase())
+        for (set in (aniFile.getConfigurationSection("Stands") ?: return Animation(names, mutableListOf(), 0)).getKeys(
+            false
+        )) {
+            names[set] = EntityType.valueOf((aniFile.getString("Stands.$set") ?: "").uppercase())
         }
 
         val frames = mutableListOf<Frame>()

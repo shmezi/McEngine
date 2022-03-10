@@ -4,6 +4,7 @@ package me.alexirving.core.utils
  * Proprietary and confidential
  * Written by Alex Irving <alexirving992@gmail.com>, February 2022
  */
+
 import me.alexirving.core.McEngine
 import org.bukkit.ChatColor
 import org.bukkit.event.Listener
@@ -11,6 +12,7 @@ import org.bukkit.plugin.java.JavaPlugin
 import java.io.File
 import java.nio.file.Files
 import java.nio.file.StandardCopyOption
+import java.util.concurrent.Executors
 
 
 fun registerListeners(plugin: JavaPlugin, vararg listeners: Listener) {
@@ -39,4 +41,17 @@ fun copyOver(dataFolder: File, vararg fileNames: String) {
     }
 }
 
+/**
+ * Guarantees a number above 0
+ */
+fun Int.nBZ() = if (this < 0) 0 else this
 
+private val exe = Executors.newCachedThreadPool()
+
+/**
+ * Runs an async task without any delay and without using the bukkit internal threads utility.
+ * @param task the task to execute.
+ */
+fun asyncNonBukkit(task: Runnable?) {
+    exe.submit(task)
+}

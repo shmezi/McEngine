@@ -4,7 +4,7 @@ import me.alexirving.core.McEngine
 import me.alexirving.core.animation.AniCompiler
 import me.alexirving.core.animation.actions.Action
 import me.alexirving.core.animation.actions.SuperAction
-import me.alexirving.core.animation.toLocation
+import me.alexirving.core.animation.utils.toLocation
 import java.text.DecimalFormat
 import java.util.regex.Pattern
 import kotlin.math.asin

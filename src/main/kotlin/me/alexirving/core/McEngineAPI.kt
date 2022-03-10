@@ -1,8 +1,7 @@
 package me.alexirving.core
 
-import me.alexirving.core.animation.AnimationManager
-import me.alexirving.core.animation.AnimationSession
-import me.alexirving.core.animation.getFacing
+import me.alexirving.core.animation.objects.AnimationSession
+import me.alexirving.core.animation.utils.getFacing
 import org.bukkit.Location
 import org.bukkit.entity.Player
 
@@ -15,25 +14,19 @@ object McEngineAPI {
     /**
      * Get instance of plugin
      */
-    fun getMcEngine(run: () -> Unit): McEngine {
-        return if (instance != null) {
+    fun getMcEngine(run: () -> Unit) =
+        if (instance != null) {
             run()
-            instance!!
+            instance ?: throw IllegalStateException("McEngine has not been loaded yet [0]")
         } else
-            throw IllegalStateException("McEngine has not been loaded yet")
-
-    }
-    fun getMcEngine(): McEngine {
-        return if (instance != null) {
-            instance!!
-        } else
-            throw IllegalStateException("McEngine has not been loaded yet")
-    }
+            throw IllegalStateException("McEngine has not been loaded yet [1]")
 
 
-    fun getAnimationManager(): AnimationManager {
-        return getMcEngine().am
-    }
+    fun getMcEngine() = instance ?: throw IllegalStateException("McEngine has not been loaded yet")
+
+
+    fun getAnimationManager() = getMcEngine().am
+
 
     /**
      * Play give animation at given location to given players.
@@ -42,8 +35,8 @@ object McEngineAPI {
      * @param viewers Players to play animation to
      */
     fun playAnimation(animation: String, location: Location, viewers: MutableList<Player>) {
-        if (getMcEngine().am.getAnimation(animation) == null)
-            throw NullPointerException("Animation \"$animation\" does not exist.")
+        getMcEngine().am.getAnimation(animation)
+            ?: throw NullPointerException("Animation \"$animation\" does not exist.")
 
         AnimationSession(
             getMcEngine(),
@@ -54,7 +47,5 @@ object McEngineAPI {
         )
     }
 
-    fun reload() {
-        instance?.reload()
-    }
+    fun reload() = instance?.reload()
 }

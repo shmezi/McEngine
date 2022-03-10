@@ -5,11 +5,11 @@ package me.alexirving.core.animation.actions.actionables
  * Written by Alex Irving <alexirving992@gmail.com>, February 2022
  */
 import me.alexirving.core.McEngine
-import me.alexirving.core.animation.AnimationSession
-import me.alexirving.core.animation.Direction
-import me.alexirving.core.animation.Offset
+import me.alexirving.core.animation.objects.AnimationSession
+import me.alexirving.core.animation.utils.Direction
+import me.alexirving.core.animation.objects.Offset
 import me.alexirving.core.animation.actions.Action
-import me.alexirving.core.animation.validateLocation
+import me.alexirving.core.animation.utils.validateLocation
 import org.bukkit.Effect
 import org.bukkit.Location
 
