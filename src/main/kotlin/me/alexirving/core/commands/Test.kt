@@ -1,7 +1,6 @@
 package me.alexirving.core.commands
 
 import me.alexirving.core.animation.utils.getFacing
-import me.alexirving.core.item.objects.BaseItem
 import org.bukkit.Material
 import org.bukkit.command.Command
 import org.bukkit.command.CommandExecutor
@@ -20,7 +19,7 @@ class Test : CommandExecutor {
         when (args[0]) {
 
             "A" -> {
-                val i = BaseItem.loadFromJson(File("SuperPick.json")).buildInstance()
+//                val i = BaseItem.loadFromJson(File("SuperPick.json")).buildInstance()
 
                 player.sendMessage("You are facing: ${player.location.getFacing().name}")
             }
