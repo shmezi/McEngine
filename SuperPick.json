@@ -13,6 +13,12 @@
     "speed": [
       "",
       "Gives a speed boost!"
+    ],
+    "$Speed$": [
+      "Speed-$"
+    ],
+    "Nuke": [
+      "Nuke-$"
     ]
   },
   "sections": [
@@ -35,13 +41,6 @@
           "groups": [
             "enchant"
           ],
-          "levels": [
-            "I",
-            "II",
-            "III",
-            "IV",
-            "V"
-          ],
           "placeholders": {
             "speed": "10"
           }
@@ -51,13 +50,6 @@
           "max": 5,
           "groups": [
             "enchant"
-          ],
-          "levels": [
-            "I",
-            "II",
-            "III",
-            "IV",
-            "V"
           ],
           "placeholders": {
             "speed": "10"
@@ -69,13 +61,6 @@
           "groups": [
             "enchant"
           ],
-          "levels": [
-            "I",
-            "II",
-            "III",
-            "IV",
-            "V"
-          ],
           "placeholders": {
             "speed": "10"
           }
@@ -85,13 +70,6 @@
           "max": 5,
           "groups": [
             "enchant"
-          ],
-          "levels": [
-            "I",
-            "II",
-            "III",
-            "IV",
-            "V"
           ],
           "placeholders": {
             "speed": "10"
@@ -103,13 +81,6 @@
           "groups": [
             "enchant"
           ],
-          "levels": [
-            "I",
-            "II",
-            "III",
-            "IV",
-            "V"
-          ],
           "placeholders": {
             "speed": "10"
           }
@@ -119,13 +90,6 @@
           "max": 5,
           "groups": [
             "enchant"
-          ],
-          "levels": [
-            "I",
-            "II",
-            "III",
-            "IV",
-            "V"
           ],
           "placeholders": {
             "speed": "10"
@@ -137,13 +101,6 @@
           "groups": [
             "enchant"
           ],
-          "levels": [
-            "I",
-            "II",
-            "III",
-            "IV",
-            "V"
-          ],
           "placeholders": {
             "speed": "10"
           }
@@ -154,13 +111,6 @@
           "groups": [
             "enchant"
           ],
-          "levels": [
-            "I",
-            "II",
-            "III",
-            "IV",
-            "V"
-          ],
           "placeholders": {
             "speed": "10"
           }
@@ -170,13 +120,6 @@
           "max": 5,
           "groups": [
             "enchant"
-          ],
-          "levels": [
-            "I",
-            "II",
-            "III",
-            "IV",
-            "V"
           ],
           "placeholders": {
             "speed": "10"

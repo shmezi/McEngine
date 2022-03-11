@@ -1,215 +1,131 @@
 {
-  "template": {
-    "displayName": "Super pickaxe",
-    "lore": [
-      "A cool pickaxe!",
-      "{enchants}",
-      "$speed$"
+  "displayName": "Super pickaxe",
+  "lore": [
+    "A cool pickaxe!",
+    "{enchants}",
+    "$speed$"
+  ],
+  "material": "DIAMOND_PICKAXE",
+  "groups": {
+    "enchant": 10
+  },
+  "placeholders": {
+    "speed": [
+      "",
+      "Gives a speed boost!"
+    ],
+    "$Speed$": [
+      "Speed-$"
+    ],
+    "Nuke": [
+      "Nuke-$"
     ]
   },
-  "material": "DIAMOND_PICKAXE",
-  "groups": [
-    {
-      "enchant": 10
-    }
-  ],
-  "placeholders": [
-    {
-      "name": "speed",
-      "values": [
-        "",
-        "Adds the speed effect when held!"
-      ]
-    }
-  ],
   "sections": [
     {
-      "desc": {
-        "slot": "LORE",
-        "description": "An amazing pickaxe to mine with :)"
-      }
-    },
-    {
-      "enchants": {
-        "slot": "LORE",
-        "description": null,
-        "groups": null,
-        "attributes": [
-          {
-            "id": "Speed",
-            "min": 0,
-            "max": 5,
-            "description": null,
-            "template": "Speed-{level}",
-            "groups": [
-              "enchant"
-            ],
-            "levels": [
-              "I",
-              "II",
-              "III",
-              "IV",
-              "V"
-            ],
-            "placeholders": {
-              "speed": 1
-            }
-          },
-          {
-            "id": "Nuke",
-            "min": 0,
-            "max": 5,
-            "description": null,
-            "template": "Nuke-{level}",
-            "groups": [
-              "enchant"
-            ],
-            "levels": [
-              "I",
-              "II",
-              "III",
-              "IV",
-              "V"
-            ]
-          },
-          {
-            "id": "Key_Finder",
-            "min": 0,
-            "max": 5,
-            "description": null,
-            "template": "Key Finder-{level}",
-            "groups": [
-              "enchant"
-            ],
-            "levels": [
-              "I",
-              "II",
-              "III",
-              "IV",
-              "V"
-            ]
-          },
-          {
-            "id": "Detonate",
-            "min": 0,
-            "max": 5,
-            "description": null,
-            "template": "Detonate-{level}",
-            "groups": [
-              "enchant"
-            ],
-            "levels": [
-              "I",
-              "II",
-              "III",
-              "IV",
-              "V"
-            ]
-          },
-          {
-            "id": "JackHammer",
-            "min": 0,
-            "max": 5,
-            "description": null,
-            "template": "JackHammer-{level}",
-            "groups": [
-              "enchant"
-            ],
-            "levels": [
-              "I",
-              "II",
-              "III",
-              "IV",
-              "V"
-            ]
-          },
-          {
-            "id": "Laser",
-            "min": 0,
-            "max": 5,
-            "description": null,
-            "template": "Laser-{level}",
-            "groups": [
-              "enchant"
-            ],
-            "levels": [
-              "I",
-              "II",
-              "III",
-              "IV",
-              "V"
-            ]
-          },
-          {
-            "id": "Fortune",
-            "min": 0,
-            "max": 5,
-            "description": null,
-            "template": "Fortune-{level}",
-            "groups": [
-              "enchant"
-            ],
-            "levels": [
-              "I",
-              "II",
-              "III",
-              "IV",
-              "V"
-            ]
-          },
-          {
-            "id": "Efficiency",
-            "min": 0,
-            "max": 5,
-            "description": null,
-            "template": "Fortune-{level}",
-            "groups": [
-              "enchant"
-            ],
-            "levels": [
-              "I",
-              "II",
-              "III",
-              "IV",
-              "V"
-            ]
-          },
-          {
-            "id": "TokenMiner",
-            "min": 0,
-            "max": 5,
-            "description": null,
-            "template": "TokenMiner-{level}",
-            "groups": [
-              "enchant"
-            ],
-            "levels": [
-              "I",
-              "II",
-              "III",
-              "IV",
-              "V"
-            ]
-          },
-          {
-            "id": "LightningBolt",
-            "min": 0,
-            "max": 5,
-            "description": null,
-            "template": "LightningBolt-{level}",
-            "groups": [
-              "enchant"
-            ],
-            "levels": [
-              "I",
-              "II",
-              "III",
-              "IV",
-              "V"
-            ]
+      "id": "enchants",
+      "attributes": [
+        {
+          "id": "Speed",
+          "max": 5,
+          "groups": [
+            "enchant"
+          ],
+          "placeholders": {
+            "speed": "10"
           }
-        ]
-      }
+        },
+        {
+          "id": "Nuke",
+          "max": 5,
+          "groups": [
+            "enchant"
+          ],
+          "placeholders": {
+            "speed": "10"
+          }
+        },
+        {
+          "id": "Key_Finder",
+          "max": 5,
+          "groups": [
+            "enchant"
+          ],
+          "placeholders": {
+            "speed": "10"
+          }
+        },
+        {
+          "id": "Detonate",
+          "max": 5,
+          "groups": [
+            "enchant"
+          ],
+          "placeholders": {
+            "speed": "10"
+          }
+        },
+        {
+          "id": "JackHammer",
+          "max": 5,
+          "groups": [
+            "enchant"
+          ],
+          "placeholders": {
+            "speed": "10"
+          }
+        },
+        {
+          "id": "Laser",
+          "max": 5,
+          "groups": [
+            "enchant"
+          ],
+          "placeholders": {
+            "speed": "10"
+          }
+        },
+        {
+          "id": "Fortune",
+          "max": 5,
+          "groups": [
+            "enchant"
+          ],
+          "placeholders": {
+            "speed": "10"
+          }
+        },
+        {
+          "id": "Efficiency",
+          "max": 5,
+          "groups": [
+            "enchant"
+          ],
+          "placeholders": {
+            "speed": "10"
+          }
+        },
+        {
+          "id": "TokenMiner",
+          "max": 5,
+          "groups": [
+            "enchant"
+          ],
+          "placeholders": {
+            "speed": "10"
+          }
+        },
+        {
+          "id": "LightningBolt",
+          "max": 5,
+          "groups": [
+            "enchant"
+          ],
+          "placeholders": {
+            "speed": "10"
+          }
+        }
+      ]
     }
   ]
 }

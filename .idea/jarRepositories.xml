@@ -61,5 +61,20 @@
       <option name="name" value="maven6" />
       <option name="url" value="https://maven.enginehub.org/repo/" />
     </remote-repository>
+    <remote-repository>
+      <option name="id" value="maven7" />
+      <option name="name" value="maven7" />
+      <option name="url" value="https://repo.codemc.org/#browse/browse:maven-public:de%2Ftr7zw%2Fitem-nbt-api-plugin" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="maven7" />
+      <option name="name" value="maven7" />
+      <option name="url" value="https://repo.codemc.io/" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="maven7" />
+      <option name="name" value="maven7" />
+      <option name="url" value="https://repo.codemc.org/repository/maven-public/" />
+    </remote-repository>
   </component>
 </project>

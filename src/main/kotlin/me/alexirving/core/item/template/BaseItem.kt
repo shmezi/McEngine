@@ -28,8 +28,3 @@ class BaseItem(
 
     fun buildInstance() = InstanceItem(this)
 }
-
-fun main() {
-    val a = BaseItem.fromJson(File("SuperPick.json"))
-    println(a.toString())
-}

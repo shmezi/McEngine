@@ -16,6 +16,7 @@ repositories {
     maven("https://maven.enginehub.org/repo")
     maven("https://libraries.minecraft.net/")
     maven("https://maven.enginehub.org/repo/")
+    maven("https://repo.codemc.org/repository/maven-public/")
 }
 
 dependencies {
@@ -29,6 +30,7 @@ dependencies {
     compileOnly("com.sk89q.worldguard:worldguard-bukkit:7.0.0")
     compileOnly("com.comphenix.protocol", "ProtocolLib", "4.7.0")
     implementation("org.bstats:bstats-bukkit:3.0.0")
+    implementation("de.tr7zw:item-nbt-api:2.9.2")
 
     /**
      * Hooks
@@ -38,10 +40,11 @@ dependencies {
 tasks {
     shadowJar {
         relocate("dev.triumphteam.gui", "me.alexirving.core.gui")
-        relocate("org.bstats", "me.alexirving.core")
+        relocate("org.bstats", "me.alexirving.core.bstats")
+        relocate("de.tr7zw.changeme.nbtapi","me.alexirving.core.nbtapi")
 
     }
     runServer {
-        minecraftVersion("1.8.8")
+        minecraftVersion("1.18.2")
     }
 }

@@ -1,8 +1,7 @@
 package me.alexirving.core
 
 import me.alexirving.core.animation.AnimationManager
-import me.alexirving.core.commands.Test
-import me.alexirving.core.item.ItemLoader
+import me.alexirving.core.commands.Tool
 import me.alexirving.core.legacyItems.ItemManager
 import me.alexirving.core.utils.copyOver
 import org.bstats.bukkit.Metrics
@@ -21,7 +20,8 @@ class McEngine : JavaPlugin() {
         copyOver(dataFolder, "items.yml", "animations", "animations/Default.yml")
         im.reload(YamlConfiguration.loadConfiguration(File(dataFolder, "items.yml")))
         this.am = AnimationManager(File(dataFolder, "animations"), this)
-        getCommand("test").executor = Test()
+        getCommand("tool").executor = Tool()
+
     }
 
     fun reload() {

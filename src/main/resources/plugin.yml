@@ -8,7 +8,7 @@ commands:
   Admin:
     permission: mcengine.admin
   GetItem:
-  test:
+  tool:
   Animation:
     permission: mcengine.animation.useObfuscate
   McEngineReloadCMD:
