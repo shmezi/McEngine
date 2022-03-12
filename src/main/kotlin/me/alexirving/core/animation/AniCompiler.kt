@@ -7,7 +7,7 @@ package me.alexirving.core.animation
 import me.alexirving.core.McEngine
 import me.alexirving.core.animation.actions.Action
 import me.alexirving.core.animation.actions.SuperAction
-import me.alexirving.core.animation.exceptions.CompileError
+import me.alexirving.core.exceptions.CompileError
 import me.alexirving.core.animation.objects.Animation
 import me.alexirving.core.animation.objects.Frame
 import me.alexirving.core.animation.utils.space

@@ -5,19 +5,28 @@ import me.alexirving.core.item.template.Attribute
 import me.alexirving.core.item.template.BaseItem
 import org.bukkit.inventory.ItemStack
 
+/**
+ * An instanceItem represents an item that could be in an inventory that will be modified.
+ * This should be pooled and should be built when you
+ */
 class InstanceItem(val baseItem: BaseItem, private val stack: ItemStack) {
     private val attributes = mutableMapOf<String, Int>()
+    private var templateCache: ItemStack = stack.clone()
+
+
     fun getCurrentGroupCount(group: String): Int {
         var c = 0
-        for (s in baseItem.sections)
-            c += s.attributes.filter { attributes.containsKey(it.id) && it.groups.contains(group) }.size
+        for (s in baseItem.sections.values)
+            for (a in s)
+                if (a.id == group)
+                    c++
         return c
     }
 
 
     fun getAttribute(id: String): Attribute? {
         for (s in baseItem.sections)
-            for (a in s.attributes)
+            for (a in s.value)
                 if (a.id == id)
                     return a
         return null
@@ -57,15 +66,34 @@ class InstanceItem(val baseItem: BaseItem, private val stack: ItemStack) {
         } else false
     }
 
-    fun build() {
 
+
+    fun build(placeholders: Map<String, String>): ItemStack {
+        val im = templateCache.clone().itemMeta //Copying template to modify
+        for (p in placeholders) {
+            im.displayName.replace("{${p.key}}", p.value)
+            for (l in im.lore)
+                l.replace("{${p.key}}", p.value)
+        }
+        stack.itemMeta = im //Finally, applying changed template to the main item stack
+        return stack
     }
 
     fun save() {
         NBTItem(stack, true)
             .apply {
                 setString("itemId", baseItem.id)
-                setObject("attribute", attributes)
+                setObject("attributes", attributes)
+            }
+    }
+
+    fun save(m: Boolean) {
+        NBTItem(stack, true)
+            .apply {
+                if (m)
+                    setString("itemId", baseItem.id)
+                else
+                    setObject("attributes", attributes)
             }
     }
 }

@@ -1,6 +1,7 @@
 package me.alexirving.core.commands
 
 import de.tr7zw.changeme.nbtapi.NBTItem
+import me.alexirving.core.item.ItemManager
 import org.bukkit.Material
 import org.bukkit.command.Command
 import org.bukkit.command.CommandExecutor
@@ -22,6 +23,9 @@ class Tool : CommandExecutor {
             }
             "setnbt" -> {
                 NBTItem(player.itemInHand, true).setString(args[1], args[2])
+            }
+            "getitem" -> {
+                player.inventory.addItem(ItemManager.bases["SuperPick"]?.asInstance()?.build(mapOf()))
             }
             "b" -> {
                 player.sendMessage(

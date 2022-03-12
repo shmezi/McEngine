@@ -3,6 +3,7 @@ package me.alexirving.core.item.template
 import com.google.gson.Gson
 import me.alexirving.core.item.InstanceItem
 import org.bukkit.Material
+import org.bukkit.inventory.ItemStack
 import java.io.BufferedReader
 import java.io.File
 import java.io.FileReader
@@ -19,12 +20,18 @@ class BaseItem(
     val lore: List<String>,
     val placeholders: Map<String, List<String>>,
     val groups: Map<String, Int>,
-    val sections: List<Section>,
+    val sections: Map<String, List<Attribute>>,
 ) {
     companion object {
         private val g = Gson()
         fun fromJson(f: File): BaseItem = g.fromJson(BufferedReader(FileReader(f)), BaseItem::class.java)
     }
 
-    fun buildInstance() = InstanceItem(this)
+    fun asInstance(item: ItemStack) = InstanceItem(this, item)
+    fun asInstance() = InstanceItem(this, ItemStack(material))
+}
+
+fun main() {
+    val a = BaseItem.fromJson(File("SuperPick.json"))
+    println(a.sections)
 }

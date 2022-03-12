@@ -8,7 +8,7 @@ import me.alexirving.core.McEngine
 import me.alexirving.core.animation.AniCompiler
 import me.alexirving.core.animation.actions.Action
 import me.alexirving.core.animation.actions.SuperAction
-import me.alexirving.core.animation.exceptions.CompileError
+import me.alexirving.core.exceptions.CompileError
 import java.util.regex.Pattern
 
 class Loop(pl: McEngine, raw: String, start: Int) : SuperAction(pl, raw, start) {

@@ -86,6 +86,7 @@ settings:
     page-max: 2560
     total-multiplier: 0.98
   loggers:
+    use-rgb-for-named-text-colors: true
     deobfuscate-stacktraces: true
   lag-compensate-block-breaking: true
   fix-target-selector-tag-completion: true

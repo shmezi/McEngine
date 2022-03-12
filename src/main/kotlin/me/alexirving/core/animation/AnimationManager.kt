@@ -8,7 +8,7 @@ import me.alexirving.core.McEngine
 import me.alexirving.core.animation.objects.Animation
 import me.alexirving.core.animation.packets.PacketManager
 import me.alexirving.core.utils.Colors
-import me.alexirving.core.utils.FileExtensionFilter
+import me.alexirving.core.utils.filters.FileExtensionFilter
 import org.bukkit.configuration.file.YamlConfiguration
 import java.io.File
 

@@ -1,4 +1,4 @@
-package me.alexirving.core.animation.exceptions
+package me.alexirving.core.exceptions
 /* Copyright (C) AlexIrving - All Rights Reserved
  * Unauthorized copying of this file, via any medium is strictly prohibited
  * Proprietary and confidential

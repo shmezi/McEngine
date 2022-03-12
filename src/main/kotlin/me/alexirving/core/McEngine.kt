@@ -8,6 +8,7 @@ import org.bstats.bukkit.Metrics
 import org.bukkit.configuration.file.YamlConfiguration
 import org.bukkit.plugin.java.JavaPlugin
 import java.io.File
+import  me.alexirving.core.item.ItemManager as Im
 
 class McEngine : JavaPlugin() {
 
@@ -17,10 +18,11 @@ class McEngine : JavaPlugin() {
         McEngineAPI.instance = this
         saveDefaultConfig()
         Metrics(this, 14580)
-        copyOver(dataFolder, "items.yml", "animations", "animations/Default.yml")
+        copyOver(dataFolder, "items.yml", "animations", "items", "animations/Default.yml", "SuperPick.json")
         im.reload(YamlConfiguration.loadConfiguration(File(dataFolder, "items.yml")))
         this.am = AnimationManager(File(dataFolder, "animations"), this)
         getCommand("tool").executor = Tool()
+        Im.reload(File(dataFolder, "items"))
 
     }
 
