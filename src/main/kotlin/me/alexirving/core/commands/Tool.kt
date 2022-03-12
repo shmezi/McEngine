@@ -25,7 +25,8 @@ class Tool : CommandExecutor {
                 NBTItem(player.itemInHand, true).setString(args[1], args[2])
             }
             "getitem" -> {
-                player.inventory.addItem(ItemManager.bases["SuperPick"]?.asInstance()?.build(mapOf()))
+                println(ItemManager.bases["SuperPick"]?.asInstance()?.build(mapOf()))
+//                player.inventory.addItem()
             }
             "b" -> {
                 player.sendMessage(

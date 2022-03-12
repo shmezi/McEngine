@@ -18,7 +18,7 @@ class McEngine : JavaPlugin() {
         McEngineAPI.instance = this
         saveDefaultConfig()
         Metrics(this, 14580)
-        copyOver(dataFolder, "items.yml", "animations", "items", "animations/Default.yml", "SuperPick.json")
+        copyOver(dataFolder, "items.yml", "animations", "items", "animations/Default.yml", "items/SuperPick.json")
         im.reload(YamlConfiguration.loadConfiguration(File(dataFolder, "items.yml")))
         this.am = AnimationManager(File(dataFolder, "animations"), this)
         getCommand("tool").executor = Tool()

@@ -1,18 +1,191 @@
-[00:34:54] [ServerMain/INFO]: Environment: authHost='https://authserver.mojang.com', accountsHost='https://api.mojang.com', sessionHost='https://sessionserver.mojang.com', servicesHost='https://api.minecraftservices.com', name='PROD'
-[00:34:55] [ServerMain/INFO]: Found new data pack file/bukkit, loading it automatically
-[00:35:00] [Worker-Main-1/INFO]: Loaded 7 recipes
-[00:35:03] [Server thread/INFO]: Starting minecraft server version 1.18.2
-[00:35:03] [Server thread/INFO]: Loading properties
-[00:35:04] [Server thread/INFO]: This server is running Paper version git-Paper-244 (MC: 1.18.2) (Implementing API version 1.18.2-R0.1-SNAPSHOT) (Git: bfa33d9)
-[00:35:04] [Server thread/INFO]: Server Ping Player Sample Count: 12
-[00:35:04] [Server thread/INFO]: Using 4 threads for Netty based IO
-[00:35:04] [Server thread/INFO]: Default game type: SURVIVAL
-[00:35:04] [Server thread/INFO]: Generating keypair
-[00:35:04] [Server thread/INFO]: Starting Minecraft server on *:25565
-[00:35:05] [Server thread/INFO]: Using default channel type
-[00:35:05] [Server thread/INFO]: Paper: Using Java 11 compression from Velocity.
-[00:35:05] [Server thread/INFO]: Paper: Using Java cipher from Velocity.
-[00:35:06] [Server thread/ERROR]: [STDERR] [org.bukkit.craftbukkit.v1_18_R2.legacy.CraftLegacy] Initializing Legacy Material Support. Unless you have legacy plugins and/or data this is a bug!
-[00:35:23] [Server thread/WARN]: Legacy plugin McEngine v1.0 does not specify an api-version.
-[00:35:23] [Server thread/INFO]: [ProtocolLib] Loading ProtocolLib v4.7.0
-[00:35:23] [Server thread/WARN]: [ProtocolLib] Version (MC: 1.18.2) has not yet been tested! Proceed with caution.
+[01:03:22] [ServerMain/INFO]: Environment: authHost='https://authserver.mojang.com', accountsHost='https://api.mojang.com', sessionHost='https://sessionserver.mojang.com', servicesHost='https://api.minecraftservices.com', name='PROD'
+[01:03:23] [Worker-Main-2/INFO]: Loaded 7 recipes
+[01:03:24] [Server thread/INFO]: Starting minecraft server version 1.18.2
+[01:03:24] [Server thread/INFO]: Loading properties
+[01:03:24] [Server thread/INFO]: This server is running Paper version git-Paper-244 (MC: 1.18.2) (Implementing API version 1.18.2-R0.1-SNAPSHOT) (Git: bfa33d9)
+[01:03:24] [Server thread/INFO]: Server Ping Player Sample Count: 12
+[01:03:24] [Server thread/INFO]: Using 4 threads for Netty based IO
+[01:03:24] [Server thread/INFO]: Default game type: SURVIVAL
+[01:03:24] [Server thread/INFO]: Generating keypair
+[01:03:24] [Server thread/INFO]: Starting Minecraft server on *:25565
+[01:03:24] [Server thread/INFO]: Using default channel type
+[01:03:24] [Server thread/INFO]: Paper: Using Java 11 compression from Velocity.
+[01:03:24] [Server thread/INFO]: Paper: Using Java cipher from Velocity.
+[01:03:24] [Server thread/ERROR]: [STDERR] [org.bukkit.craftbukkit.v1_18_R2.legacy.CraftLegacy] Initializing Legacy Material Support. Unless you have legacy plugins and/or data this is a bug!
+[01:03:27] [Server thread/WARN]: Legacy plugin McEngine v1.0 does not specify an api-version.
+[01:03:27] [Server thread/INFO]: [ProtocolLib] Loading ProtocolLib v4.7.0
+[01:03:27] [Server thread/WARN]: [ProtocolLib] Version (MC: 1.18.2) has not yet been tested! Proceed with caution.
+[01:03:27] [Server thread/INFO]: [McEngine] Loading McEngine v1.0
+[01:03:27] [Server thread/INFO]: Server permissions file permissions.yml is empty, ignoring it
+[01:03:27] [Server thread/INFO]: [ProtocolLib] Enabling ProtocolLib v4.7.0
+[01:03:27] [Server thread/INFO]: [ProtocolLib] Started structure compiler thread.
+[01:03:27] [Server thread/INFO]: Preparing level "world"
+[01:03:28] [Server thread/INFO]: -------- World Settings For [world] --------
+[01:03:28] [Server thread/INFO]: Item Merge Radius: 2.5
+[01:03:28] [Server thread/INFO]: Item Despawn Rate: 6000
+[01:03:28] [Server thread/INFO]: View Distance: 10
+[01:03:28] [Server thread/INFO]: Simulation Distance: 10
+[01:03:28] [Server thread/INFO]: Allow Zombie Pigmen to spawn from portal blocks: true
+[01:03:28] [Server thread/INFO]: Zombie Aggressive Towards Villager: true
+[01:03:28] [Server thread/INFO]: Nerfing mobs spawned from spawners: false
+[01:03:28] [Server thread/INFO]: Mob Spawn Range: 4
+[01:03:28] [Server thread/INFO]: Arrow Despawn Rate: 1200 Trident Respawn Rate:1200
+[01:03:28] [Server thread/INFO]: Experience Merge Radius: 3.0
+[01:03:28] [Server thread/INFO]: Cactus Growth Modifier: 100%
+[01:03:28] [Server thread/INFO]: Cane Growth Modifier: 100%
+[01:03:28] [Server thread/INFO]: Melon Growth Modifier: 100%
+[01:03:28] [Server thread/INFO]: Mushroom Growth Modifier: 100%
+[01:03:28] [Server thread/INFO]: Pumpkin Growth Modifier: 100%
+[01:03:28] [Server thread/INFO]: Sapling Growth Modifier: 100%
+[01:03:28] [Server thread/INFO]: Beetroot Growth Modifier: 100%
+[01:03:28] [Server thread/INFO]: Carrot Growth Modifier: 100%
+[01:03:28] [Server thread/INFO]: Potato Growth Modifier: 100%
+[01:03:28] [Server thread/INFO]: Wheat Growth Modifier: 100%
+[01:03:28] [Server thread/INFO]: NetherWart Growth Modifier: 100%
+[01:03:28] [Server thread/INFO]: Vine Growth Modifier: 100%
+[01:03:28] [Server thread/INFO]: Cocoa Growth Modifier: 100%
+[01:03:28] [Server thread/INFO]: Bamboo Growth Modifier: 100%
+[01:03:28] [Server thread/INFO]: SweetBerry Growth Modifier: 100%
+[01:03:28] [Server thread/INFO]: Kelp Growth Modifier: 100%
+[01:03:28] [Server thread/INFO]: TwistingVines Growth Modifier: 100%
+[01:03:28] [Server thread/INFO]: WeepingVines Growth Modifier: 100%
+[01:03:28] [Server thread/INFO]: CaveVines Growth Modifier: 100%
+[01:03:28] [Server thread/INFO]: GlowBerry Growth Modifier: 100%
+[01:03:28] [Server thread/INFO]: Entity Activation Range: An 32 / Mo 32 / Ra 48 / Mi 16 / Tiv true / Isa false
+[01:03:28] [Server thread/INFO]: Entity Tracking Range: Pl 48 / An 48 / Mo 48 / Mi 32 / Other 64
+[01:03:28] [Server thread/INFO]: Hopper Transfer: 8 Hopper Check: 1 Hopper Amount: 1
+[01:03:28] [Server thread/INFO]: Custom Map Seeds:  Village: 10387312 Desert: 14357617 Igloo: 14357618 Jungle: 14357619 Swamp: 14357620 Monument: 10387313 Ocean: 14357621 Shipwreck: 165745295 End City: 10387313 Slime: 987234911 Nether: 30084232 Mansion: 10387319 Fossil: 14357921 Portal: 34222645
+[01:03:28] [Server thread/INFO]: Tile Max Tick Time: 50ms Entity max Tick Time: 50ms
+[01:03:28] [Server thread/INFO]: Max TNT Explosions: 100
+[01:03:28] [Server thread/INFO]: -------- World Settings For [world_nether] --------
+[01:03:28] [Server thread/INFO]: Item Merge Radius: 2.5
+[01:03:28] [Server thread/INFO]: Item Despawn Rate: 6000
+[01:03:28] [Server thread/INFO]: View Distance: 10
+[01:03:28] [Server thread/INFO]: Simulation Distance: 10
+[01:03:28] [Server thread/INFO]: Allow Zombie Pigmen to spawn from portal blocks: true
+[01:03:28] [Server thread/INFO]: Zombie Aggressive Towards Villager: true
+[01:03:28] [Server thread/INFO]: Nerfing mobs spawned from spawners: false
+[01:03:28] [Server thread/INFO]: Mob Spawn Range: 4
+[01:03:28] [Server thread/INFO]: Arrow Despawn Rate: 1200 Trident Respawn Rate:1200
+[01:03:28] [Server thread/INFO]: Experience Merge Radius: 3.0
+[01:03:28] [Server thread/INFO]: Cactus Growth Modifier: 100%
+[01:03:28] [Server thread/INFO]: Cane Growth Modifier: 100%
+[01:03:28] [Server thread/INFO]: Melon Growth Modifier: 100%
+[01:03:28] [Server thread/INFO]: Mushroom Growth Modifier: 100%
+[01:03:28] [Server thread/INFO]: Pumpkin Growth Modifier: 100%
+[01:03:28] [Server thread/INFO]: Sapling Growth Modifier: 100%
+[01:03:28] [Server thread/INFO]: Beetroot Growth Modifier: 100%
+[01:03:28] [Server thread/INFO]: Carrot Growth Modifier: 100%
+[01:03:28] [Server thread/INFO]: Potato Growth Modifier: 100%
+[01:03:28] [Server thread/INFO]: Wheat Growth Modifier: 100%
+[01:03:28] [Server thread/INFO]: NetherWart Growth Modifier: 100%
+[01:03:28] [Server thread/INFO]: Vine Growth Modifier: 100%
+[01:03:28] [Server thread/INFO]: Cocoa Growth Modifier: 100%
+[01:03:28] [Server thread/INFO]: Bamboo Growth Modifier: 100%
+[01:03:28] [Server thread/INFO]: SweetBerry Growth Modifier: 100%
+[01:03:28] [Server thread/INFO]: Kelp Growth Modifier: 100%
+[01:03:28] [Server thread/INFO]: TwistingVines Growth Modifier: 100%
+[01:03:28] [Server thread/INFO]: WeepingVines Growth Modifier: 100%
+[01:03:28] [Server thread/INFO]: CaveVines Growth Modifier: 100%
+[01:03:28] [Server thread/INFO]: GlowBerry Growth Modifier: 100%
+[01:03:28] [Server thread/INFO]: Entity Activation Range: An 32 / Mo 32 / Ra 48 / Mi 16 / Tiv true / Isa false
+[01:03:28] [Server thread/INFO]: Entity Tracking Range: Pl 48 / An 48 / Mo 48 / Mi 32 / Other 64
+[01:03:28] [Server thread/INFO]: Hopper Transfer: 8 Hopper Check: 1 Hopper Amount: 1
+[01:03:28] [Server thread/INFO]: Custom Map Seeds:  Village: 10387312 Desert: 14357617 Igloo: 14357618 Jungle: 14357619 Swamp: 14357620 Monument: 10387313 Ocean: 14357621 Shipwreck: 165745295 End City: 10387313 Slime: 987234911 Nether: 30084232 Mansion: 10387319 Fossil: 14357921 Portal: 34222645
+[01:03:28] [Server thread/INFO]: Tile Max Tick Time: 50ms Entity max Tick Time: 50ms
+[01:03:28] [Server thread/INFO]: Max TNT Explosions: 100
+[01:03:28] [Server thread/INFO]: -------- World Settings For [world_the_end] --------
+[01:03:28] [Server thread/INFO]: Item Merge Radius: 2.5
+[01:03:28] [Server thread/INFO]: Item Despawn Rate: 6000
+[01:03:28] [Server thread/INFO]: View Distance: 10
+[01:03:28] [Server thread/INFO]: Simulation Distance: 10
+[01:03:28] [Server thread/INFO]: Allow Zombie Pigmen to spawn from portal blocks: true
+[01:03:28] [Server thread/INFO]: Zombie Aggressive Towards Villager: true
+[01:03:28] [Server thread/INFO]: Nerfing mobs spawned from spawners: false
+[01:03:28] [Server thread/INFO]: Mob Spawn Range: 4
+[01:03:28] [Server thread/INFO]: Arrow Despawn Rate: 1200 Trident Respawn Rate:1200
+[01:03:28] [Server thread/INFO]: Experience Merge Radius: 3.0
+[01:03:28] [Server thread/INFO]: Cactus Growth Modifier: 100%
+[01:03:28] [Server thread/INFO]: Cane Growth Modifier: 100%
+[01:03:28] [Server thread/INFO]: Melon Growth Modifier: 100%
+[01:03:28] [Server thread/INFO]: Mushroom Growth Modifier: 100%
+[01:03:28] [Server thread/INFO]: Pumpkin Growth Modifier: 100%
+[01:03:28] [Server thread/INFO]: Sapling Growth Modifier: 100%
+[01:03:28] [Server thread/INFO]: Beetroot Growth Modifier: 100%
+[01:03:28] [Server thread/INFO]: Carrot Growth Modifier: 100%
+[01:03:28] [Server thread/INFO]: Potato Growth Modifier: 100%
+[01:03:28] [Server thread/INFO]: Wheat Growth Modifier: 100%
+[01:03:28] [Server thread/INFO]: NetherWart Growth Modifier: 100%
+[01:03:28] [Server thread/INFO]: Vine Growth Modifier: 100%
+[01:03:28] [Server thread/INFO]: Cocoa Growth Modifier: 100%
+[01:03:28] [Server thread/INFO]: Bamboo Growth Modifier: 100%
+[01:03:28] [Server thread/INFO]: SweetBerry Growth Modifier: 100%
+[01:03:28] [Server thread/INFO]: Kelp Growth Modifier: 100%
+[01:03:28] [Server thread/INFO]: TwistingVines Growth Modifier: 100%
+[01:03:28] [Server thread/INFO]: WeepingVines Growth Modifier: 100%
+[01:03:28] [Server thread/INFO]: CaveVines Growth Modifier: 100%
+[01:03:28] [Server thread/INFO]: GlowBerry Growth Modifier: 100%
+[01:03:28] [Server thread/INFO]: Entity Activation Range: An 32 / Mo 32 / Ra 48 / Mi 16 / Tiv true / Isa false
+[01:03:28] [Server thread/INFO]: Entity Tracking Range: Pl 48 / An 48 / Mo 48 / Mi 32 / Other 64
+[01:03:28] [Server thread/INFO]: Hopper Transfer: 8 Hopper Check: 1 Hopper Amount: 1
+[01:03:28] [Server thread/INFO]: Custom Map Seeds:  Village: 10387312 Desert: 14357617 Igloo: 14357618 Jungle: 14357619 Swamp: 14357620 Monument: 10387313 Ocean: 14357621 Shipwreck: 165745295 End City: 10387313 Slime: 987234911 Nether: 30084232 Mansion: 10387319 Fossil: 14357921 Portal: 34222645
+[01:03:28] [Server thread/INFO]: Tile Max Tick Time: 50ms Entity max Tick Time: 50ms
+[01:03:28] [Server thread/INFO]: Max TNT Explosions: 100
+[01:03:28] [Server thread/INFO]: Preparing start region for dimension minecraft:overworld
+[01:03:28] [Server thread/INFO]: Time elapsed: 142 ms
+[01:03:28] [Server thread/INFO]: Preparing start region for dimension minecraft:the_nether
+[01:03:28] [Server thread/INFO]: Time elapsed: 88 ms
+[01:03:28] [Server thread/INFO]: Preparing start region for dimension minecraft:the_end
+[01:03:28] [Server thread/INFO]: Time elapsed: 43 ms
+[01:03:28] [Server thread/INFO]: [McEngine] Enabling McEngine v1.0*
+[01:03:28] [Server thread/INFO]: [org.reflections.Reflections] Reflections took 58 ms to scan 1 urls, producing 3 keys and 27 values
+[01:03:29] [Server thread/INFO]: [45m[34mLoaded animation: Default!
+[01:03:29] [Server thread/INFO]: Running delayed init tasks
+[01:03:29] [Server thread/INFO]: Done (4.906s)! For help, type "help"
+[01:03:29] [Server thread/INFO]: Timings Reset
+[01:03:29] [Server thread/WARN]: UUID of added entity already exists: EntitySheep['Sheep'/12, uuid='6fa85b91-b45a-4f31-ad48-f8705601a391', l='ServerLevel[world]', x=-94.53, y=65.00, z=-83.83, cpos=[-6, -6], tl=53702, v=false]
+[01:03:29] [Server thread/WARN]: UUID of added entity already exists: EntityCow['Cow'/21, uuid='3567a2d2-5447-4d70-8d1b-295c7aebe08a', l='ServerLevel[world]', x=-94.13, y=71.00, z=35.21, cpos=[-6, 2], tl=17686, v=false]
+[01:03:29] [Server thread/WARN]: UUID of added entity already exists: EntitySheep['Sheep'/28, uuid='6fa85b91-b45a-4f31-ad48-f8705601a391', l='ServerLevel[world]', x=-70.75, y=70.00, z=-67.77, cpos=[-5, -5], tl=95703, v=false]
+[01:03:29] [Server thread/WARN]: UUID of added entity already exists: EntitySheep['Sheep'/30, uuid='6fa85b91-b45a-4f31-ad48-f8705601a391', l='ServerLevel[world]', x=-67.77, y=72.00, z=-43.74, cpos=[-5, -3], tl=125705, v=false]
+[01:03:29] [Server thread/WARN]: UUID of added entity already exists: EntitySheep['Sheep'/35, uuid='6fa85b91-b45a-4f31-ad48-f8705601a391', l='ServerLevel[world]', x=-59.54, y=66.00, z=-84.41, cpos=[-4, -6], tl=71702, v=false]
+[01:03:29] [Server thread/WARN]: UUID of added entity already exists: EntityPig['Pig'/36, uuid='45821f12-60f4-4faa-8aaa-1448f1380766', l='ServerLevel[world]', x=-63.22, y=70.00, z=-68.51, cpos=[-4, -5], tl=35752, v=false]
+[01:03:29] [Server thread/WARN]: UUID of added entity already exists: EntitySheep['Sheep'/37, uuid='a6095d81-6434-4f52-af54-6c6479db220c', l='ServerLevel[world]', x=-61.36, y=70.00, z=-71.39, cpos=[-4, -5], tl=41703, v=false]
+[01:03:29] [Server thread/WARN]: UUID of added entity already exists: EntitySheep['Sheep'/38, uuid='6fa85b91-b45a-4f31-ad48-f8705601a391', l='ServerLevel[world]', x=-60.95, y=72.00, z=-49.05, cpos=[-4, -4], tl=119704, v=false]
+[01:03:29] [Server thread/WARN]: UUID of added entity already exists: EntityPig['Pig'/39, uuid='45821f12-60f4-4faa-8aaa-1448f1380766', l='ServerLevel[world]', x=-58.83, y=71.00, z=-61.78, cpos=[-4, -4], tl=107753, v=false]
+[01:03:29] [Server thread/WARN]: UUID of added entity already exists: EntityChicken['Chicken'/40, uuid='1b1417cf-4cf6-4cf3-bba8-e8fcb0031897', l='ServerLevel[world]', x=-61.83, y=70.00, z=30.23, cpos=[-4, 1], tl=11811, v=false]
+[01:03:29] [Server thread/WARN]: UUID of added entity already exists: EntityPig['Pig'/42, uuid='539400d9-ac60-49f4-84a0-e9699bb44c56', l='ServerLevel[world]', x=-58.66, y=66.00, z=83.81, cpos=[-4, 5], tl=17771, v=false]
+[01:03:29] [Server thread/WARN]: UUID of added entity already exists: EntityPig['Pig'/45, uuid='45821f12-60f4-4faa-8aaa-1448f1380766', l='ServerLevel[world]', x=-47.21, y=70.00, z=-61.56, cpos=[-3, -4], tl=59753, v=false]
+[01:03:29] [Server thread/WARN]: UUID of added entity already exists: EntityPig['Pig'/46, uuid='6b28479e-b236-4eb4-967e-35b666f23ef3', l='ServerLevel[world]', x=-47.28, y=64.00, z=120.29, cpos=[-3, 7], tl=11628, v=false]
+[01:03:29] [Server thread/WARN]: UUID of added entity already exists: EntityChicken['Chicken'/56, uuid='8da2f4ff-0787-4121-ab7b-3fb6f4d89265', l='ServerLevel[world]', x=-11.18, y=73.00, z=-20.86, cpos=[-1, -2], tl=53751, v=false]
+[01:03:29] [Server thread/WARN]: UUID of added entity already exists: EntityChicken['Chicken'/59, uuid='ceecedcd-98f4-49e0-b790-7fc40af1adbd', l='ServerLevel[world]', x=-6.87, y=73.00, z=-30.52, cpos=[-1, -2], tl=53751, v=false]
+[01:03:29] [Server thread/WARN]: UUID of added entity already exists: EntityWolf['Wolf'/60, uuid='b58aa17a-08fc-4fcc-b4d8-3638e1e43aa2', l='ServerLevel[world]', x=-13.50, y=71.00, z=21.59, cpos=[-1, 1], tl=11823, v=false]
+[01:03:29] [Server thread/WARN]: UUID of added entity already exists: EntitySheep['Sheep'/70, uuid='36ffc1be-6525-4158-a98c-1b526f78f4b7', l='ServerLevel[world]', x=2.10, y=71.00, z=-37.76, cpos=[0, -3], tl=47815, v=false]
+[01:03:29] [Server thread/WARN]: UUID of added entity already exists: EntityPig['Pig'/80, uuid='431dfb14-3f05-46d3-928d-ac4c7648a628', l='ServerLevel[world]', x=36.97, y=61.00, z=-60.48, cpos=[2, -4], tl=11741, v=false]
+[01:03:29] [Server thread/WARN]: UUID of added entity already exists: EntitySheep['Sheep'/84, uuid='00afacd5-286a-43d1-9216-281f74eeb171', l='ServerLevel[world]', x=58.16, y=64.00, z=-131.16, cpos=[3, -9], tl=71680, v=false]
+[01:03:29] [Server thread/WARN]: UUID of added entity already exists: EntitySheep['Sheep'/85, uuid='7d5c5942-c050-4ead-986c-807b3e613d33', l='ServerLevel[world]', x=57.76, y=65.00, z=-92.28, cpos=[3, -6], tl=59693, v=false]
+[01:03:29] [Server thread/WARN]: UUID of added entity already exists: EntitySheep['Sheep'/86, uuid='7d5c5942-c050-4ead-986c-807b3e613d33', l='ServerLevel[world]', x=59.09, y=65.00, z=-104.93, cpos=[3, -7], tl=89692, v=false]
+[01:03:29] [Server thread/WARN]: UUID of added entity already exists: EntitySheep['Sheep'/91, uuid='7d5c5942-c050-4ead-986c-807b3e613d33', l='ServerLevel[world]', x=66.78, y=65.00, z=-87.11, cpos=[4, -6], tl=71693, v=false]
+[01:03:29] [Server thread/WARN]: UUID of added entity already exists: EntitySheep['Sheep'/97, uuid='d7ee9701-b20c-46e8-87df-b0994b16be84', l='ServerLevel[world]', x=83.80, y=68.00, z=-57.56, cpos=[5, -4], tl=77695, v=false]
+[01:03:29] [Server thread/WARN]: UUID of added entity already exists: EntityCow['Cow'/102, uuid='8eea7608-4e32-4975-b8d1-698e7345b630', l='ServerLevel[world]', x=108.63, y=65.00, z=-46.50, cpos=[6, -3], tl=111192, v=false]
+[01:03:29] [Server thread/WARN]: UUID of added entity already exists: EntitySheep['Sheep'/104, uuid='d7ee9701-b20c-46e8-87df-b0994b16be84', l='ServerLevel[world]', x=98.78, y=71.00, z=-9.52, cpos=[6, -1], tl=107698, v=false]
+[01:03:29] [Server thread/WARN]: UUID of added entity already exists: EntityPig['Pig'/110, uuid='6293e622-d840-40ab-8130-cf25365bbcf4', l='ServerLevel[world]', x=117.45, y=62.39, z=-46.74, cpos=[7, -3], tl=111192, v=false]
+[01:03:29] [Server thread/WARN]: UUID of added entity already exists: EntitySheep['Sheep'/116, uuid='7c5ce98b-1ce1-490a-9071-e7f1e87cdc44', l='ServerLevel[world]', x=140.20, y=71.00, z=-83.85, cpos=[8, -6], tl=59625, v=false]
+[01:03:29] [Server thread/WARN]: UUID of added entity already exists: EntityPig['Pig'/117, uuid='207f9db4-6571-4375-a825-02045efdfb62', l='ServerLevel[world]', x=141.23, y=71.00, z=-85.23, cpos=[8, -6], tl=71572, v=false]
+[01:03:29] [Server thread/WARN]: UUID of added entity already exists: EntitySheep['Sheep'/118, uuid='09892c71-eb87-4d6e-be5c-289a593ebb53', l='ServerLevel[world]', x=138.18, y=72.00, z=-48.25, cpos=[8, -4], tl=83628, v=false]
+[01:03:29] [Server thread/WARN]: UUID of added entity already exists: EntityPig['Pig'/119, uuid='1755cca2-1027-4ef3-b7df-e50f29287bb2', l='ServerLevel[world]', x=138.15, y=74.00, z=-36.23, cpos=[8, -3], tl=101734, v=false]
+[01:03:29] [Server thread/WARN]: UUID of added entity already exists: EntityPig['Pig'/125, uuid='947efb0c-8bbc-4191-b689-3c821e90c136', l='ServerLevel[world]', x=143.99, y=67.00, z=129.32, cpos=[8, 8], tl=11553, v=false]
+[01:03:29] [Server thread/WARN]: UUID of added entity already exists: EntitySheep['Sheep'/134, uuid='7c5ce98b-1ce1-490a-9071-e7f1e87cdc44', l='ServerLevel[world]', x=157.36, y=74.00, z=-51.65, cpos=[9, -4], tl=83627, v=false]
+[01:03:29] [Server thread/WARN]: UUID of added entity already exists: EntityPig['Pig'/139, uuid='947efb0c-8bbc-4191-b689-3c821e90c136', l='ServerLevel[world]', x=152.26, y=72.00, z=91.23, cpos=[9, 5], tl=77550, v=false]
+[01:03:29] [Server thread/WARN]: UUID of added entity already exists: EntityPig['Pig'/144, uuid='0c394531-7c05-49d3-97b4-963143f160fa', l='ServerLevel[world]', x=152.61, y=70.00, z=113.45, cpos=[9, 7], tl=11589, v=false]
+[01:03:29] [Server thread/WARN]: UUID of added entity already exists: EntityPig['Pig'/187, uuid='98cbfbfc-b7cc-43d8-9e6a-b5acf5dedb6c', l='ServerLevel[world]', x=76.45, y=64.00, z=160.51, cpos=[4, 10], tl=6821, v=false]
+[01:03:35] [User Authenticator #1/INFO]: UUID of player shmezi is 8b33b9e1-da73-446b-a70b-788191cc2c59
+[01:03:36] [Server thread/INFO]: §eshmezi joined the game
+[01:03:36] [Server thread/INFO]: shmezi[/127.0.0.1:63194] logged in with entity id 235 at ([world]400.22298134745654, 78.0, -559.0651411830771)
+[01:03:39] [Server thread/INFO]: shmezi issued server command: /pl
+[01:03:44] [Server thread/INFO]: shmezi issued server command: /tool getitem
+[01:03:44] [Server thread/INFO]: null
+[01:03:46] [Server thread/INFO]: shmezi issued server command: /tool getitem
+[01:03:46] [Server thread/INFO]: null
+[01:03:47] [Server thread/INFO]: shmezi issued server command: /
+[01:04:56] [Server thread/INFO]: shmezi lost connection: Disconnected
+[01:04:57] [Server thread/INFO]: §eshmezi left the game

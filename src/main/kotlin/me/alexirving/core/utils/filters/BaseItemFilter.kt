@@ -14,7 +14,7 @@ class BaseItemFilter : FileFilter {
             try {
                 gson.fromJson(BufferedReader(FileReader(f)), f::class.java)
                 true
-            } catch (ignored: JsonSyntaxException) {
+            } catch (ignored: Exception) {
                 false
             }
         else
