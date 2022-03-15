@@ -1,9 +1,12 @@
-package me.alexirving.core.animation.objects
-/* Copyright (C) AlexIrving - All Rights Reserved
+/*
+ * (C) 15/03/2022, 0:33 - Alex Irving | All rights reserved
+ * Animation.kt - is part of the McEngine!
  * Unauthorized copying of this file, via any medium is strictly prohibited
  * Proprietary and confidential
- * Written by Alex Irving <alexirving992@gmail.com>, February 2022
+ * Written by Alex Irving <alexirving992@gmail.com>, day month year
  */
+package me.alexirving.core.animation.objects
+
 import org.bukkit.entity.EntityType
 
 
@@ -13,4 +16,8 @@ import org.bukkit.entity.EntityType
  * @param sequence The frames of the animation.
  * @param standNames The names of the armor stands to be used in the animation.
  */
-class Animation(val standNames: MutableMap<String, EntityType>, val sequence: MutableList<Frame>, val frameDelay: Int)
+data class Animation(
+    val standNames: MutableMap<String, EntityType>,
+    val sequence: MutableList<Frame>,
+    val frameDelay: Int
+)

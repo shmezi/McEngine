@@ -1,9 +1,12 @@
-package me.alexirving.core.commands
-/* Copyright (C) AlexIrving - All Rights Reserved
+/*
+ * (C) 15/03/2022, 0:33 - Alex Irving | All rights reserved
+ * AnimationCMD.kt - is part of the McEngine!
  * Unauthorized copying of this file, via any medium is strictly prohibited
  * Proprietary and confidential
- * Written by Alex Irving <alexirving992@gmail.com>, February 2022
+ * Written by Alex Irving <alexirving992@gmail.com>, day month year
  */
+package me.alexirving.core.commands
+
 import me.alexirving.core.McEngine
 import me.alexirving.core.animation.AnimationManager
 import me.alexirving.core.animation.objects.AnimationSession
@@ -14,7 +17,7 @@ import org.bukkit.command.CommandSender
 import org.bukkit.command.TabExecutor
 import org.bukkit.entity.Player
 
-class AnimationCMD(val pl: McEngine, val am: AnimationManager) : TabExecutor {
+class AnimationCMD(val pl: McEngine) : TabExecutor {
     val c = mutableListOf("North", "South", "East", "West")
 
     override fun onCommand(
@@ -24,7 +27,7 @@ class AnimationCMD(val pl: McEngine, val am: AnimationManager) : TabExecutor {
         args: Array<out String>
     ): Boolean {
         if (args.size > 5) {
-            val tani = am.getAnimation(args[0])
+            val tani = pl.am.getAnimation(args[0])
             if (tani != null) {
                 if (Bukkit.getWorld(args[1]) != null) {
                     if (doubleListCheck(arrayOf(args[2], args[3], args[4]))) {
@@ -72,7 +75,7 @@ class AnimationCMD(val pl: McEngine, val am: AnimationManager) : TabExecutor {
             val player: Player = sender
 
             return when (args.size) {
-                1 -> am.getAnimationNames().toMutableList()
+                1 -> pl.am.getAnimationNames().toMutableList()
                 2 -> mutableListOf(player.world.name)
                 3 -> mutableListOf(player.getTargetBlock(setOf(null), 200).x.toString())
                 4 -> mutableListOf(player.getTargetBlock(setOf(null), 200).y.toString())

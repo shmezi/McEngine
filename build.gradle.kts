@@ -1,3 +1,10 @@
+/*
+ * (C) 15/03/2022, 0:33 - Alex Irving | All rights reserved
+ * build.gradle.kts - is part of the McEngine!
+ * Unauthorized copying of this file, via any medium is strictly prohibited
+ * Proprietary and confidential
+ * Written by Alex Irving <alexirving992@gmail.com>, day month year
+ */
 plugins {
     kotlin("jvm") version "1.6.10"
     id("com.github.johnrengelman.shadow") version "7.0.0"
@@ -24,8 +31,9 @@ dependencies {
     compileOnly("org.spigotmc", "spigot-api", "1.8.8-R0.1-SNAPSHOT")
     implementation("dev.triumphteam", "triumph-gui", "3.1.1")
     implementation("org.reflections:reflections:0.10.2")
+    implementation("ch.qos.logback:logback-classic:1.3.0-alpha14")
+
     compileOnly("com.comphenix.protocol", "ProtocolLib", "4.7.0")
-    implementation("ch.qos.logback:logback-classic:1.2.11")
     compileOnly("me.mattstudios.utils:matt-framework:1.4.6")
     compileOnly("com.sk89q.worldguard:worldguard-bukkit:7.0.0")
     compileOnly("com.comphenix.protocol", "ProtocolLib", "4.7.0")

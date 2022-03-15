@@ -1,15 +1,25 @@
 {
+  "players": {
+    "default": {
+      "material": "",
+      "shiny": false
+    }
+  },
   "displayName": "Super pickaxe",
   "lore": [
     "A cool pickaxe!",
-    "{enchants}",
+    "%enchants%",
     "$speed$"
   ],
-  "material": "DIAMOND_PICKAXE",
+  "material": "%material%",
   "groups": {
     "enchant": 10
   },
   "placeholders": {
+    "material": [
+      "DIAMOND_PICKAXE",
+      ""
+    ],
     "speed": [
       "",
       "Gives a speed boost!"

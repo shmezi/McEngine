@@ -1,11 +1,13 @@
-package me.alexirving.core.animation.objects
-/* Copyright (C) AlexIrving - All Rights Reserved
+/*
+ * (C) 15/03/2022, 0:33 - Alex Irving | All rights reserved
+ * AnimationSession.kt - is part of the McEngine!
  * Unauthorized copying of this file, via any medium is strictly prohibited
  * Proprietary and confidential
- * Written by Alex Irving <alexirving992@gmail.com>, February 2022
+ * Written by Alex Irving <alexirving992@gmail.com>, day month year
  */
+package me.alexirving.core.animation.objects
+
 import me.alexirving.core.McEngine
-import me.alexirving.core.animation.objects.Animation
 import me.alexirving.core.animation.utils.Direction
 import org.bukkit.Location
 import org.bukkit.entity.Player
@@ -17,7 +19,7 @@ import org.bukkit.entity.Player
  * @param location The [Location] that this session is playing at.
  * @param animation The [Animation] that this session is playing.
  */
-class AnimationSession(
+data class AnimationSession(
     private val pl: McEngine,
     private val viewers: MutableList<Player>,
     private val location: Location,
