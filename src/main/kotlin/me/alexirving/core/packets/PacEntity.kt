@@ -9,6 +9,7 @@ package me.alexirving.core.packets
 
 import com.comphenix.protocol.PacketType
 import com.comphenix.protocol.events.PacketContainer
+import com.comphenix.protocol.utility.MinecraftVersion
 import com.comphenix.protocol.wrappers.WrappedDataWatcher
 import org.bukkit.ChatColor
 import org.bukkit.Location
@@ -20,28 +21,55 @@ import kotlin.math.floor
 class PacEntity(id: Int, viewers: MutableList<Player>, val type: EntityType) : Packet(id, viewers) {
 
     fun tp(location: Location): PacEntity {
-        val pac = buildBasic(PacketType.Play.Server.ENTITY_TELEPORT)
-        pac.integers.writeSafely(1, floor(location.x * 32.0).toInt())
-        pac.integers.writeSafely(2, floor(location.y * 32.0).toInt())
-        pac.integers.writeSafely(3, floor(location.z * 32.0).toInt())
-        pac.bytes.writeSafely(0, (location.yaw * 256.0f / 360.0f).toInt().toByte())
-        pac.bytes.writeSafely(1, (location.pitch * 256.0f / 360.0f).toInt().toByte())
+        val pac = buildBasic(PacketType.Play.Server.ENTITY_TELEPORT).apply {
+            if (PacketManager.version.isAtLeast(MinecraftVersion.COMBAT_UPDATE))
+                doubles.apply {
+                    writeSafely(1, location.x * 32.0)
+                    writeSafely(2, location.y * 32.0)
+                    writeSafely(3, location.z * 32.0)
+                }
+            else
+                integers.apply {
+                    writeSafely(1, floor(location.x * 32.0).toInt())
+                    writeSafely(2, floor(location.y * 32.0).toInt())
+                    writeSafely(3, floor(location.z * 32.0).toInt())
+                }
+
+
+            bytes.apply {
+                writeSafely(0, (location.yaw * 256.0f / 360.0f).toInt().toByte())
+                writeSafely(1, (location.pitch * 256.0f / 360.0f).toInt().toByte())
+            }
+        }
         sendPackets(pac)
         return this
     }
 
     fun spawn(location: Location): PacEntity {
-        val pac = buildBasic(PacketType.Play.Server.SPAWN_ENTITY_LIVING)
-        pac.integers.writeSafely(1, type.typeId.toInt())
-        pac.integers.writeSafely(2, floor(location.x * 32.0).toInt())
-        pac.integers.writeSafely(3, floor(location.y * 32.0).toInt())
-        pac.integers.writeSafely(4, floor(location.z * 32.0).toInt())
+        val pac = buildBasic(PacketType.Play.Server.SPAWN_ENTITY_LIVING).apply {
+            if (PacketManager.version.isAtLeast(MinecraftVersion.COMBAT_UPDATE))
+                doubles.apply {
+                    writeSafely(2, location.x * 32.0)
+                    writeSafely(3, location.y * 32.0)
+                    writeSafely(4, location.z * 32.0)
+                }
+            else
+                integers.apply {
+                    writeSafely(2, floor(location.x * 32.0).toInt())
+                    writeSafely(3, floor(location.y * 32.0).toInt())
+                    writeSafely(4, floor(location.z * 32.0).toInt())
+                }
+            if (PacketManager.version.isAtLeast(MinecraftVersion.AQUATIC_UPDATE)) {
+
+            }
+        }
+        pac.bytes.writeSafely(0, type.typeId.toByte())
         pac.integers.writeSafely(5, (location.x * 8000.0).toInt())
         pac.integers.writeSafely(6, (location.y * 8000.0).toInt())
         pac.integers.writeSafely(7, (location.z * 8000.0).toInt())
-        pac.bytes.writeSafely(0, (((location.yaw * 256F) / 360F)).toInt().toByte())
-        pac.bytes.writeSafely(1, (((location.pitch * 256F) / 360F)).toInt().toByte())
+        pac.bytes.writeSafely(1, (((location.yaw * 256F) / 360F)).toInt().toByte())
         pac.bytes.writeSafely(2, (((location.pitch * 256F) / 360F)).toInt().toByte())
+        pac.bytes.writeSafely(3, (((location.pitch * 256F) / 360F)).toInt().toByte())
         pac.dataWatcherModifier.writeSafely(0, WrappedDataWatcher())
         sendPackets(pac)
         return this

@@ -7,6 +7,8 @@
  */
 package me.alexirving.core.packets
 
+import com.comphenix.protocol.ProtocolLibrary
+import com.comphenix.protocol.utility.MinecraftVersion
 import org.bukkit.Location
 import org.bukkit.entity.EntityType
 import org.bukkit.entity.Player
@@ -17,12 +19,19 @@ import org.bukkit.inventory.ItemStack
  */
 class PacketManager {
     private val packetMap = mutableMapOf<Int, Packet>() //A map to reference the packets by their id
+
+    companion object {
+        val version: MinecraftVersion = ProtocolLibrary.getProtocolManager().minecraftVersion
+    }
+
     var idCounter = 0
     fun spawn(type: EntityType, viewers: MutableList<Player>, location: Location): Int {
         packetMap[idCounter] = PacEntity(idCounter, viewers, type).spawn(location.clone().add(0.5, -1.2, 0.5))
         setInvisible(idCounter)
         return idCounter++
+
     }
+
 
     fun tp(id: Int, location: Location) {
         (packetMap[id] as PacEntity? ?: return).tp(location)
