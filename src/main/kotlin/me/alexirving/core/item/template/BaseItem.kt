@@ -14,6 +14,7 @@ import org.bukkit.inventory.ItemStack
 import java.io.BufferedReader
 import java.io.File
 import java.io.FileReader
+import java.util.*
 
 /**
  * [BaseItem] represents an item template that can be easily modified.
@@ -34,6 +35,6 @@ class BaseItem(
         fun fromJson(f: File): BaseItem = g.fromJson(BufferedReader(FileReader(f)), BaseItem::class.java)
     }
 
-    fun asInstance(item: ItemStack) = InstanceItem(this, item)
-    fun asInstance() = InstanceItem(this, ItemStack(material))
+    fun asInstance(item: ItemStack, uuid: UUID) = InstanceItem(this, uuid)
+    fun asInstance() = InstanceItem(this, UUID.randomUUID())
 }
