@@ -10,7 +10,9 @@ package me.alexirving.core
 import me.alexirving.core.animation.AnimationManager
 import me.alexirving.core.commands.AnimationCMD
 import me.alexirving.core.commands.Tool
-import me.alexirving.core.legacyItems.ItemManager
+import me.alexirving.core.econemy.EcoManager
+import me.alexirving.core.hooks.Papi
+import me.alexirving.core.legacyItems.LegacyItemManager
 import me.alexirving.core.utils.copyOver
 import org.bstats.bukkit.Metrics
 import org.bukkit.configuration.file.YamlConfiguration
@@ -20,24 +22,48 @@ import  me.alexirving.core.item.ItemManager as Im
 
 class McEngine : JavaPlugin() {
 
-    val im = ItemManager()
+    val lim = LegacyItemManager()
     lateinit var am: AnimationManager
+    val em = EcoManager()
     override fun onEnable() {
+
+        /**
+         * Basic startup
+         */
         McEngineAPI.instance = this
         saveDefaultConfig()
-        Im.reload(File(dataFolder, "items"))
         Metrics(this, 14580)
         copyOver(dataFolder, "items.yml", "animations", "items", "animations/Default.yml", "items/SuperPick.json")
-        im.reload(YamlConfiguration.loadConfiguration(File(dataFolder, "items.yml")))
+        if (server.pluginManager.getPlugin("PlaceholderAPI") != null)
+            Papi(this).register()
+
+        /**
+         * Eco setup
+         */
+        if (server.pluginManager.getPlugin("Vault") != null)
+
+
+        /*
+         * Managers loading
+         */
+            Im.reload(File(dataFolder, "items"))
+        lim.reload(YamlConfiguration.loadConfiguration(File(dataFolder, "items.yml")))
         this.am = AnimationManager(File(dataFolder, "animations"), this)
+
+        /**
+         * Commands
+         */
         getCommand("tool").executor = Tool()
         getCommand("animation").executor = AnimationCMD(this)
+
+
     }
 
     fun reload() {
-        im.reload(YamlConfiguration.loadConfiguration(File(dataFolder, "items.yml")))
+        lim.reload(YamlConfiguration.loadConfiguration(File(dataFolder, "items.yml")))
         am.reload()
         reloadConfig()
+        Im.reload(File(dataFolder, "items"))
     }
 
 }

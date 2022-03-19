@@ -14,10 +14,10 @@ import org.bukkit.configuration.ConfigurationSection
 import org.bukkit.configuration.file.FileConfiguration
 import org.bukkit.inventory.ItemStack
 
-class ItemManager {
+class LegacyItemManager {
     private val loadedItems = HashMap<String, ItemStack>()
 
-    fun reload(vararg itemConfigs: FileConfiguration): ItemManager {
+    fun reload(vararg itemConfigs: FileConfiguration): LegacyItemManager {
         loadedItems.clear()
         for (config in itemConfigs)
             load(config)

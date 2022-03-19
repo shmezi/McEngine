@@ -24,32 +24,39 @@ repositories {
     maven("https://libraries.minecraft.net/")
     maven("https://maven.enginehub.org/repo/")
     maven("https://repo.codemc.org/repository/maven-public/")
+    maven("https://repo.extendedclip.com/content/repositories/placeholderapi/")
+    maven("https://jitpack.io")
 }
 
 dependencies {
     implementation("org.jetbrains.kotlin:kotlin-stdlib:1.6.0")
-    compileOnly("org.spigotmc", "spigot-api", "1.8.8-R0.1-SNAPSHOT")
-    implementation("dev.triumphteam", "triumph-gui", "3.1.1")
     implementation("org.reflections:reflections:0.10.2")
     implementation("ch.qos.logback:logback-classic:1.3.0-alpha14")
+    compileOnly("org.spigotmc", "spigot-api", "1.8.8-R0.1-SNAPSHOT")
 
-    compileOnly("com.comphenix.protocol", "ProtocolLib", "4.7.0")
+    /**
+     * Frameworks
+     */
+    implementation("dev.triumphteam", "triumph-gui", "3.1.1")
     compileOnly("me.mattstudios.utils:matt-framework:1.4.6")
-    compileOnly("com.sk89q.worldguard:worldguard-bukkit:7.0.0")
-    compileOnly("com.comphenix.protocol", "ProtocolLib", "4.7.0")
-    implementation("org.bstats:bstats-bukkit:3.0.0")
     implementation("de.tr7zw:item-nbt-api:2.9.2")
 
     /**
-     * Hooks
+     * Plugin hooks:
      */
     implementation("com.sk89q.worldedit", "worldedit-bukkit", "7.0.0")
+    implementation("org.bstats:bstats-bukkit:3.0.0")
+    compileOnly("com.sk89q.worldguard:worldguard-bukkit:7.0.0")
+    compileOnly("com.comphenix.protocol", "ProtocolLib", "4.7.0")
+    compileOnly("me.clip:placeholderapi:2.11.1")
+    compileOnly("com.comphenix.protocol", "ProtocolLib", "4.7.0")
+    compileOnly("com.github.MilkBowl:VaultAPI:1.7")
 }
 tasks {
     shadowJar {
         relocate("dev.triumphteam.gui", "me.alexirving.core.gui")
         relocate("org.bstats", "me.alexirving.core.bstats")
-        relocate("de.tr7zw.changeme.nbtapi","me.alexirving.core.nbtapi")
+        relocate("de.tr7zw.changeme.nbtapi", "me.alexirving.core.nbtapi")
 
     }
     runServer {

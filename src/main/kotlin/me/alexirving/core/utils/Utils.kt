@@ -48,7 +48,7 @@ fun copyOver(dataFolder: File, vararg fileNames: String) {
  * Guarantees a number above 0
  */
 fun Int.nBZ() = if (this < 0) 0 else this
-
+fun Double.nBZ() = if (this < 0) 0.0 else this
 private val exe = Executors.newCachedThreadPool()
 
 /**
@@ -58,3 +58,4 @@ private val exe = Executors.newCachedThreadPool()
 fun asyncNonBukkit(task: Runnable?) {
     exe.submit(task)
 }
+

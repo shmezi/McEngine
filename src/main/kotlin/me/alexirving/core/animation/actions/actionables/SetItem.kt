@@ -16,7 +16,7 @@ import org.bukkit.Location
 class SetItem(pl: McEngine, args: List<String>) : Action(pl, args) {
 
     override fun run(session: AnimationSession, zeroPoint: Location, direction: Direction) {
-        pl.am.pm.setItem(session.standMap[args[0]]!!, args[1].toInt(), pl.im.getItem(args[2]))
+        pl.am.pm.setItem(session.standMap[args[0]]!!, args[1].toInt(), pl.lim.getItem(args[2]))
 
     }
 }

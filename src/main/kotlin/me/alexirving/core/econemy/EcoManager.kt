@@ -36,7 +36,7 @@ class EcoManager {
             val e = Economy(name)
             psQuery("SELECT * FROM `$name`;") {
                 while (it.next())
-                    e.setBal(UUID.fromString(it.getString("uuid")), it.getInt("balance"))
+                    e.setBal(UUID.fromString(it.getString("uuid")), it.getDouble("balance"))
             }
             ecos[name] = e
         }

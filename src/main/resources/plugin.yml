@@ -13,4 +13,4 @@ commands:
     permission: mcengine.animation.useObfuscate
   McEngineReloadCMD:
     permission: mcengine.reload
-softdepend: [ WorldEdit ]
+softdepend: [ WorldEdit, PlaceholderAPI, Vault ]

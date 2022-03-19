@@ -12,18 +12,18 @@ import me.alexirving.core.utils.nBZ
 import java.util.*
 
 class Economy(val id: String) {
-    private val ecoMap = mutableMapOf<UUID, Int>()
-    fun setBal(uuid: UUID, eco: Int): Int {
+    private val ecoMap = mutableMapOf<UUID, Double>()
+    fun setBal(uuid: UUID, eco: Double): Double {
         ecoMap[uuid] = eco
         psExec("INSERT INTO `$id` values (`$uuid`, `$eco`) ON DUPLICATE KEY UPDATE `$uuid` = `$eco`;")
-        return ecoMap[uuid] ?: 0
+        return ecoMap[uuid] ?: 0.0
     }
 
-    fun getBal(player: UUID): Int = ecoMap[player] ?: 0
+    fun getBal(player: UUID): Double = ecoMap[player] ?: 0.0
 
-    fun addBal(player: UUID, add: Int) = setBal(player, getBal(player) + add)
+    fun addBal(player: UUID, add: Double) = setBal(player, getBal(player) + add)
 
-    fun subBal(player: UUID, remove: Int) = setBal(player, (getBal(player) - remove).nBZ())
+    fun subBal(player: UUID, remove: Double) = setBal(player, (getBal(player) - remove).nBZ())
 
 
 }
