@@ -8,14 +8,23 @@
 package me.alexirving.core.utils
 
 
+import de.tr7zw.changeme.nbtapi.NBTItem
+import dev.triumphteam.gui.builder.item.ItemBuilder
 import me.alexirving.core.McEngine
+import net.kyori.adventure.text.minimessage.MiniMessage
 import org.bukkit.ChatColor
+import org.bukkit.Material
+import org.bukkit.configuration.file.FileConfiguration
+import org.bukkit.entity.Player
 import org.bukkit.event.Listener
+import org.bukkit.inventory.ItemStack
 import org.bukkit.plugin.java.JavaPlugin
 import java.io.File
 import java.nio.file.Files
 import java.nio.file.StandardCopyOption
 import java.util.concurrent.Executors
+
+val mm = MiniMessage.miniMessage()
 
 
 fun registerListeners(plugin: JavaPlugin, vararg listeners: Listener) {
@@ -44,6 +53,31 @@ fun copyOver(dataFolder: File, vararg fileNames: String) {
     }
 }
 
+
+fun getPickaxe(config: FileConfiguration, player: Player): ItemStack {
+    val b = ItemBuilder.from(Material.valueOf(config.getString("Pickaxe.Material").uppercase()))
+
+    var lore = config.getStringList("Pickaxe.Lore").toMutableList()
+    var name = config.getString("Pickaxe.Name")
+    val replaceable = mutableMapOf<String, String>()
+    replaceable["mined"] = "0"
+    replaceable["level"] = "1"
+    replaceable["player"] = player.displayName
+    replaceable["uuid"] = player.uniqueId.toString()
+    replaceable.forEach { replacer ->
+        name = name.replace("%${replacer.key}%", replacer.value)
+        lore = lore.map { it.replace("%${replacer.key}%", replacer.value) }.toMutableList()
+    }
+    b.name(mm.deserialize(name))
+    b.lore(lore.map { mm.deserialize(it) })
+    val nbt = NBTItem(b.build())
+    nbt.setObject("enchants", mutableMapOf<String, String>())
+    nbt.setLong("mined", 0)
+    nbt.setInteger("level", 0)
+    return nbt.item
+}
+
+
 /**
  * Guarantees a number above 0
  */
@@ -59,3 +93,5 @@ fun asyncNonBukkit(task: Runnable?) {
     exe.submit(task)
 }
 
+fun Any?.print() = println(this)
+fun Any?.printAsString() = println(this.toString())

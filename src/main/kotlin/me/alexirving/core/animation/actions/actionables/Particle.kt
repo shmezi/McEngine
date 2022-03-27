@@ -29,7 +29,7 @@ class Particle(pl: McEngine, args: List<String>) : Action(pl, args) {
 
 
     override fun run(session: AnimationSession, zeroPoint: Location, direction: Direction) {
-        zeroPoint.world.playEffect(
+        zeroPoint.world?.playEffect(
             offset!!.getOffset(zeroPoint, direction),
             Effect.valueOf(args[1]),
             args[2].toInt(),

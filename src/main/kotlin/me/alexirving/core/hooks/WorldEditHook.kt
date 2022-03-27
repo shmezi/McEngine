@@ -8,10 +8,27 @@
 package me.alexirving.core.hooks
 
 import com.sk89q.worldedit.WorldEdit
+import com.sk89q.worldedit.bukkit.BukkitAdapter
+import com.sk89q.worldedit.function.pattern.RandomPattern
+import com.sk89q.worldedit.regions.CuboidRegion
+import com.sk89q.worldedit.world.block.BlockTypes
+import org.bukkit.Bukkit
+
 
 class WorldEditHook {
-    val we = WorldEdit.getInstance();
-//    fun fill(region: CuboidRegion) {
-//        we.editSessionFactory.getEditSession(region.world,region.area).fillXZ(region.pos1,Pattern(BaseBlock(BlockState(BlockType("").defaultState.))))
-//    }
+    val we = WorldEdit.getInstance()
+    fun fill(region: CuboidRegion) {
+        val pattern = RandomPattern()
+
+        val b = BlockTypes.STONE!!.defaultState
+        pattern.add(b, 100.0)
+
+        we!!.newEditSession(region.world ?: BukkitAdapter.adapt(Bukkit.getWorld("world")))!!.setBlocks(
+
+            region, pattern
+
+        )
+    }
+
+
 }

@@ -8,27 +8,24 @@
 package me.alexirving.core.legacyItems
 
 import org.bukkit.Color
-import org.bukkit.DyeColor
 import org.bukkit.Material
 import org.bukkit.enchantments.Enchantment
 import org.bukkit.inventory.ItemFlag
 import org.bukkit.inventory.ItemStack
-import org.bukkit.inventory.meta.BannerMeta
 import org.bukkit.inventory.meta.ItemMeta
-import org.bukkit.inventory.meta.LeatherArmorMeta
 import org.bukkit.inventory.meta.SkullMeta
 
 
 class ItemBuilder {
     private var stack: ItemStack
 
-    constructor(mat: Material) {
-        stack = if (mat == Material.SKULL_ITEM)
-            ItemStack(mat, 1, 3)
-        else
-            ItemStack(mat)
-
-    }
+//    constructor(mat: Material) {
+//        stack = if (mat == Material.PLAYER_HEAD)
+//            ItemStack(mat, 1, 3)
+//        else
+//            ItemStack(mat)
+//
+//    }
 
 
     constructor(mat: Material, sh: Short) {
@@ -39,17 +36,18 @@ class ItemBuilder {
 
 
     fun setColor(color: Color?): ItemBuilder {
-        return when (stack.type) {
-            Material.LEATHER_BOOTS, Material.LEATHER_CHESTPLATE, Material.LEATHER_HELMET, Material.LEATHER_LEGGINGS -> {
-                val meta = stack.itemMeta as LeatherArmorMeta
-                meta.setColor(color)
-                setItemMeta(meta)
-                this
-            }
-            else -> {
-                this
-            }
-        }
+//        return when (stack.type) {
+//            Material.LEATHER_BOOTS, Material.LEATHER_CHESTPLATE, Material.LEATHER_HELMET, Material.LEATHER_LEGGINGS -> {
+//                val meta = stack.itemMeta as LeatherArmorMeta
+//                meta.setColor(color)
+//                setItemMeta(meta)
+//                this
+//            }
+//            else -> {
+//                this
+//            }
+//        }
+        return this
 
     }
 
@@ -66,20 +64,20 @@ class ItemBuilder {
         return this
     }
 
-    fun setUnbreakable(unbreakable: Boolean): ItemBuilder {
-        val meta = stack.itemMeta
-        meta.spigot().isUnbreakable = unbreakable
-        stack.itemMeta = meta
-        return this
-    }
+//    fun setUnbreakable(unbreakable: Boolean): ItemBuilder {
+//        val meta = stack.itemMeta
+//        meta?.isUnbreakable = unbreakable
+//        stack.itemMeta = meta
+//        return this
+//    }
 
-    fun setBannerColor(color: DyeColor?): ItemBuilder {
-        if (stack.type != Material.BANNER) return this
-        val meta = stack.itemMeta as BannerMeta
-        meta.baseColor = color
-        setItemMeta(meta)
-        return this
-    }
+//    fun setBannerColor(color: DyeColor?): ItemBuilder {
+//        if (stack.type != Material) return this
+//        val meta = stack.itemMeta as BannerMeta
+//        meta.baseColor = color
+//        setItemMeta(meta)
+//        return this
+//    }
 
     fun setAmount(amount: Int): ItemBuilder {
         stack.amount = amount
@@ -91,17 +89,17 @@ class ItemBuilder {
         return this
     }
 
-    fun setHead(owner: String?): ItemBuilder {
-        if (stack.type != Material.SKULL_ITEM) return this
-        val meta = stack.itemMeta as SkullMeta
-        meta.owner = owner
-        setItemMeta(meta)
-        return this
-    }
+//    fun setHead(owner: String?): ItemBuilder {
+//        if (stack.type != Material.PLAYER_HEAD) return this
+//        val meta = stack.itemMeta as SkullMeta
+//        meta.owner = owner
+//        setItemMeta(meta)
+//        return this
+//    }
 
     fun setDisplayName(displayname: String?): ItemBuilder {
         val meta = getItemMeta()
-        meta?.displayName = displayname
+        meta?.setDisplayName(displayname)
         setItemMeta(meta)
         return this
     }
@@ -127,7 +125,7 @@ class ItemBuilder {
         return this
     }
 
-    fun addEnchant(enchantment: Enchantment?, level: Int): ItemBuilder {
+    fun addEnchant(enchantment: Enchantment, level: Int): ItemBuilder {
         val meta = getItemMeta()
         meta?.addEnchant(enchantment, level, true)
         setItemMeta(meta)
@@ -141,10 +139,10 @@ class ItemBuilder {
         return this
     }
 
-    fun build(): ItemStack {
-        if (stack.type == Material.SKULL_ITEM) {
-            stack.durability = 3
-        }
-        return stack
-    }
+//    fun build(): ItemStack {
+//        if (stack.type == Material.PLAYER_HEAD) {
+//            stack.durability = 3
+//        }
+//        return stack
+//    }
 }

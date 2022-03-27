@@ -1,6 +1,7 @@
 name: McEngine
 main: me.alexirving.core.McEngine
 version: 1.0
+api-version: 1.13
 description: Main core for plugins.
 depend: [ ProtocolLib ]
 authors: [ Alexirving ]
@@ -8,9 +9,16 @@ commands:
   Admin:
     permission: mcengine.admin
   GetItem:
-  tool:
+  engine:
+    aliases:
+      - mcengine
+      - tool
+      - tools
   Animation:
     permission: mcengine.animation.useObfuscate
   McEngineReloadCMD:
     permission: mcengine.reload
-softdepend: [ WorldEdit, PlaceholderAPI, Vault ]
+softdepend:
+  - "WorldEdit"
+  - "PlaceholderAPI"
+  - "Vault"

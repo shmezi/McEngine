@@ -17,7 +17,7 @@ import org.bukkit.Sound
 class PlaySound(pl: McEngine, args: List<String>) : Action(pl, args) {
 
     override fun run(session: AnimationSession, zeroPoint: Location, direction: Direction) {
-        zeroPoint.world.playSound(zeroPoint, Sound.valueOf(args[0]), args[1].toFloat(), args[2].toFloat())
+        zeroPoint.world?.playSound(zeroPoint, Sound.valueOf(args[0]), args[1].toFloat(), args[2].toFloat())
     }
 
 

@@ -7,13 +7,18 @@
  */
 package me.alexirving.core
 
+import com.fasterxml.jackson.databind.module.SimpleModule
 import me.alexirving.core.animation.AnimationManager
 import me.alexirving.core.commands.AnimationCMD
 import me.alexirving.core.commands.Tool
 import me.alexirving.core.econemy.EcoManager
+import me.alexirving.core.events.PlayerInteract
+import me.alexirving.core.events.PlayerJoin
 import me.alexirving.core.hooks.Papi
 import me.alexirving.core.legacyItems.LegacyItemManager
+import me.alexirving.core.sql.MongoDb
 import me.alexirving.core.utils.copyOver
+import me.alexirving.core.utils.registerListeners
 import org.bstats.bukkit.Metrics
 import org.bukkit.configuration.file.YamlConfiguration
 import org.bukkit.plugin.java.JavaPlugin
@@ -24,12 +29,16 @@ class McEngine : JavaPlugin() {
 
     val lim = LegacyItemManager()
     lateinit var am: AnimationManager
-    val em = EcoManager()
+    val em = EcoManager
     override fun onEnable() {
 
         /**
          * Basic startup
          */
+        System.setProperty(
+            "org.litote.mongo.test.mapping.service",
+            "org.litote.kmongo.jackson.JacksonClassMappingTypeService"
+        )
         McEngineAPI.instance = this
         saveDefaultConfig()
         Metrics(this, 14580)
@@ -40,22 +49,26 @@ class McEngine : JavaPlugin() {
         /**
          * Eco setup
          */
-        if (server.pluginManager.getPlugin("Vault") != null)
+//        if (server.pluginManager.getPlugin("Vault") != null)
 
 
         /*
          * Managers loading
          */
-            Im.reload(File(dataFolder, "items"))
+        println("Does it exist: ${File(dataFolder, "items").exists()}")
+        Im.reload(File(dataFolder, "items"))
         lim.reload(YamlConfiguration.loadConfiguration(File(dataFolder, "items.yml")))
         this.am = AnimationManager(File(dataFolder, "animations"), this)
+        MongoDb.init(config.getString("MongoDb") ?: "mongodb://localhost")
+        for (e in config.getStringList("Ecos"))
+            em.create(e)
+        registerListeners(this, PlayerJoin(), PlayerInteract())
 
         /**
          * Commands
          */
-        getCommand("tool").executor = Tool()
-        getCommand("animation").executor = AnimationCMD(this)
-
+        getCommand("engine")?.setExecutor(Tool(this))
+        getCommand("animation")?.setExecutor(AnimationCMD(this))
 
     }
 
@@ -64,6 +77,8 @@ class McEngine : JavaPlugin() {
         am.reload()
         reloadConfig()
         Im.reload(File(dataFolder, "items"))
+        MongoDb.init(config.getString("MongoDb") ?: "mongodb://localhost")
+
     }
 
 }

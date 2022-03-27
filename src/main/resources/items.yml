@@ -5,6 +5,6 @@ ItemId:
   Lore: #A list of the lore for the item
     - "A Cool lore"
 Skull:
-  Material: Skull_item
+  Material: PLAYER_HEAD
   Name: "&cAnvil"
   Amount: 1

@@ -11,11 +11,14 @@ data class InventoryReference(var inventory: Inventory, val baseItem: BaseItem, 
 
     fun getStack(): ItemStack {
         for (i in inventory.contents)
-            if (i.type == baseItem.material) {
-                val f = NBTItem(i)
-                if (f.getUUID("uuid") == id)
-                    return i
-            }
+            if (i == null)
+                continue
+            else
+                if (i.type == baseItem.material) {
+                    val f = NBTItem(i)
+                    if (f.getUUID("uuid") == id)
+                        return i
+                }
         throw NotFoundException("Could not find itemstack with uuid of $id for baseItem of ${baseItem.id}")
     }
 

@@ -7,16 +7,24 @@
  */
 package me.alexirving.core.commands
 
+import com.sk89q.worldedit.bukkit.BukkitAdapter
+import com.sk89q.worldedit.regions.CuboidRegion
 import de.tr7zw.changeme.nbtapi.NBTItem
+import me.alexirving.core.McEngine
+import me.alexirving.core.econemy.EcoManager
+import me.alexirving.core.hooks.WorldEditHook
+import me.alexirving.core.item.InventoryReference
 import me.alexirving.core.item.ItemManager
+import me.alexirving.core.utils.getPickaxe
 import org.bukkit.Material
 import org.bukkit.command.Command
 import org.bukkit.command.CommandExecutor
 import org.bukkit.command.CommandSender
 import org.bukkit.entity.Player
 import org.bukkit.inventory.ItemStack
+import java.util.*
 
-class Tool : CommandExecutor {
+class Tool(val engine: McEngine) : CommandExecutor {
     override fun onCommand(sender: CommandSender, command: Command, label: String, args: Array<String>): Boolean {
 
         if (sender !is Player) {
@@ -25,7 +33,9 @@ class Tool : CommandExecutor {
         }
         val player: Player = sender
         when (args[0].lowercase()) {
-
+            "test" -> {
+                player.inventory.addItem(getPickaxe(engine.config, player))
+            }
             "getnbt" -> {
                 player.sendMessage(NBTItem(player.itemInHand).toString())
             }
@@ -36,16 +46,37 @@ class Tool : CommandExecutor {
                 val i = ItemStack(Material.STONE)
                 player.inventory.addItem(i)
 
-                val v = ItemManager.bases["SuperPick"]?.asInstance()
+                val b = ItemManager.bases["SuperPick"]
+                val id = UUID.randomUUID()
+                val v = b?.asInstance(InventoryReference(player.inventory, b, id))
                 if (v == null) {
                     println("Item instance is null")
                     return true
                 }
-                player.inventory.addItem(v.getReference())
+                val ir = NBTItem(ItemStack(b.material))
+                ir.setString("uuid", UUID.randomUUID().toString())
+                player.inventory.addItem(ir.item)
                 v.buildFromTemplate(mutableMapOf())
                 player.updateInventory()
             }
-            "c" -> {
+            "setbal" -> {
+                EcoManager.getEco(args[1])?.setBal(player.uniqueId, args[2].toDoubleOrNull() ?: 0.0)
+            }
+            "getbal" -> {
+                player.sendMessage("Your balance is ${EcoManager.getEco(args[1])?.getBal(player.uniqueId)}")
+            }
+            "getbp" -> {
+                val a = NBTItem(ItemStack(Material.CHEST))
+                a.setUUID("id", UUID.randomUUID())
+                player.inventory.addItem(a.item)
+            }
+            "we" -> {
+                val a = WorldEditHook()
+                val region = CuboidRegion.fromCenter(BukkitAdapter.adapt(player.location).toVector().toBlockPoint(), 20)
+                println(region)
+                a.fill(region)
+            }
+            "getpickaxe" -> {
 
             }
             "b" -> {
@@ -59,4 +90,5 @@ class Tool : CommandExecutor {
 
         return true
     }
+
 }

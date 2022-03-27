@@ -8,18 +8,18 @@
 package me.alexirving.core.animation.actions.actionables
 
 import me.alexirving.core.McEngine
+import me.alexirving.core.animation.actions.Action
 import me.alexirving.core.animation.objects.AnimationSession
 import me.alexirving.core.animation.utils.Direction
-import me.alexirving.core.animation.actions.Action
 import org.bukkit.Bukkit
 import org.bukkit.Location
 
 class Command(pl: McEngine, args: List<String>) : Action(pl, args) {
     override fun run(session: AnimationSession, zeroPoint: Location, direction: Direction) {
         if (!Bukkit.isPrimaryThread())
-            Bukkit.getScheduler().runTask(pl) {
+            Bukkit.getScheduler().runTask(pl, Runnable {
                 Bukkit.getServer().dispatchCommand(Bukkit.getConsoleSender(), args[0])
-            }
+            })
         else
             Bukkit.getServer().dispatchCommand(Bukkit.getConsoleSender(), args[0])
     }

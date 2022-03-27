@@ -29,7 +29,7 @@ class InstanceItem(val baseItem: BaseItem, private var refrence: InventoryRefere
     fun getReference() = refrence
 
     fun buildFromTemplate(placeholders: Map<String, String>?) {
-        refrence.setStack( templateItem.clone().apply {
+        refrence.setStack(templateItem.clone().apply {
             replacePlaceHolders(this, placeholders)
             val toReplace = mutableMapOf<String, String>()
             for (s in baseItem.sections) //Looping over sections
@@ -41,8 +41,8 @@ class InstanceItem(val baseItem: BaseItem, private var refrence: InventoryRefere
     }
 
     fun buildTemplate() {
-        templateItem.itemMeta.apply {
-            displayName = baseItem.displayName
+        templateItem.itemMeta?.apply {
+            setDisplayName(baseItem.displayName)
             lore = baseItem.lore
         }
     }
@@ -58,12 +58,13 @@ class InstanceItem(val baseItem: BaseItem, private var refrence: InventoryRefere
 
     private fun replacePlaceHolders(item: ItemStack, placeholders: Map<String, String>?) {
         item.apply {
-            itemMeta.apply {
+            itemMeta?.apply {
                 fun rp(s: Char) {
                     for (p in baseItem.placeholders) {
-                        displayName.replace("$s$${p.key}$s", placeholders?.get(p.key) ?: "")
-                        for (l in lore)
-                            l.replace("$s${p.key}$s", placeholders?.get(p.key) ?: "")
+                        setDisplayName(displayName.replace("$s$${p.key}$s", placeholders?.get(p.key) ?: ""))
+                        if (!lore.isNullOrEmpty())
+                            for (l in lore ?: listOf())
+                                l.replace("$s${p.key}$s", placeholders?.get(p.key) ?: "")
                     }
                 }
                 rp('$')

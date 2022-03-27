@@ -7,15 +7,25 @@
  */
 package me.alexirving.core.econemy
 
-import me.alexirving.core.sql.SqLite.psExec
+import me.alexirving.core.sql.MongoDb
 import me.alexirving.core.utils.nBZ
 import java.util.*
 
-class Economy(val id: String) {
+data class Economy(val id: String) {
     private val ecoMap = mutableMapOf<UUID, Double>()
+
+    init {
+        MongoDb.getDb().getCollection("eco") ?: MongoDb.getDb().createCollection("eco")
+    }
+
+    private fun setValue(uuid: String, value: Double) {
+        MongoDb.getUser(uuid).setBal(id, value)
+    }
+
     fun setBal(uuid: UUID, eco: Double): Double {
+        setValue(uuid.toString(), eco)
         ecoMap[uuid] = eco
-        psExec("INSERT INTO `$id` values (`$uuid`, `$eco`) ON DUPLICATE KEY UPDATE `$uuid` = `$eco`;")
+
         return ecoMap[uuid] ?: 0.0
     }
 
@@ -25,5 +35,7 @@ class Economy(val id: String) {
 
     fun subBal(player: UUID, remove: Double) = setBal(player, (getBal(player) - remove).nBZ())
 
-
+    fun load(player: UUID, value: Double) {
+        ecoMap[player] = value
+    }
 }

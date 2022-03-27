@@ -10,6 +10,7 @@ plugins {
     id("com.github.johnrengelman.shadow") version "7.0.0"
     id("xyz.jpenilla.run-paper") version "1.0.6"
 
+
 }
 
 group = "me.alexirving.core"
@@ -26,13 +27,18 @@ repositories {
     maven("https://repo.codemc.org/repository/maven-public/")
     maven("https://repo.extendedclip.com/content/repositories/placeholderapi/")
     maven("https://jitpack.io")
+    maven("https://s01.oss.sonatype.org/content/repositories/snapshots/")
 }
 
 dependencies {
     implementation("org.jetbrains.kotlin:kotlin-stdlib:1.6.0")
+    implementation("org.litote.kmongo:kmongo:4.5.0")
     implementation("org.reflections:reflections:0.10.2")
     implementation("ch.qos.logback:logback-classic:1.3.0-alpha14")
     compileOnly("org.spigotmc", "spigot-api", "1.8.8-R0.1-SNAPSHOT")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.0-native-mt")
+    implementation("org.litote.kmongo:kmongo-coroutine:4.5.0")
+    implementation("net.kyori:adventure-text-minimessage:4.10.1")
 
     /**
      * Frameworks
@@ -44,7 +50,9 @@ dependencies {
     /**
      * Plugin hooks:
      */
-    implementation("com.sk89q.worldedit", "worldedit-bukkit", "7.0.0")
+    compileOnly("com.sk89q.worldedit", "worldedit-bukkit", "7.2.10")
+    compileOnly("com.sk89q.worldedit", "worldedit-core", "7.2.10")
+
     implementation("org.bstats:bstats-bukkit:3.0.0")
     compileOnly("com.sk89q.worldguard:worldguard-bukkit:7.0.0")
     compileOnly("com.comphenix.protocol", "ProtocolLib", "4.7.0")

@@ -8,12 +8,11 @@
 package me.alexirving.core.item
 
 import com.google.gson.Gson
-import de.tr7zw.changeme.nbtapi.NBTItem
-import me.alexirving.core.exceptions.CompileError
-import me.alexirving.core.exceptions.NotFoundException
 import me.alexirving.core.item.template.BaseItem
-import org.bukkit.inventory.ItemStack
+import me.alexirving.core.sql.MongoDb
+//import me.alexirving.core.sql.MongoDb.getUser
 import java.io.File
+import java.util.*
 
 object ItemManager {
     val gson = Gson()
@@ -28,16 +27,21 @@ object ItemManager {
     }
 
 
-    fun buildFromNbt(stack: ItemStack): InstanceItem {
-        val nbt = NBTItem(stack)
-        val id = nbt.getString("ItemId")
-        if (!bases.containsKey(id))
-            throw NotFoundException("ItemId from item not found! ItemId: \"$id\"")
-        return bases[id]?.asInstance(stack)?.apply {
-            val m = nbt.getObject("attributes", Map::class.java) as Map<String, Int>
-//            for (v in m)
-//                (v.key, v.value)
+//    fun buildFromNbt(stack: ItemStack): InstanceItem {
+//        val nbt = NBTItem(stack)
+//        val id = nbt.getString("ItemId")
+//        if (!bases.containsKey(id))
+//            throw NotFoundException("ItemId from item not found! ItemId: \"$id\"")
+//        return bases[id]?.asInstance(stack)?.apply {
+//            val m = nbt.getObject("attributes", Map::class.java) as Map<String, Int>
+////            for (v in m)
+////                (v.key, v.value)
+//
+//        } ?: throw CompileError("Some odd error Shmezi#4200 should look into occurred while making an instance item!")
+//    }
+}
 
-        } ?: throw CompileError("Some odd error Shmezi#4200 should look into occurred while making an instance item!")
-    }
+fun main() {
+//    MongoDb.build()
+//    println(getUser((UUID.fromString("4T05gkiUYlUYXApOunClxsw")))?.getBal())
 }

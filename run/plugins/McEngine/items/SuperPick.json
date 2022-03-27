@@ -11,7 +11,7 @@
     "%enchants%",
     "$speed$"
   ],
-  "material": "%material%",
+  "material": "STONE",
   "groups": {
     "enchant": 10
   },

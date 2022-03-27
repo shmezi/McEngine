@@ -207,3 +207,5 @@ world-settings:
       combat-exhaustion: 0.1
       regen-exhaustion: 6.0
     max-tnt-per-tick: 100
+  worldeditregentempworld:
+    verbose: false

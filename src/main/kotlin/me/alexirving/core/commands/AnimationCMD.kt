@@ -8,16 +8,15 @@
 package me.alexirving.core.commands
 
 import me.alexirving.core.McEngine
-import me.alexirving.core.animation.AnimationManager
 import me.alexirving.core.animation.objects.AnimationSession
 import me.alexirving.core.animation.utils.Direction
 import org.bukkit.Bukkit
 import org.bukkit.Location
+import org.bukkit.command.CommandExecutor
 import org.bukkit.command.CommandSender
-import org.bukkit.command.TabExecutor
 import org.bukkit.entity.Player
 
-class AnimationCMD(val pl: McEngine) : TabExecutor {
+class AnimationCMD(val pl: McEngine) : CommandExecutor {
     val c = mutableListOf("North", "South", "East", "West")
 
     override fun onCommand(
@@ -65,28 +64,28 @@ class AnimationCMD(val pl: McEngine) : TabExecutor {
     }
 
 
-    override fun onTabComplete(
-        sender: CommandSender,
-        command: org.bukkit.command.Command?,
-        alias: String,
-        args: Array<out String>
-    ): MutableList<String> {
-        if (sender is Player) {
-            val player: Player = sender
-
-            return when (args.size) {
-                1 -> pl.am.getAnimationNames().toMutableList()
-                2 -> mutableListOf(player.world.name)
-                3 -> mutableListOf(player.getTargetBlock(setOf(null), 200).x.toString())
-                4 -> mutableListOf(player.getTargetBlock(setOf(null), 200).y.toString())
-                5 -> mutableListOf(player.getTargetBlock(setOf(null), 200).z.toString())
-                6 -> c
-                else -> {
-                    mutableListOf("")
-                }
-            }
-        } else {
-            return mutableListOf("Not a player!")
-        }
-    }
+//    override fun onTabComplete(
+//        sender: CommandSender,
+//        command: org.bukkit.command.Command?,
+//        alias: String,
+//        args: Array<out String>
+//    ): MutableList<String> {
+//        if (sender is Player) {
+//            val player: Player = sender
+//
+//            return when (args.size) {
+//                1 -> pl.am.getAnimationNames().toMutableList()
+//                2 -> mutableListOf(player.world.name)
+//                3 -> mutableListOf(player.getTargetBlock(setOf(null), 200).x.toString())
+//                4 -> mutableListOf(player.getTargetBlock(setOf(null), 200).y.toString())
+//                5 -> mutableListOf(player.getTargetBlock(setOf(null), 200).z.toString())
+//                6 -> c
+//                else -> {
+//                    mutableListOf("")
+//                }
+//            }
+//        } else {
+//            return mutableListOf("Not a player!")
+//        }
+//    }
 }

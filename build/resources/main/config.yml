@@ -1,2 +1,24 @@
 #Configurations
 Debug: off
+MongoDb: "mongodb://localhost"
+Ecos:
+  - "Default"
+  - "Tokens"
+Pickaxe:
+  Name: "%player%'s pickaxe"
+  Material: DIAMOND_PICKAXE
+  Lore:
+    - "<dark_gray>┏<st>----</st><light_purple><bold>Statistics</bold><dark_gray><st>--------</st>┒"
+    - "<light_purple>  • <white>Blocks mined: <dark_gray>[<light_purple>{mb}<dark_gray>]"
+    - "<light_purple>  • <white>Pickaxe level: <light_purple>{pl}"
+    - "<light_purple>  • <white>Level progress: <gray>[<light_purple>{plb}<gray>]"
+    - "<dark_gray>┖<st>---------------------</st><dark_gray>┛"
+    - ""
+    - "<dark_gray>┏<st>----</st><light_purple><bold>Multis</bold><dark_gray><st>------------</st>┒"
+    - "<light_purple>  • <white>Sell multiplier: <yellow>{sm}"
+    - "<light_purple>  • <white>Token multiplier: <yellow>{tm}"
+    - "<dark_gray>┖<st>---------------------</st><dark_gray>┛"
+    - ""
+    - "<dark_gray>┏<st>----</st><light_purple><bold>Enchantments</bold><dark_gray><st>----</st>┒"
+    - "<light_purple>❙ Efficiency"
+    - "<dark_gray>┖<st>---------------------</st><dark_gray>┛"

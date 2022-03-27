@@ -7,8 +7,6 @@
  */
 package me.alexirving.core.legacyItems
 
-import org.bukkit.Color
-import org.bukkit.DyeColor
 import org.bukkit.Material
 import org.bukkit.configuration.ConfigurationSection
 import org.bukkit.configuration.file.FileConfiguration
@@ -26,21 +24,22 @@ class LegacyItemManager {
 
     private fun load(itemsConfig: FileConfiguration) {
         for (item in itemsConfig.getKeys(false))
-            loadedItems[item] = buildItem(itemsConfig.getConfigurationSection(item))
+            loadedItems[item] = buildItem(itemsConfig.getConfigurationSection(item) ?: continue)
 
     }
 
 
     private fun buildItem(itemSection: ConfigurationSection): ItemStack {
-        val builder = ItemBuilder(Material.valueOf(itemSection.getString("Material")!!.uppercase()))
-        builder.setDisplayName(itemSection.getString("Name") ?: "null")
-            .setLore(itemSection.getStringList("Lore") as ArrayList<String?> ?: ArrayList())
-            .setAmount(itemSection.getInt("Amount") ?: 1)
-            .setGlow(itemSection.getBoolean("Glow") ?: false)
-            .setHead(itemSection.getString("Head") ?: "notch")
-            .setBannerColor(DyeColor.valueOf(itemSection.getString("Color") ?: "WHITE"))
-            .setColor(itemSection.getColor("Color") ?: Color.WHITE)
-        return builder.build()
+//        val builder = ItemBuilder(Material.valueOf(itemSection.getString("Material")!!.uppercase()))
+//        builder.setDisplayName(itemSection.getString("Name") ?: "null")
+//            .setLore(itemSection.getStringList("Lore") as ArrayList<String?> ?: ArrayList())
+//            .setAmount(itemSection.getInt("Amount") ?: 1)
+//            .setGlow(itemSection.getBoolean("Glow") ?: false)
+//            .setHead(itemSection.getString("Head") ?: "notch")
+////            .setBannerColor(DyeColor.valueOf(itemSection.getString("Color") ?: "WHITE"))
+//            .setColor(itemSection.getColor("Color") ?: Color.WHITE)
+//        return builder.build()
+        return ItemStack(Material.STONE)
     }
 
     fun getItem(name: String): ItemStack {
