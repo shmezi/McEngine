@@ -65,7 +65,7 @@ tasks {
         relocate("dev.triumphteam.gui", "me.alexirving.core.gui")
         relocate("org.bstats", "me.alexirving.core.bstats")
         relocate("de.tr7zw.changeme.nbtapi", "me.alexirving.core.nbtapi")
-
+        relocate("net.kyori.adventure", "me.alexirving.core.minimessages")
     }
     runServer {
         minecraftVersion("1.18.2")

@@ -7,10 +7,9 @@
  */
 package me.alexirving.core
 
-import com.fasterxml.jackson.databind.module.SimpleModule
 import me.alexirving.core.animation.AnimationManager
 import me.alexirving.core.commands.AnimationCMD
-import me.alexirving.core.commands.Tool
+import me.alexirving.core.commands.Engine
 import me.alexirving.core.econemy.EcoManager
 import me.alexirving.core.events.PlayerInteract
 import me.alexirving.core.events.PlayerJoin
@@ -39,8 +38,8 @@ class McEngine : JavaPlugin() {
             "org.litote.mongo.test.mapping.service",
             "org.litote.kmongo.jackson.JacksonClassMappingTypeService"
         )
-        McEngineAPI.instance = this
         saveDefaultConfig()
+        McEngineAPI.instance = this
         Metrics(this, 14580)
         copyOver(dataFolder, "items.yml", "animations", "items", "animations/Default.yml", "items/SuperPick.json")
         if (server.pluginManager.getPlugin("PlaceholderAPI") != null)
@@ -55,7 +54,6 @@ class McEngine : JavaPlugin() {
         /*
          * Managers loading
          */
-        println("Does it exist: ${File(dataFolder, "items").exists()}")
         Im.reload(File(dataFolder, "items"))
         lim.reload(YamlConfiguration.loadConfiguration(File(dataFolder, "items.yml")))
         this.am = AnimationManager(File(dataFolder, "animations"), this)
@@ -67,7 +65,7 @@ class McEngine : JavaPlugin() {
         /**
          * Commands
          */
-        getCommand("engine")?.setExecutor(Tool(this))
+        getCommand("engine")?.setExecutor(Engine(this))
         getCommand("animation")?.setExecutor(AnimationCMD(this))
 
     }

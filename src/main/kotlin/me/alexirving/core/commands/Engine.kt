@@ -15,6 +15,8 @@ import me.alexirving.core.econemy.EcoManager
 import me.alexirving.core.hooks.WorldEditHook
 import me.alexirving.core.item.InventoryReference
 import me.alexirving.core.item.ItemManager
+import me.alexirving.core.utils.Colors
+import me.alexirving.core.utils.color
 import me.alexirving.core.utils.getPickaxe
 import org.bukkit.Material
 import org.bukkit.command.Command
@@ -24,7 +26,7 @@ import org.bukkit.entity.Player
 import org.bukkit.inventory.ItemStack
 import java.util.*
 
-class Tool(val engine: McEngine) : CommandExecutor {
+class Engine(val engine: McEngine) : CommandExecutor {
     override fun onCommand(sender: CommandSender, command: Command, label: String, args: Array<String>): Boolean {
 
         if (sender !is Player) {
@@ -43,20 +45,14 @@ class Tool(val engine: McEngine) : CommandExecutor {
                 NBTItem(player.itemInHand, true).setString(args[1], args[2])
             }
             "getitem" -> {
-                val i = ItemStack(Material.STONE)
-                player.inventory.addItem(i)
-
                 val b = ItemManager.bases["SuperPick"]
-                val id = UUID.randomUUID()
-                val v = b?.asInstance(InventoryReference(player.inventory, b, id))
+                val v = b?.asInstance(InventoryReference(player.inventory, b, UUID.randomUUID()))
                 if (v == null) {
-                    println("Item instance is null")
+                    println("Item instance is null".color(Colors.BG_RED))
                     return true
                 }
-                val ir = NBTItem(ItemStack(b.material))
-                ir.setString("uuid", UUID.randomUUID().toString())
-                player.inventory.addItem(ir.item)
-                v.buildFromTemplate(mutableMapOf())
+//                v.buildFromTemplate(mutableMapOf())
+                v.buildToInventory()
                 player.updateInventory()
             }
             "setbal" -> {
@@ -73,7 +69,6 @@ class Tool(val engine: McEngine) : CommandExecutor {
             "we" -> {
                 val a = WorldEditHook()
                 val region = CuboidRegion.fromCenter(BukkitAdapter.adapt(player.location).toVector().toBlockPoint(), 20)
-                println(region)
                 a.fill(region)
             }
             "getpickaxe" -> {
@@ -85,6 +80,9 @@ class Tool(val engine: McEngine) : CommandExecutor {
                         player.getTargetBlock(setOf(Material.AIR), 10)
                     }"
                 )
+            }
+            else -> {
+                player.sendMessage("Argument \"${args[0]}\"!")
             }
         }
 

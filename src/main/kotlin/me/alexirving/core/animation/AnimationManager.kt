@@ -31,12 +31,10 @@ class AnimationManager(private val aniFolder: File, private val pl: McEngine) {
             println("Animation folder is not a directory!")
         loadedAnimations.clear()
         for (file in aniFolder.listFiles(FileExtensionFilter("yml")) ?: return) {
-            val a = YamlConfiguration().also { it.load(file) }
-//            a.load(file) //fixme not sure if this will work or not, we will have to see :)
-
+            val a = YamlConfiguration().apply { load(file) }
             val name = file.nameWithoutExtension
             loadedAnimations[name] = AniCompiler.compileAnimation(pl, a)
-            println("Loaded animation: $name!".color(Colors.BG_PURPLE, Colors.CYAN))
+            println("Loaded animation: \"$name\".".color(Colors.PURPLE))
         }
 
     }

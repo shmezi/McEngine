@@ -11,5 +11,5 @@ open class Attribute(
     val id: String,
     val groups: List<String>,
     val max: Int,
-    val placeholders: Map<String, String>,
+    val placeholders: Map<String, List<Int>>,
 )

@@ -9,42 +9,54 @@ package me.alexirving.core.item
 
 import de.tr7zw.changeme.nbtapi.NBTItem
 import me.alexirving.core.item.template.BaseItem
-import org.bukkit.entity.Player
+import me.alexirving.core.utils.printAsString
 import org.bukkit.inventory.ItemStack
+import java.util.*
 
 /**
  * An instanceItem represents an item that could be in an inventory that will be modified.
  * This should be pooled and should be built when you
  */
 class InstanceItem(val baseItem: BaseItem, private var refrence: InventoryReference) {
-    private val templateItem: ItemStack = ItemStack(baseItem.material)
-
-    private val attributeLevels = mutableMapOf<String, Int>()
-    private var holder: Player? = null
+    private var templateItem: ItemStack = ItemStack(baseItem.material)
+    private val placeholderLevels = mutableMapOf<String, Int>()
 
     init {
         buildTemplate()
     }
 
+    fun buildToInventory() {
+        refrence.inventory.addItem(templateItem.clone().apply {
+            val toReplace = mutableMapOf<String, String>()
+            for (s in baseItem.sections)
+            replacePlaceHolders(this, toReplace)
+        })
+    }
+
+
     fun getReference() = refrence
 
-    fun buildFromTemplate(placeholders: Map<String, String>?) {
+    fun buildFromTemplate(placeholders: Map<String, String>) {
         refrence.setStack(templateItem.clone().apply {
             replacePlaceHolders(this, placeholders)
             val toReplace = mutableMapOf<String, String>()
             for (s in baseItem.sections) //Looping over sections
                 for (attribute in s.value) //Looping over attributes
                     toReplace["$${attribute.id}$"] =
-                        baseItem.placeholders[attribute.id]?.get(attributeLevels[attribute.id] ?: 0) ?: ""
+                        baseItem.placeholders[attribute.id]?.get(placeholderLevels[attribute.id] ?: 0) ?: ""
             replacePlaceHolders(this, toReplace)
         })
     }
 
     fun buildTemplate() {
-        templateItem.itemMeta?.apply {
-            setDisplayName(baseItem.displayName)
+        templateItem.itemMeta.printAsString()
+        templateItem.itemMeta = templateItem.itemMeta.apply {
+            displayName = baseItem.displayName
             lore = baseItem.lore
         }
+        val nbtItem = NBTItem(templateItem)
+        nbtItem.setUUID("uuid", UUID.randomUUID())
+        templateItem = nbtItem.item
     }
 
 
@@ -52,27 +64,18 @@ class InstanceItem(val baseItem: BaseItem, private var refrence: InventoryRefere
         NBTItem(item, true)
             .apply {
                 setString("itemId", baseItem.id)
-                setObject("attributes", attributeLevels)
+                setObject("attributes", placeholderLevels)
             }
     }
 
-    private fun replacePlaceHolders(item: ItemStack, placeholders: Map<String, String>?) {
-        item.apply {
-            itemMeta?.apply {
-                fun rp(s: Char) {
-                    for (p in baseItem.placeholders) {
-                        setDisplayName(displayName.replace("$s$${p.key}$s", placeholders?.get(p.key) ?: ""))
-                        if (!lore.isNullOrEmpty())
-                            for (l in lore ?: listOf())
-                                l.replace("$s${p.key}$s", placeholders?.get(p.key) ?: "")
-                    }
-                }
-                rp('$')
-                rp('%')
-
-            }
-
-
+    private fun replacePlaceHolders(item: ItemStack, placeholders: Map<String, String>) {
+        placeholders.printAsString("PLACEHOLDERS")
+        val im = item.itemMeta
+        for (pl in placeholders) {
+            val k = "%${pl.key}%"
+            im.lore = im.lore.map { it.replace(k, pl.value) }
+            im.displayName = im.displayName.replace(k, pl.value)
         }
+        item.itemMeta = im
     }
 }

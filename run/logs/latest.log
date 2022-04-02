@@ -1,352 +1,179 @@
-[03:40:21] [ServerMain/INFO]: Environment: authHost='https://authserver.mojang.com', accountsHost='https://api.mojang.com', sessionHost='https://sessionserver.mojang.com', servicesHost='https://api.minecraftservices.com', name='PROD'
-[03:40:22] [Worker-Main-1/INFO]: Loaded 7 recipes
-[03:40:22] [Server thread/INFO]: Starting minecraft server version 1.18.2
-[03:40:22] [Server thread/INFO]: Loading properties
-[03:40:22] [Server thread/INFO]: This server is running Paper version git-Paper-267 (MC: 1.18.2) (Implementing API version 1.18.2-R0.1-SNAPSHOT) (Git: e7d928a)
-[03:40:22] [Server thread/INFO]: Server Ping Player Sample Count: 12
-[03:40:22] [Server thread/INFO]: Using 4 threads for Netty based IO
-[03:40:23] [Server thread/INFO]: Default game type: SURVIVAL
-[03:40:23] [Server thread/INFO]: Generating keypair
-[03:40:23] [Server thread/INFO]: Starting Minecraft server on *:25565
-[03:40:23] [Server thread/INFO]: Using default channel type
-[03:40:23] [Server thread/INFO]: Paper: Using Java 11 compression from Velocity.
-[03:40:23] [Server thread/INFO]: Paper: Using Java cipher from Velocity.
-[03:40:23] [Server thread/INFO]: [WorldEdit] Loading WorldEdit v7.2.10+1742f98
-[03:40:23] [Server thread/INFO]: Got request to register class com.sk89q.worldedit.bukkit.BukkitServerInterface with WorldEdit [com.sk89q.worldedit.extension.platform.PlatformManager@14c3ae61]
-[03:40:23] [Server thread/INFO]: [ProtocolLib] Loading ProtocolLib v4.7.0
-[03:40:23] [Server thread/WARN]: [ProtocolLib] Version (MC: 1.18.2) has not yet been tested! Proceed with caution.
-[03:40:24] [Server thread/INFO]: [McEngine] Loading McEngine v1.0
-[03:40:24] [Server thread/INFO]: Server permissions file permissions.yml is empty, ignoring it
-[03:40:24] [Server thread/INFO]: [WorldEdit] Enabling WorldEdit v7.2.10+1742f98
-[03:40:24] [Server thread/INFO]: Registering commands with com.sk89q.worldedit.bukkit.BukkitServerInterface
-[03:40:24] [Server thread/INFO]: WEPIF: Using the Bukkit Permissions API.
-[03:40:24] [Server thread/INFO]: Using com.sk89q.worldedit.bukkit.adapter.impl.v1_18_R2.PaperweightAdapter as the Bukkit adapter
-[03:40:25] [Server thread/INFO]: [ProtocolLib] Enabling ProtocolLib v4.7.0
-[03:40:25] [Server thread/INFO]: [ProtocolLib] Started structure compiler thread.
-[03:40:25] [Server thread/INFO]: Preparing level "world"
-[03:40:25] [Server thread/INFO]: -------- World Settings For [world] --------
-[03:40:25] [Server thread/INFO]: Max TNT Explosions: 100
-[03:40:25] [Server thread/INFO]: Zombie Aggressive Towards Villager: true
-[03:40:25] [Server thread/INFO]: Item Merge Radius: 2.5
-[03:40:25] [Server thread/INFO]: Item Despawn Rate: 6000
-[03:40:25] [Server thread/INFO]: Arrow Despawn Rate: 1200 Trident Respawn Rate:1200
-[03:40:25] [Server thread/INFO]: Simulation Distance: 10
-[03:40:25] [Server thread/INFO]: View Distance: 10
-[03:40:25] [Server thread/INFO]: Nerfing mobs spawned from spawners: false
-[03:40:25] [Server thread/INFO]: Allow Zombie Pigmen to spawn from portal blocks: true
-[03:40:25] [Server thread/INFO]: Entity Tracking Range: Pl 48 / An 48 / Mo 48 / Mi 32 / Other 64
-[03:40:25] [Server thread/INFO]: Hopper Transfer: 8 Hopper Check: 1 Hopper Amount: 1
-[03:40:25] [Server thread/INFO]: Custom Map Seeds:  Village: 10387312 Desert: 14357617 Igloo: 14357618 Jungle: 14357619 Swamp: 14357620 Monument: 10387313 Ocean: 14357621 Shipwreck: 165745295 End City: 10387313 Slime: 987234911 Nether: 30084232 Mansion: 10387319 Fossil: 14357921 Portal: 34222645
-[03:40:25] [Server thread/INFO]: Mob Spawn Range: 4
-[03:40:25] [Server thread/INFO]: Entity Activation Range: An 32 / Mo 32 / Ra 48 / Mi 16 / Tiv true / Isa false
-[03:40:25] [Server thread/INFO]: Experience Merge Radius: 3.0
-[03:40:25] [Server thread/INFO]: Cactus Growth Modifier: 100%
-[03:40:25] [Server thread/INFO]: Cane Growth Modifier: 100%
-[03:40:25] [Server thread/INFO]: Melon Growth Modifier: 100%
-[03:40:25] [Server thread/INFO]: Mushroom Growth Modifier: 100%
-[03:40:25] [Server thread/INFO]: Pumpkin Growth Modifier: 100%
-[03:40:25] [Server thread/INFO]: Sapling Growth Modifier: 100%
-[03:40:25] [Server thread/INFO]: Beetroot Growth Modifier: 100%
-[03:40:25] [Server thread/INFO]: Carrot Growth Modifier: 100%
-[03:40:25] [Server thread/INFO]: Potato Growth Modifier: 100%
-[03:40:25] [Server thread/INFO]: Wheat Growth Modifier: 100%
-[03:40:25] [Server thread/INFO]: NetherWart Growth Modifier: 100%
-[03:40:25] [Server thread/INFO]: Vine Growth Modifier: 100%
-[03:40:25] [Server thread/INFO]: Cocoa Growth Modifier: 100%
-[03:40:25] [Server thread/INFO]: Bamboo Growth Modifier: 100%
-[03:40:25] [Server thread/INFO]: SweetBerry Growth Modifier: 100%
-[03:40:25] [Server thread/INFO]: Kelp Growth Modifier: 100%
-[03:40:25] [Server thread/INFO]: TwistingVines Growth Modifier: 100%
-[03:40:25] [Server thread/INFO]: WeepingVines Growth Modifier: 100%
-[03:40:25] [Server thread/INFO]: CaveVines Growth Modifier: 100%
-[03:40:25] [Server thread/INFO]: GlowBerry Growth Modifier: 100%
-[03:40:25] [Server thread/INFO]: Tile Max Tick Time: 50ms Entity max Tick Time: 50ms
-[03:40:26] [Server thread/INFO]: -------- World Settings For [world_nether] --------
-[03:40:26] [Server thread/INFO]: Max TNT Explosions: 100
-[03:40:26] [Server thread/INFO]: Zombie Aggressive Towards Villager: true
-[03:40:26] [Server thread/INFO]: Item Merge Radius: 2.5
-[03:40:26] [Server thread/INFO]: Item Despawn Rate: 6000
-[03:40:26] [Server thread/INFO]: Arrow Despawn Rate: 1200 Trident Respawn Rate:1200
-[03:40:26] [Server thread/INFO]: Simulation Distance: 10
-[03:40:26] [Server thread/INFO]: View Distance: 10
-[03:40:26] [Server thread/INFO]: Nerfing mobs spawned from spawners: false
-[03:40:26] [Server thread/INFO]: Allow Zombie Pigmen to spawn from portal blocks: true
-[03:40:26] [Server thread/INFO]: Entity Tracking Range: Pl 48 / An 48 / Mo 48 / Mi 32 / Other 64
-[03:40:26] [Server thread/INFO]: Hopper Transfer: 8 Hopper Check: 1 Hopper Amount: 1
-[03:40:26] [Server thread/INFO]: Custom Map Seeds:  Village: 10387312 Desert: 14357617 Igloo: 14357618 Jungle: 14357619 Swamp: 14357620 Monument: 10387313 Ocean: 14357621 Shipwreck: 165745295 End City: 10387313 Slime: 987234911 Nether: 30084232 Mansion: 10387319 Fossil: 14357921 Portal: 34222645
-[03:40:26] [Server thread/INFO]: Mob Spawn Range: 4
-[03:40:26] [Server thread/INFO]: Entity Activation Range: An 32 / Mo 32 / Ra 48 / Mi 16 / Tiv true / Isa false
-[03:40:26] [Server thread/INFO]: Experience Merge Radius: 3.0
-[03:40:26] [Server thread/INFO]: Cactus Growth Modifier: 100%
-[03:40:26] [Server thread/INFO]: Cane Growth Modifier: 100%
-[03:40:26] [Server thread/INFO]: Melon Growth Modifier: 100%
-[03:40:26] [Server thread/INFO]: Mushroom Growth Modifier: 100%
-[03:40:26] [Server thread/INFO]: Pumpkin Growth Modifier: 100%
-[03:40:26] [Server thread/INFO]: Sapling Growth Modifier: 100%
-[03:40:26] [Server thread/INFO]: Beetroot Growth Modifier: 100%
-[03:40:26] [Server thread/INFO]: Carrot Growth Modifier: 100%
-[03:40:26] [Server thread/INFO]: Potato Growth Modifier: 100%
-[03:40:26] [Server thread/INFO]: Wheat Growth Modifier: 100%
-[03:40:26] [Server thread/INFO]: NetherWart Growth Modifier: 100%
-[03:40:26] [Server thread/INFO]: Vine Growth Modifier: 100%
-[03:40:26] [Server thread/INFO]: Cocoa Growth Modifier: 100%
-[03:40:26] [Server thread/INFO]: Bamboo Growth Modifier: 100%
-[03:40:26] [Server thread/INFO]: SweetBerry Growth Modifier: 100%
-[03:40:26] [Server thread/INFO]: Kelp Growth Modifier: 100%
-[03:40:26] [Server thread/INFO]: TwistingVines Growth Modifier: 100%
-[03:40:26] [Server thread/INFO]: WeepingVines Growth Modifier: 100%
-[03:40:26] [Server thread/INFO]: CaveVines Growth Modifier: 100%
-[03:40:26] [Server thread/INFO]: GlowBerry Growth Modifier: 100%
-[03:40:26] [Server thread/INFO]: Tile Max Tick Time: 50ms Entity max Tick Time: 50ms
-[03:40:26] [Server thread/INFO]: -------- World Settings For [world_the_end] --------
-[03:40:26] [Server thread/INFO]: Max TNT Explosions: 100
-[03:40:26] [Server thread/INFO]: Zombie Aggressive Towards Villager: true
-[03:40:26] [Server thread/INFO]: Item Merge Radius: 2.5
-[03:40:26] [Server thread/INFO]: Item Despawn Rate: 6000
-[03:40:26] [Server thread/INFO]: Arrow Despawn Rate: 1200 Trident Respawn Rate:1200
-[03:40:26] [Server thread/INFO]: Simulation Distance: 10
-[03:40:26] [Server thread/INFO]: View Distance: 10
-[03:40:26] [Server thread/INFO]: Nerfing mobs spawned from spawners: false
-[03:40:26] [Server thread/INFO]: Allow Zombie Pigmen to spawn from portal blocks: true
-[03:40:26] [Server thread/INFO]: Entity Tracking Range: Pl 48 / An 48 / Mo 48 / Mi 32 / Other 64
-[03:40:26] [Server thread/INFO]: Hopper Transfer: 8 Hopper Check: 1 Hopper Amount: 1
-[03:40:26] [Server thread/INFO]: Custom Map Seeds:  Village: 10387312 Desert: 14357617 Igloo: 14357618 Jungle: 14357619 Swamp: 14357620 Monument: 10387313 Ocean: 14357621 Shipwreck: 165745295 End City: 10387313 Slime: 987234911 Nether: 30084232 Mansion: 10387319 Fossil: 14357921 Portal: 34222645
-[03:40:26] [Server thread/INFO]: Mob Spawn Range: 4
-[03:40:26] [Server thread/INFO]: Entity Activation Range: An 32 / Mo 32 / Ra 48 / Mi 16 / Tiv true / Isa false
-[03:40:26] [Server thread/INFO]: Experience Merge Radius: 3.0
-[03:40:26] [Server thread/INFO]: Cactus Growth Modifier: 100%
-[03:40:26] [Server thread/INFO]: Cane Growth Modifier: 100%
-[03:40:26] [Server thread/INFO]: Melon Growth Modifier: 100%
-[03:40:26] [Server thread/INFO]: Mushroom Growth Modifier: 100%
-[03:40:26] [Server thread/INFO]: Pumpkin Growth Modifier: 100%
-[03:40:26] [Server thread/INFO]: Sapling Growth Modifier: 100%
-[03:40:26] [Server thread/INFO]: Beetroot Growth Modifier: 100%
-[03:40:26] [Server thread/INFO]: Carrot Growth Modifier: 100%
-[03:40:26] [Server thread/INFO]: Potato Growth Modifier: 100%
-[03:40:26] [Server thread/INFO]: Wheat Growth Modifier: 100%
-[03:40:26] [Server thread/INFO]: NetherWart Growth Modifier: 100%
-[03:40:26] [Server thread/INFO]: Vine Growth Modifier: 100%
-[03:40:26] [Server thread/INFO]: Cocoa Growth Modifier: 100%
-[03:40:26] [Server thread/INFO]: Bamboo Growth Modifier: 100%
-[03:40:26] [Server thread/INFO]: SweetBerry Growth Modifier: 100%
-[03:40:26] [Server thread/INFO]: Kelp Growth Modifier: 100%
-[03:40:26] [Server thread/INFO]: TwistingVines Growth Modifier: 100%
-[03:40:26] [Server thread/INFO]: WeepingVines Growth Modifier: 100%
-[03:40:26] [Server thread/INFO]: CaveVines Growth Modifier: 100%
-[03:40:26] [Server thread/INFO]: GlowBerry Growth Modifier: 100%
-[03:40:26] [Server thread/INFO]: Tile Max Tick Time: 50ms Entity max Tick Time: 50ms
-[03:40:26] [Server thread/INFO]: Preparing start region for dimension minecraft:overworld
-[03:40:26] [Server thread/INFO]: Time elapsed: 141 ms
-[03:40:26] [Server thread/INFO]: Preparing start region for dimension minecraft:the_nether
-[03:40:26] [Server thread/INFO]: Time elapsed: 50 ms
-[03:40:26] [Server thread/INFO]: Preparing start region for dimension minecraft:the_end
-[03:40:26] [Server thread/INFO]: Time elapsed: 49 ms
-[03:40:26] [Server thread/INFO]: [McEngine] Enabling McEngine v1.0
-[03:40:26] [Server thread/INFO]: Does it exist: true
-[03:40:26] [Server thread/INFO]: DEBUG: STONE
-[03:40:26] [Server thread/INFO]: Loaded item: SuperPick successfully
-[03:40:26] [Server thread/INFO]: [org.reflections.Reflections] Reflections took 63 ms to scan 1 urls, producing 3 keys and 27 values
-[03:40:26] [Server thread/INFO]: [45m[36mLoaded animation: Default![0m
-[03:40:27] [Server thread/INFO]: [org.mongodb.driver.cluster] Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
-[03:40:27] [Server thread/INFO]: [org.mongodb.driver.cluster] Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
-[03:40:27] [cluster-rtt-ClusterId{value='623fb27b0fae2874c736145a', description='null'}-localhost:27017/INFO]: [org.mongodb.driver.connection] Opened connection [connectionId{localValue:1, serverValue:989}] to localhost:27017
-[03:40:27] [cluster-ClusterId{value='623fb27b0fae2874c736145a', description='null'}-localhost:27017/INFO]: [org.mongodb.driver.connection] Opened connection [connectionId{localValue:2, serverValue:987}] to localhost:27017
-[03:40:27] [cluster-rtt-ClusterId{value='623fb27b0fae2874c736145b', description='null'}-localhost:27017/INFO]: [org.mongodb.driver.connection] Opened connection [connectionId{localValue:3, serverValue:988}] to localhost:27017
-[03:40:27] [cluster-ClusterId{value='623fb27b0fae2874c736145b', description='null'}-localhost:27017/INFO]: [org.mongodb.driver.connection] Opened connection [connectionId{localValue:4, serverValue:986}] to localhost:27017
-[03:40:27] [cluster-ClusterId{value='623fb27b0fae2874c736145b', description='null'}-localhost:27017/INFO]: [org.mongodb.driver.cluster] Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=13, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=17818500}
-[03:40:27] [cluster-ClusterId{value='623fb27b0fae2874c736145a', description='null'}-localhost:27017/INFO]: [org.mongodb.driver.cluster] Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=13, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=17818500}
-[03:40:27] [Server thread/INFO]: Running delayed init tasks
-[03:40:27] [Server thread/INFO]: Done (4.888s)! For help, type "help"
-[03:40:27] [Server thread/INFO]: Timings Reset
-[03:40:31] [User Authenticator #1/INFO]: UUID of player shmezi is 8b33b9e1-da73-446b-a70b-788191cc2c59
-[03:40:31] [Server thread/INFO]: [org.mongodb.driver.connection] Opened connection [connectionId{localValue:5, serverValue:990}] to localhost:27017
-[03:40:31] [Server thread/INFO]: shmezi joined the game
-[03:40:31] [Server thread/INFO]: shmezi[/127.0.0.1:54491] logged in with entity id 147 at ([world]197.9209154293072, 115.0, -56.25459979822073)
-[03:40:36] [Server thread/INFO]: shmezi issued server command: /engine we
-[03:40:36] [Server thread/INFO]: (177, 95, -77) - (217, 135, -37)
-[03:40:38] [Server thread/INFO]: [NBTAPI] [NBTAPI] Found Spigot: v1_18_R2! Trying to find NMS support
-[03:40:38] [Server thread/INFO]: [NBTAPI] [NBTAPI] NMS support 'MC1_18_R2' loaded!
-[03:40:38] [Server thread/INFO]: [NBTAPI] [NBTAPI] Found Gson: class com.google.gson.Gson
-[03:40:38] [Thread-12/INFO]: [NBTAPI] [NBTAPI] The NBT-API seems to be up-to-date!
-[03:40:38] [Server thread/ERROR]: Could not pass event PlayerInteractEvent to McEngine v1.0
-com.fasterxml.jackson.databind.exc.InvalidDefinitionException: Cannot find a (Map) Key deserializer for type [simple type, class org.bukkit.enchantments.Enchantment]
- at [Source: de.undercouch.bson4jackson.io.LittleEndianInputStream@6005540a; pos: 0]
-	at com.fasterxml.jackson.databind.exc.InvalidDefinitionException.from(InvalidDefinitionException.java:67) ~[McEngine-1.0-all.jar:?]
-	at com.fasterxml.jackson.databind.DeserializationContext.reportBadDefinition(DeserializationContext.java:1904) ~[McEngine-1.0-all.jar:?]
-	at com.fasterxml.jackson.databind.deser.DeserializerCache._handleUnknownKeyDeserializer(DeserializerCache.java:603) ~[McEngine-1.0-all.jar:?]
-	at com.fasterxml.jackson.databind.deser.DeserializerCache.findKeyDeserializer(DeserializerCache.java:168) ~[McEngine-1.0-all.jar:?]
-	at com.fasterxml.jackson.databind.DeserializationContext.findKeyDeserializer(DeserializationContext.java:669) ~[McEngine-1.0-all.jar:?]
-	at com.fasterxml.jackson.databind.deser.std.MapDeserializer.createContextual(MapDeserializer.java:302) ~[McEngine-1.0-all.jar:?]
-	at com.fasterxml.jackson.databind.DeserializationContext.handlePrimaryContextualization(DeserializationContext.java:825) ~[McEngine-1.0-all.jar:?]
-	at com.fasterxml.jackson.databind.deser.BeanDeserializerBase.resolve(BeanDeserializerBase.java:550) ~[McEngine-1.0-all.jar:?]
-	at com.fasterxml.jackson.databind.deser.DeserializerCache._createAndCache2(DeserializerCache.java:294) ~[McEngine-1.0-all.jar:?]
-	at com.fasterxml.jackson.databind.deser.DeserializerCache._createAndCacheValueDeserializer(DeserializerCache.java:244) ~[McEngine-1.0-all.jar:?]
-	at com.fasterxml.jackson.databind.deser.DeserializerCache.findValueDeserializer(DeserializerCache.java:142) ~[McEngine-1.0-all.jar:?]
-	at com.fasterxml.jackson.databind.DeserializationContext.findContextualValueDeserializer(DeserializationContext.java:609) ~[McEngine-1.0-all.jar:?]
-	at com.fasterxml.jackson.databind.deser.std.CollectionDeserializer.createContextual(CollectionDeserializer.java:188) ~[McEngine-1.0-all.jar:?]
-	at com.fasterxml.jackson.databind.deser.std.CollectionDeserializer.createContextual(CollectionDeserializer.java:28) ~[McEngine-1.0-all.jar:?]
-	at com.fasterxml.jackson.databind.DeserializationContext.handlePrimaryContextualization(DeserializationContext.java:825) ~[McEngine-1.0-all.jar:?]
-	at com.fasterxml.jackson.databind.deser.BeanDeserializerBase.resolve(BeanDeserializerBase.java:550) ~[McEngine-1.0-all.jar:?]
-	at com.fasterxml.jackson.databind.deser.DeserializerCache._createAndCache2(DeserializerCache.java:294) ~[McEngine-1.0-all.jar:?]
-	at com.fasterxml.jackson.databind.deser.DeserializerCache._createAndCacheValueDeserializer(DeserializerCache.java:244) ~[McEngine-1.0-all.jar:?]
-	at com.fasterxml.jackson.databind.deser.DeserializerCache.findValueDeserializer(DeserializerCache.java:142) ~[McEngine-1.0-all.jar:?]
-	at com.fasterxml.jackson.databind.DeserializationContext.findRootValueDeserializer(DeserializationContext.java:642) ~[McEngine-1.0-all.jar:?]
-	at com.fasterxml.jackson.databind.ObjectMapper._findRootDeserializer(ObjectMapper.java:4805) ~[McEngine-1.0-all.jar:?]
-	at com.fasterxml.jackson.databind.ObjectMapper._readMapAndClose(ObjectMapper.java:4675) ~[McEngine-1.0-all.jar:?]
-	at com.fasterxml.jackson.databind.ObjectMapper.readValue(ObjectMapper.java:3690) ~[McEngine-1.0-all.jar:?]
-	at org.litote.kmongo.jackson.JacksonCodec.decode(JacksonCodec.kt:169) ~[McEngine-1.0-all.jar:?]
-	at com.mongodb.internal.operation.CommandResultArrayCodec.decode(CommandResultArrayCodec.java:52) ~[McEngine-1.0-all.jar:?]
-	at com.mongodb.internal.operation.CommandResultDocumentCodec.readValue(CommandResultDocumentCodec.java:60) ~[McEngine-1.0-all.jar:?]
-	at org.bson.codecs.BsonDocumentCodec.decode(BsonDocumentCodec.java:87) ~[McEngine-1.0-all.jar:?]
-	at org.bson.codecs.BsonDocumentCodec.decode(BsonDocumentCodec.java:42) ~[McEngine-1.0-all.jar:?]
-	at org.bson.internal.LazyCodec.decode(LazyCodec.java:48) ~[McEngine-1.0-all.jar:?]
-	at org.bson.codecs.BsonDocumentCodec.readValue(BsonDocumentCodec.java:104) ~[McEngine-1.0-all.jar:?]
-	at com.mongodb.internal.operation.CommandResultDocumentCodec.readValue(CommandResultDocumentCodec.java:63) ~[McEngine-1.0-all.jar:?]
-	at org.bson.codecs.BsonDocumentCodec.decode(BsonDocumentCodec.java:87) ~[McEngine-1.0-all.jar:?]
-	at org.bson.codecs.BsonDocumentCodec.decode(BsonDocumentCodec.java:42) ~[McEngine-1.0-all.jar:?]
-	at com.mongodb.internal.connection.ReplyMessage.<init>(ReplyMessage.java:51) ~[McEngine-1.0-all.jar:?]
-	at com.mongodb.internal.connection.InternalStreamConnection.getCommandResult(InternalStreamConnection.java:540) ~[McEngine-1.0-all.jar:?]
-	at com.mongodb.internal.connection.InternalStreamConnection.receiveCommandMessageResponse(InternalStreamConnection.java:425) ~[McEngine-1.0-all.jar:?]
-	at com.mongodb.internal.connection.InternalStreamConnection.sendAndReceive(InternalStreamConnection.java:342) ~[McEngine-1.0-all.jar:?]
-	at com.mongodb.internal.connection.UsageTrackingInternalConnection.sendAndReceive(UsageTrackingInternalConnection.java:116) ~[McEngine-1.0-all.jar:?]
-	at com.mongodb.internal.connection.DefaultConnectionPool$PooledConnection.sendAndReceive(DefaultConnectionPool.java:643) ~[McEngine-1.0-all.jar:?]
-	at com.mongodb.internal.connection.CommandProtocolImpl.execute(CommandProtocolImpl.java:71) ~[McEngine-1.0-all.jar:?]
-	at com.mongodb.internal.connection.DefaultServer$DefaultServerProtocolExecutor.execute(DefaultServer.java:240) ~[McEngine-1.0-all.jar:?]
-	at com.mongodb.internal.connection.DefaultServerConnection.executeProtocol(DefaultServerConnection.java:226) ~[McEngine-1.0-all.jar:?]
-	at com.mongodb.internal.connection.DefaultServerConnection.command(DefaultServerConnection.java:126) ~[McEngine-1.0-all.jar:?]
-	at com.mongodb.internal.connection.DefaultServerConnection.command(DefaultServerConnection.java:116) ~[McEngine-1.0-all.jar:?]
-	at com.mongodb.internal.connection.DefaultServer$OperationCountTrackingConnection.command(DefaultServer.java:345) ~[McEngine-1.0-all.jar:?]
-	at com.mongodb.internal.operation.CommandOperationHelper.createReadCommandAndExecute(CommandOperationHelper.java:230) ~[McEngine-1.0-all.jar:?]
-	at com.mongodb.internal.operation.FindOperation.lambda$execute$1(FindOperation.java:666) ~[McEngine-1.0-all.jar:?]
-	at com.mongodb.internal.operation.OperationHelper.lambda$withSourceAndConnection$2(OperationHelper.java:575) ~[McEngine-1.0-all.jar:?]
-	at com.mongodb.internal.operation.OperationHelper.withSuppliedResource(OperationHelper.java:600) ~[McEngine-1.0-all.jar:?]
-	at com.mongodb.internal.operation.OperationHelper.lambda$withSourceAndConnection$3(OperationHelper.java:574) ~[McEngine-1.0-all.jar:?]
-	at com.mongodb.internal.operation.OperationHelper.withSuppliedResource(OperationHelper.java:600) ~[McEngine-1.0-all.jar:?]
-	at com.mongodb.internal.operation.OperationHelper.withSourceAndConnection(OperationHelper.java:573) ~[McEngine-1.0-all.jar:?]
-	at com.mongodb.internal.operation.FindOperation.lambda$execute$2(FindOperation.java:661) ~[McEngine-1.0-all.jar:?]
-	at com.mongodb.internal.async.function.RetryingSyncSupplier.get(RetryingSyncSupplier.java:65) ~[McEngine-1.0-all.jar:?]
-	at com.mongodb.internal.operation.FindOperation.execute(FindOperation.java:692) ~[McEngine-1.0-all.jar:?]
-	at com.mongodb.internal.operation.FindOperation.execute(FindOperation.java:86) ~[McEngine-1.0-all.jar:?]
-	at com.mongodb.client.internal.MongoClientDelegate$DelegateOperationExecutor.execute(MongoClientDelegate.java:191) ~[McEngine-1.0-all.jar:?]
-	at com.mongodb.client.internal.FindIterableImpl.first(FindIterableImpl.java:200) ~[McEngine-1.0-all.jar:?]
-	at kotlin.collections.KMongoIterableKt.firstOrNull(KMongoIterable.kt:67) ~[McEngine-1.0-all.jar:?]
-	at org.litote.kmongo.MongoCollectionsKt.findOne(MongoCollections.kt:140) ~[McEngine-1.0-all.jar:?]
-	at me.alexirving.core.sql.MongoDb.getBackPack(MongoDb.kt:40) ~[McEngine-1.0-all.jar:?]
-	at me.alexirving.core.events.PlayerInteract.onClick(PlayerInteract.kt:16) ~[McEngine-1.0-all.jar:?]
-	at com.destroystokyo.paper.event.executor.asm.generated.GeneratedEventExecutor6.execute(Unknown Source) ~[?:?]
-	at org.bukkit.plugin.EventExecutor.lambda$create$1(EventExecutor.java:75) ~[paper-api-1.18.2-R0.1-SNAPSHOT.jar:?]
-	at co.aikar.timings.TimedEventExecutor.execute(TimedEventExecutor.java:80) ~[paper-api-1.18.2-R0.1-SNAPSHOT.jar:git-Paper-267]
-	at org.bukkit.plugin.RegisteredListener.callEvent(RegisteredListener.java:70) ~[paper-api-1.18.2-R0.1-SNAPSHOT.jar:?]
-	at org.bukkit.plugin.SimplePluginManager.callEvent(SimplePluginManager.java:629) ~[paper-api-1.18.2-R0.1-SNAPSHOT.jar:?]
-	at org.bukkit.craftbukkit.v1_18_R2.event.CraftEventFactory.callPlayerInteractEvent(CraftEventFactory.java:544) ~[paper-1.18.2.jar:git-Paper-267]
-	at org.bukkit.craftbukkit.v1_18_R2.event.CraftEventFactory.callPlayerInteractEvent(CraftEventFactory.java:507) ~[paper-1.18.2.jar:git-Paper-267]
-	at org.bukkit.craftbukkit.v1_18_R2.event.CraftEventFactory.callPlayerInteractEvent(CraftEventFactory.java:502) ~[paper-1.18.2.jar:git-Paper-267]
-	at net.minecraft.server.level.ServerPlayerGameMode.handleBlockBreakAction(ServerPlayerGameMode.java:229) ~[?:?]
-	at net.minecraft.server.network.ServerGamePacketListenerImpl.handlePlayerAction(ServerGamePacketListenerImpl.java:1769) ~[?:?]
-	at net.minecraft.network.protocol.game.ServerboundPlayerActionPacket.handle(ServerboundPlayerActionPacket.java:34) ~[?:?]
-	at net.minecraft.network.protocol.game.ServerboundPlayerActionPacket.handle(ServerboundPlayerActionPacket.java:8) ~[?:?]
-	at net.minecraft.network.protocol.PacketUtils.lambda$ensureRunningOnSameThread$1(PacketUtils.java:51) ~[?:?]
-	at net.minecraft.server.TickTask.run(TickTask.java:18) ~[paper-1.18.2.jar:git-Paper-267]
-	at net.minecraft.util.thread.BlockableEventLoop.doRunTask(BlockableEventLoop.java:153) ~[?:?]
-	at net.minecraft.util.thread.ReentrantBlockableEventLoop.doRunTask(ReentrantBlockableEventLoop.java:23) ~[?:?]
-	at net.minecraft.server.MinecraftServer.doRunTask(MinecraftServer.java:1399) ~[paper-1.18.2.jar:git-Paper-267]
-	at net.minecraft.server.MinecraftServer.d(MinecraftServer.java:188) ~[paper-1.18.2.jar:git-Paper-267]
-	at net.minecraft.util.thread.BlockableEventLoop.pollTask(BlockableEventLoop.java:126) ~[?:?]
-	at net.minecraft.server.MinecraftServer.pollTaskInternal(MinecraftServer.java:1376) ~[paper-1.18.2.jar:git-Paper-267]
-	at net.minecraft.server.MinecraftServer.pollTask(MinecraftServer.java:1369) ~[paper-1.18.2.jar:git-Paper-267]
-	at net.minecraft.util.thread.BlockableEventLoop.managedBlock(BlockableEventLoop.java:136) ~[?:?]
-	at net.minecraft.server.MinecraftServer.waitUntilNextTick(MinecraftServer.java:1347) ~[paper-1.18.2.jar:git-Paper-267]
-	at net.minecraft.server.MinecraftServer.runServer(MinecraftServer.java:1229) ~[paper-1.18.2.jar:git-Paper-267]
-	at net.minecraft.server.MinecraftServer.lambda$spin$0(MinecraftServer.java:315) ~[paper-1.18.2.jar:git-Paper-267]
-	at java.lang.Thread.run(Thread.java:833) ~[?:?]
-[03:40:38] [Server thread/ERROR]: Could not pass event PlayerInteractEvent to McEngine v1.0
-com.fasterxml.jackson.databind.exc.InvalidDefinitionException: Cannot find a (Map) Key deserializer for type [simple type, class org.bukkit.enchantments.Enchantment]
- at [Source: de.undercouch.bson4jackson.io.LittleEndianInputStream@25678057; pos: 0]
-	at com.fasterxml.jackson.databind.exc.InvalidDefinitionException.from(InvalidDefinitionException.java:67) ~[McEngine-1.0-all.jar:?]
-	at com.fasterxml.jackson.databind.DeserializationContext.reportBadDefinition(DeserializationContext.java:1904) ~[McEngine-1.0-all.jar:?]
-	at com.fasterxml.jackson.databind.deser.DeserializerCache._handleUnknownKeyDeserializer(DeserializerCache.java:603) ~[McEngine-1.0-all.jar:?]
-	at com.fasterxml.jackson.databind.deser.DeserializerCache.findKeyDeserializer(DeserializerCache.java:168) ~[McEngine-1.0-all.jar:?]
-	at com.fasterxml.jackson.databind.DeserializationContext.findKeyDeserializer(DeserializationContext.java:669) ~[McEngine-1.0-all.jar:?]
-	at com.fasterxml.jackson.databind.deser.std.MapDeserializer.createContextual(MapDeserializer.java:302) ~[McEngine-1.0-all.jar:?]
-	at com.fasterxml.jackson.databind.DeserializationContext.handlePrimaryContextualization(DeserializationContext.java:825) ~[McEngine-1.0-all.jar:?]
-	at com.fasterxml.jackson.databind.deser.BeanDeserializerBase.resolve(BeanDeserializerBase.java:550) ~[McEngine-1.0-all.jar:?]
-	at com.fasterxml.jackson.databind.deser.DeserializerCache._createAndCache2(DeserializerCache.java:294) ~[McEngine-1.0-all.jar:?]
-	at com.fasterxml.jackson.databind.deser.DeserializerCache._createAndCacheValueDeserializer(DeserializerCache.java:244) ~[McEngine-1.0-all.jar:?]
-	at com.fasterxml.jackson.databind.deser.DeserializerCache.findValueDeserializer(DeserializerCache.java:142) ~[McEngine-1.0-all.jar:?]
-	at com.fasterxml.jackson.databind.DeserializationContext.findContextualValueDeserializer(DeserializationContext.java:609) ~[McEngine-1.0-all.jar:?]
-	at com.fasterxml.jackson.databind.deser.std.CollectionDeserializer.createContextual(CollectionDeserializer.java:188) ~[McEngine-1.0-all.jar:?]
-	at com.fasterxml.jackson.databind.deser.std.CollectionDeserializer.createContextual(CollectionDeserializer.java:28) ~[McEngine-1.0-all.jar:?]
-	at com.fasterxml.jackson.databind.DeserializationContext.handlePrimaryContextualization(DeserializationContext.java:825) ~[McEngine-1.0-all.jar:?]
-	at com.fasterxml.jackson.databind.deser.BeanDeserializerBase.resolve(BeanDeserializerBase.java:550) ~[McEngine-1.0-all.jar:?]
-	at com.fasterxml.jackson.databind.deser.DeserializerCache._createAndCache2(DeserializerCache.java:294) ~[McEngine-1.0-all.jar:?]
-	at com.fasterxml.jackson.databind.deser.DeserializerCache._createAndCacheValueDeserializer(DeserializerCache.java:244) ~[McEngine-1.0-all.jar:?]
-	at com.fasterxml.jackson.databind.deser.DeserializerCache.findValueDeserializer(DeserializerCache.java:142) ~[McEngine-1.0-all.jar:?]
-	at com.fasterxml.jackson.databind.DeserializationContext.findRootValueDeserializer(DeserializationContext.java:642) ~[McEngine-1.0-all.jar:?]
-	at com.fasterxml.jackson.databind.ObjectMapper._findRootDeserializer(ObjectMapper.java:4805) ~[McEngine-1.0-all.jar:?]
-	at com.fasterxml.jackson.databind.ObjectMapper._readMapAndClose(ObjectMapper.java:4675) ~[McEngine-1.0-all.jar:?]
-	at com.fasterxml.jackson.databind.ObjectMapper.readValue(ObjectMapper.java:3690) ~[McEngine-1.0-all.jar:?]
-	at org.litote.kmongo.jackson.JacksonCodec.decode(JacksonCodec.kt:169) ~[McEngine-1.0-all.jar:?]
-	at com.mongodb.internal.operation.CommandResultArrayCodec.decode(CommandResultArrayCodec.java:52) ~[McEngine-1.0-all.jar:?]
-	at com.mongodb.internal.operation.CommandResultDocumentCodec.readValue(CommandResultDocumentCodec.java:60) ~[McEngine-1.0-all.jar:?]
-	at org.bson.codecs.BsonDocumentCodec.decode(BsonDocumentCodec.java:87) ~[McEngine-1.0-all.jar:?]
-	at org.bson.codecs.BsonDocumentCodec.decode(BsonDocumentCodec.java:42) ~[McEngine-1.0-all.jar:?]
-	at org.bson.internal.LazyCodec.decode(LazyCodec.java:48) ~[McEngine-1.0-all.jar:?]
-	at org.bson.codecs.BsonDocumentCodec.readValue(BsonDocumentCodec.java:104) ~[McEngine-1.0-all.jar:?]
-	at com.mongodb.internal.operation.CommandResultDocumentCodec.readValue(CommandResultDocumentCodec.java:63) ~[McEngine-1.0-all.jar:?]
-	at org.bson.codecs.BsonDocumentCodec.decode(BsonDocumentCodec.java:87) ~[McEngine-1.0-all.jar:?]
-	at org.bson.codecs.BsonDocumentCodec.decode(BsonDocumentCodec.java:42) ~[McEngine-1.0-all.jar:?]
-	at com.mongodb.internal.connection.ReplyMessage.<init>(ReplyMessage.java:51) ~[McEngine-1.0-all.jar:?]
-	at com.mongodb.internal.connection.InternalStreamConnection.getCommandResult(InternalStreamConnection.java:540) ~[McEngine-1.0-all.jar:?]
-	at com.mongodb.internal.connection.InternalStreamConnection.receiveCommandMessageResponse(InternalStreamConnection.java:425) ~[McEngine-1.0-all.jar:?]
-	at com.mongodb.internal.connection.InternalStreamConnection.sendAndReceive(InternalStreamConnection.java:342) ~[McEngine-1.0-all.jar:?]
-	at com.mongodb.internal.connection.UsageTrackingInternalConnection.sendAndReceive(UsageTrackingInternalConnection.java:116) ~[McEngine-1.0-all.jar:?]
-	at com.mongodb.internal.connection.DefaultConnectionPool$PooledConnection.sendAndReceive(DefaultConnectionPool.java:643) ~[McEngine-1.0-all.jar:?]
-	at com.mongodb.internal.connection.CommandProtocolImpl.execute(CommandProtocolImpl.java:71) ~[McEngine-1.0-all.jar:?]
-	at com.mongodb.internal.connection.DefaultServer$DefaultServerProtocolExecutor.execute(DefaultServer.java:240) ~[McEngine-1.0-all.jar:?]
-	at com.mongodb.internal.connection.DefaultServerConnection.executeProtocol(DefaultServerConnection.java:226) ~[McEngine-1.0-all.jar:?]
-	at com.mongodb.internal.connection.DefaultServerConnection.command(DefaultServerConnection.java:126) ~[McEngine-1.0-all.jar:?]
-	at com.mongodb.internal.connection.DefaultServerConnection.command(DefaultServerConnection.java:116) ~[McEngine-1.0-all.jar:?]
-	at com.mongodb.internal.connection.DefaultServer$OperationCountTrackingConnection.command(DefaultServer.java:345) ~[McEngine-1.0-all.jar:?]
-	at com.mongodb.internal.operation.CommandOperationHelper.createReadCommandAndExecute(CommandOperationHelper.java:230) ~[McEngine-1.0-all.jar:?]
-	at com.mongodb.internal.operation.FindOperation.lambda$execute$1(FindOperation.java:666) ~[McEngine-1.0-all.jar:?]
-	at com.mongodb.internal.operation.OperationHelper.lambda$withSourceAndConnection$2(OperationHelper.java:575) ~[McEngine-1.0-all.jar:?]
-	at com.mongodb.internal.operation.OperationHelper.withSuppliedResource(OperationHelper.java:600) ~[McEngine-1.0-all.jar:?]
-	at com.mongodb.internal.operation.OperationHelper.lambda$withSourceAndConnection$3(OperationHelper.java:574) ~[McEngine-1.0-all.jar:?]
-	at com.mongodb.internal.operation.OperationHelper.withSuppliedResource(OperationHelper.java:600) ~[McEngine-1.0-all.jar:?]
-	at com.mongodb.internal.operation.OperationHelper.withSourceAndConnection(OperationHelper.java:573) ~[McEngine-1.0-all.jar:?]
-	at com.mongodb.internal.operation.FindOperation.lambda$execute$2(FindOperation.java:661) ~[McEngine-1.0-all.jar:?]
-	at com.mongodb.internal.async.function.RetryingSyncSupplier.get(RetryingSyncSupplier.java:65) ~[McEngine-1.0-all.jar:?]
-	at com.mongodb.internal.operation.FindOperation.execute(FindOperation.java:692) ~[McEngine-1.0-all.jar:?]
-	at com.mongodb.internal.operation.FindOperation.execute(FindOperation.java:86) ~[McEngine-1.0-all.jar:?]
-	at com.mongodb.client.internal.MongoClientDelegate$DelegateOperationExecutor.execute(MongoClientDelegate.java:191) ~[McEngine-1.0-all.jar:?]
-	at com.mongodb.client.internal.FindIterableImpl.first(FindIterableImpl.java:200) ~[McEngine-1.0-all.jar:?]
-	at kotlin.collections.KMongoIterableKt.firstOrNull(KMongoIterable.kt:67) ~[McEngine-1.0-all.jar:?]
-	at org.litote.kmongo.MongoCollectionsKt.findOne(MongoCollections.kt:140) ~[McEngine-1.0-all.jar:?]
-	at me.alexirving.core.sql.MongoDb.getBackPack(MongoDb.kt:40) ~[McEngine-1.0-all.jar:?]
-	at me.alexirving.core.events.PlayerInteract.onClick(PlayerInteract.kt:16) ~[McEngine-1.0-all.jar:?]
-	at com.destroystokyo.paper.event.executor.asm.generated.GeneratedEventExecutor6.execute(Unknown Source) ~[?:?]
-	at org.bukkit.plugin.EventExecutor.lambda$create$1(EventExecutor.java:75) ~[paper-api-1.18.2-R0.1-SNAPSHOT.jar:?]
-	at co.aikar.timings.TimedEventExecutor.execute(TimedEventExecutor.java:80) ~[paper-api-1.18.2-R0.1-SNAPSHOT.jar:git-Paper-267]
-	at org.bukkit.plugin.RegisteredListener.callEvent(RegisteredListener.java:70) ~[paper-api-1.18.2-R0.1-SNAPSHOT.jar:?]
-	at org.bukkit.plugin.SimplePluginManager.callEvent(SimplePluginManager.java:629) ~[paper-api-1.18.2-R0.1-SNAPSHOT.jar:?]
-	at org.bukkit.craftbukkit.v1_18_R2.event.CraftEventFactory.callPlayerInteractEvent(CraftEventFactory.java:544) ~[paper-1.18.2.jar:git-Paper-267]
-	at org.bukkit.craftbukkit.v1_18_R2.event.CraftEventFactory.callPlayerInteractEvent(CraftEventFactory.java:507) ~[paper-1.18.2.jar:git-Paper-267]
-	at org.bukkit.craftbukkit.v1_18_R2.event.CraftEventFactory.callPlayerInteractEvent(CraftEventFactory.java:502) ~[paper-1.18.2.jar:git-Paper-267]
-	at net.minecraft.server.level.ServerPlayerGameMode.handleBlockBreakAction(ServerPlayerGameMode.java:229) ~[?:?]
-	at net.minecraft.server.network.ServerGamePacketListenerImpl.handlePlayerAction(ServerGamePacketListenerImpl.java:1769) ~[?:?]
-	at net.minecraft.network.protocol.game.ServerboundPlayerActionPacket.handle(ServerboundPlayerActionPacket.java:34) ~[?:?]
-	at net.minecraft.network.protocol.game.ServerboundPlayerActionPacket.handle(ServerboundPlayerActionPacket.java:8) ~[?:?]
-	at net.minecraft.network.protocol.PacketUtils.lambda$ensureRunningOnSameThread$1(PacketUtils.java:51) ~[?:?]
-	at net.minecraft.server.TickTask.run(TickTask.java:18) ~[paper-1.18.2.jar:git-Paper-267]
-	at net.minecraft.util.thread.BlockableEventLoop.doRunTask(BlockableEventLoop.java:153) ~[?:?]
-	at net.minecraft.util.thread.ReentrantBlockableEventLoop.doRunTask(ReentrantBlockableEventLoop.java:23) ~[?:?]
-	at net.minecraft.server.MinecraftServer.doRunTask(MinecraftServer.java:1399) ~[paper-1.18.2.jar:git-Paper-267]
-	at net.minecraft.server.MinecraftServer.d(MinecraftServer.java:188) ~[paper-1.18.2.jar:git-Paper-267]
-	at net.minecraft.util.thread.BlockableEventLoop.pollTask(BlockableEventLoop.java:126) ~[?:?]
-	at net.minecraft.server.MinecraftServer.pollTaskInternal(MinecraftServer.java:1376) ~[paper-1.18.2.jar:git-Paper-267]
-	at net.minecraft.server.MinecraftServer.pollTask(MinecraftServer.java:1369) ~[paper-1.18.2.jar:git-Paper-267]
-	at net.minecraft.util.thread.BlockableEventLoop.managedBlock(BlockableEventLoop.java:136) ~[?:?]
-	at net.minecraft.server.MinecraftServer.tickServer(MinecraftServer.java:1447) ~[paper-1.18.2.jar:git-Paper-267]
-	at net.minecraft.server.MinecraftServer.runServer(MinecraftServer.java:1225) ~[paper-1.18.2.jar:git-Paper-267]
-	at net.minecraft.server.MinecraftServer.lambda$spin$0(MinecraftServer.java:315) ~[paper-1.18.2.jar:git-Paper-267]
-	at java.lang.Thread.run(Thread.java:833) ~[?:?]
+[02:13:46] [ServerMain/INFO]: Environment: authHost='https://authserver.mojang.com', accountsHost='https://api.mojang.com', sessionHost='https://sessionserver.mojang.com', servicesHost='https://api.minecraftservices.com', name='PROD'
+[02:13:47] [Worker-Main-2/INFO]: Loaded 7 recipes
+[02:13:48] [Server thread/INFO]: Starting minecraft server version 1.18.2
+[02:13:48] [Server thread/INFO]: Loading properties
+[02:13:48] [Server thread/INFO]: This server is running Paper version git-Paper-274 (MC: 1.18.2) (Implementing API version 1.18.2-R0.1-SNAPSHOT) (Git: 04c7b16)
+[02:13:48] [Server thread/INFO]: Server Ping Player Sample Count: 12
+[02:13:48] [Server thread/INFO]: Using 4 threads for Netty based IO
+[02:13:48] [Server thread/INFO]: Default game type: SURVIVAL
+[02:13:48] [Server thread/INFO]: Generating keypair
+[02:13:48] [Server thread/INFO]: Starting Minecraft server on *:25565
+[02:13:48] [Server thread/INFO]: Using default channel type
+[02:13:48] [Server thread/INFO]: Paper: Using Java 11 compression from Velocity.
+[02:13:48] [Server thread/INFO]: Paper: Using Java cipher from Velocity.
+[02:13:48] [Server thread/INFO]: [WorldEdit] Loading WorldEdit v7.2.10+1742f98
+[02:13:49] [Server thread/INFO]: Got request to register class com.sk89q.worldedit.bukkit.BukkitServerInterface with WorldEdit [com.sk89q.worldedit.extension.platform.PlatformManager@5452d411]
+[02:13:49] [Server thread/INFO]: [ProtocolLib] Loading ProtocolLib v4.7.0
+[02:13:49] [Server thread/WARN]: [ProtocolLib] Version (MC: 1.18.2) has not yet been tested! Proceed with caution.
+[02:13:49] [Server thread/INFO]: [McEngine] Loading McEngine v1.0
+[02:13:49] [Server thread/INFO]: Server permissions file permissions.yml is empty, ignoring it
+[02:13:49] [Server thread/INFO]: [WorldEdit] Enabling WorldEdit v7.2.10+1742f98
+[02:13:49] [Server thread/INFO]: Registering commands with com.sk89q.worldedit.bukkit.BukkitServerInterface
+[02:13:49] [Server thread/INFO]: WEPIF: Using the Bukkit Permissions API.
+[02:13:49] [Server thread/INFO]: Using com.sk89q.worldedit.bukkit.adapter.impl.v1_18_R2.PaperweightAdapter as the Bukkit adapter
+[02:13:50] [Server thread/INFO]: [ProtocolLib] Enabling ProtocolLib v4.7.0
+[02:13:50] [Server thread/INFO]: [ProtocolLib] Started structure compiler thread.
+[02:13:50] [Server thread/INFO]: Preparing level "world"
+[02:13:51] [Server thread/INFO]: -------- World Settings For [world] --------
+[02:13:51] [Server thread/INFO]: Allow Zombie Pigmen to spawn from portal blocks: true
+[02:13:51] [Server thread/INFO]: Arrow Despawn Rate: 1200 Trident Respawn Rate:1200
+[02:13:51] [Server thread/INFO]: Nerfing mobs spawned from spawners: false
+[02:13:51] [Server thread/INFO]: View Distance: 10
+[02:13:51] [Server thread/INFO]: Simulation Distance: 10
+[02:13:51] [Server thread/INFO]: Item Merge Radius: 2.5
+[02:13:51] [Server thread/INFO]: Item Despawn Rate: 6000
+[02:13:51] [Server thread/INFO]: Zombie Aggressive Towards Villager: true
+[02:13:51] [Server thread/INFO]: Mob Spawn Range: 4
+[02:13:51] [Server thread/INFO]: Experience Merge Radius: 3.0
+[02:13:51] [Server thread/INFO]: Cactus Growth Modifier: 100%
+[02:13:51] [Server thread/INFO]: Cane Growth Modifier: 100%
+[02:13:51] [Server thread/INFO]: Melon Growth Modifier: 100%
+[02:13:51] [Server thread/INFO]: Mushroom Growth Modifier: 100%
+[02:13:51] [Server thread/INFO]: Pumpkin Growth Modifier: 100%
+[02:13:51] [Server thread/INFO]: Sapling Growth Modifier: 100%
+[02:13:51] [Server thread/INFO]: Beetroot Growth Modifier: 100%
+[02:13:51] [Server thread/INFO]: Carrot Growth Modifier: 100%
+[02:13:51] [Server thread/INFO]: Potato Growth Modifier: 100%
+[02:13:51] [Server thread/INFO]: Wheat Growth Modifier: 100%
+[02:13:51] [Server thread/INFO]: NetherWart Growth Modifier: 100%
+[02:13:51] [Server thread/INFO]: Vine Growth Modifier: 100%
+[02:13:51] [Server thread/INFO]: Cocoa Growth Modifier: 100%
+[02:13:51] [Server thread/INFO]: Bamboo Growth Modifier: 100%
+[02:13:51] [Server thread/INFO]: SweetBerry Growth Modifier: 100%
+[02:13:51] [Server thread/INFO]: Kelp Growth Modifier: 100%
+[02:13:51] [Server thread/INFO]: TwistingVines Growth Modifier: 100%
+[02:13:51] [Server thread/INFO]: WeepingVines Growth Modifier: 100%
+[02:13:51] [Server thread/INFO]: CaveVines Growth Modifier: 100%
+[02:13:51] [Server thread/INFO]: GlowBerry Growth Modifier: 100%
+[02:13:51] [Server thread/INFO]: Entity Activation Range: An 32 / Mo 32 / Ra 48 / Mi 16 / Tiv true / Isa false
+[02:13:51] [Server thread/INFO]: Entity Tracking Range: Pl 48 / An 48 / Mo 48 / Mi 32 / Other 64
+[02:13:51] [Server thread/INFO]: Hopper Transfer: 8 Hopper Check: 1 Hopper Amount: 1
+[02:13:51] [Server thread/INFO]: Tile Max Tick Time: 50ms Entity max Tick Time: 50ms
+[02:13:51] [Server thread/INFO]: Max TNT Explosions: 100
+[02:13:51] [Server thread/INFO]: Custom Map Seeds:  Village: 10387312 Desert: 14357617 Igloo: 14357618 Jungle: 14357619 Swamp: 14357620 Monument: 10387313 Ocean: 14357621 Shipwreck: 165745295 End City: 10387313 Slime: 987234911 Nether: 30084232 Mansion: 10387319 Fossil: 14357921 Portal: 34222645
+[02:13:52] [Server thread/INFO]: -------- World Settings For [world_nether] --------
+[02:13:52] [Server thread/INFO]: Allow Zombie Pigmen to spawn from portal blocks: true
+[02:13:52] [Server thread/INFO]: Arrow Despawn Rate: 1200 Trident Respawn Rate:1200
+[02:13:52] [Server thread/INFO]: Nerfing mobs spawned from spawners: false
+[02:13:52] [Server thread/INFO]: View Distance: 10
+[02:13:52] [Server thread/INFO]: Simulation Distance: 10
+[02:13:52] [Server thread/INFO]: Item Merge Radius: 2.5
+[02:13:52] [Server thread/INFO]: Item Despawn Rate: 6000
+[02:13:52] [Server thread/INFO]: Zombie Aggressive Towards Villager: true
+[02:13:52] [Server thread/INFO]: Mob Spawn Range: 4
+[02:13:52] [Server thread/INFO]: Experience Merge Radius: 3.0
+[02:13:52] [Server thread/INFO]: Cactus Growth Modifier: 100%
+[02:13:52] [Server thread/INFO]: Cane Growth Modifier: 100%
+[02:13:52] [Server thread/INFO]: Melon Growth Modifier: 100%
+[02:13:52] [Server thread/INFO]: Mushroom Growth Modifier: 100%
+[02:13:52] [Server thread/INFO]: Pumpkin Growth Modifier: 100%
+[02:13:52] [Server thread/INFO]: Sapling Growth Modifier: 100%
+[02:13:52] [Server thread/INFO]: Beetroot Growth Modifier: 100%
+[02:13:52] [Server thread/INFO]: Carrot Growth Modifier: 100%
+[02:13:52] [Server thread/INFO]: Potato Growth Modifier: 100%
+[02:13:52] [Server thread/INFO]: Wheat Growth Modifier: 100%
+[02:13:52] [Server thread/INFO]: NetherWart Growth Modifier: 100%
+[02:13:52] [Server thread/INFO]: Vine Growth Modifier: 100%
+[02:13:52] [Server thread/INFO]: Cocoa Growth Modifier: 100%
+[02:13:52] [Server thread/INFO]: Bamboo Growth Modifier: 100%
+[02:13:52] [Server thread/INFO]: SweetBerry Growth Modifier: 100%
+[02:13:52] [Server thread/INFO]: Kelp Growth Modifier: 100%
+[02:13:52] [Server thread/INFO]: TwistingVines Growth Modifier: 100%
+[02:13:52] [Server thread/INFO]: WeepingVines Growth Modifier: 100%
+[02:13:52] [Server thread/INFO]: CaveVines Growth Modifier: 100%
+[02:13:52] [Server thread/INFO]: GlowBerry Growth Modifier: 100%
+[02:13:52] [Server thread/INFO]: Entity Activation Range: An 32 / Mo 32 / Ra 48 / Mi 16 / Tiv true / Isa false
+[02:13:52] [Server thread/INFO]: Entity Tracking Range: Pl 48 / An 48 / Mo 48 / Mi 32 / Other 64
+[02:13:52] [Server thread/INFO]: Hopper Transfer: 8 Hopper Check: 1 Hopper Amount: 1
+[02:13:52] [Server thread/INFO]: Tile Max Tick Time: 50ms Entity max Tick Time: 50ms
+[02:13:52] [Server thread/INFO]: Max TNT Explosions: 100
+[02:13:52] [Server thread/INFO]: Custom Map Seeds:  Village: 10387312 Desert: 14357617 Igloo: 14357618 Jungle: 14357619 Swamp: 14357620 Monument: 10387313 Ocean: 14357621 Shipwreck: 165745295 End City: 10387313 Slime: 987234911 Nether: 30084232 Mansion: 10387319 Fossil: 14357921 Portal: 34222645
+[02:13:52] [Server thread/INFO]: -------- World Settings For [world_the_end] --------
+[02:13:52] [Server thread/INFO]: Allow Zombie Pigmen to spawn from portal blocks: true
+[02:13:52] [Server thread/INFO]: Arrow Despawn Rate: 1200 Trident Respawn Rate:1200
+[02:13:52] [Server thread/INFO]: Nerfing mobs spawned from spawners: false
+[02:13:52] [Server thread/INFO]: View Distance: 10
+[02:13:52] [Server thread/INFO]: Simulation Distance: 10
+[02:13:52] [Server thread/INFO]: Item Merge Radius: 2.5
+[02:13:52] [Server thread/INFO]: Item Despawn Rate: 6000
+[02:13:52] [Server thread/INFO]: Zombie Aggressive Towards Villager: true
+[02:13:52] [Server thread/INFO]: Mob Spawn Range: 4
+[02:13:52] [Server thread/INFO]: Experience Merge Radius: 3.0
+[02:13:52] [Server thread/INFO]: Cactus Growth Modifier: 100%
+[02:13:52] [Server thread/INFO]: Cane Growth Modifier: 100%
+[02:13:52] [Server thread/INFO]: Melon Growth Modifier: 100%
+[02:13:52] [Server thread/INFO]: Mushroom Growth Modifier: 100%
+[02:13:52] [Server thread/INFO]: Pumpkin Growth Modifier: 100%
+[02:13:52] [Server thread/INFO]: Sapling Growth Modifier: 100%
+[02:13:52] [Server thread/INFO]: Beetroot Growth Modifier: 100%
+[02:13:52] [Server thread/INFO]: Carrot Growth Modifier: 100%
+[02:13:52] [Server thread/INFO]: Potato Growth Modifier: 100%
+[02:13:52] [Server thread/INFO]: Wheat Growth Modifier: 100%
+[02:13:52] [Server thread/INFO]: NetherWart Growth Modifier: 100%
+[02:13:52] [Server thread/INFO]: Vine Growth Modifier: 100%
+[02:13:52] [Server thread/INFO]: Cocoa Growth Modifier: 100%
+[02:13:52] [Server thread/INFO]: Bamboo Growth Modifier: 100%
+[02:13:52] [Server thread/INFO]: SweetBerry Growth Modifier: 100%
+[02:13:52] [Server thread/INFO]: Kelp Growth Modifier: 100%
+[02:13:52] [Server thread/INFO]: TwistingVines Growth Modifier: 100%
+[02:13:52] [Server thread/INFO]: WeepingVines Growth Modifier: 100%
+[02:13:52] [Server thread/INFO]: CaveVines Growth Modifier: 100%
+[02:13:52] [Server thread/INFO]: GlowBerry Growth Modifier: 100%
+[02:13:52] [Server thread/INFO]: Entity Activation Range: An 32 / Mo 32 / Ra 48 / Mi 16 / Tiv true / Isa false
+[02:13:52] [Server thread/INFO]: Entity Tracking Range: Pl 48 / An 48 / Mo 48 / Mi 32 / Other 64
+[02:13:52] [Server thread/INFO]: Hopper Transfer: 8 Hopper Check: 1 Hopper Amount: 1
+[02:13:52] [Server thread/INFO]: Tile Max Tick Time: 50ms Entity max Tick Time: 50ms
+[02:13:52] [Server thread/INFO]: Max TNT Explosions: 100
+[02:13:52] [Server thread/INFO]: Custom Map Seeds:  Village: 10387312 Desert: 14357617 Igloo: 14357618 Jungle: 14357619 Swamp: 14357620 Monument: 10387313 Ocean: 14357621 Shipwreck: 165745295 End City: 10387313 Slime: 987234911 Nether: 30084232 Mansion: 10387319 Fossil: 14357921 Portal: 34222645
+[02:13:52] [Server thread/INFO]: Preparing start region for dimension minecraft:overworld
+[02:13:52] [Server thread/INFO]: Time elapsed: 169 ms
+[02:13:52] [Server thread/INFO]: Preparing start region for dimension minecraft:the_nether
+[02:13:52] [Server thread/INFO]: Time elapsed: 65 ms
+[02:13:52] [Server thread/INFO]: Preparing start region for dimension minecraft:the_end
+[02:13:52] [Server thread/INFO]: Time elapsed: 57 ms
+[02:13:52] [Server thread/INFO]: [McEngine] Enabling McEngine v1.0
+[02:13:52] [Server thread/INFO]: [35mLoaded item: SuperPick successfully[0m
+[02:13:52] [Server thread/INFO]: [org.reflections.Reflections] Reflections took 74 ms to scan 1 urls, producing 3 keys and 27 values
+[02:13:52] [Server thread/INFO]: [35mLoaded animation: "Default".[0m
+[02:13:53] [Server thread/INFO]: [org.mongodb.driver.cluster] Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
+[02:13:53] [Server thread/INFO]: [org.mongodb.driver.cluster] Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
+[02:13:53] [cluster-ClusterId{value='624787317f5f317a0fbab4e3', description='null'}-localhost:27017/INFO]: [org.mongodb.driver.connection] Opened connection [connectionId{localValue:1, serverValue:1219}] to localhost:27017
+[02:13:53] [cluster-ClusterId{value='624787317f5f317a0fbab4e3', description='null'}-localhost:27017/INFO]: [org.mongodb.driver.cluster] Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=13, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=23688600}
+[02:13:53] [cluster-rtt-ClusterId{value='624787317f5f317a0fbab4e3', description='null'}-localhost:27017/INFO]: [org.mongodb.driver.connection] Opened connection [connectionId{localValue:2, serverValue:1220}] to localhost:27017
+[02:13:53] [cluster-ClusterId{value='624787317f5f317a0fbab4e4', description='null'}-localhost:27017/INFO]: [org.mongodb.driver.connection] Opened connection [connectionId{localValue:3, serverValue:1221}] to localhost:27017
+[02:13:53] [cluster-rtt-ClusterId{value='624787317f5f317a0fbab4e4', description='null'}-localhost:27017/INFO]: [org.mongodb.driver.connection] Opened connection [connectionId{localValue:4, serverValue:1222}] to localhost:27017
+[02:13:53] [cluster-ClusterId{value='624787317f5f317a0fbab4e4', description='null'}-localhost:27017/INFO]: [org.mongodb.driver.cluster] Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=13, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=15914400}
+[02:13:53] [Server thread/INFO]: Running delayed init tasks
+[02:13:53] [Server thread/INFO]: Done (5.968s)! For help, type "help"
+[02:13:53] [Server thread/INFO]: Timings Reset
+[02:13:55] [Server thread/WARN]: UUID of added entity already exists: EntitySheep['Sheep'/21, uuid='114e4897-821d-4103-8a1b-77f1b4ae46b7', l='ServerLevel[world]', x=24.66, y=70.00, z=-103.66, cpos=[1, -7], tl=468542, v=false]
+[02:13:55] [Server thread/WARN]: UUID of added entity already exists: EntityCow['Cow'/41, uuid='ad0f0e68-a2f5-4b50-a041-079d46c33dca', l='ServerLevel[world]', x=67.81, y=64.00, z=84.13, cpos=[4, 5], tl=62349, v=false]
+[02:17:35] [User Authenticator #1/INFO]: UUID of player shmezi is 8b33b9e1-da73-446b-a70b-788191cc2c59
+[02:17:36] [Server thread/INFO]: [org.mongodb.driver.connection] Opened connection [connectionId{localValue:5, serverValue:1223}] to localhost:27017
+[02:17:36] [Server thread/INFO]: shmezi joined the game
+[02:17:36] [Server thread/INFO]: shmezi[/127.0.0.1:57098] logged in with entity id 135 at ([world]131.8423045442771, 73.3682785028761, 51.919988565333554)
+[02:17:36] [Server thread/WARN]: UUID of added entity already exists: EntityBat['Bat'/183, uuid='989b361a-7027-4a34-bfb5-4f241233a890', l='ServerLevel[world]', x=208.51, y=-0.16, z=120.84, cpos=[13, 7], tl=477, v=false]
+[02:17:36] [Server thread/WARN]: UUID of added entity already exists: EntityChicken['Chicken'/229, uuid='d61c0faf-8c89-4fb4-a164-af2b6059bb1b', l='ServerLevel[world]', x=206.89, y=121.00, z=191.80, cpos=[12, 11], tl=554815, v=false]
+[02:17:36] [Server thread/WARN]: UUID of added entity already exists: EntityChicken['Chicken'/239, uuid='23ea3f2c-dafb-42b2-892b-790d48916771', l='ServerLevel[world]', x=196.91, y=122.00, z=194.16, cpos=[12, 12], tl=705768, v=false]
+[02:17:36] [Server thread/WARN]: UUID of added entity already exists: EntityPig['Pig'/255, uuid='cf7e3899-229a-4835-a059-50f17359888f', l='ServerLevel[world]', x=288.29, y=96.00, z=128.50, cpos=[18, 8], tl=616307, v=false]
+[02:17:42] [Server thread/INFO]: shmezi issued server command: /engine getitem
+[02:17:42] [Server thread/INFO]: UNSPECIFIC_META:{meta-type=UNSPECIFIC}
+[02:17:42] [Server thread/INFO]: [NBTAPI] [NBTAPI] Found Spigot: v1_18_R2! Trying to find NMS support
+[02:17:42] [Server thread/INFO]: [NBTAPI] [NBTAPI] NMS support 'MC1_18_R2' loaded!
+[02:17:42] [Server thread/INFO]: [NBTAPI] [NBTAPI] Found Gson: class com.google.gson.Gson
+[02:17:42] [Server thread/INFO]: PLACEHOLDERS{Speed=, Nuke=Nuke-$, Key_Finder=, Detonate=, JackHammer=, Laser=, Fortune=, Efficiency=, TokenMiner=, LightningBolt=}
+[02:17:42] [Thread-15/INFO]: [NBTAPI] [NBTAPI] The NBT-API seems to be up-to-date!
+[20:08:36] [Server thread/WARN]: Can't keep up! Is the server overloaded? Running 63939094ms or 1278781 ticks behind
+[20:08:36] [Server thread/INFO]: shmezi lost connection: Timed out
+[20:08:36] [Server thread/INFO]: shmezi left the game
+[20:08:37] [Server thread/INFO]: [ProtocolLib] The updater found an update, and has readied it to be loaded the next time the server restarts/reloads.

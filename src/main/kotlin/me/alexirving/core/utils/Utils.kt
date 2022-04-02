@@ -93,5 +93,6 @@ fun asyncNonBukkit(task: Runnable?) {
     exe.submit(task)
 }
 
-fun Any?.print() = println(this)
+fun Any?.print(): Any = println(this)
 fun Any?.printAsString() = println(this.toString())
+fun Any?.printAsString(prefix: String) = println("$prefix${this.toString()}")

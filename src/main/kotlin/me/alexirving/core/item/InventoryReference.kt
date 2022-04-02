@@ -7,7 +7,7 @@ import org.bukkit.inventory.Inventory
 import org.bukkit.inventory.ItemStack
 import java.util.*
 
-data class InventoryReference(var inventory: Inventory, val baseItem: BaseItem, val id: UUID) {
+data class InventoryReference(var inventory: Inventory, private val baseItem: BaseItem, val id: UUID) {
 
     fun getStack(): ItemStack {
         for (i in inventory.contents)
@@ -19,17 +19,27 @@ data class InventoryReference(var inventory: Inventory, val baseItem: BaseItem, 
                     if (f.getUUID("uuid") == id)
                         return i
                 }
-        throw NotFoundException("Could not find itemstack with uuid of $id for baseItem of ${baseItem.id}")
+        throw NotFoundException("Could not find ItemStack with uuid of $id for baseItem of ${baseItem.id}")
     }
 
     fun setStack(item: ItemStack) {
         for (i in inventory.contents.withIndex())
-            if (i.value.type == baseItem.material) {
-                val f = NBTItem(i.value)
-                if (f.getUUID("uuid") == id)
-                    inventory.setItem(i.index, item)
-            }
-        throw NotFoundException("Could not find itemstack with uuid of $id for baseItem of ${baseItem.id}")
+            if (i.value == null) continue
+            else
+                if (i.value.type == baseItem.material) {
+                    val f = NBTItem(i.value)
+                    if (!f.hasNBTData()) continue
+                    if (!f.hasKey("uuid")) continue
+                    if (f.getUUID("uuid") == id)
+                        inventory.setItem(i.index, item)
+                }
+        throw NotFoundException("Could not find ItemStack with uuid of $id for baseItem of ${baseItem.id}")
+    }
+
+
+    fun move(newInventory: Inventory): InventoryReference {
+        this.inventory = newInventory
+        return this
     }
 
     override fun toString(): String {

@@ -7,12 +7,12 @@
  */
 package me.alexirving.core.item
 
+//import me.alexirving.core.sql.MongoDb.getUser
 import com.google.gson.Gson
 import me.alexirving.core.item.template.BaseItem
-import me.alexirving.core.sql.MongoDb
-//import me.alexirving.core.sql.MongoDb.getUser
+import me.alexirving.core.utils.Colors
+import me.alexirving.core.utils.color
 import java.io.File
-import java.util.*
 
 object ItemManager {
     val gson = Gson()
@@ -22,23 +22,10 @@ object ItemManager {
         bases.clear()
         for (f in dir.listFiles() ?: return) {
             bases[f.nameWithoutExtension] = BaseItem.fromJson(f)
-            println("Loaded item: ${f.nameWithoutExtension} successfully")
+            println("Loaded item: ${f.nameWithoutExtension} successfully".color(Colors.PURPLE))
         }
     }
 
-
-//    fun buildFromNbt(stack: ItemStack): InstanceItem {
-//        val nbt = NBTItem(stack)
-//        val id = nbt.getString("ItemId")
-//        if (!bases.containsKey(id))
-//            throw NotFoundException("ItemId from item not found! ItemId: \"$id\"")
-//        return bases[id]?.asInstance(stack)?.apply {
-//            val m = nbt.getObject("attributes", Map::class.java) as Map<String, Int>
-////            for (v in m)
-////                (v.key, v.value)
-//
-//        } ?: throw CompileError("Some odd error Shmezi#4200 should look into occurred while making an instance item!")
-//    }
 }
 
 fun main() {

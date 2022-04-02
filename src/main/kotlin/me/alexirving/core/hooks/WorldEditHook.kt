@@ -26,7 +26,6 @@ class WorldEditHook {
         we!!.newEditSession(region.world ?: BukkitAdapter.adapt(Bukkit.getWorld("world")))!!.setBlocks(
 
             region, pattern
-
         )
     }
 

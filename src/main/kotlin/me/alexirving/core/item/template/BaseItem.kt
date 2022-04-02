@@ -17,8 +17,14 @@ import java.io.FileReader
 
 /**
  * [BaseItem] represents an item template that can be easily modified.
+ * @param id The Identifier for the baseItem.
+ * @param material [Material] of the baseItem.
+ * @param displayName Template display name.
+ * @param lore Template lore of baseItem.
+ * @param placeholders a map containing the placeholder with a list of options.
  * @param groups Allowed amounts per groups useful for stuff like limiting type of enchant. Groups
- * @param
+ * @param sections Sections allow lists of attributes allowed in each section
+ *
  */
 class BaseItem(
     val id: String,
@@ -32,9 +38,7 @@ class BaseItem(
 
     companion object {
         private val g = Gson()
-        fun fromJson(f: File): BaseItem = g.fromJson(BufferedReader(FileReader(f)), BaseItem::class.java).also {
-            println("DEBUG: ${it.material}")
-        }
+        fun fromJson(f: File): BaseItem = g.fromJson(BufferedReader(FileReader(f)), BaseItem::class.java)
     }
 
     fun asInstance(reference: InventoryReference) = InstanceItem(this, reference)

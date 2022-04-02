@@ -44,6 +44,7 @@ data-value-allowed-items: []
 warnWhenSettingExcessiveVelocity: true
 settings:
   chunk-loading:
+    player-max-chunk-load-rate: -1.0
     min-load-radius: 2
     max-concurrent-sends: 2
     autoconfig-send-distance: true
