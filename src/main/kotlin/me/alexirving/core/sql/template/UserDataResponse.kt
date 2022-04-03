@@ -10,10 +10,10 @@ data class UserDataResponse(
 ) {
     fun setBal(id: String, value: Double) {
         ecos[id] = value
-        MongoDb.setValue(uuid, UserDataResponse::ecos, ecos)
+//        MongoDb.setValue(uuid, UserDataResponse::ecos, ecos)
     }
 
-    fun setMined(value: Double) = MongoDb.setValue(uuid, UserDataResponse::mined, value)
-    fun setPickLevel(value: Int) = MongoDb.setValue(uuid, UserDataResponse::pickLevel, value)
+//    fun setMined(value: Double) = MongoDb.setValue(uuid, UserDataResponse::mined, value)
+//    fun setPickLevel(value: Int) = MongoDb.setValue(uuid, UserDataResponse::pickLevel, value)
 
 }

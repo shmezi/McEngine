@@ -19,8 +19,8 @@ object EcoManager {
     }
 
     fun load(uuid: UUID) {
-        for (e in MongoDb.getUser(uuid.toString()).ecos)
-            ecos[e.key]?.load(uuid, e.value)
+//        for (e in MongoDb.getUser(uuid.toString()).ecos)
+//            ecos[e.key]?.load(uuid, e.value)
     }
 
     fun delete(id: String) {

@@ -93,6 +93,21 @@ fun asyncNonBukkit(task: Runnable?) {
     exe.submit(task)
 }
 
-fun Any?.print(): Any = println(this)
+fun Any?.print() = println(this)
+
 fun Any?.printAsString() = println(this.toString())
 fun Any?.printAsString(prefix: String) = println("$prefix${this.toString()}")
+var c = true
+fun Any?.pq() {
+    if (this == null) {
+        println("null".color(Colors.RED))
+        return
+    }
+    c = if (c) {
+        println("PRINTED VALUE: ${this.toString()}".color(Colors.BG_RED))
+        false
+    } else {
+        println("PRINTED VALUE: ${this.toString()}".color(Colors.BG_BLUE))
+        true
+    }
+}

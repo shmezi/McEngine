@@ -8,9 +8,14 @@
 package me.alexirving.core.item.template
 
 import com.google.gson.Gson
+import de.tr7zw.changeme.nbtapi.NBTItem
+import dev.triumphteam.gui.components.util.Legacy
 import me.alexirving.core.item.InstanceItem
 import me.alexirving.core.item.InventoryReference
+import me.alexirving.core.utils.pq
+import net.kyori.adventure.text.minimessage.MiniMessage
 import org.bukkit.Material
+import org.bukkit.inventory.ItemStack
 import java.io.BufferedReader
 import java.io.File
 import java.io.FileReader
@@ -33,8 +38,32 @@ class BaseItem(
     val lore: List<String>,
     val placeholders: Map<String, List<String>>,
     val groups: Map<String, Int>,
-    val sections: Map<String, List<Attribute>>,
+    val sections: Map<String, List<Attribute>>
 ) {
+
+    private lateinit var template: ItemStack
+
+
+    /**
+     * Google serialization will not init everything smh
+     */
+    fun init() {
+
+        template = ItemStack(material)
+        val im = template.itemMeta
+        val mm = MiniMessage.miniMessage()
+        val ss = Legacy.SERIALIZER
+        im.displayName = ss.serialize(mm.deserialize(displayName))
+        im.lore = lore.map { ss.serialize(mm.deserialize(it)) }
+        template.itemMeta = im
+
+        NBTItem(template, true).apply {
+            setString("id", id)
+        }
+    }
+
+    fun getTemplate() = template.clone()
+
 
     companion object {
         private val g = Gson()
@@ -42,4 +71,5 @@ class BaseItem(
     }
 
     fun asInstance(reference: InventoryReference) = InstanceItem(this, reference)
+
 }

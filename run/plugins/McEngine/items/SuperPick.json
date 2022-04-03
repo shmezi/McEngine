@@ -1,8 +1,9 @@
 {
-  "displayName": "Super pickaxe",
+  "id": "SuperPickaxe",
+  "displayName": "<dark_gray>┏<st>----</st><light_purple><bold>Statistics</bold><dark_gray><st>--------</st>┒",
   "lore": [
     "A cool pickaxe!",
-    "%Nuke%",
+    "%nuke%",
     "%speed%"
   ],
   "material": "DIAMOND_PICKAXE",
@@ -14,8 +15,8 @@
       "SPEED",
       "Gives a speed boost!"
     ],
-    "Nuke": [
-      "Nuke-$"
+    "nuke": [
+      "Nuke-%"
     ]
   },
   "sections": {

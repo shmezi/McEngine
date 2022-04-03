@@ -30,8 +30,10 @@ data class InventoryReference(var inventory: Inventory, private val baseItem: Ba
                     val f = NBTItem(i.value)
                     if (!f.hasNBTData()) continue
                     if (!f.hasKey("uuid")) continue
-                    if (f.getUUID("uuid") == id)
+                    if (f.getUUID("uuid") == id) {
                         inventory.setItem(i.index, item)
+                        return
+                    }
                 }
         throw NotFoundException("Could not find ItemStack with uuid of $id for baseItem of ${baseItem.id}")
     }

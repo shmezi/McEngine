@@ -15,11 +15,11 @@ data class Economy(val id: String) {
     private val ecoMap = mutableMapOf<UUID, Double>()
 
     init {
-        MongoDb.getDb().getCollection("eco") ?: MongoDb.getDb().createCollection("eco")
+//        MongoDb.getDb().getCollection("eco") ?: MongoDb.getDb().createCollection("eco")
     }
 
     private fun setValue(uuid: String, value: Double) {
-        MongoDb.getUser(uuid).setBal(id, value)
+//        MongoDb.getUser(uuid).setBal(id, value)
     }
 
     fun setBal(uuid: UUID, eco: Double): Double {

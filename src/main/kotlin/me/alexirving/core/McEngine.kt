@@ -57,7 +57,7 @@ class McEngine : JavaPlugin() {
         Im.reload(File(dataFolder, "items"))
         lim.reload(YamlConfiguration.loadConfiguration(File(dataFolder, "items.yml")))
         this.am = AnimationManager(File(dataFolder, "animations"), this)
-        MongoDb.init(config.getString("MongoDb") ?: "mongodb://localhost")
+//        MongoDb.init(config.getString("MongoDb") ?: "mongodb://localhost")
         for (e in config.getStringList("Ecos"))
             em.create(e)
         registerListeners(this, PlayerJoin(), PlayerInteract())
@@ -75,7 +75,7 @@ class McEngine : JavaPlugin() {
         am.reload()
         reloadConfig()
         Im.reload(File(dataFolder, "items"))
-        MongoDb.init(config.getString("MongoDb") ?: "mongodb://localhost")
+//        MongoDb.init(config.getString("MongoDb") ?: "mongodb://localhost")
 
     }
 

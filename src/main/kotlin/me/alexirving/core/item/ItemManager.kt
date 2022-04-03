@@ -21,14 +21,11 @@ object ItemManager {
     fun reload(dir: File) {
         bases.clear()
         for (f in dir.listFiles() ?: return) {
-            bases[f.nameWithoutExtension] = BaseItem.fromJson(f)
-            println("Loaded item: ${f.nameWithoutExtension} successfully".color(Colors.PURPLE))
+            val b = BaseItem.fromJson(f)
+            bases[b.id] = b
+            b.init()
+            println("Loaded item: ${f.nameWithoutExtension} (Id: ${b.id}) successfully".color(Colors.PURPLE))
         }
     }
 
-}
-
-fun main() {
-//    MongoDb.build()
-//    println(getUser((UUID.fromString("4T05gkiUYlUYXApOunClxsw")))?.getBal())
 }

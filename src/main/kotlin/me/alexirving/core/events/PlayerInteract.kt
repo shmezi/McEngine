@@ -13,6 +13,6 @@ class PlayerInteract : Listener {
         val item = NBTItem(e.item)
         if (!item.hasNBTData()) return
         if (!item.hasKey("id")) return
-        MongoDb.getBackPack("ab74ad45-0ea9-4550-bb99-b8d822fbe909")
+//        MongoDb.getBackPack("ab74ad45-0ea9-4550-bb99-b8d822fbe909")
     }
 }

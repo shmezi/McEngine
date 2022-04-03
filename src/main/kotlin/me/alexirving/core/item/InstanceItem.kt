@@ -9,67 +9,85 @@ package me.alexirving.core.item
 
 import de.tr7zw.changeme.nbtapi.NBTItem
 import me.alexirving.core.item.template.BaseItem
-import me.alexirving.core.utils.printAsString
+import org.bukkit.inventory.Inventory
 import org.bukkit.inventory.ItemStack
-import java.util.*
 
 /**
- * An instanceItem represents an item that could be in an inventory that will be modified.
- * This should be pooled and should be built when you
+ * Wraps an [ItemStack] for use of a baseItem, to change stuff like lore.
  */
-class InstanceItem(val baseItem: BaseItem, private var refrence: InventoryReference) {
-    private var templateItem: ItemStack = ItemStack(baseItem.material)
-    private val placeholderLevels = mutableMapOf<String, Int>()
+class InstanceItem {
+    val baseItem: BaseItem
+    private var reference: InventoryReference
+    private val templateItem: ItemStack
+    private var exists = false
 
-    init {
-        buildTemplate()
+    constructor(baseItem: BaseItem, reference: InventoryReference) : this(baseItem, reference, false)
+
+    constructor(baseItem: BaseItem, reference: InventoryReference, built: Boolean) {
+        this.baseItem = baseItem
+        this.reference = reference
+        templateItem = baseItem.getTemplate()
+        NBTItem(templateItem, true).apply { setUUID("uuid", reference.id) }
+        exists = built
     }
 
-    fun buildToInventory() {
-        refrence.inventory.addItem(templateItem.clone().apply {
-            val toReplace = mutableMapOf<String, String>()
-            for (s in baseItem.sections)
-            replacePlaceHolders(this, toReplace)
-        })
+
+    /**
+     * Builds the template for an item instance to be built upon
+     */
+
+
+    fun getAttributes(): Map<String, Double> {
+        return if (exists)
+            (NBTItem(reference.getStack()).getObject("attributes", Map::class.java) as Map<String, Double>?)
+                ?: mutableMapOf()
+        else
+            mutableMapOf()
+    }
+
+    fun getLevel(key: String): Int {
+        return if (exists) {
+            getAttributes()[key]?.toInt() ?: 0
+        } else
+            0
     }
 
 
-    fun getReference() = refrence
-
-    fun buildFromTemplate(placeholders: Map<String, String>) {
-        refrence.setStack(templateItem.clone().apply {
-            replacePlaceHolders(this, placeholders)
-            val toReplace = mutableMapOf<String, String>()
-            for (s in baseItem.sections) //Looping over sections
-                for (attribute in s.value) //Looping over attributes
-                    toReplace["$${attribute.id}$"] =
-                        baseItem.placeholders[attribute.id]?.get(placeholderLevels[attribute.id] ?: 0) ?: ""
-            replacePlaceHolders(this, toReplace)
-        })
-    }
-
-    fun buildTemplate() {
-        templateItem.itemMeta.printAsString()
-        templateItem.itemMeta = templateItem.itemMeta.apply {
-            displayName = baseItem.displayName
-            lore = baseItem.lore
+    /**
+     * Returns an [ItemStack] of the instanceItem using the template.
+     */
+    fun build() = templateItem.clone().apply {
+        val replacements = mutableMapOf<String, String>()
+        baseItem.placeholders.forEach {
+            val l = getLevel(it.key) ?: 0
+            replacements[it.key] = if (it.value.size > getLevel(it.key) ?: 0) it.value[l].replace("%", "$l") else "null"
         }
-        val nbtItem = NBTItem(templateItem)
-        nbtItem.setUUID("uuid", UUID.randomUUID())
-        templateItem = nbtItem.item
+        replacePlaceHolders(this, replacements)
     }
 
-
-    fun saveToItem(item: ItemStack) {
-        NBTItem(item, true)
-            .apply {
-                setString("itemId", baseItem.id)
-                setObject("attributes", placeholderLevels)
-            }
+    fun setLevel(placeholder: String, level: Int) {
+        val a = getAttributes().toMutableMap()
+        a[placeholder] = level.toDouble()
+        NBTItem(reference.getStack(), true).setObject("attributes", a)
     }
 
+    /**
+     * Builds to the reference inventory!
+     */
+    fun buildToInventory() {
+        reference.inventory.addItem(build())
+        exists = true
+    }
+
+    /**
+     * Updates the ItemStack in the reference item
+     */
+    fun updateItem() = reference.setStack(build())
+
+    /**
+     * Replaces all the placeholders of an item
+     */
     private fun replacePlaceHolders(item: ItemStack, placeholders: Map<String, String>) {
-        placeholders.printAsString("PLACEHOLDERS")
         val im = item.itemMeta
         for (pl in placeholders) {
             val k = "%${pl.key}%"
@@ -77,5 +95,15 @@ class InstanceItem(val baseItem: BaseItem, private var refrence: InventoryRefere
             im.displayName = im.displayName.replace(k, pl.value)
         }
         item.itemMeta = im
+    }
+
+
+    companion object {
+        fun of(item: ItemStack, inventory: Inventory): InstanceItem? {
+            val nbt = NBTItem(item)
+            if (!nbt.hasNBTData()) return null
+            val a = ItemManager.bases[nbt.getString("id")] ?: return null
+            return InstanceItem(a, InventoryReference(inventory, a, nbt.getUUID("uuid")), true)
+        }
     }
 }
