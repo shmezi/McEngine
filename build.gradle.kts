@@ -44,7 +44,7 @@ dependencies {
      * Frameworks
      */
     implementation("dev.triumphteam", "triumph-gui", "3.1.1")
-    compileOnly("me.mattstudios.utils:matt-framework:1.4.6")
+    implementation("me.mattstudios.utils:matt-framework:1.4.6")
     implementation("de.tr7zw:item-nbt-api:2.9.2")
 
     /**
@@ -62,10 +62,11 @@ dependencies {
 }
 tasks {
     shadowJar {
-        relocate("dev.triumphteam.gui", "me.alexirving.core.gui")
-        relocate("org.bstats", "me.alexirving.core.bstats")
-        relocate("de.tr7zw.changeme.nbtapi", "me.alexirving.core.nbtapi")
-        relocate("net.kyori.adventure", "me.alexirving.core.minimessages")
+        relocate("dev.triumphteam.gui", "me.alexirving.core.depends.gui")
+        relocate("me.mattstudios.mf", "me.alexirving.core.depends.mf")
+        relocate("org.bstats", "me.alexirving.core.depends.bstats")
+        relocate("de.tr7zw.changeme.nbtapi", "me.alexirving.core.depends.nbtapi")
+        relocate("net.kyori.adventure", "me.alexirving.core.depends.minimessages")
     }
     runServer {
         minecraftVersion("1.18.2")

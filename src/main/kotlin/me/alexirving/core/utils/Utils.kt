@@ -23,6 +23,7 @@ import java.io.File
 import java.nio.file.Files
 import java.nio.file.StandardCopyOption
 import java.util.concurrent.Executors
+import kotlin.random.Random
 
 val mm = MiniMessage.miniMessage()
 
@@ -97,17 +98,25 @@ fun Any?.print() = println(this)
 
 fun Any?.printAsString() = println(this.toString())
 fun Any?.printAsString(prefix: String) = println("$prefix${this.toString()}")
-var c = true
-fun Any?.pq() {
+var c = 0
+fun Any?.pq() = this.pq(null)
+fun Any?.pqr() = pq(Random.nextInt(0, 100))
+fun Any?.pq(number: Int) = this.pq("[$number] ")
+fun Any?.pq(prefix: String?) {
     if (this == null) {
         println("null".color(Colors.RED))
         return
     }
-    c = if (c) {
-        println("PRINTED VALUE: ${this.toString()}".color(Colors.BG_RED))
-        false
-    } else {
-        println("PRINTED VALUE: ${this.toString()}".color(Colors.BG_BLUE))
-        true
+    val p = prefix ?: "PRINTED VALUE: "
+    when (c) {
+        0 -> println("$p$this".color(Colors.RED))
+        1 -> println("$p$this".color(Colors.BLUE))
+        2 -> println("$p$this".color(Colors.GREEN))
+        3 -> println("$p$this".color(Colors.PURPLE))
+        4 -> println("$p$this".color(Colors.CYAN))
+        5 -> println("$p$this".color(Colors.YELLOW))
     }
+    c++
+    if (c > 5)
+        c = 0
 }

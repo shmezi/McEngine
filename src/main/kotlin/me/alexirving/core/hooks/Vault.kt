@@ -8,7 +8,7 @@
 
 package me.alexirving.core.hooks
 
-import me.alexirving.core.econemy.EcoManager
+import me.alexirving.core.economy.EcoManager
 import net.milkbowl.vault.economy.AbstractEconomy
 import net.milkbowl.vault.economy.EconomyResponse
 import java.util.*

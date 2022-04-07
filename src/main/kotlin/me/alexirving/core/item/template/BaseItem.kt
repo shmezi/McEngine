@@ -10,9 +10,8 @@ package me.alexirving.core.item.template
 import com.google.gson.Gson
 import de.tr7zw.changeme.nbtapi.NBTItem
 import dev.triumphteam.gui.components.util.Legacy
-import me.alexirving.core.item.InstanceItem
-import me.alexirving.core.item.InventoryReference
-import me.alexirving.core.utils.pq
+import me.alexirving.core.item.instance.ItemInstance
+import me.alexirving.core.item.instance.InventoryReference
 import net.kyori.adventure.text.minimessage.MiniMessage
 import org.bukkit.Material
 import org.bukkit.inventory.ItemStack
@@ -48,7 +47,6 @@ class BaseItem(
      * Google serialization will not init everything smh
      */
     fun init() {
-
         template = ItemStack(material)
         val im = template.itemMeta
         val mm = MiniMessage.miniMessage()
@@ -70,6 +68,6 @@ class BaseItem(
         fun fromJson(f: File): BaseItem = g.fromJson(BufferedReader(FileReader(f)), BaseItem::class.java)
     }
 
-    fun asInstance(reference: InventoryReference) = InstanceItem(this, reference)
+    fun asInstance(reference: InventoryReference) = ItemInstance(this, reference)
 
 }

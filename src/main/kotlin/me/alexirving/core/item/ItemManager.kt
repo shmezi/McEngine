@@ -21,10 +21,12 @@ object ItemManager {
     fun reload(dir: File) {
         bases.clear()
         for (f in dir.listFiles() ?: return) {
+            if (f.extension != "json")
+                continue
             val b = BaseItem.fromJson(f)
             bases[b.id] = b
             b.init()
-            println("Loaded item: ${f.nameWithoutExtension} (Id: ${b.id}) successfully".color(Colors.PURPLE))
+            println("Loaded item: ${f.nameWithoutExtension} (Id: ${b.id}) successfully".color(Colors.CYAN))
         }
     }
 
