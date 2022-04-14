@@ -8,16 +8,17 @@
 
 package me.alexirving.core.animation.actions.actionables
 
+import me.alexirving.core.EngineManager
 import me.alexirving.core.McEngine
+import me.alexirving.core.animation.actions.Action
 import me.alexirving.core.animation.objects.AnimationSession
 import me.alexirving.core.animation.utils.Direction
-import me.alexirving.core.animation.actions.Action
 import org.bukkit.Location
 
-class SetDisplayName(pl: McEngine, args: List<String>) : Action(pl, args) {
+class SetDisplayName(manager:EngineManager, args: List<String>) : Action(manager, args) {
 
 
     override fun run(session: AnimationSession, zeroPoint: Location, direction: Direction) {
-        pl.am.pm.setDisplayName(session.standMap[args[0]]!!, args[1])
+        m.packet.setDisplayName(session.standMap[args[0]]!!, args[1])
     }
 }

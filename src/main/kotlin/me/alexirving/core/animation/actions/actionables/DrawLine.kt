@@ -7,6 +7,7 @@
  */
 package me.alexirving.core.animation.actions.actionables
 
+import me.alexirving.core.EngineManager
 import me.alexirving.core.McEngine
 import me.alexirving.core.animation.AniCompiler
 import me.alexirving.core.animation.actions.Action
@@ -14,8 +15,8 @@ import me.alexirving.core.animation.actions.SuperAction
 import me.alexirving.core.animation.utils.toLocation
 import java.util.regex.Pattern
 
-class DrawLine(pl:McEngine, rawStatement: String, start: Int) : SuperAction(
-    pl, rawStatement, start
+class DrawLine(manager: EngineManager, rawStatement: String, start: Int) : SuperAction(
+    manager, rawStatement, start
 ) {
     private val pattern: Pattern =
         Pattern.compile("(.+)\\((((.+)\\((.*(\\[.+]))\\));(\\d+);(\\[-?\\d+(\\.\\d+)?,-?\\d+(\\.\\d+)?,-?\\d+(\\.\\d+)?]);(\\[-?\\d+(\\.\\d+)?,-?\\d+(\\.\\d+)?,-?\\d+(\\.\\d+)?]))\\)\$")
@@ -44,7 +45,7 @@ class DrawLine(pl:McEngine, rawStatement: String, start: Int) : SuperAction(
             currentX += intX
             currentY += intY
             currentZ += intZ
-            a[current++] = AniCompiler.compileAction(pl, args.group(3)
+            a[current++] = AniCompiler.compileAction(m, args.group(3)
                 .replace("X",currentX.toString())
                 .replace("Y",currentY.toString())
                 .replace("Z",currentZ.toString()))

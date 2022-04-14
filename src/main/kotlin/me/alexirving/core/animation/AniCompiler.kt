@@ -7,13 +7,14 @@
  */
 package me.alexirving.core.animation
 
+import me.alexirving.core.EngineManager
 import me.alexirving.core.McEngine
 import me.alexirving.core.animation.actions.Action
 import me.alexirving.core.animation.actions.SuperAction
-import me.alexirving.core.exceptions.CompileError
 import me.alexirving.core.animation.objects.Animation
 import me.alexirving.core.animation.objects.Frame
 import me.alexirving.core.animation.utils.space
+import me.alexirving.core.exceptions.CompileError
 import org.bukkit.configuration.file.FileConfiguration
 import org.bukkit.entity.EntityType
 import org.reflections.Reflections
@@ -44,30 +45,30 @@ object AniCompiler {
         return !sActions.none { it.simpleName == name }
     }
 
-    fun compileAction(pl: McEngine, toCompile: String): Action {
+    fun compileAction(m: EngineManager, toCompile: String): Action {
         val rawAction = ac.matcher(toCompile)
         if (!rawAction.matches()) throw CompileError("Improper written action: \"$toCompile\"")
         if (!doesActionExist(rawAction.group(1))) throw CompileError("Function does not exist:\"${rawAction.group(1)}\" in: \"$toCompile\"")
 
         return getActionClassFromName(rawAction.group(1)).getDeclaredConstructor(
-            McEngine::class.java,
+            EngineManager::class.java,
             List::class.java
-        ).newInstance(pl, rawAction.group(2).split(";"))
+        ).newInstance(m, rawAction.group(2).split(";"))
     }
 
-    fun compileSuperAction(pl: McEngine, toCompile: String, start: Int): SuperAction {
+    fun compileSuperAction(m: EngineManager, toCompile: String, start: Int): SuperAction {
         val rawAction = sav.matcher(toCompile)
         if (!rawAction.matches()) throw CompileError("Improper written action: \"$toCompile\"")
         if (!doesSuperActionExist(rawAction.group(1))) throw CompileError("Function does not exist:\"${rawAction.group(1)}\" in: \"$toCompile\"")
         return getSuperActionClassFromName(rawAction.group(1)).getDeclaredConstructor(
-            McEngine::class.java,
+            EngineManager::class.java,
             String::class.java,
             Int::class.java
-        ).newInstance(pl, toCompile, start)
+        ).newInstance(m, toCompile, start)
     }
 
 
-    fun compileAnimation(pl: McEngine, aniFile: FileConfiguration): Animation {
+    fun compileAnimation(m: EngineManager, aniFile: FileConfiguration): Animation {
         val names = mutableMapOf<String, EntityType>()
         for (set in (aniFile.getConfigurationSection("Stands") ?: return Animation(names, mutableListOf(), 0)).getKeys(
             false
@@ -88,14 +89,14 @@ object AniCompiler {
                         toBeDone[rawFrame.index] = mutableListOf(rawAction)
                     }
                 } else
-                    currentFrame.add(compileAction(pl, rawAction))
+                    currentFrame.add(compileAction(m, rawAction))
             }
             frames.add(Frame(currentFrame))
         }
         //Second pass of adding frames (Super actions)
         for (superActions in toBeDone) { //Starting frame | List of raw super actions
             for (rawSuper in superActions.value) {
-                val comp = compileSuperAction(pl, rawSuper, superActions.key)
+                val comp = compileSuperAction(m, rawSuper, superActions.key)
                 for (action in comp.build()) {
                     if (frames.size > action.key)
                         frames[action.key].actions.add(action.value)

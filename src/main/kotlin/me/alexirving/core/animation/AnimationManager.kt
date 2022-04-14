@@ -8,18 +8,16 @@
 
 package me.alexirving.core.animation
 
-import me.alexirving.core.McEngine
+import me.alexirving.core.EngineManager
 import me.alexirving.core.animation.objects.Animation
-import me.alexirving.core.packets.PacketManager
 import me.alexirving.core.utils.Colors
 import me.alexirving.core.utils.color
 import me.alexirving.core.utils.filters.FileExtensionFilter
 import org.bukkit.configuration.file.YamlConfiguration
 import java.io.File
 
-class AnimationManager(private val aniFolder: File, private val pl: McEngine) {
+class AnimationManager(private val aniFolder: File, private val m: EngineManager) {
     private val loadedAnimations = HashMap<String, Animation>()
-    val pm = PacketManager()
 
 
     init {
@@ -33,8 +31,8 @@ class AnimationManager(private val aniFolder: File, private val pl: McEngine) {
         for (file in aniFolder.listFiles(FileExtensionFilter("yml")) ?: return) {
             val a = YamlConfiguration().apply { load(file) }
             val name = file.nameWithoutExtension
-            loadedAnimations[name] = AniCompiler.compileAnimation(pl, a)
-            println("Loaded animation: \"$name\".".color(Colors.PURPLE))
+            loadedAnimations[name] = AniCompiler.compileAnimation(m, a)
+            println("Loaded animation: \"$name\".".color(Colors.CYAN))
         }
 
     }

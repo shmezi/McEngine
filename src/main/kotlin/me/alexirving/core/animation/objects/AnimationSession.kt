@@ -9,6 +9,7 @@ package me.alexirving.core.animation.objects
 
 import me.alexirving.core.McEngine
 import me.alexirving.core.animation.utils.Direction
+import me.alexirving.core.utils.pq
 import org.bukkit.Location
 import org.bukkit.entity.Player
 
@@ -28,12 +29,13 @@ data class AnimationSession(
 ) {
     val standMap: MutableMap<String, Int> = mutableMapOf() //Map of stand name to stand id in the packetMap
     private val scheduler = pl.server.scheduler
-    val pm = pl.am.pm
+    val pm = pl.manager.packet
 
     /**
      * Starts the animation session.
      */
     fun start(done: () -> Unit) {
+        "whatever".pq()
         val yaw = when (direction) {
             Direction.NORTH -> 0f
             Direction.EAST -> 90f

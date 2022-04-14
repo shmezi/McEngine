@@ -7,6 +7,7 @@
  */
 package me.alexirving.core.animation.actions.actionables
 
+import me.alexirving.core.EngineManager
 import me.alexirving.core.McEngine
 import me.alexirving.core.animation.objects.AnimationSession
 import me.alexirving.core.animation.utils.Direction
@@ -16,7 +17,7 @@ import me.alexirving.core.animation.utils.validateLocation
 import org.bukkit.Effect
 import org.bukkit.Location
 
-class Particle(pl: McEngine, args: List<String>) : Action(pl, args) {
+class Particle(manager: EngineManager, args: List<String>) : Action(manager, args) {
     var offset: Offset? = null
 
     init {

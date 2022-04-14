@@ -7,13 +7,14 @@
  */
 package me.alexirving.core.animation.actions.actionables
 
+import me.alexirving.core.EngineManager
 import me.alexirving.core.McEngine
 import me.alexirving.core.animation.actions.Action
 import me.alexirving.core.animation.objects.AnimationSession
 import me.alexirving.core.animation.utils.Direction
 import org.bukkit.Location
 
-class Kill(pl: McEngine, args: List<String>) : Action(pl, args) {
+class Kill(manager: EngineManager, args: List<String>) : Action(manager, args) {
     override fun run(session: AnimationSession, zeroPoint: Location, direction: Direction) {
         session.pm.kill(session.standMap[args[0]]!!)
     }

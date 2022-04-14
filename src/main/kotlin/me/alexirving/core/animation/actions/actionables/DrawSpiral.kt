@@ -7,6 +7,7 @@
  */
 package me.alexirving.core.animation.actions.actionables
 
+import me.alexirving.core.EngineManager
 import me.alexirving.core.McEngine
 import me.alexirving.core.animation.AniCompiler
 import me.alexirving.core.animation.actions.Action
@@ -20,9 +21,9 @@ import kotlin.math.pow
 import kotlin.math.sin
 
 
-class DrawSpiral(pl: McEngine, rawStatement: String, start: Int) : SuperAction(
-    pl, rawStatement, start
-) {
+class DrawSpiral(manager: EngineManager, rawStatement: String, start: Int) : SuperAction(
+    manager, rawStatement, start
+){
     private val pattern: Pattern =
         Pattern.compile(".+\\((.+\\(.*\\));(\\[-?\\d+(\\.\\d+)?,-?\\d+(\\.\\d+)?,-?\\d+(\\.\\d+)?]);(\\[-?\\d+(\\.\\d+)?,-?\\d+(\\.\\d+)?,-?\\d+(\\.\\d+)?]);(-?\\d+(\\.\\d+)?);(\\d+);(\\d+)\\)")
 
@@ -65,7 +66,7 @@ class DrawSpiral(pl: McEngine, rawStatement: String, start: Int) : SuperAction(
                 //add coordinates to list
 
                 a[i] = AniCompiler.compileAction(
-                    pl, args.group(1)
+                    m, args.group(1)
                         .replace("X", df.format(currentX)).replace("Y", df.format(currentY))
                 )
 
@@ -82,7 +83,7 @@ class DrawSpiral(pl: McEngine, rawStatement: String, start: Int) : SuperAction(
                 //add coordinates to list
 
                 a[i] = AniCompiler.compileAction(
-                    pl, args.group(1)
+                    m, args.group(1)
                         .replace("X", df.format(currentX)).replace("Y", df.format(currentY))
                 )
                 // increment currentTheta

@@ -1,7 +1,26 @@
 package me.alexirving.core.item
 
+/**
+ * Represents a response when attempting to level up/down an attribute of an itemInstance
+ */
 enum class AttributeAddResponse {
-    NORMAL, //Added well
-    GROUP, //Over max group count
-    MAX //Over max level for attribute
+    /**
+     * Added attribute successfully
+     */
+    SUCCESSFUL,
+
+    /**
+     * Over max group count
+     */
+    GROUP,
+
+    /**
+     * Over max level for attribute
+     */
+    MAX,
+
+    /**
+     * Attribute already removed
+     */
+    MIN
 }

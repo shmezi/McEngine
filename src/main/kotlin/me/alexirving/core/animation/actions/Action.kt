@@ -8,7 +8,7 @@
 
 package me.alexirving.core.animation.actions
 
-import me.alexirving.core.McEngine
+import me.alexirving.core.EngineManager
 import me.alexirving.core.animation.objects.AnimationSession
 import me.alexirving.core.animation.utils.Direction
 import org.bukkit.Location
@@ -16,7 +16,7 @@ import org.bukkit.Location
 /**
  * Represents an action.
  */
-abstract class Action(val pl: McEngine, val args: List<String>) {
+abstract class Action(val m: EngineManager, val args: List<String>) {
     /**
      * Run when the action is executed
      */

@@ -9,7 +9,7 @@ package me.alexirving.core.economy
 
 import java.util.*
 
-object EcoManager {
+class EcoManager {
     private val ecos = mutableMapOf<String, Economy>()
 
     fun create(id: String): Economy {

@@ -7,16 +7,22 @@
  */
 package me.alexirving.core.animation.actions.actionables
 
+import me.alexirving.core.EngineManager
 import me.alexirving.core.McEngine
+import me.alexirving.core.animation.actions.Action
 import me.alexirving.core.animation.objects.AnimationSession
 import me.alexirving.core.animation.utils.Direction
-import me.alexirving.core.animation.actions.Action
+import me.alexirving.core.exceptions.NotFoundException
 import org.bukkit.Location
 
-class SetItem(pl: McEngine, args: List<String>) : Action(pl, args) {
+class SetItem(manager: EngineManager, args: List<String>) : Action(manager, args) {
 
     override fun run(session: AnimationSession, zeroPoint: Location, direction: Direction) {
-        pl.am.pm.setItem(session.standMap[args[0]]!!, args[1].toInt(), pl.lim.getItem(args[2]))
+        m.packet.setItem(
+            session.standMap[args[0]]!!,
+            args[1].toInt(),
+            m.item.bases[args[2]]?.buildSimple() ?: throw NotFoundException("Item ${args[2]} was not found!")
+        )
 
     }
 }

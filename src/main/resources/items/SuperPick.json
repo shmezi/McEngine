@@ -4,7 +4,7 @@
   "lore": [
     "A cool pickaxe!",
     "%nuke%",
-    "%speed%"
+    "%speed%s"
   ],
   "material": "DIAMOND_PICKAXE",
   "groups": {
@@ -12,8 +12,7 @@
   },
   "placeholders": {
     "speed": [
-      "SPEED",
-      "Gives a speed boost!"
+      "SPEED-1"
     ],
     "nuke": [
       "Nuke-%"
@@ -24,16 +23,24 @@
       {
         "id": "Speed",
         "max": 5,
-        "groups": [
-          "enchant"
-        ],
         "placeholders": {
           "speed": [
             0,
             1,
-            3
+            2,
+            3,
+            4
           ]
-        }
+        },
+        "groups": [
+          "enchant"
+        ],
+        "effects": [
+          {},
+          {
+            "speed": 1
+          }
+        ]
       },
       {
         "id": "Nuke",

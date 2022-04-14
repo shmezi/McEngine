@@ -7,38 +7,30 @@
  */
 package me.alexirving.core
 
-import me.alexirving.core.animation.AnimationManager
+import dev.triumphteam.cmd.bukkit.BukkitCommandManager
 import me.alexirving.core.animation.objects.Animation
-import me.alexirving.core.animation.utils.Direction
 import me.alexirving.core.commands.CMDAnimation
 import me.alexirving.core.commands.CMDEconomy
 import me.alexirving.core.commands.CMDEngine
-import me.alexirving.core.economy.EcoManager
 import me.alexirving.core.economy.Economy
+import me.alexirving.core.effects.Effect
 import me.alexirving.core.events.PlayerInteract
 import me.alexirving.core.events.PlayerJoin
 import me.alexirving.core.hooks.Papi
 import me.alexirving.core.item.template.BaseItem
-import me.alexirving.core.legacyItems.LegacyItemManager
 import me.alexirving.core.utils.copyOver
 import me.alexirving.core.utils.registerListeners
-import me.mattstudios.mf.base.CommandManager
-import me.mattstudios.mf.base.components.TypeResult
 import org.bstats.bukkit.Metrics
 import org.bukkit.Bukkit
-import org.bukkit.configuration.file.YamlConfiguration
+import org.bukkit.World
 import org.bukkit.plugin.java.JavaPlugin
-import java.io.File
-import me.alexirving.core.item.ItemManager as Im
 
 
 class McEngine : JavaPlugin() {
 
-    val lim = LegacyItemManager()
-    lateinit var am: AnimationManager
-    val em = EcoManager
+    lateinit var manager: EngineManager
     override fun onEnable() {
-        val cmm = CommandManager(this)
+        val cmm = BukkitCommandManager.create(this)
         /**
          * Basic startup
          */
@@ -50,71 +42,55 @@ class McEngine : JavaPlugin() {
 
         McEngineAPI.instance = this
         Metrics(this, 14580)
-        copyOver(dataFolder, "items.yml", "animations", "items", "animations/Default.yml", "items/SuperPick.json")
+        copyOver(dataFolder, "animations", "items", "animations/Default.yml", "items/SuperPick.json")
         if (server.pluginManager.getPlugin("PlaceholderAPI") != null)
             Papi(this).register()
-        Im.reload(File(dataFolder, "items"))
 
 
+        /**
+         * Command registering
+         */
+        manager = EngineManager(this)
 
-        cmm.parameterHandler.register(BaseItem::class.java) {
-            if (!Im.bases.containsKey(it)) TypeResult(it)
-            else TypeResult(Im.bases[it], it)
+        val im = manager.item
+        cmm.registerArgument(BaseItem::class.java) { _, itemId ->
+            im.bases[itemId]
         }
-        cmm.completionHandler.register("#baseIds") {
-            Im.bases.keys.toList()
+        cmm.registerSuggestion(BaseItem::class.java) { _, _ ->
+            im.bases.keys.toList()
+        }
+        val ecoM = manager.eco
+        cmm.registerArgument(Economy::class.java) { _, eco ->
+            ecoM.getEco(eco)
+        }
+        cmm.registerSuggestion(Economy::class.java) { _, _ ->
+            ecoM.getEcoIds().toList()
+        }
+        val ani = manager.animation
+        cmm.registerArgument(Animation::class.java) { _, animation ->
+            ani.getAnimation(animation)
+        }
+        cmm.registerSuggestion(Animation::class.java) { _, _ ->
+            ani.getAnimationNames().toList()
         }
 
-        cmm.parameterHandler.register(Economy::class.java) {
-            if (EcoManager.getEco(it.toString()) == null) TypeResult(it)
-            else TypeResult((EcoManager.getEco(it.toString())), it)
+        cmm.registerArgument(Effect::class.java) { _, effect ->
+            manager.effect.getEffectById(effect)
         }
-        cmm.completionHandler.register("#ecoIds") {
-            EcoManager.getEcoIds().toList()
+        cmm.registerSuggestion(Effect::class.java) { _, _ ->
+            manager.effect.getEffectIds()
         }
-        cmm.parameterHandler.register(Animation::class.java) {
-            if (am.getAnimation(it.toString()) == null) TypeResult(it)
-            else TypeResult((am.getAnimation(it.toString())), it)
-        }
-        cmm.parameterHandler.register(Direction::class.java) { any ->
-            if (Direction.values().map { it.name }.contains(any.toString().uppercase()))
-                TypeResult(Direction.valueOf(any.toString().uppercase()), any)
-            else
-                TypeResult(any)
-
-        }
-        cmm.completionHandler.register("#animationIds") {
-            am.getAnimationNames().toList()
-        }
-        cmm.completionHandler.register("#worlds") {
+        cmm.registerSuggestion(World::class.java) { _, _ ->
             Bukkit.getWorlds().map { it.name }
         }
 
-        cmm.register(CMDEngine(this), CMDEconomy(), CMDAnimation(this))
-        /**
-         * Eco setup
-         */
-//        if (server.pluginManager.getPlugin("Vault") != null)
+
+        cmm.registerCommand(CMDEngine(this), CMDEconomy(), CMDAnimation(this))
 
 
-        /*
-         * Managers loading
-         */
-        lim.reload(YamlConfiguration.loadConfiguration(File(dataFolder, "items.yml")))
-        this.am = AnimationManager(File(dataFolder, "animations"), this)
-//        MongoDb.init(config.getString("MongoDb") ?: "mongodb://localhost")
-        for (e in config.getStringList("Ecos"))
-            em.create(e)
-        registerListeners(this, PlayerJoin(), PlayerInteract())
-    }
-
-    fun reload() {
-        lim.reload(YamlConfiguration.loadConfiguration(File(dataFolder, "items.yml")))
-        am.reload()
-        reloadConfig()
-        Im.reload(File(dataFolder, "items"))
 //        MongoDb.init(config.getString("MongoDb") ?: "mongodb://localhost")
 
+        registerListeners(this, PlayerJoin(manager), PlayerInteract())
     }
 
 }

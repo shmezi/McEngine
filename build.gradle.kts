@@ -28,23 +28,24 @@ repositories {
     maven("https://repo.extendedclip.com/content/repositories/placeholderapi/")
     maven("https://jitpack.io")
     maven("https://s01.oss.sonatype.org/content/repositories/snapshots/")
+    maven("https://repo.triumphteam.dev/snapshots/")
 }
 
 dependencies {
     implementation("org.jetbrains.kotlin:kotlin-stdlib:1.6.0")
-    implementation("org.litote.kmongo:kmongo:4.5.0")
+    implementation("org.litote.kmongo:kmongo:4.5.1")
     implementation("org.reflections:reflections:0.10.2")
     implementation("ch.qos.logback:logback-classic:1.3.0-alpha14")
     compileOnly("org.spigotmc", "spigot-api", "1.8.8-R0.1-SNAPSHOT")
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.0-native-mt")
-    implementation("org.litote.kmongo:kmongo-coroutine:4.5.0")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.1-native-mt")
+    implementation("org.litote.kmongo:kmongo-coroutine:4.5.1")
     implementation("net.kyori:adventure-text-minimessage:4.10.1")
 
     /**
      * Frameworks
      */
     implementation("dev.triumphteam", "triumph-gui", "3.1.1")
-    implementation("me.mattstudios.utils:matt-framework:1.4.6")
+    implementation("dev.triumphteam:triumph-cmd-bukkit:2.0.0-SNAPSHOT")
     implementation("de.tr7zw:item-nbt-api:2.9.2")
 
     /**

@@ -7,6 +7,7 @@
  */
 package me.alexirving.core.animation.actions.actionables
 
+import me.alexirving.core.EngineManager
 import me.alexirving.core.McEngine
 import me.alexirving.core.animation.objects.AnimationSession
 import me.alexirving.core.animation.utils.Direction
@@ -15,7 +16,7 @@ import me.alexirving.core.animation.actions.Action
 import me.alexirving.core.animation.utils.toLocation
 import org.bukkit.Location
 
-class Tp(pl: McEngine, args: List<String>) : Action(pl, args) {
+class Tp(manager: EngineManager, args: List<String>) : Action(manager, args) {
 
     var offset: Offset? = null
 

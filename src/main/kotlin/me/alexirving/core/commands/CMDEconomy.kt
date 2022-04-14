@@ -1,16 +1,16 @@
 package me.alexirving.core.commands
 
+import dev.triumphteam.cmd.core.BaseCommand
+import dev.triumphteam.cmd.core.annotation.Command
+import dev.triumphteam.cmd.core.annotation.Optional
+import dev.triumphteam.cmd.core.annotation.SubCommand
 import me.alexirving.core.economy.Economy
-import me.mattstudios.mf.annotations.*
-import me.mattstudios.mf.base.CommandBase
+
 import org.bukkit.entity.Player
 
-@Command("economy")
-@Alias("eco")
-class CMDEconomy : CommandBase() {
-    @SubCommand("balance")
-    @Alias("bal")
-    @Completion("#ecoIds", "#players")
+@Command("economy", alias = ["eco"])
+class CMDEconomy : BaseCommand() {
+    @SubCommand("balance", alias = ["bal"])
     fun bal(sender: Player, economy: Economy, @Optional player: Player?) {
         if (player != null)
             economy.getBal(player.uniqueId)
@@ -19,7 +19,6 @@ class CMDEconomy : CommandBase() {
     }
 
     @SubCommand("set")
-    @Completion("#ecoIds", "#empty", "#players")
     fun setBal(sender: Player, economy: Economy, amount: Double?, @Optional player: Player?) {
         if (player != null)
             economy.setBal(player.uniqueId, amount ?: return)

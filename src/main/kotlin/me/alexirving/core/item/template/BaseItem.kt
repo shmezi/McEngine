@@ -10,10 +10,11 @@ package me.alexirving.core.item.template
 import com.google.gson.Gson
 import de.tr7zw.changeme.nbtapi.NBTItem
 import dev.triumphteam.gui.components.util.Legacy
-import me.alexirving.core.item.instance.ItemInstance
 import me.alexirving.core.item.instance.InventoryReference
+import me.alexirving.core.item.instance.EngineItem
 import net.kyori.adventure.text.minimessage.MiniMessage
 import org.bukkit.Material
+import org.bukkit.inventory.ItemFlag
 import org.bukkit.inventory.ItemStack
 import java.io.BufferedReader
 import java.io.File
@@ -53,6 +54,8 @@ class BaseItem(
         val ss = Legacy.SERIALIZER
         im.displayName = ss.serialize(mm.deserialize(displayName))
         im.lore = lore.map { ss.serialize(mm.deserialize(it)) }
+        im.itemFlags.add(ItemFlag.HIDE_ENCHANTS)
+
         template.itemMeta = im
 
         NBTItem(template, true).apply {
@@ -68,6 +71,27 @@ class BaseItem(
         fun fromJson(f: File): BaseItem = g.fromJson(BufferedReader(FileReader(f)), BaseItem::class.java)
     }
 
-    fun asInstance(reference: InventoryReference) = ItemInstance(this, reference)
+    fun buildSimple(replacements: Map<String, String>): ItemStack {
+        val i = getTemplate()
+        val im = i.itemMeta
+
+        for (r in replacements) {
+            im.displayName = im.displayName.replace(r.key, r.value)
+            im.lore = im.lore.map { it.replace(r.key, r.value) }
+        }
+        i.itemMeta = im
+        return i
+    }
+
+    fun buildSimple(): ItemStack {
+        val i = getTemplate()
+        val im = i.itemMeta
+        im.displayName = im.displayName.replace("%.+%".toRegex(), "")
+        im.lore = im.lore.map { it.replace("%.+%".toRegex(), "") }
+        i.itemMeta = im
+        return i
+    }
+
+    fun asInstance(reference: InventoryReference) = EngineItem(this, reference)
 
 }

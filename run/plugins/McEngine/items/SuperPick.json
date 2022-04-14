@@ -12,8 +12,7 @@
   },
   "placeholders": {
     "speed": [
-      "SPEED",
-      "Gives a speed boost!"
+      "SPEED-%"
     ],
     "nuke": [
       "Nuke-%"
@@ -28,7 +27,9 @@
           "speed": [
             0,
             1,
-            3
+            2,
+            3,
+            4
           ]
         },
         "groups": [
@@ -45,7 +46,9 @@
           "nuke": [
             0,
             1,
-            3
+            2,
+            3,
+            4
           ]
         }
       },

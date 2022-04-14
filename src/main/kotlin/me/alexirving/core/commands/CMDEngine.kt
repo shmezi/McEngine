@@ -8,22 +8,25 @@
 package me.alexirving.core.commands
 
 import de.tr7zw.changeme.nbtapi.NBTItem
+import dev.triumphteam.cmd.bukkit.annotation.Permission
+import dev.triumphteam.cmd.core.BaseCommand
+import dev.triumphteam.cmd.core.annotation.Command
+import dev.triumphteam.cmd.core.annotation.Default
+import dev.triumphteam.cmd.core.annotation.Optional
+import dev.triumphteam.cmd.core.annotation.SubCommand
 import me.alexirving.core.McEngine
+import me.alexirving.core.effects.Effect
+import me.alexirving.core.item.instance.EngineItem
 import me.alexirving.core.item.instance.InventoryReference
-import me.alexirving.core.item.instance.ItemInstance
 import me.alexirving.core.item.template.BaseItem
-import me.mattstudios.mf.annotations.*
-import me.mattstudios.mf.annotations.Optional
-import me.mattstudios.mf.base.CommandBase
-import org.bukkit.Material
+import me.alexirving.core.utils.pq
 import org.bukkit.command.CommandSender
 import org.bukkit.entity.Player
-import org.bukkit.inventory.ItemStack
 import java.util.*
 
 @Command("engine")
-class CMDEngine(val engine: McEngine) : CommandBase() {
-    var b: ItemInstance? = null
+class CMDEngine(val engine: McEngine) : BaseCommand() {
+    var b: EngineItem? = null
 
 
     @Default
@@ -46,21 +49,29 @@ class CMDEngine(val engine: McEngine) : CommandBase() {
     @Permission("engine.wrap")
     fun wrap(player: Player, section: String, attribute: String, value: Int?) {
         if (player.itemInHand == null) return
-        val a = ItemInstance.of(player.itemInHand, player.inventory)
-        a!!.setLevel(section, attribute, value ?: return)
+        val a = EngineItem.of(engine.manager, player.itemInHand, player.inventory)
+        a!!.forceSetLevel(section, attribute, value ?: return)
+        a.updateItem()
+    }
+
+    @SubCommand("up")
+    @Permission("engine.upgrade")
+    fun up(player: Player, section: String, attribute: String) {
+        if (player.itemInHand == null) return
+        val a = EngineItem.of(engine.manager, player.itemInHand, player.inventory)
+        player.sendMessage(a!!.levelUp(section, attribute).name)
         a.updateItem()
     }
 
     @SubCommand("reload")
     @Permission("engine.reload")
     fun reload(sender: CommandSender) {
-        engine.reload()
+        engine.manager.reload()
         sender.sendMessage("Reloaded plugin!")
 
     }
 
     @SubCommand("getitem")
-    @Completion("#baseIds")
     @Permission("engine.getitem")
     fun getItem(player: Player, item: BaseItem) {
         val v = item.asInstance(InventoryReference(player.inventory, item, UUID.randomUUID()))
@@ -85,24 +96,15 @@ class CMDEngine(val engine: McEngine) : CommandBase() {
         player.sendMessage("uuid of item: '${NBTItem(player.itemInHand).getUUID("uuid")}'")
     }
 
+    @SubCommand("effect")
+    @Permission("engine.effect")
+    fun effect(player: Player, effect: Effect?, level: Int?) {
+        val m = engine.manager
+        effect.pq("effect")
+        m.profile.getProfile(player).pq("PLAYER")
+        m.profile.getProfile(player).activeEffects[effect ?: return] = level ?: 0
 
-    @SubCommand("test")
-    fun test(player: Player) {
-        val item = ItemStack(Material.REDSTONE_BLOCK)
-        val m = mutableMapOf<String, Int>()
-        m["s"] = 0
-        m["y"] = 20
-
-        val nbt = NBTItem(item)
-        nbt.setObject("test", m)
-        nbt.mergeNBT(item)
-        player.inventory.addItem(item)
     }
 
-    @SubCommand("test1")
-    fun t2(player: Player) {
-        val l = NBTItem(player.itemInHand).getObject("test", Map::class.java).toMutableMap()
-        player.sendMessage("${l.keys}")
-    }
 
 }

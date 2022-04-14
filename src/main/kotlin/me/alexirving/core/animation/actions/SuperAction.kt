@@ -7,6 +7,7 @@
  */
 package me.alexirving.core.animation.actions
 
+import me.alexirving.core.EngineManager
 import me.alexirving.core.McEngine
 
 /**
@@ -14,7 +15,7 @@ import me.alexirving.core.McEngine
  * A super action is a function that generates other actions. (Example: [DrawCircle])
  */
 abstract class SuperAction(
-    val pl: McEngine,
+    val m: EngineManager,
     val raw: String,
     val start: Int
 ) {
