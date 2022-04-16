@@ -7,6 +7,9 @@
  */
 package me.alexirving.core.item.template
 
+import com.google.gson.Gson
+import me.alexirving.core.utils.pq
+
 /**
  * Represents an [Attribute] of a [BaseItem]
  * @param id ID of the attribute
@@ -22,3 +25,12 @@ class Attribute(
     val placeholders: Map<String, List<Int>>,
     val effects: List<Map<String, Int>>
 )
+
+fun main() {
+    val g = Gson()
+    val a = mutableListOf<MutableMap<String, Int>>()
+    val e = mutableMapOf<String, Int>()
+    e["shmezi"] = 100
+    a.add(e)
+    g.toJson(a).pq()
+}

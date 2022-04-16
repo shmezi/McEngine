@@ -10,8 +10,9 @@ package me.alexirving.core.item.template
 import com.google.gson.Gson
 import de.tr7zw.changeme.nbtapi.NBTItem
 import dev.triumphteam.gui.components.util.Legacy
-import me.alexirving.core.item.instance.InventoryReference
+import me.alexirving.core.EngineManager
 import me.alexirving.core.item.instance.EngineItem
+import me.alexirving.core.item.instance.InventoryReference
 import net.kyori.adventure.text.minimessage.MiniMessage
 import org.bukkit.Material
 import org.bukkit.inventory.ItemFlag
@@ -54,7 +55,7 @@ class BaseItem(
         val ss = Legacy.SERIALIZER
         im.displayName = ss.serialize(mm.deserialize(displayName))
         im.lore = lore.map { ss.serialize(mm.deserialize(it)) }
-        im.itemFlags.add(ItemFlag.HIDE_ENCHANTS)
+        im.addItemFlags(ItemFlag.HIDE_ENCHANTS)
 
         template.itemMeta = im
 
@@ -92,6 +93,6 @@ class BaseItem(
         return i
     }
 
-    fun asInstance(reference: InventoryReference) = EngineItem(this, reference)
+    fun asInstance(manager: EngineManager, reference: InventoryReference) = EngineItem(manager, this, reference)
 
 }

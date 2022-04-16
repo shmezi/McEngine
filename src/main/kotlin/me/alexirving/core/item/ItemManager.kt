@@ -27,6 +27,7 @@ class ItemManager(val dataFolder: File) {
 
     fun isCustom(item: ItemStack?): Boolean {
         item ?: return false
+        if (item.type == Material.AIR) return false
         if (!materialSet.contains(item.type)) return false
         val nbt = NBTItem(item)
         if (!nbt.hasNBTData()) return false

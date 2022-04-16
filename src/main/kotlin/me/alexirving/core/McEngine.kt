@@ -16,6 +16,7 @@ import me.alexirving.core.economy.Economy
 import me.alexirving.core.effects.Effect
 import me.alexirving.core.events.PlayerInteract
 import me.alexirving.core.events.PlayerJoin
+import me.alexirving.core.events.PlayerLeave
 import me.alexirving.core.hooks.Papi
 import me.alexirving.core.item.template.BaseItem
 import me.alexirving.core.utils.copyOver
@@ -85,12 +86,12 @@ class McEngine : JavaPlugin() {
         }
 
 
-        cmm.registerCommand(CMDEngine(this), CMDEconomy(), CMDAnimation(this))
+        cmm.registerCommand(CMDEngine(manager), CMDEconomy(), CMDAnimation(this))
 
 
 //        MongoDb.init(config.getString("MongoDb") ?: "mongodb://localhost")
 
-        registerListeners(this, PlayerJoin(manager), PlayerInteract())
+        registerListeners(this, PlayerJoin(manager), PlayerInteract(), PlayerLeave(manager))
     }
 
 }

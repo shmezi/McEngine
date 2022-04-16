@@ -23,5 +23,5 @@ enum class Intent {
     /**
      * Listen to when the effect added to an item occurs.
      */
-    ADD
+    BUILD
 }

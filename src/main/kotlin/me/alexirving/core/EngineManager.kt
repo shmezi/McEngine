@@ -9,6 +9,9 @@ package me.alexirving.core
 
 import com.google.gson.Gson
 import me.alexirving.core.animation.AnimationManager
+import me.alexirving.core.channels.ChannelManger
+import me.alexirving.core.db.Database
+import me.alexirving.core.db.nosql.MongoDb
 import me.alexirving.core.economy.EcoManager
 import me.alexirving.core.effects.EffectManager
 import me.alexirving.core.effects.effects.Efficiency
@@ -17,29 +20,38 @@ import me.alexirving.core.effects.effects.Speed
 import me.alexirving.core.item.ItemManager
 import me.alexirving.core.packets.PacketManager
 import me.alexirving.core.profile.ProfileManager
+import me.alexirving.core.utils.Colors
+import me.alexirving.core.utils.color
 import me.alexirving.core.utils.registerListeners
 import java.io.File
 
 class EngineManager(val engine: McEngine) {
     private val df = engine.dataFolder
     val item = ItemManager(File(df, "items"))
-    val eco = EcoManager()
+    val eco = EcoManager(this)
     val effect = EffectManager(this)
     val profile = ProfileManager()
     val packet = PacketManager()
+    val channel = ChannelManger(this)
     val gson = Gson()
     val animation = AnimationManager(File(df, "animations"), this)
+    val database = MongoDb(engine.config.getString("connection")) as Database
 
     init {
+        println("Registering internal effects:".color(Colors.BLUE))
         effect.register(Speed(), Efficiency(), Fortune())
-        registerListeners(engine, effect)
+        registerListeners(engine, effect, channel)
+        reload()
     }
 
     fun reload() {
         engine.reloadConfig()
+        database.reload(engine.config.getString("connection"))
         item.reload()
         animation.reload()
-        for (e in engine.config.getStringList("Ecos"))
+        for (e in engine.config.getStringList("Ecos")) {
+            println("Loading eco of id \"$e\":".color(Colors.BLUE))
             eco.create(e)
+        }
     }
 }

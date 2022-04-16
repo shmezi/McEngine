@@ -1,9 +1,11 @@
 package me.alexirving.core.effects
 
 import me.alexirving.core.EngineManager
+import me.alexirving.core.item.EngineItemListener
 import me.alexirving.core.item.instance.EngineItem
 import me.alexirving.core.utils.Colors
 import me.alexirving.core.utils.color
+import me.alexirving.core.utils.registerListeners
 import org.bukkit.entity.Player
 import org.bukkit.event.EventHandler
 import org.bukkit.event.Listener
@@ -14,6 +16,9 @@ class EffectManager(val m: EngineManager) : Listener {
     private val registeredEffects = mutableMapOf<String, Effect>()
     private val listens = mutableMapOf<Intent, MutableList<Effect>>()
 
+    init {
+        registerListeners(m.engine, EngineItemListener(m))
+    }
 
     fun getEffectById(id: String) = registeredEffects[id]
     fun getEffectIds() = registeredEffects.map { it.key }
@@ -34,16 +39,20 @@ class EffectManager(val m: EngineManager) : Listener {
         }
     }
 
-    fun addEffectToItem(item: EngineItem, effect: Effect, level: Int) {
-        effect.onAdd(item, level)
+    fun onBuild(item: EngineItem, effect: Effect, level: Int) {
+        if (effect.listenTo.contains(Intent.BUILD))
+            effect.onBuild(item, level)
+
     }
 
     fun onStart(player: Player, effect: Effect, level: Int) {
-        effect.onStart(player, level)
+        if (effect.listenTo.contains(Intent.START))
+            effect.onStart(player, level)
     }
 
-    fun onReset(player: Player, effect: Effect, level: Int) {
-        effect.onStart(player, level)
+    fun onReset(player: Player, effect: Effect) {
+        if (effect.listenTo.contains(Intent.RESET))
+            effect.onReset(player)
     }
 
 

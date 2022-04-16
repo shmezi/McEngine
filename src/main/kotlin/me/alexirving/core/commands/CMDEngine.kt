@@ -14,7 +14,7 @@ import dev.triumphteam.cmd.core.annotation.Command
 import dev.triumphteam.cmd.core.annotation.Default
 import dev.triumphteam.cmd.core.annotation.Optional
 import dev.triumphteam.cmd.core.annotation.SubCommand
-import me.alexirving.core.McEngine
+import me.alexirving.core.EngineManager
 import me.alexirving.core.effects.Effect
 import me.alexirving.core.item.instance.EngineItem
 import me.alexirving.core.item.instance.InventoryReference
@@ -25,7 +25,7 @@ import org.bukkit.entity.Player
 import java.util.*
 
 @Command("engine")
-class CMDEngine(val engine: McEngine) : BaseCommand() {
+class CMDEngine(val m: EngineManager) : BaseCommand() {
     var b: EngineItem? = null
 
 
@@ -49,7 +49,7 @@ class CMDEngine(val engine: McEngine) : BaseCommand() {
     @Permission("engine.wrap")
     fun wrap(player: Player, section: String, attribute: String, value: Int?) {
         if (player.itemInHand == null) return
-        val a = EngineItem.of(engine.manager, player.itemInHand, player.inventory)
+        val a = EngineItem.of(m, player.itemInHand, player.inventory)
         a!!.forceSetLevel(section, attribute, value ?: return)
         a.updateItem()
     }
@@ -58,7 +58,7 @@ class CMDEngine(val engine: McEngine) : BaseCommand() {
     @Permission("engine.upgrade")
     fun up(player: Player, section: String, attribute: String) {
         if (player.itemInHand == null) return
-        val a = EngineItem.of(engine.manager, player.itemInHand, player.inventory)
+        val a = EngineItem.of(m, player.itemInHand, player.inventory)
         player.sendMessage(a!!.levelUp(section, attribute).name)
         a.updateItem()
     }
@@ -66,7 +66,7 @@ class CMDEngine(val engine: McEngine) : BaseCommand() {
     @SubCommand("reload")
     @Permission("engine.reload")
     fun reload(sender: CommandSender) {
-        engine.manager.reload()
+        m.reload()
         sender.sendMessage("Reloaded plugin!")
 
     }
@@ -74,7 +74,7 @@ class CMDEngine(val engine: McEngine) : BaseCommand() {
     @SubCommand("getitem")
     @Permission("engine.getitem")
     fun getItem(player: Player, item: BaseItem) {
-        val v = item.asInstance(InventoryReference(player.inventory, item, UUID.randomUUID()))
+        val v = item.asInstance(m, InventoryReference(player.inventory, item, UUID.randomUUID()))
         v.buildToInventory()
     }
 
@@ -99,12 +99,18 @@ class CMDEngine(val engine: McEngine) : BaseCommand() {
     @SubCommand("effect")
     @Permission("engine.effect")
     fun effect(player: Player, effect: Effect?, level: Int?) {
-        val m = engine.manager
         effect.pq("effect")
-        m.profile.getProfile(player).pq("PLAYER")
         m.profile.getProfile(player).activeEffects[effect ?: return] = level ?: 0
 
     }
 
+
+    @SubCommand("test")
+    @Permission("engine.test")
+    fun test(player: Player) {
+        m.database.getUsers {
+            player.sendMessage("$it")
+        }
+    }
 
 }

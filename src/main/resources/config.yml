@@ -1,6 +1,6 @@
 #Configurations
 Debug: off
-MongoDb: "mongodb://localhost"
+connection: "mongodb://localhost"
 Ecos:
   - "Default"
   - "Tokens"

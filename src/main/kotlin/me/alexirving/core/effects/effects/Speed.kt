@@ -9,6 +9,7 @@ import org.bukkit.potion.PotionEffectType
 class Speed : Effect("speed", Intent.START, Intent.RESET) {
     override fun onStart(player: Player, level: Int) {
         player.addPotionEffect(PotionEffect(PotionEffectType.SPEED, 999999, level, false, false))
+
     }
 
 

@@ -33,7 +33,7 @@ repositories {
 
 dependencies {
     implementation("org.jetbrains.kotlin:kotlin-stdlib:1.6.0")
-    implementation("org.litote.kmongo:kmongo:4.5.1")
+    implementation("org.litote.kmongo:kmongo-coroutine:4.5.1")
     implementation("org.reflections:reflections:0.10.2")
     implementation("ch.qos.logback:logback-classic:1.3.0-alpha14")
     compileOnly("org.spigotmc", "spigot-api", "1.8.8-R0.1-SNAPSHOT")

@@ -1,6 +1,17 @@
 package me.alexirving.core.profile
 
+import me.alexirving.core.channels.Channel
 import me.alexirving.core.effects.Effect
-import java.util.*
+import org.bukkit.entity.Player
 
-data class Profile(val uuid: UUID, val activeEffects: MutableMap<Effect, Int>)
+/**
+ * Cached data of a player
+ * @param player Player that this [Profile] wraps
+ * @param activeEffects current active effects.
+ * @param selectedChannel current channel player is looking in
+ */
+data class Profile(
+    val player: Player,
+    val activeEffects: MutableMap<Effect, Int>,
+    var selectedChannel: Channel?
+)

@@ -13,8 +13,8 @@ import me.alexirving.core.exceptions.NotFoundException
 import me.alexirving.core.item.AttributeAddResponse
 import me.alexirving.core.item.template.BaseItem
 import me.alexirving.core.utils.nBZ
-import me.alexirving.core.utils.pq
 import org.bukkit.enchantments.Enchantment
+import org.bukkit.entity.Player
 import org.bukkit.inventory.Inventory
 import org.bukkit.inventory.ItemStack
 
@@ -26,11 +26,13 @@ class EngineItem {
     private var reference: InventoryReference
     private var templateItem: ItemStack
     private var isBuilt = false
+    private val m: EngineManager
 
-    constructor(baseItem: BaseItem, reference: InventoryReference, built: Boolean) {
+    constructor(m: EngineManager, baseItem: BaseItem, reference: InventoryReference, built: Boolean) {
         isBuilt = built // DO NOT FUCKING MOVE ANYWHERE U FUCKING MORON!
         this.baseItem = baseItem
         this.reference = reference
+        this.m = m
         templateItem = baseItem.getTemplate()
         NBTItem(templateItem, true).apply {
             setUUID("uuid", reference.id)
@@ -39,10 +41,14 @@ class EngineItem {
         if (isBuilt) {
             NBTItem(reference.getStack(), true).mergeCustomNBT(templateItem)
         }
-        isBuilt.pq("Built")
     }
 
-    constructor(baseItem: BaseItem, reference: InventoryReference) : this(baseItem, reference, false)
+    constructor(m: EngineManager, baseItem: BaseItem, reference: InventoryReference) : this(
+        m,
+        baseItem,
+        reference,
+        false
+    )
 
 
     /**
@@ -115,7 +121,7 @@ class EngineItem {
             val sectionId = a.key.substringBefore('.')
             val attributeId = a.key.substringAfter('.')
             val attribute = baseItem.sections[sectionId]?.firstOrNull { it.id == attributeId } ?: continue
-            attribute.effects[a.value].forEach {
+            attribute.effects[(a.value - 1).nBZ()].forEach {
                 if (!levels.containsKey(it.key) || it.value > (levels[it.key] ?: 0))
                     levels[it.key] = it.value
             }
@@ -188,10 +194,28 @@ class EngineItem {
     /**
      * Returns an [ItemStack] of the instanceItem using the template.
      */
-    fun build(): ItemStack = templateItem.clone().apply {
-        replacePlaceHolders(this, getReplacements())
+    fun build(): ItemStack {
+        for (e in getEffectLevels()) //Don't move to allow editing of template before cloning it :)
+            m.effect.onBuild(this, m.effect.getEffectById(e.key) ?: continue, e.value)
+
+        val ti = templateItem.clone().apply {
+            replacePlaceHolders(this, getReplacements())
+        }
+
+        return ti
     }
 
+    fun runStartEffects(p: Player) {
+        for (e in getEffectLevels()) {
+            m.effect.onStart(p, m.effect.getEffectById(e.key) ?: continue, e.value)
+        }
+    }
+
+    fun runResetEffects(p: Player) {
+        for (e in getEffectLevels()) {
+            m.effect.onReset(p, m.effect.getEffectById(e.key) ?: continue)
+        }
+    }
 
     /**
      * Builds to the reference inventory!
@@ -222,11 +246,10 @@ class EngineItem {
 
     companion object {
         fun of(m: EngineManager, item: ItemStack, inventory: Inventory): EngineItem? {
-            "Something".pq()
             val nbt = NBTItem(item)
             if (!nbt.hasNBTData()) return null
             val a = m.item.bases[nbt.getString("id")] ?: return null
-            return EngineItem(a, InventoryReference(inventory, a, nbt.getUUID("uuid")), true)
+            return EngineItem(m, a, InventoryReference(inventory, a, nbt.getUUID("uuid")), true)
         }
     }
 }

@@ -35,13 +35,9 @@ abstract class Effect(val id: String, vararg val listenTo: Intent) {
     open fun onMine(e: BlockBreakEvent, level: Int) {}
 
     /**
-     * Run when effect is added to an item is built
+     * Run when engineItem is built
      */
-    open fun onAdd(item: EngineItem, level: Int) {}
+    open fun onBuild(item: EngineItem, level: Int) {}
 
-    /**
-     * Called when level of effect on an item is changed
-     */
-    open fun onLevelChange(item: EngineItem, old: Int, new: Int) {}
 }
 

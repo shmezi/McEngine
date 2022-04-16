@@ -7,23 +7,30 @@
  */
 package me.alexirving.core.economy
 
+import me.alexirving.core.EngineManager
 import java.util.*
 
-class EcoManager {
+class EcoManager(val m: EngineManager) {
     private val ecos = mutableMapOf<String, Economy>()
 
     fun create(id: String): Economy {
-        ecos[id] = Economy(id)
-        return ecos[id] ?: throw NullPointerException("Some weird ass thing happened in EcoManager!")
+        val e = Economy(id, m)
+        ecos[id] = e
+        return e
     }
 
     fun load(uuid: UUID) {
-//        for (e in MongoDb.getUser(uuid.toString()).ecos)
-//            ecos[e.key]?.load(uuid, e.value)
+        for (e in ecos.values) {
+            e.load(uuid)
+        }
     }
-
+    fun unload(uuid: UUID) {
+        for (e in ecos.values) {
+            e.unload(uuid)
+        }
+    }
     fun delete(id: String) {
-            ecos.remove(id)
+        ecos.remove(id)
     }
 
     fun getEco(id: String) = ecos[id]

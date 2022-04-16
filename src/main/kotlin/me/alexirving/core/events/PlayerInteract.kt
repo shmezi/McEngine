@@ -1,7 +1,6 @@
 package me.alexirving.core.events
 
 import de.tr7zw.changeme.nbtapi.NBTItem
-import me.alexirving.core.sql.MongoDb
 import org.bukkit.event.EventHandler
 import org.bukkit.event.Listener
 import org.bukkit.event.player.PlayerInteractEvent
