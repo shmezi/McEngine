@@ -8,25 +8,28 @@
 package me.alexirving.core.hooks
 
 import com.sk89q.worldedit.WorldEdit
-import com.sk89q.worldedit.bukkit.BukkitAdapter
-import com.sk89q.worldedit.function.pattern.RandomPattern
+import com.sk89q.worldedit.function.pattern.Pattern
 import com.sk89q.worldedit.regions.CuboidRegion
-import com.sk89q.worldedit.world.block.BlockTypes
-import org.bukkit.Bukkit
 
 
 class WorldEditHook {
-    val we = WorldEdit.getInstance()
-    fun fill(region: CuboidRegion) {
-        val pattern = RandomPattern()
+    private val we: WorldEdit? = WorldEdit.getInstance()
 
-        val b = BlockTypes.STONE!!.defaultState
-        pattern.add(b, 100.0)
+    init {
+        we ?: error("World edit was not found!")
+    }
 
-        we!!.newEditSession(region.world ?: BukkitAdapter.adapt(Bukkit.getWorld("world")))!!.setBlocks(
 
-            region, pattern
-        )
+    /**
+     * Fills in an area of the world using world edit
+     * @param region The region (PLEASE MAKE SURE TO INCLUDE A WORLD IN THE FIRST PARAM OF THE WORLD!
+     * @param pattern the pattern to use to fill in the area
+     */
+    fun fill(region: CuboidRegion, pattern: Pattern) {
+        we ?: error("World edit was not found!")
+        we.newEditSession(region.world).use {
+            it.setBlocks(region, pattern)
+        }
     }
 
 

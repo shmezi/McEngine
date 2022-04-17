@@ -2,6 +2,7 @@ package me.alexirving.core.profile
 
 import me.alexirving.core.channels.Channel
 import me.alexirving.core.effects.Effect
+import me.alexirving.core.mines.PrivateMineSettings
 import org.bukkit.entity.Player
 
 /**
@@ -13,5 +14,6 @@ import org.bukkit.entity.Player
 data class Profile(
     val player: Player,
     val activeEffects: MutableMap<Effect, Int>,
-    var selectedChannel: Channel?
+    var privateMineSettings: PrivateMineSettings,
+    var selectedChannel: Channel?,
 )

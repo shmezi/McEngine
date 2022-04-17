@@ -1,5 +1,6 @@
 package me.alexirving.core.profile
 
+import me.alexirving.core.mines.PrivateMineSettings
 import me.alexirving.core.utils.Colors
 import me.alexirving.core.utils.color
 import org.bukkit.entity.Player
@@ -7,8 +8,7 @@ import org.bukkit.entity.Player
 class ProfileManager {
     private val profiles = mutableMapOf<Player, Profile>()
     fun load(player: Player) {
-//        TODO("To be fixed later :)")
-        profiles[player] = Profile(player, mutableMapOf(),null)
+        profiles[player] = Profile(player, mutableMapOf(), PrivateMineSettings.default(), null)
 
         println("Loaded profile of: \"${player.name}\" with uuid of \"${player.uniqueId}\".".color(Colors.GREEN))
 
@@ -19,9 +19,8 @@ class ProfileManager {
     }
 
     fun getProfile(player: Player): Profile {
-        if (profiles.containsKey(player))
-            profiles[player]
-        else profiles[player] = Profile(player, mutableMapOf(),null)
+        if (!profiles.containsKey(player))
+            profiles[player] = Profile(player, mutableMapOf(), PrivateMineSettings.default(), null)
         return profiles[player]!!
     }
 }

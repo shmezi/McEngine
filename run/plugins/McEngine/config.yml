@@ -4,3 +4,49 @@ connection: "mongodb://localhost"
 Ecos:
   - "Default"
   - "Tokens"
+Mines:
+  A:
+    Duration: 50
+    Location:
+      World: "world"
+      Spawn:
+        X: 0.0
+        Y: 100.0
+        Z: 0.0
+        Pitch: 0.0
+        Yaw: 0.0
+      LocationA:
+        X: 10.0
+        Y: 100.0
+        Z: 10.0
+      LocationB:
+        X: -10.0
+        Y: 100.0
+        Z: -10.0
+    Private:
+      Private-0:
+        Duration: 50
+        World: "world"
+        Spawn:
+          X: -10.0
+          Y: 101.0
+          Z: -14.0
+          Pitch: 0.0
+          Yaw: 0.0
+        LocationA:
+          X: -10.0
+          Y: 100.0
+          Z: -14.0
+        LocationB:
+          X: 14.0
+          Y: 66.0
+          Z: -43.0
+        Materials:
+          STONE: 10
+          DIAMOND_ORE: 50
+          DIAMOND_BLOCK: 10
+          GOLD_BLOCK: 30
+    Materials:
+      STONE: 10
+      DIAMOND_ORE: 50
+      DIAMOND_BLOCK: 30

@@ -107,10 +107,26 @@ class CMDEngine(val m: EngineManager) : BaseCommand() {
 
     @SubCommand("test")
     @Permission("engine.test")
-    fun test(player: Player) {
-        m.database.getUsers {
-            player.sendMessage("$it")
-        }
+    fun test(player: Player, mineId: String) {
+        m.mines.getMine(mineId)?.resetMine()
+
     }
 
+    @SubCommand("test2")
+    @Permission("engine.test")
+    fun test2(player: Player, mineId: String) {
+        m.mines.newPrivateMineSession(mineId, player,{
+            it.tpToSpawn(player)
+            player.sendMessage("You are being sent to your private area!")
+        },{
+            player.sendMessage("Issue happen!")
+        })
+
+    }
+
+    @SubCommand("tspawn")
+    @Permission("engine.test")
+    fun test3(player: Player, mineId: String) {
+        m.mines.getMine(mineId)?.tpToSpawn(player)
+    }
 }

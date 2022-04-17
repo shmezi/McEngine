@@ -9,7 +9,11 @@ package me.alexirving.core.utils
 
 
 import me.alexirving.core.McEngine
+import org.bukkit.Bukkit
 import org.bukkit.ChatColor
+import org.bukkit.Location
+import org.bukkit.World
+import org.bukkit.configuration.ConfigurationSection
 import org.bukkit.event.Listener
 import org.bukkit.plugin.java.JavaPlugin
 import java.io.File
@@ -67,7 +71,7 @@ fun Any?.printAsString(prefix: String) = println("$prefix${this.toString()}")
 var c = 0
 fun Any?.pq() = this.pq(null)
 fun Any?.pqr() = pq(Random.nextInt(0, 100))
-fun Any?.pq(number: Int) = this.pq("[$number] ")
+fun Any?.pq(number: Int) = this.pq("$number")
 fun Any?.pq(prefix: String?) {
 
     val p = (prefix ?: "PRINTED").apply { replace(this[0], this[0].uppercaseChar()) }
@@ -88,4 +92,20 @@ fun Any?.pq(prefix: String?) {
     c++
     if (c > 5)
         c = 0
+}
+
+fun ConfigurationSection.getLocation(path: String) =
+    this.getLocation(path, Bukkit.getWorld(this.getString("$path.World")))
+
+fun ConfigurationSection.getLocation(path: String, world: World): Location {
+    fun double(p: String) = this.getDouble("$path.$p")
+    fun float(p: String) = double(p).toFloat()
+    return Location(
+        world,
+        double("X"),
+        double("Y"),
+        double("Z"),
+        float("Yaw"),
+        float("Pitch")
+    )
 }

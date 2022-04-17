@@ -95,23 +95,27 @@ class EngineItem {
     private fun getReplacements(): Map<String, String> {
         val replacers = mutableMapOf<String, String>()
         val levels = mutableMapOf<String, Int>()
-        for (a in getAttributeLevels()) {
+        for (a in getAttributeLevels()) { //Loop through attribute levels | Attributes are stored in nbt data in a fomrat of sectionId.attributeId
             val sectionId = a.key.substringBefore('.')
             val attributeId = a.key.substringAfter('.')
-            val attribute = baseItem.sections[sectionId]?.firstOrNull { it.id == attributeId } ?: continue
-            for (p in attribute.placeholders)
+            val attribute = baseItem.sections[sectionId]?.firstOrNull { it.id == attributeId }
+                ?: continue //Getting the attribute from the id in the loop
+            for (p in attribute.placeholders) //Looping over placeholders, if the level is higher then previous itll be repalced
                 if (levels.containsKey(p.key)) {
                     if ((levels[p.key] ?: continue) < p.value[(a.value - 1).nBZ()])
                         levels[p.key] = p.value[(a.value - 1).nBZ()]
                 } else levels[p.key] = p.value[(a.value - 1).nBZ()]
         }
-        for (l in levels) {
+        for (l in levels) { //Declaring what needs to be replaced from the levels
             replacers[l.key] =
                 if (baseItem.placeholders[l.key]!!.size > l.value)
                     baseItem.placeholders[l.key]!![l.value]
                 else baseItem.placeholders[l.key]!![0]
-        }
 
+        }
+        for (r in this.baseItem.placeholders) //Removing blank placeholders TODO: Make all placeholders start from 0 to allow use of 0 for here.
+            if (!replacers.containsKey(r.key))
+                replacers[r.key] = ""
         return replacers
     }
 

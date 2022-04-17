@@ -16,8 +16,11 @@ import me.alexirving.core.economy.EcoManager
 import me.alexirving.core.effects.EffectManager
 import me.alexirving.core.effects.effects.Efficiency
 import me.alexirving.core.effects.effects.Fortune
+import me.alexirving.core.effects.effects.NighVision
 import me.alexirving.core.effects.effects.Speed
+import me.alexirving.core.hooks.WorldEditHook
 import me.alexirving.core.item.ItemManager
+import me.alexirving.core.mines.MineManager
 import me.alexirving.core.packets.PacketManager
 import me.alexirving.core.profile.ProfileManager
 import me.alexirving.core.utils.Colors
@@ -33,19 +36,22 @@ class EngineManager(val engine: McEngine) {
     val profile = ProfileManager()
     val packet = PacketManager()
     val channel = ChannelManger(this)
+    val mines = MineManager(this)
     val gson = Gson()
     val animation = AnimationManager(File(df, "animations"), this)
     val database = MongoDb(engine.config.getString("connection")) as Database
+    val weHook = WorldEditHook()
 
     init {
         println("Registering internal effects:".color(Colors.BLUE))
-        effect.register(Speed(), Efficiency(), Fortune())
+        effect.register(Speed(), Efficiency(), Fortune(), NighVision())
         registerListeners(engine, effect, channel)
         reload()
     }
 
     fun reload() {
         engine.reloadConfig()
+        mines.reload()
         database.reload(engine.config.getString("connection"))
         item.reload()
         animation.reload()

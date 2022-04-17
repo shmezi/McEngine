@@ -20,6 +20,7 @@ import me.alexirving.core.events.PlayerLeave
 import me.alexirving.core.hooks.Papi
 import me.alexirving.core.item.template.BaseItem
 import me.alexirving.core.utils.copyOver
+import me.alexirving.core.utils.pq
 import me.alexirving.core.utils.registerListeners
 import org.bstats.bukkit.Metrics
 import org.bukkit.Bukkit
