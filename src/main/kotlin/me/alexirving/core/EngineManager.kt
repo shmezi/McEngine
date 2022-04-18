@@ -18,7 +18,7 @@ import me.alexirving.core.effects.effects.Efficiency
 import me.alexirving.core.effects.effects.Fortune
 import me.alexirving.core.effects.effects.NighVision
 import me.alexirving.core.effects.effects.Speed
-import me.alexirving.core.hooks.WorldEditHook
+import me.alexirving.core.hooks.HookWorldEdit
 import me.alexirving.core.item.ItemManager
 import me.alexirving.core.mines.MineManager
 import me.alexirving.core.packets.PacketManager
@@ -26,9 +26,10 @@ import me.alexirving.core.profile.ProfileManager
 import me.alexirving.core.utils.Colors
 import me.alexirving.core.utils.color
 import me.alexirving.core.utils.registerListeners
+import org.bukkit.event.Listener
 import java.io.File
 
-class EngineManager(val engine: McEngine) {
+class EngineManager(val engine: McEngine) : Listener {
     private val df = engine.dataFolder
     val item = ItemManager(File(df, "items"))
     val eco = EcoManager(this)
@@ -39,20 +40,20 @@ class EngineManager(val engine: McEngine) {
     val mines = MineManager(this)
     val gson = Gson()
     val animation = AnimationManager(File(df, "animations"), this)
-    val database = MongoDb(engine.config.getString("connection")) as Database
-    val weHook = WorldEditHook()
+    val database = MongoDb(engine.config.getString("connection") ?: "MongoDb://localhost") as Database
+    val weHook = HookWorldEdit()
 
     init {
         println("Registering internal effects:".color(Colors.BLUE))
         effect.register(Speed(), Efficiency(), Fortune(), NighVision())
-        registerListeners(engine, effect, channel)
+        registerListeners(engine, effect, channel, this)
         reload()
     }
 
     fun reload() {
         engine.reloadConfig()
         mines.reload()
-        database.reload(engine.config.getString("connection"))
+        database.reload(engine.config.getString("connection") ?: "MongoDb://localhost")
         item.reload()
         animation.reload()
         for (e in engine.config.getStringList("Ecos")) {

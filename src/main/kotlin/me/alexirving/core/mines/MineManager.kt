@@ -61,10 +61,10 @@ class MineManager(val m: EngineManager) : Listener {
         freeMines.clear()
         inuse.clear()
         val c = m.engine.config.getConfigurationSection("Mines")
-        c.getKeys(false).forEach { mineId ->
+        for (mineId in c?.getKeys(false) ?: return) {
             val mc = c.getConfigurationSection(mineId)
-            val lmc = mc.getConfigurationSection("Location")
-            val w = Bukkit.getWorld(lmc.getString("World"))
+            val lmc = mc?.getConfigurationSection("Location")
+            val w = Bukkit.getWorld(lmc?.getString("World") ?: continue) ?: continue
             load(
                 Mine(
                     mineId,
@@ -78,7 +78,7 @@ class MineManager(val m: EngineManager) : Listener {
                     ),
                     RandomPattern().apply {
                         val materials = mc.getConfigurationSection("Materials")
-                        materials.getKeys(false).forEach {
+                        materials?.getKeys(false)?.forEach {
                             add(
                                 BukkitAdapter.asBlockType(Material.getMaterial(it.uppercase()))?.defaultState,
                                 materials.getDouble(it)
@@ -86,8 +86,8 @@ class MineManager(val m: EngineManager) : Listener {
                         }
                     })
             )
-            mc.getConfigurationSection("Private").getKeys(false).forEach { privateId ->
-                val pc = c.getConfigurationSection("$mineId.Private.$privateId")
+            for (privateId in mc.getConfigurationSection("Private")?.getKeys(false) ?: continue) {
+                val pc = c.getConfigurationSection("$mineId.Private.$privateId") ?: continue
                 load(
                     PrivateMine(
                         privateId,
@@ -101,7 +101,7 @@ class MineManager(val m: EngineManager) : Listener {
                         ),
                         RandomPattern().apply {
                             val materials = pc.getConfigurationSection("Materials")
-                            materials.getKeys(false).forEach {
+                            materials?.getKeys(false)?.forEach {
                                 add(
                                     BukkitAdapter.asBlockType(Material.getMaterial(it.uppercase()))?.defaultState,
                                     materials.getDouble(it)
@@ -111,7 +111,7 @@ class MineManager(val m: EngineManager) : Listener {
                     )
                 )
             }
-        }
+        }///-< this arrow
 
     }
 

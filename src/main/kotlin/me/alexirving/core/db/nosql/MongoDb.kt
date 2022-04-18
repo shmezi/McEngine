@@ -33,7 +33,10 @@ class MongoDb(connection: String) : Database {
     override fun getUser(uuid: UUID, async: (userData: UserData) -> Unit) {
         runBlocking {
             val ud = userDataDb.findOneById(uuid.toString())
-            val u = UserData(uuid, mutableMapOf(), PrivateMineSettings.default(), null)
+            val u = UserData(uuid, mutableMapOf(), PrivateMineSettings.default(), null,
+                autoSell = false,
+                autoBlocks = false
+            )
             if (ud == null)
                 userDataDb.insertOne(u)
             async(ud ?: u)

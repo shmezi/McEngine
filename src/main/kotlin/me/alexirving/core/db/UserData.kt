@@ -16,6 +16,8 @@ data class UserData(
     val ecos: MutableMap<String, Double>,
     val settings: PrivateMineSettings,
     val channel: String?,
+    val autoSell: Boolean,
+    val autoBlocks: Boolean
 ) {
     @BsonId
     val id = uuid.toString().toId<UserData>()

@@ -241,16 +241,16 @@ class EngineItem {
         val im = item.itemMeta
         for (pl in placeholders) {
             val k = "%${pl.key}%"
-            im.lore = im.lore.map { it.replace(k, pl.value) }
-            im.displayName = im.displayName.replace(k, pl.value)
+            im?.lore = im?.lore?.map { it.replace(k, pl.value) }
+            im?.setDisplayName(im.displayName.replace(k, pl.value))
         }
         item.itemMeta = im
     }
 
 
     companion object {
-        fun of(m: EngineManager, item: ItemStack, inventory: Inventory): EngineItem? {
-            val nbt = NBTItem(item)
+        fun of(m: EngineManager, item: ItemStack?, inventory: Inventory): EngineItem? {
+            val nbt = NBTItem(item ?: return null)
             if (!nbt.hasNBTData()) return null
             val a = m.item.bases[nbt.getString("id")] ?: return null
             return EngineItem(m, a, InventoryReference(inventory, a, nbt.getUUID("uuid")), true)

@@ -53,9 +53,9 @@ class BaseItem(
         val im = template.itemMeta
         val mm = MiniMessage.miniMessage()
         val ss = Legacy.SERIALIZER
-        im.displayName = ss.serialize(mm.deserialize(displayName))
-        im.lore = lore.map { ss.serialize(mm.deserialize(it)) }
-        im.addItemFlags(ItemFlag.HIDE_ENCHANTS)
+        im?.setDisplayName(ss.serialize(mm.deserialize(displayName)))
+        im?.lore = lore.map { ss.serialize(mm.deserialize(it)) }
+        im?.addItemFlags(ItemFlag.HIDE_ENCHANTS)
 
         template.itemMeta = im
 
@@ -77,8 +77,8 @@ class BaseItem(
         val im = i.itemMeta
 
         for (r in replacements) {
-            im.displayName = im.displayName.replace(r.key, r.value)
-            im.lore = im.lore.map { it.replace(r.key, r.value) }
+            im?.setDisplayName(im.displayName.replace(r.key, r.value))
+            im?.lore = im?.lore?.map { it.replace(r.key, r.value) }
         }
         i.itemMeta = im
         return i
@@ -87,8 +87,8 @@ class BaseItem(
     fun buildSimple(): ItemStack {
         val i = getTemplate()
         val im = i.itemMeta
-        im.displayName = im.displayName.replace("%.+%".toRegex(), "")
-        im.lore = im.lore.map { it.replace("%.+%".toRegex(), "") }
+        im?.setDisplayName(im.displayName.replace("%.+%".toRegex(), ""))
+        im?.lore = im?.lore?.map { it.replace("%.+%".toRegex(), "") }
         i.itemMeta = im
         return i
     }

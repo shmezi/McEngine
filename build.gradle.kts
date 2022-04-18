@@ -53,6 +53,8 @@ dependencies {
      */
     compileOnly("com.sk89q.worldedit", "worldedit-bukkit", "7.2.10")
     compileOnly("com.sk89q.worldedit", "worldedit-core", "7.2.10")
+    compileOnly("com.github.brcdev-minecraft:shopgui-api:2.4.0")
+
 
     implementation("org.bstats:bstats-bukkit:3.0.0")
     compileOnly("com.sk89q.worldguard:worldguard-bukkit:7.0.0")

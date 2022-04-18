@@ -17,10 +17,9 @@ import me.alexirving.core.effects.Effect
 import me.alexirving.core.events.PlayerInteract
 import me.alexirving.core.events.PlayerJoin
 import me.alexirving.core.events.PlayerLeave
-import me.alexirving.core.hooks.Papi
+import me.alexirving.core.hooks.HookPapi
 import me.alexirving.core.item.template.BaseItem
 import me.alexirving.core.utils.copyOver
-import me.alexirving.core.utils.pq
 import me.alexirving.core.utils.registerListeners
 import org.bstats.bukkit.Metrics
 import org.bukkit.Bukkit
@@ -46,7 +45,7 @@ class McEngine : JavaPlugin() {
         Metrics(this, 14580)
         copyOver(dataFolder, "animations", "items", "animations/Default.yml", "items/SuperPick.json")
         if (server.pluginManager.getPlugin("PlaceholderAPI") != null)
-            Papi(this).register()
+            HookPapi(this).register()
 
 
         /**

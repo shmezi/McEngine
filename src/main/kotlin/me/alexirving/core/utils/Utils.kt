@@ -94,8 +94,9 @@ fun Any?.pq(prefix: String?) {
         c = 0
 }
 
-fun ConfigurationSection.getLocation(path: String) =
-    this.getLocation(path, Bukkit.getWorld(this.getString("$path.World")))
+fun ConfigurationSection.getLocation(path: String): Location? {
+    return this.getLocation(path, Bukkit.getWorld(this.getString("$path.World") ?: "world") ?: return null)
+}
 
 fun ConfigurationSection.getLocation(path: String, world: World): Location {
     fun double(p: String) = this.getDouble("$path.$p")

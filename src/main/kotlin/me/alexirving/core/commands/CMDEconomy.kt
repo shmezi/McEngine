@@ -32,7 +32,7 @@ class CMDEconomy : BaseCommand() {
     fun balTop(player: Player, economy: Economy) {
         economy.m.database.getUsers { users ->
             var b = "Balance top: "
-            users.map { user -> "${Bukkit.getPlayer(user.uuid).displayName}: ${user.ecos.filter { it.key == economy.id }.values.toList()[0]}" }
+            users.map { user -> "${Bukkit.getPlayer(user.uuid)?.displayName}: ${user.ecos.filter { it.key == economy.id }.values.toList()[0]}" }
                 .forEach { b = "$b$it\n" }
             player.sendMessage(b)
         }

@@ -9,7 +9,7 @@ class ItemSwitch : Listener {
     @EventHandler
     fun onItemSwitch(e: PlayerItemHeldEvent) {
         val n = e.player.inventory.getItem(e.newSlot)
-        if (n.type == Material.AIR) return
+        if (n?.type == Material.AIR) return
 
     }
 }
