@@ -1,214 +1,253 @@
-[10:21:12] [ServerMain/INFO]: Environment: authHost='https://authserver.mojang.com', accountsHost='https://api.mojang.com', sessionHost='https://sessionserver.mojang.com', servicesHost='https://api.minecraftservices.com', name='PROD'
-[10:21:13] [Worker-Main-2/INFO]: Loaded 7 recipes
-[10:21:13] [Server thread/INFO]: Starting minecraft server version 1.18.2
-[10:21:13] [Server thread/INFO]: Loading properties
-[10:21:13] [Server thread/INFO]: This server is running Paper version git-Paper-290 (MC: 1.18.2) (Implementing API version 1.18.2-R0.1-SNAPSHOT) (Git: af94364)
-[10:21:13] [Server thread/INFO]: Server Ping Player Sample Count: 12
-[10:21:13] [Server thread/INFO]: Using 4 threads for Netty based IO
-[10:21:14] [Server thread/INFO]: Default game type: SURVIVAL
-[10:21:14] [Server thread/INFO]: Generating keypair
-[10:21:14] [Server thread/INFO]: Starting Minecraft server on *:25565
-[10:21:14] [Server thread/INFO]: Using default channel type
-[10:21:14] [Server thread/INFO]: Paper: Using Java 11 compression from Velocity.
-[10:21:14] [Server thread/INFO]: Paper: Using Java cipher from Velocity.
-[10:21:14] [Server thread/INFO]: [WorldEdit] Loading WorldEdit v7.2.10+1742f98
-[10:21:14] [Server thread/INFO]: Got request to register class com.sk89q.worldedit.bukkit.BukkitServerInterface with WorldEdit [com.sk89q.worldedit.extension.platform.PlatformManager@639ec018]
-[10:21:14] [Server thread/INFO]: [ViaVersion] Loading ViaVersion v4.2.1
-[10:21:15] [Server thread/INFO]: [ViaVersion] ViaVersion 4.2.1 is now loaded, injecting!
-[10:21:15] [Via-Mappingloader-0/INFO]: [ViaVersion] Loading 1.12 -> 1.13 mappings...
-[10:21:15] [Via-Mappingloader-1/INFO]: [ViaVersion] Loading 1.13 -> 1.13.2 mappings...
-[10:21:15] [Via-Mappingloader-2/INFO]: [ViaVersion] Loading 1.13.2 -> 1.14 mappings...
-[10:21:15] [Via-Mappingloader-3/INFO]: [ViaVersion] Loading 1.14 -> 1.15 mappings...
-[10:21:15] [Via-Mappingloader-4/INFO]: [ViaVersion] Loading 1.15 -> 1.16 mappings...
-[10:21:15] [Server thread/INFO]: [ViaBackwards] Loading ViaBackwards v4.2.1
-[10:21:15] [Server thread/INFO]: [ViaBackwards] Loading translations...
-[10:21:15] [Via-Mappingloader-5/INFO]: [ViaVersion] Loading 1.16 -> 1.16.2 mappings...
-[10:21:15] [Via-Mappingloader-6/INFO]: [ViaVersion] Loading 1.16.2 -> 1.17 mappings...
-[10:21:15] [Via-Mappingloader-9/INFO]: [ViaBackwards] Loading 1.11 -> 1.10 mappings...
-[10:21:15] [Via-Mappingloader-8/INFO]: [ViaBackwards] Loading 1.10 -> 1.9.4 mappings...
-[10:21:15] [Via-Mappingloader-10/INFO]: [ViaBackwards] Loading 1.12 -> 1.11 mappings...
-[10:21:15] [Via-Mappingloader-7/INFO]: [ViaVersion] Loading 1.17 -> 1.18 mappings...
-[10:21:15] [Via-Mappingloader-0/INFO]: [ViaVersion] Loading block connection mappings ...
-[10:21:15] [Via-Mappingloader-5/INFO]: [ViaBackwards] Loading 1.15 -> 1.14 mappings...
-[10:21:15] [Via-Mappingloader-4/INFO]: [ViaBackwards] Loading 1.16 -> 1.15 mappings...
-[10:21:15] [Via-Mappingloader-8/INFO]: [ViaBackwards] Loading 1.13.2 -> 1.13 mappings...
-[10:21:15] [Via-Mappingloader-10/INFO]: [ViaBackwards] Loading 1.16.2 -> 1.16 mappings...
-[10:21:15] [Via-Mappingloader-8/INFO]: [ViaBackwards] Loading 1.14 -> 1.13.2 mappings...
-[10:21:15] [Server thread/INFO]: [ProtocolLib] Loading ProtocolLib v4.7.0
-[10:21:15] [Via-Mappingloader-2/INFO]: [ViaBackwards] Loading 1.17 -> 1.16.2 mappings...
-[10:21:15] [Via-Mappingloader-2/INFO]: [ViaBackwards] Loading 1.18 -> 1.17 mappings...
-[10:21:15] [Server thread/WARN]: [ProtocolLib] Version (MC: 1.18.2) has not yet been tested! Proceed with caution.
-[10:21:15] [Via-Mappingloader-2/INFO]: [ViaBackwards] Loading 1.13 -> 1.12 mappings...
-[10:21:16] [Server thread/INFO]: [McEngine] Loading McEngine v1.0
-[10:21:16] [Server thread/INFO]: Server permissions file permissions.yml is empty, ignoring it
-[10:21:16] [Server thread/INFO]: [WorldEdit] Enabling WorldEdit v7.2.10+1742f98
-[10:21:16] [Server thread/INFO]: Registering commands with com.sk89q.worldedit.bukkit.BukkitServerInterface
-[10:21:16] [Server thread/INFO]: WEPIF: Using the Bukkit Permissions API.
-[10:21:16] [Server thread/INFO]: Using com.sk89q.worldedit.bukkit.adapter.impl.v1_18_R2.PaperweightAdapter as the Bukkit adapter
-[10:21:17] [Server thread/INFO]: [ProtocolLib] Enabling ProtocolLib v4.7.0
-[10:21:17] [Server thread/INFO]: [ProtocolLib] Started structure compiler thread.
-[10:21:17] [Server thread/INFO]: Preparing level "world"
-[10:21:17] [Server thread/INFO]: -------- World Settings For [world] --------
-[10:21:17] [Server thread/INFO]: Allow Zombie Pigmen to spawn from portal blocks: true
-[10:21:17] [Server thread/INFO]: Nerfing mobs spawned from spawners: false
-[10:21:17] [Server thread/INFO]: Simulation Distance: 10
-[10:21:17] [Server thread/INFO]: View Distance: 10
-[10:21:17] [Server thread/INFO]: Item Merge Radius: 2.5
-[10:21:17] [Server thread/INFO]: Item Despawn Rate: 6000
-[10:21:17] [Server thread/INFO]: Arrow Despawn Rate: 1200 Trident Respawn Rate:1200
-[10:21:17] [Server thread/INFO]: Zombie Aggressive Towards Villager: true
-[10:21:17] [Server thread/INFO]: Mob Spawn Range: 4
-[10:21:17] [Server thread/INFO]: Experience Merge Radius: 3.0
-[10:21:17] [Server thread/INFO]: Cactus Growth Modifier: 100%
-[10:21:17] [Server thread/INFO]: Cane Growth Modifier: 100%
-[10:21:17] [Server thread/INFO]: Melon Growth Modifier: 100%
-[10:21:17] [Server thread/INFO]: Mushroom Growth Modifier: 100%
-[10:21:17] [Server thread/INFO]: Pumpkin Growth Modifier: 100%
-[10:21:17] [Server thread/INFO]: Sapling Growth Modifier: 100%
-[10:21:17] [Server thread/INFO]: Beetroot Growth Modifier: 100%
-[10:21:17] [Server thread/INFO]: Carrot Growth Modifier: 100%
-[10:21:17] [Server thread/INFO]: Potato Growth Modifier: 100%
-[10:21:17] [Server thread/INFO]: Wheat Growth Modifier: 100%
-[10:21:17] [Server thread/INFO]: NetherWart Growth Modifier: 100%
-[10:21:17] [Server thread/INFO]: Vine Growth Modifier: 100%
-[10:21:17] [Server thread/INFO]: Cocoa Growth Modifier: 100%
-[10:21:17] [Server thread/INFO]: Bamboo Growth Modifier: 100%
-[10:21:17] [Server thread/INFO]: SweetBerry Growth Modifier: 100%
-[10:21:17] [Server thread/INFO]: Kelp Growth Modifier: 100%
-[10:21:17] [Server thread/INFO]: TwistingVines Growth Modifier: 100%
-[10:21:17] [Server thread/INFO]: WeepingVines Growth Modifier: 100%
-[10:21:17] [Server thread/INFO]: CaveVines Growth Modifier: 100%
-[10:21:17] [Server thread/INFO]: GlowBerry Growth Modifier: 100%
-[10:21:17] [Server thread/INFO]: Entity Activation Range: An 32 / Mo 32 / Ra 48 / Mi 16 / Tiv true / Isa false
-[10:21:17] [Server thread/INFO]: Entity Tracking Range: Pl 48 / An 48 / Mo 48 / Mi 32 / Other 64
-[10:21:17] [Server thread/INFO]: Hopper Transfer: 8 Hopper Check: 1 Hopper Amount: 1
-[10:21:17] [Server thread/INFO]: Custom Map Seeds:  Village: 10387312 Desert: 14357617 Igloo: 14357618 Jungle: 14357619 Swamp: 14357620 Monument: 10387313 Ocean: 14357621 Shipwreck: 165745295 End City: 10387313 Slime: 987234911 Nether: 30084232 Mansion: 10387319 Fossil: 14357921 Portal: 34222645
-[10:21:17] [Server thread/INFO]: Tile Max Tick Time: 50ms Entity max Tick Time: 50ms
-[10:21:17] [Server thread/INFO]: Max TNT Explosions: 100
-[10:21:17] [Server thread/INFO]: -------- World Settings For [world_nether] --------
-[10:21:17] [Server thread/INFO]: Allow Zombie Pigmen to spawn from portal blocks: true
-[10:21:17] [Server thread/INFO]: Nerfing mobs spawned from spawners: false
-[10:21:17] [Server thread/INFO]: Simulation Distance: 10
-[10:21:17] [Server thread/INFO]: View Distance: 10
-[10:21:17] [Server thread/INFO]: Item Merge Radius: 2.5
-[10:21:17] [Server thread/INFO]: Item Despawn Rate: 6000
-[10:21:17] [Server thread/INFO]: Arrow Despawn Rate: 1200 Trident Respawn Rate:1200
-[10:21:17] [Server thread/INFO]: Zombie Aggressive Towards Villager: true
-[10:21:17] [Server thread/INFO]: Mob Spawn Range: 4
-[10:21:17] [Server thread/INFO]: Experience Merge Radius: 3.0
-[10:21:17] [Server thread/INFO]: Cactus Growth Modifier: 100%
-[10:21:17] [Server thread/INFO]: Cane Growth Modifier: 100%
-[10:21:17] [Server thread/INFO]: Melon Growth Modifier: 100%
-[10:21:17] [Server thread/INFO]: Mushroom Growth Modifier: 100%
-[10:21:17] [Server thread/INFO]: Pumpkin Growth Modifier: 100%
-[10:21:17] [Server thread/INFO]: Sapling Growth Modifier: 100%
-[10:21:17] [Server thread/INFO]: Beetroot Growth Modifier: 100%
-[10:21:17] [Server thread/INFO]: Carrot Growth Modifier: 100%
-[10:21:17] [Server thread/INFO]: Potato Growth Modifier: 100%
-[10:21:17] [Server thread/INFO]: Wheat Growth Modifier: 100%
-[10:21:17] [Server thread/INFO]: NetherWart Growth Modifier: 100%
-[10:21:17] [Server thread/INFO]: Vine Growth Modifier: 100%
-[10:21:17] [Server thread/INFO]: Cocoa Growth Modifier: 100%
-[10:21:17] [Server thread/INFO]: Bamboo Growth Modifier: 100%
-[10:21:17] [Server thread/INFO]: SweetBerry Growth Modifier: 100%
-[10:21:17] [Server thread/INFO]: Kelp Growth Modifier: 100%
-[10:21:17] [Server thread/INFO]: TwistingVines Growth Modifier: 100%
-[10:21:17] [Server thread/INFO]: WeepingVines Growth Modifier: 100%
-[10:21:17] [Server thread/INFO]: CaveVines Growth Modifier: 100%
-[10:21:17] [Server thread/INFO]: GlowBerry Growth Modifier: 100%
-[10:21:17] [Server thread/INFO]: Entity Activation Range: An 32 / Mo 32 / Ra 48 / Mi 16 / Tiv true / Isa false
-[10:21:17] [Server thread/INFO]: Entity Tracking Range: Pl 48 / An 48 / Mo 48 / Mi 32 / Other 64
-[10:21:17] [Server thread/INFO]: Hopper Transfer: 8 Hopper Check: 1 Hopper Amount: 1
-[10:21:17] [Server thread/INFO]: Custom Map Seeds:  Village: 10387312 Desert: 14357617 Igloo: 14357618 Jungle: 14357619 Swamp: 14357620 Monument: 10387313 Ocean: 14357621 Shipwreck: 165745295 End City: 10387313 Slime: 987234911 Nether: 30084232 Mansion: 10387319 Fossil: 14357921 Portal: 34222645
-[10:21:17] [Server thread/INFO]: Tile Max Tick Time: 50ms Entity max Tick Time: 50ms
-[10:21:17] [Server thread/INFO]: Max TNT Explosions: 100
-[10:21:17] [Server thread/INFO]: -------- World Settings For [world_the_end] --------
-[10:21:17] [Server thread/INFO]: Allow Zombie Pigmen to spawn from portal blocks: true
-[10:21:17] [Server thread/INFO]: Nerfing mobs spawned from spawners: false
-[10:21:17] [Server thread/INFO]: Simulation Distance: 10
-[10:21:17] [Server thread/INFO]: View Distance: 10
-[10:21:17] [Server thread/INFO]: Item Merge Radius: 2.5
-[10:21:17] [Server thread/INFO]: Item Despawn Rate: 6000
-[10:21:17] [Server thread/INFO]: Arrow Despawn Rate: 1200 Trident Respawn Rate:1200
-[10:21:17] [Server thread/INFO]: Zombie Aggressive Towards Villager: true
-[10:21:17] [Server thread/INFO]: Mob Spawn Range: 4
-[10:21:17] [Server thread/INFO]: Experience Merge Radius: 3.0
-[10:21:17] [Server thread/INFO]: Cactus Growth Modifier: 100%
-[10:21:17] [Server thread/INFO]: Cane Growth Modifier: 100%
-[10:21:17] [Server thread/INFO]: Melon Growth Modifier: 100%
-[10:21:17] [Server thread/INFO]: Mushroom Growth Modifier: 100%
-[10:21:17] [Server thread/INFO]: Pumpkin Growth Modifier: 100%
-[10:21:17] [Server thread/INFO]: Sapling Growth Modifier: 100%
-[10:21:17] [Server thread/INFO]: Beetroot Growth Modifier: 100%
-[10:21:17] [Server thread/INFO]: Carrot Growth Modifier: 100%
-[10:21:17] [Server thread/INFO]: Potato Growth Modifier: 100%
-[10:21:17] [Server thread/INFO]: Wheat Growth Modifier: 100%
-[10:21:17] [Server thread/INFO]: NetherWart Growth Modifier: 100%
-[10:21:17] [Server thread/INFO]: Vine Growth Modifier: 100%
-[10:21:17] [Server thread/INFO]: Cocoa Growth Modifier: 100%
-[10:21:17] [Server thread/INFO]: Bamboo Growth Modifier: 100%
-[10:21:17] [Server thread/INFO]: SweetBerry Growth Modifier: 100%
-[10:21:17] [Server thread/INFO]: Kelp Growth Modifier: 100%
-[10:21:17] [Server thread/INFO]: TwistingVines Growth Modifier: 100%
-[10:21:17] [Server thread/INFO]: WeepingVines Growth Modifier: 100%
-[10:21:17] [Server thread/INFO]: CaveVines Growth Modifier: 100%
-[10:21:17] [Server thread/INFO]: GlowBerry Growth Modifier: 100%
-[10:21:17] [Server thread/INFO]: Entity Activation Range: An 32 / Mo 32 / Ra 48 / Mi 16 / Tiv true / Isa false
-[10:21:17] [Server thread/INFO]: Entity Tracking Range: Pl 48 / An 48 / Mo 48 / Mi 32 / Other 64
-[10:21:17] [Server thread/INFO]: Hopper Transfer: 8 Hopper Check: 1 Hopper Amount: 1
-[10:21:17] [Server thread/INFO]: Custom Map Seeds:  Village: 10387312 Desert: 14357617 Igloo: 14357618 Jungle: 14357619 Swamp: 14357620 Monument: 10387313 Ocean: 14357621 Shipwreck: 165745295 End City: 10387313 Slime: 987234911 Nether: 30084232 Mansion: 10387319 Fossil: 14357921 Portal: 34222645
-[10:21:17] [Server thread/INFO]: Tile Max Tick Time: 50ms Entity max Tick Time: 50ms
-[10:21:17] [Server thread/INFO]: Max TNT Explosions: 100
-[10:21:17] [Server thread/INFO]: Preparing start region for dimension minecraft:overworld
-[10:21:18] [Server thread/INFO]: Time elapsed: 137 ms
-[10:21:18] [Server thread/INFO]: Preparing start region for dimension minecraft:the_nether
-[10:21:18] [Server thread/INFO]: Time elapsed: 52 ms
-[10:21:18] [Server thread/INFO]: Preparing start region for dimension minecraft:the_end
-[10:21:18] [Server thread/INFO]: Time elapsed: 94 ms
-[10:21:18] [Server thread/INFO]: [ViaVersion] Enabling ViaVersion v4.2.1
-[10:21:18] [Server thread/INFO]: [ViaBackwards] Enabling ViaBackwards v4.2.1
-[10:21:18] [Server thread/INFO]: [McEngine] Enabling McEngine v1.0
-[10:21:18] [Server thread/INFO]: [NBTAPI] [NBTAPI] Found Spigot: v1_18_R2! Trying to find NMS support
-[10:21:18] [Server thread/INFO]: [NBTAPI] [NBTAPI] NMS support 'MC1_18_R2' loaded!
-[10:21:18] [Server thread/INFO]: [NBTAPI] [NBTAPI] Found Gson: class com.google.gson.Gson
-[10:21:18] [Server thread/INFO]: [36mLoaded item: SuperPick (Id: SuperPickaxe) successfully[0m
-[10:21:18] [Server thread/INFO]: [36mLoaded item: Sword (Id: SuperSword) successfully[0m
-[10:21:18] [Server thread/INFO]: [org.reflections.Reflections] Reflections took 70 ms to scan 1 urls, producing 3 keys and 27 values
-[10:21:18] [Server thread/INFO]: [36mLoaded animation: "Default".[0m
-[10:21:19] [Thread-7/INFO]: [NBTAPI] [NBTAPI] The NBT-API seems to be up-to-date!
-[10:21:19] [Server thread/INFO]: [org.mongodb.driver.cluster] Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
-[10:21:19] [Server thread/INFO]: [34mRegistering internal effects:[0m
-[10:21:19] [Server thread/INFO]: [34mRegistered effect: "speed".[0m
-[10:21:19] [Server thread/INFO]: [34mRegistered effect: "efficiency".[0m
-[10:21:19] [Server thread/INFO]: [34mRegistered effect: "fortune".[0m
-[10:21:19] [Server thread/INFO]: [34mRegistered effect: "night_vision".[0m
-[10:21:19] [cluster-ClusterId{value='625d116f8e81d076b9f45aef', description='null'}-localhost:27017/INFO]: [org.mongodb.driver.connection] Opened connection [connectionId{localValue:1, serverValue:460}] to localhost:27017
-[10:21:19] [cluster-rtt-ClusterId{value='625d116f8e81d076b9f45aef', description='null'}-localhost:27017/INFO]: [org.mongodb.driver.connection] Opened connection [connectionId{localValue:2, serverValue:459}] to localhost:27017
-[10:21:19] [cluster-ClusterId{value='625d116f8e81d076b9f45aef', description='null'}-localhost:27017/INFO]: [org.mongodb.driver.cluster] Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=13, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=18831700}
-[10:21:19] [Server thread/INFO]: [org.mongodb.driver.cluster] Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
-[10:21:19] [Server thread/INFO]: [34mStarting MongoDb[0m
-[10:21:19] [Server thread/INFO]: [36mLoaded item: SuperPick (Id: SuperPickaxe) successfully[0m
-[10:21:19] [Server thread/INFO]: [36mLoaded item: Sword (Id: SuperSword) successfully[0m
-[10:21:19] [cluster-rtt-ClusterId{value='625d116f8e81d076b9f45af0', description='null'}-localhost:27017/INFO]: [org.mongodb.driver.connection] Opened connection [connectionId{localValue:4, serverValue:462}] to localhost:27017
-[10:21:19] [cluster-ClusterId{value='625d116f8e81d076b9f45af0', description='null'}-localhost:27017/INFO]: [org.mongodb.driver.connection] Opened connection [connectionId{localValue:3, serverValue:461}] to localhost:27017
-[10:21:19] [cluster-ClusterId{value='625d116f8e81d076b9f45af0', description='null'}-localhost:27017/INFO]: [org.mongodb.driver.cluster] Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=13, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=11663300}
-[10:21:19] [Server thread/INFO]: [36mLoaded animation: "Default".[0m
-[10:21:19] [Server thread/INFO]: [34mLoading eco of id "Default":[0m
-[10:21:19] [Server thread/INFO]: [34mLoading eco of id "Tokens":[0m
-[10:21:19] [Server thread/INFO]: Running delayed init tasks
-[10:21:19] [Server thread/INFO]: [ViaVersion] ViaVersion detected server version: 1.18.2 (758)
-[10:21:20] [Server thread/INFO]: [ViaVersion] Finished mapping loading, shutting down loader executor!
-[10:21:20] [Server thread/INFO]: Done (6.756s)! For help, type "help"
-[10:21:20] [Server thread/INFO]: Timings Reset
-[10:21:20] [Server thread/WARN]: UUID of added entity already exists: EntityBat['Bat'/26, uuid='624c7bc2-083b-4c5b-833a-913b91643ea3', l='ServerLevel[world]', x=-42.79, y=-2.00, z=-23.12, cpos=[-3, -2], tl=12299, v=false]
-[10:21:21] [Server thread/WARN]: UUID of added entity already exists: EntitySheep['Sheep'/114, uuid='0dcb27e6-54d9-470a-942d-0d81d816b51d', l='ServerLevel[world]', x=112.55, y=80.00, z=-80.50, cpos=[7, -6], tl=233169, v=false]
-[10:21:24] [User Authenticator #1/INFO]: UUID of player shmezi is 8b33b9e1-da73-446b-a70b-788191cc2c59
-[10:21:24] [Thread-15/INFO]: [org.mongodb.driver.connection] Opened connection [connectionId{localValue:5, serverValue:463}] to localhost:27017
-[10:21:25] [Server thread/INFO]: shmezi joined the game
-[10:21:25] [Server thread/INFO]: shmezi[/127.0.0.1:58455] logged in with entity id 163 at ([world]-1.9016255240827447, 107.79497917619605, -10.179997652108797)
-[10:22:04] [Server thread/INFO]: shmezi issued server command: /engine up enchants speed
-[10:22:10] [Server thread/INFO]: shmezi issued server command: /engine up enchants speed
-[10:22:10] [Server thread/INFO]: shmezi issued server command: /engine up enchants speed
-[10:22:11] [Server thread/INFO]: shmezi issued server command: /engine up enchants speed
-[10:22:11] [Server thread/INFO]: shmezi issued server command: /engine up enchants speed
-[10:22:13] [Server thread/INFO]: shmezi issued server command: /engine up enchants speed
+[23:56:25] [ServerMain/INFO]: Environment: authHost='https://authserver.mojang.com', accountsHost='https://api.mojang.com', sessionHost='https://sessionserver.mojang.com', servicesHost='https://api.minecraftservices.com', name='PROD'
+[23:56:26] [Worker-Main-2/INFO]: Loaded 7 recipes
+[23:56:26] [Server thread/INFO]: Starting minecraft server version 1.18.2
+[23:56:26] [Server thread/INFO]: Loading properties
+[23:56:27] [Server thread/INFO]: This server is running Paper version git-Paper-308 (MC: 1.18.2) (Implementing API version 1.18.2-R0.1-SNAPSHOT) (Git: 5b85ee3)
+[23:56:27] [Server thread/INFO]: Server Ping Player Sample Count: 12
+[23:56:27] [Server thread/INFO]: Using 4 threads for Netty based IO
+[23:56:27] [Server thread/INFO]: Default game type: SURVIVAL
+[23:56:27] [Server thread/INFO]: Generating keypair
+[23:56:27] [Server thread/INFO]: Starting Minecraft server on *:25565
+[23:56:27] [Server thread/INFO]: Using default channel type
+[23:56:27] [Server thread/INFO]: Paper: Using Java 11 compression from Velocity.
+[23:56:27] [Server thread/INFO]: Paper: Using Java cipher from Velocity.
+[23:56:27] [Server thread/INFO]: [WorldEdit] Loading WorldEdit v7.2.10+1742f98
+[23:56:28] [Server thread/INFO]: Got request to register class com.sk89q.worldedit.bukkit.BukkitServerInterface with WorldEdit [com.sk89q.worldedit.extension.platform.PlatformManager@7ee8ee9]
+[23:56:28] [Server thread/INFO]: [ViaVersion] Loading ViaVersion v4.2.1
+[23:56:28] [Server thread/INFO]: [ViaVersion] ViaVersion 4.2.1 is now loaded, injecting!
+[23:56:28] [Via-Mappingloader-0/INFO]: [ViaVersion] Loading 1.12 -> 1.13 mappings...
+[23:56:28] [Via-Mappingloader-1/INFO]: [ViaVersion] Loading 1.13 -> 1.13.2 mappings...
+[23:56:28] [Via-Mappingloader-2/INFO]: [ViaVersion] Loading 1.13.2 -> 1.14 mappings...
+[23:56:28] [Via-Mappingloader-3/INFO]: [ViaVersion] Loading 1.14 -> 1.15 mappings...
+[23:56:28] [Via-Mappingloader-4/INFO]: [ViaVersion] Loading 1.15 -> 1.16 mappings...
+[23:56:28] [Server thread/INFO]: [ViaBackwards] Loading ViaBackwards v4.2.1
+[23:56:28] [Server thread/INFO]: [ViaBackwards] Loading translations...
+[23:56:28] [Via-Mappingloader-7/INFO]: [ViaVersion] Loading 1.17 -> 1.18 mappings...
+[23:56:28] [Via-Mappingloader-5/INFO]: [ViaVersion] Loading 1.16 -> 1.16.2 mappings...
+[23:56:28] [Via-Mappingloader-6/INFO]: [ViaVersion] Loading 1.16.2 -> 1.17 mappings...
+[23:56:28] [Via-Mappingloader-1/INFO]: [ViaBackwards] Loading 1.10 -> 1.9.4 mappings...
+[23:56:28] [Via-Mappingloader-0/INFO]: [ViaVersion] Loading block connection mappings ...
+[23:56:28] [Via-Mappingloader-1/INFO]: [ViaBackwards] Loading 1.11 -> 1.10 mappings...
+[23:56:28] [Via-Mappingloader-4/INFO]: [ViaBackwards] Loading 1.12 -> 1.11 mappings...
+[23:56:28] [Via-Mappingloader-5/INFO]: [ViaBackwards] Loading 1.13.2 -> 1.13 mappings...
+[23:56:28] [Via-Mappingloader-7/INFO]: [ViaBackwards] Loading 1.14 -> 1.13.2 mappings...
+[23:56:28] [Via-Mappingloader-5/INFO]: [ViaBackwards] Loading 1.15 -> 1.14 mappings...
+[23:56:28] [Via-Mappingloader-6/INFO]: [ViaBackwards] Loading 1.16 -> 1.15 mappings...
+[23:56:28] [Via-Mappingloader-4/INFO]: [ViaBackwards] Loading 1.13 -> 1.12 mappings...
+[23:56:28] [Via-Mappingloader-0/INFO]: [ViaBackwards] Loading 1.16.2 -> 1.16 mappings...
+[23:56:28] [Via-Mappingloader-2/INFO]: [ViaBackwards] Loading 1.17 -> 1.16.2 mappings...
+[23:56:28] [Via-Mappingloader-2/INFO]: [ViaBackwards] Loading 1.18 -> 1.17 mappings...
+[23:56:28] [Server thread/INFO]: [ProtocolLib] Loading ProtocolLib v4.7.0
+[23:56:28] [Server thread/WARN]: [ProtocolLib] Version (MC: 1.18.2) has not yet been tested! Proceed with caution.
+[23:56:29] [Server thread/INFO]: [McEngine] Loading McEngine v1.0
+[23:56:29] [Server thread/INFO]: Server permissions file permissions.yml is empty, ignoring it
+[23:56:29] [Server thread/INFO]: [WorldEdit] Enabling WorldEdit v7.2.10+1742f98
+[23:56:29] [Server thread/INFO]: Registering commands with com.sk89q.worldedit.bukkit.BukkitServerInterface
+[23:56:29] [Server thread/INFO]: WEPIF: Using the Bukkit Permissions API.
+[23:56:29] [Server thread/INFO]: Using com.sk89q.worldedit.bukkit.adapter.impl.v1_18_R2.PaperweightAdapter as the Bukkit adapter
+[23:56:30] [Server thread/INFO]: [ProtocolLib] Enabling ProtocolLib v4.7.0
+[23:56:30] [Server thread/INFO]: [ProtocolLib] Started structure compiler thread.
+[23:56:30] [Server thread/INFO]: Preparing level "world"
+[23:56:30] [Server thread/INFO]: -------- World Settings For [world] --------
+[23:56:30] [Server thread/INFO]: Zombie Aggressive Towards Villager: true
+[23:56:30] [Server thread/INFO]: Allow Zombie Pigmen to spawn from portal blocks: true
+[23:56:30] [Server thread/INFO]: View Distance: 10
+[23:56:30] [Server thread/INFO]: Simulation Distance: 10
+[23:56:30] [Server thread/INFO]: Item Merge Radius: 2.5
+[23:56:30] [Server thread/INFO]: Item Despawn Rate: 6000
+[23:56:30] [Server thread/INFO]: Nerfing mobs spawned from spawners: false
+[23:56:30] [Server thread/INFO]: Arrow Despawn Rate: 1200 Trident Respawn Rate:1200
+[23:56:30] [Server thread/INFO]: Mob Spawn Range: 4
+[23:56:30] [Server thread/INFO]: Cactus Growth Modifier: 100%
+[23:56:30] [Server thread/INFO]: Cane Growth Modifier: 100%
+[23:56:30] [Server thread/INFO]: Melon Growth Modifier: 100%
+[23:56:30] [Server thread/INFO]: Mushroom Growth Modifier: 100%
+[23:56:30] [Server thread/INFO]: Pumpkin Growth Modifier: 100%
+[23:56:30] [Server thread/INFO]: Sapling Growth Modifier: 100%
+[23:56:30] [Server thread/INFO]: Beetroot Growth Modifier: 100%
+[23:56:30] [Server thread/INFO]: Carrot Growth Modifier: 100%
+[23:56:30] [Server thread/INFO]: Potato Growth Modifier: 100%
+[23:56:30] [Server thread/INFO]: Wheat Growth Modifier: 100%
+[23:56:30] [Server thread/INFO]: NetherWart Growth Modifier: 100%
+[23:56:30] [Server thread/INFO]: Vine Growth Modifier: 100%
+[23:56:30] [Server thread/INFO]: Cocoa Growth Modifier: 100%
+[23:56:30] [Server thread/INFO]: Bamboo Growth Modifier: 100%
+[23:56:30] [Server thread/INFO]: SweetBerry Growth Modifier: 100%
+[23:56:30] [Server thread/INFO]: Kelp Growth Modifier: 100%
+[23:56:30] [Server thread/INFO]: TwistingVines Growth Modifier: 100%
+[23:56:30] [Server thread/INFO]: WeepingVines Growth Modifier: 100%
+[23:56:30] [Server thread/INFO]: CaveVines Growth Modifier: 100%
+[23:56:30] [Server thread/INFO]: GlowBerry Growth Modifier: 100%
+[23:56:30] [Server thread/INFO]: Experience Merge Radius: 3.0
+[23:56:30] [Server thread/INFO]: Entity Activation Range: An 32 / Mo 32 / Ra 48 / Mi 16 / Tiv true / Isa false
+[23:56:30] [Server thread/INFO]: Entity Tracking Range: Pl 48 / An 48 / Mo 48 / Mi 32 / Other 64
+[23:56:30] [Server thread/INFO]: Hopper Transfer: 8 Hopper Check: 1 Hopper Amount: 1
+[23:56:30] [Server thread/INFO]: Custom Map Seeds:  Village: 10387312 Desert: 14357617 Igloo: 14357618 Jungle: 14357619 Swamp: 14357620 Monument: 10387313 Ocean: 14357621 Shipwreck: 165745295 End City: 10387313 Slime: 987234911 Nether: 30084232 Mansion: 10387319 Fossil: 14357921 Portal: 34222645
+[23:56:30] [Server thread/INFO]: Tile Max Tick Time: 50ms Entity max Tick Time: 50ms
+[23:56:30] [Server thread/INFO]: Max TNT Explosions: 100
+[23:56:31] [Server thread/INFO]: -------- World Settings For [world_nether] --------
+[23:56:31] [Server thread/INFO]: Zombie Aggressive Towards Villager: true
+[23:56:31] [Server thread/INFO]: Allow Zombie Pigmen to spawn from portal blocks: true
+[23:56:31] [Server thread/INFO]: View Distance: 10
+[23:56:31] [Server thread/INFO]: Simulation Distance: 10
+[23:56:31] [Server thread/INFO]: Item Merge Radius: 2.5
+[23:56:31] [Server thread/INFO]: Item Despawn Rate: 6000
+[23:56:31] [Server thread/INFO]: Nerfing mobs spawned from spawners: false
+[23:56:31] [Server thread/INFO]: Arrow Despawn Rate: 1200 Trident Respawn Rate:1200
+[23:56:31] [Server thread/INFO]: Mob Spawn Range: 4
+[23:56:31] [Server thread/INFO]: Cactus Growth Modifier: 100%
+[23:56:31] [Server thread/INFO]: Cane Growth Modifier: 100%
+[23:56:31] [Server thread/INFO]: Melon Growth Modifier: 100%
+[23:56:31] [Server thread/INFO]: Mushroom Growth Modifier: 100%
+[23:56:31] [Server thread/INFO]: Pumpkin Growth Modifier: 100%
+[23:56:31] [Server thread/INFO]: Sapling Growth Modifier: 100%
+[23:56:31] [Server thread/INFO]: Beetroot Growth Modifier: 100%
+[23:56:31] [Server thread/INFO]: Carrot Growth Modifier: 100%
+[23:56:31] [Server thread/INFO]: Potato Growth Modifier: 100%
+[23:56:31] [Server thread/INFO]: Wheat Growth Modifier: 100%
+[23:56:31] [Server thread/INFO]: NetherWart Growth Modifier: 100%
+[23:56:31] [Server thread/INFO]: Vine Growth Modifier: 100%
+[23:56:31] [Server thread/INFO]: Cocoa Growth Modifier: 100%
+[23:56:31] [Server thread/INFO]: Bamboo Growth Modifier: 100%
+[23:56:31] [Server thread/INFO]: SweetBerry Growth Modifier: 100%
+[23:56:31] [Server thread/INFO]: Kelp Growth Modifier: 100%
+[23:56:31] [Server thread/INFO]: TwistingVines Growth Modifier: 100%
+[23:56:31] [Server thread/INFO]: WeepingVines Growth Modifier: 100%
+[23:56:31] [Server thread/INFO]: CaveVines Growth Modifier: 100%
+[23:56:31] [Server thread/INFO]: GlowBerry Growth Modifier: 100%
+[23:56:31] [Server thread/INFO]: Experience Merge Radius: 3.0
+[23:56:31] [Server thread/INFO]: Entity Activation Range: An 32 / Mo 32 / Ra 48 / Mi 16 / Tiv true / Isa false
+[23:56:31] [Server thread/INFO]: Entity Tracking Range: Pl 48 / An 48 / Mo 48 / Mi 32 / Other 64
+[23:56:31] [Server thread/INFO]: Hopper Transfer: 8 Hopper Check: 1 Hopper Amount: 1
+[23:56:31] [Server thread/INFO]: Custom Map Seeds:  Village: 10387312 Desert: 14357617 Igloo: 14357618 Jungle: 14357619 Swamp: 14357620 Monument: 10387313 Ocean: 14357621 Shipwreck: 165745295 End City: 10387313 Slime: 987234911 Nether: 30084232 Mansion: 10387319 Fossil: 14357921 Portal: 34222645
+[23:56:31] [Server thread/INFO]: Tile Max Tick Time: 50ms Entity max Tick Time: 50ms
+[23:56:31] [Server thread/INFO]: Max TNT Explosions: 100
+[23:56:31] [Server thread/INFO]: -------- World Settings For [world_the_end] --------
+[23:56:31] [Server thread/INFO]: Zombie Aggressive Towards Villager: true
+[23:56:31] [Server thread/INFO]: Allow Zombie Pigmen to spawn from portal blocks: true
+[23:56:31] [Server thread/INFO]: View Distance: 10
+[23:56:31] [Server thread/INFO]: Simulation Distance: 10
+[23:56:31] [Server thread/INFO]: Item Merge Radius: 2.5
+[23:56:31] [Server thread/INFO]: Item Despawn Rate: 6000
+[23:56:31] [Server thread/INFO]: Nerfing mobs spawned from spawners: false
+[23:56:31] [Server thread/INFO]: Arrow Despawn Rate: 1200 Trident Respawn Rate:1200
+[23:56:31] [Server thread/INFO]: Mob Spawn Range: 4
+[23:56:31] [Server thread/INFO]: Cactus Growth Modifier: 100%
+[23:56:31] [Server thread/INFO]: Cane Growth Modifier: 100%
+[23:56:31] [Server thread/INFO]: Melon Growth Modifier: 100%
+[23:56:31] [Server thread/INFO]: Mushroom Growth Modifier: 100%
+[23:56:31] [Server thread/INFO]: Pumpkin Growth Modifier: 100%
+[23:56:31] [Server thread/INFO]: Sapling Growth Modifier: 100%
+[23:56:31] [Server thread/INFO]: Beetroot Growth Modifier: 100%
+[23:56:31] [Server thread/INFO]: Carrot Growth Modifier: 100%
+[23:56:31] [Server thread/INFO]: Potato Growth Modifier: 100%
+[23:56:31] [Server thread/INFO]: Wheat Growth Modifier: 100%
+[23:56:31] [Server thread/INFO]: NetherWart Growth Modifier: 100%
+[23:56:31] [Server thread/INFO]: Vine Growth Modifier: 100%
+[23:56:31] [Server thread/INFO]: Cocoa Growth Modifier: 100%
+[23:56:31] [Server thread/INFO]: Bamboo Growth Modifier: 100%
+[23:56:31] [Server thread/INFO]: SweetBerry Growth Modifier: 100%
+[23:56:31] [Server thread/INFO]: Kelp Growth Modifier: 100%
+[23:56:31] [Server thread/INFO]: TwistingVines Growth Modifier: 100%
+[23:56:31] [Server thread/INFO]: WeepingVines Growth Modifier: 100%
+[23:56:31] [Server thread/INFO]: CaveVines Growth Modifier: 100%
+[23:56:31] [Server thread/INFO]: GlowBerry Growth Modifier: 100%
+[23:56:31] [Server thread/INFO]: Experience Merge Radius: 3.0
+[23:56:31] [Server thread/INFO]: Entity Activation Range: An 32 / Mo 32 / Ra 48 / Mi 16 / Tiv true / Isa false
+[23:56:31] [Server thread/INFO]: Entity Tracking Range: Pl 48 / An 48 / Mo 48 / Mi 32 / Other 64
+[23:56:31] [Server thread/INFO]: Hopper Transfer: 8 Hopper Check: 1 Hopper Amount: 1
+[23:56:31] [Server thread/INFO]: Custom Map Seeds:  Village: 10387312 Desert: 14357617 Igloo: 14357618 Jungle: 14357619 Swamp: 14357620 Monument: 10387313 Ocean: 14357621 Shipwreck: 165745295 End City: 10387313 Slime: 987234911 Nether: 30084232 Mansion: 10387319 Fossil: 14357921 Portal: 34222645
+[23:56:31] [Server thread/INFO]: Tile Max Tick Time: 50ms Entity max Tick Time: 50ms
+[23:56:31] [Server thread/INFO]: Max TNT Explosions: 100
+[23:56:31] [Server thread/INFO]: Preparing start region for dimension minecraft:overworld
+[23:56:31] [Server thread/INFO]: Time elapsed: 470 ms
+[23:56:31] [Server thread/INFO]: Preparing start region for dimension minecraft:the_nether
+[23:56:31] [Server thread/INFO]: Time elapsed: 44 ms
+[23:56:31] [Server thread/INFO]: Preparing start region for dimension minecraft:the_end
+[23:56:31] [Server thread/INFO]: Time elapsed: 101 ms
+[23:56:31] [Server thread/INFO]: [ViaVersion] Enabling ViaVersion v4.2.1
+[23:56:31] [Server thread/INFO]: [ViaBackwards] Enabling ViaBackwards v4.2.1
+[23:56:31] [Server thread/INFO]: [McEngine] Enabling McEngine v1.0
+[23:56:32] [Server thread/INFO]: [NBTAPI] [NBTAPI] Found Spigot: v1_18_R2! Trying to find NMS support
+[23:56:32] [Server thread/INFO]: [NBTAPI] [NBTAPI] NMS support 'MC1_18_R2' loaded!
+[23:56:32] [Server thread/INFO]: [NBTAPI] [NBTAPI] Found Gson: class com.google.gson.Gson
+[23:56:32] [Server thread/INFO]: [36mLoaded item: SuperPick (Id: SuperPickaxe) successfully[0m
+[23:56:32] [Server thread/INFO]: [36mLoaded item: Sword (Id: SuperSword) successfully[0m
+[23:56:32] [Server thread/INFO]: [org.reflections.Reflections] Reflections took 61 ms to scan 1 urls, producing 3 keys and 27 values
+[23:56:32] [Server thread/INFO]: [36mLoaded animation: "Default".[0m
+[23:56:32] [Thread-7/INFO]: [NBTAPI] [NBTAPI] The NBT-API seems to be up-to-date!
+[23:56:33] [Server thread/INFO]: [org.mongodb.driver.cluster] Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
+[23:56:33] [Server thread/INFO]: [34mRegistering internal effects:[0m
+[23:56:33] [cluster-rtt-ClusterId{value='6264680134428e60255efc36', description='null'}-localhost:27017/INFO]: [org.mongodb.driver.connection] Opened connection [connectionId{localValue:2, serverValue:136}] to localhost:27017
+[23:56:33] [cluster-ClusterId{value='6264680134428e60255efc36', description='null'}-localhost:27017/INFO]: [org.mongodb.driver.connection] Opened connection [connectionId{localValue:1, serverValue:135}] to localhost:27017
+[23:56:33] [cluster-ClusterId{value='6264680134428e60255efc36', description='null'}-localhost:27017/INFO]: [org.mongodb.driver.cluster] Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=13, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=27712100}
+[23:56:33] [Server thread/INFO]: [34mRegistered effect: "speed".[0m
+[23:56:33] [Server thread/INFO]: [34mRegistered effect: "efficiency".[0m
+[23:56:33] [Server thread/INFO]: [34mRegistered effect: "fortune".[0m
+[23:56:33] [Server thread/INFO]: [34mRegistered effect: "night_vision".[0m
+[23:56:33] [Server thread/INFO]: [org.mongodb.driver.cluster] Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
+[23:56:33] [Server thread/INFO]: [34mStarting MongoDb[0m
+[23:56:33] [Server thread/INFO]: [36mLoaded item: SuperPick (Id: SuperPickaxe) successfully[0m
+[23:56:33] [cluster-ClusterId{value='6264680134428e60255efc37', description='null'}-localhost:27017/INFO]: [org.mongodb.driver.connection] Opened connection [connectionId{localValue:3, serverValue:137}] to localhost:27017
+[23:56:33] [cluster-ClusterId{value='6264680134428e60255efc37', description='null'}-localhost:27017/INFO]: [org.mongodb.driver.cluster] Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=13, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=2710700}
+[23:56:33] [Server thread/INFO]: [36mLoaded item: Sword (Id: SuperSword) successfully[0m
+[23:56:33] [Server thread/INFO]: [36mLoaded animation: "Default".[0m
+[23:56:33] [Server thread/INFO]: [34mLoading eco of id "Default":[0m
+[23:56:33] [Server thread/INFO]: [34mLoading eco of id "Tokens":[0m
+[23:56:33] [cluster-rtt-ClusterId{value='6264680134428e60255efc37', description='null'}-localhost:27017/INFO]: [org.mongodb.driver.connection] Opened connection [connectionId{localValue:4, serverValue:138}] to localhost:27017
+[23:56:33] [Server thread/INFO]: Running delayed init tasks
+[23:56:33] [Server thread/INFO]: [ViaVersion] ViaVersion detected server version: 1.18.2 (758)
+[23:56:35] [Server thread/INFO]: [ViaVersion] Finished mapping loading, shutting down loader executor!
+[23:56:35] [Server thread/INFO]: Done (8.102s)! For help, type "help"
+[23:56:35] [Server thread/INFO]: Timings Reset
+[23:56:35] [User Authenticator #1/INFO]: UUID of player shmezi is 8b33b9e1-da73-446b-a70b-788191cc2c59
+[23:56:35] [Server thread/WARN]: UUID of added entity already exists: EntitySheep['Sheep'/162, uuid='d5abf654-3e07-4880-b043-92908d0cbfda', l='ServerLevel[world]', x=-137.53, y=97.00, z=106.50, cpos=[-9, 6], tl=599057, v=false]
+[23:56:35] [Server thread/INFO]: shmezi joined the game
+[23:56:35] [Server thread/INFO]: shmezi[/127.0.0.1:58259] logged in with entity id 169 at ([world]-0.7436867072795907, 104.77162138607608, -9.247336930648371)
+[23:56:42] [Server thread/INFO]: shmezi issued server command: /eco baltop Default
+[23:56:42] [Thread-10/INFO]: [org.mongodb.driver.connection] Opened connection [connectionId{localValue:5, serverValue:139}] to localhost:27017
+[23:56:53] [Server thread/INFO]: [31m[PRINTED] RETRIEVE USER FROM DB![0m
+[23:56:53] [Server thread/INFO]: [34m[READ] [][0m
+[23:56:53] [Server thread/INFO]: [32m[READ] [][0m
+[23:56:53] [Server thread/INFO]: [35m[READ] [][0m
+[23:56:53] [Server thread/INFO]: [36m[READ] [][0m
+[23:56:53] [Server thread/INFO]: [33m[READ] [][0m
+[23:56:53] [Server thread/INFO]: [31m[READ] [][0m
+[23:56:53] [Server thread/INFO]: [34m[READ] [][0m
+[23:56:53] [Server thread/INFO]: [32m[READ] [][0m
+[23:56:53] [Server thread/INFO]: [35m[READ] [][0m
+[23:56:53] [Server thread/INFO]: [36m[READ] [][0m
+[23:56:53] [Server thread/INFO]: [33m[READ] [][0m
+[23:56:53] [Server thread/INFO]: [31m[READ] [][0m
+[23:56:53] [Server thread/INFO]: [34m[READ] [][0m
+[23:56:53] [Server thread/INFO]: [32m[READ] [][0m
+[23:56:53] [Server thread/INFO]: [35m[READ] [][0m
+[23:56:53] [Server thread/INFO]: [36m[READ] [][0m
+[23:56:53] [Server thread/INFO]: [33m[READ] [][0m
+[23:56:53] [Server thread/INFO]: [31m[READ] [][0m
+[23:56:54] [Server thread/INFO]: [34m[READ] [][0m
+[23:56:54] [Server thread/INFO]: [32m[READ] [][0m
+[23:56:54] [Server thread/INFO]: [35m[READ] [][0m
+[23:56:54] [Server thread/INFO]: [36m[READ] [][0m
+[23:56:54] [Server thread/INFO]: [33m[READ] [][0m
+[23:56:54] [Server thread/INFO]: [31m[READ] [][0m
+[23:56:54] [Server thread/INFO]: [34m[READ] [][0m
+[23:56:54] [Server thread/INFO]: [32m[READ] [][0m
+[23:56:54] [Server thread/INFO]: [35m[READ] [][0m
+[23:56:54] [Server thread/INFO]: [36m[READ] [][0m
+[23:56:54] [Server thread/INFO]: [33m[READ] [][0m
+[23:56:54] [Server thread/INFO]: [31m[READ] [][0m
+[23:56:54] [Server thread/INFO]: [34m[READ] [][0m
+[23:56:54] [Server thread/INFO]: [32m[READ] [][0m
+[23:56:54] [Server thread/INFO]: [35m[READ] [][0m
+[23:56:54] [Server thread/INFO]: [36m[READ] [][0m
+[23:56:54] [Server thread/INFO]: [33m[READ] [][0m
+[23:56:54] [Server thread/INFO]: [31m[READ] [][0m
+[23:56:54] [Server thread/INFO]: [34m[READ] [][0m
+[23:56:54] [Server thread/INFO]: [32m[READ] [][0m
+[23:56:55] [Server thread/INFO]: [35m[READ] [][0m
+[23:56:56] [Server thread/INFO]: shmezi issued server command: /eco baltop Default
+[23:57:00] [Server thread/INFO]: shmezi issued server command: /eco baltop Default
+[23:57:00] [Server thread/INFO]: shmezi issued server command: /
+[23:57:01] [Server thread/INFO]: shmezi issued server command: /
+[23:57:02] [Server thread/INFO]: shmezi issued server command: /eco baltop Default

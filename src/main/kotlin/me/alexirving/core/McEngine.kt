@@ -32,6 +32,7 @@ class McEngine : JavaPlugin() {
     lateinit var manager: EngineManager
     override fun onEnable() {
         val cmm = BukkitCommandManager.create(this)
+
         /**
          * Basic startup
          */
@@ -92,6 +93,11 @@ class McEngine : JavaPlugin() {
 //        MongoDb.init(config.getString("MongoDb") ?: "mongodb://localhost")
 
         registerListeners(this, PlayerJoin(manager), PlayerInteract(), PlayerLeave(manager))
+        Bukkit.getScheduler()
+            .scheduleSyncRepeatingTask(this, { manager.user.updateDb() }, 0L, config.getLong("AutoSave") ?: 12000L)
     }
 
+    override fun onDisable() {
+        manager.user.updateDb()
+    }
 }

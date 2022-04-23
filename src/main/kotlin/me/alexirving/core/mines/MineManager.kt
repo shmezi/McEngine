@@ -23,7 +23,7 @@ class MineManager(val m: EngineManager) : Listener {
             failure()
             return
         }
-        m.database.getUser(player.uniqueId) {
+        m.user.getUser(player.uniqueId) {
             val mine = fMines[0]
             mine.join(player)
             fMines.remove(mine)

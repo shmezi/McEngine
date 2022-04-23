@@ -25,17 +25,21 @@ class EffectManager(val m: EngineManager) : Listener {
 
     @EventHandler
     fun onPlayerMine(e: BlockBreakEvent) {
-        val pp = m.profile.getProfile(e.player).activeEffects
-        listens[Intent.MINE]?.filter { pp.containsKey(it) }?.forEach {
-            it.onMine(e, pp[it] ?: 0)
+        m.user.getUser(e.player.uniqueId) { userData ->
+            val ae = userData.activeEffects
+            listens[Intent.MINE]?.filter { ae.containsKey(it) }?.forEach {
+                it.onMine(e, ae[it] ?: 0)
+            }
         }
     }
 
     @EventHandler
     fun onPlayerInteract(e: PlayerInteractEvent) {
-        val pp = m.profile.getProfile(e.player).activeEffects
-        listens[Intent.INTERACT]?.filter { pp.containsKey(it) }?.forEach {
-            it.onInteract(e, pp[it] ?: 0)
+        m.user.getUser(e.player.uniqueId) { userData ->
+            val ae = userData.activeEffects
+            listens[Intent.INTERACT]?.filter { ae.containsKey(it) }?.forEach {
+                it.onInteract(e, ae[it] ?: 0)
+            }
         }
     }
 

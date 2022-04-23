@@ -1,5 +1,7 @@
 package me.alexirving.core.db
 
+import com.fasterxml.jackson.annotation.JsonIgnore
+import me.alexirving.core.effects.Effect
 import me.alexirving.core.mines.PrivateMineSettings
 import org.bson.codecs.pojo.annotations.BsonId
 import org.litote.kmongo.toId
@@ -21,4 +23,8 @@ data class UserData(
 ) {
     @BsonId
     val id = uuid.toString().toId<UserData>()
+
+    @JsonIgnore
+    val activeEffects = mutableMapOf<Effect, Int>()
+
 }

@@ -100,7 +100,9 @@ class CMDEngine(val m: EngineManager) : BaseCommand() {
     @Permission("engine.effect")
     fun effect(player: Player, effect: Effect?, level: Int?) {
         effect.pq("effect")
-        m.profile.getProfile(player).activeEffects[effect ?: return] = level ?: 0
+        m.user.getUser(player.uniqueId) {
+            it.activeEffects[effect ?: return@getUser] = level ?: 0
+        }
 
     }
 
@@ -115,10 +117,10 @@ class CMDEngine(val m: EngineManager) : BaseCommand() {
     @SubCommand("test2")
     @Permission("engine.test")
     fun test2(player: Player, mineId: String) {
-        m.mines.newPrivateMineSession(mineId, player,{
+        m.mines.newPrivateMineSession(mineId, player, {
             it.tpToSpawn(player)
             player.sendMessage("You are being sent to your private area!")
-        },{
+        }, {
             player.sendMessage("Issue happen!")
         })
 
@@ -128,5 +130,11 @@ class CMDEngine(val m: EngineManager) : BaseCommand() {
     @Permission("engine.test")
     fun test3(player: Player, mineId: String) {
         m.mines.getMine(mineId)?.tpToSpawn(player)
+    }
+
+    @SubCommand("updateDb")
+    @Permission("engine.updateDb")
+    fun updateDb(sender: CommandSender) {
+        m.user.updateDb()
     }
 }

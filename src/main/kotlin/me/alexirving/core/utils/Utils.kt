@@ -54,6 +54,9 @@ fun copyOver(dataFolder: File, vararg fileNames: String) {
  */
 fun Int.nBZ() = if (this < 0) 0 else this
 fun Double.nBZ() = if (this < 0) 0.0 else this
+
+fun Int.nB(value: Int) = if (this < value) value else this
+fun Double.nB(value: Double) = if (this < value) value else this
 private val exe = Executors.newCachedThreadPool()
 
 /**

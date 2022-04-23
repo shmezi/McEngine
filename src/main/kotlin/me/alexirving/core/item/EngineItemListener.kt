@@ -10,17 +10,20 @@ class EngineItemListener(val m: EngineManager) : Listener {
     @EventHandler
     fun onSwap(e: PlayerItemHeldEvent) {
         val p = e.player
-        val profile = m.profile.getProfile(p)
         val pItem = p.inventory.getItem(e.previousSlot)
         val nItem = p.inventory.getItem(e.newSlot)
-        if (m.item.isCustom(pItem)) {
-            val ei = EngineItem.of(m, pItem, p.inventory) ?: return
-            ei.runResetEffects(p)
-            profile.activeEffects.clear()
+        val profile = m.user.getUser(p.uniqueId){
+            if (m.item.isCustom(pItem)) {
+                val ei = EngineItem.of(m, pItem, p.inventory)
+                ei?.runResetEffects(p)
+//                it.activeEffects.clear()
+            }
+            if (m.item.isCustom(nItem)) {
+                val ei = EngineItem.of(m, nItem, p.inventory)
+                ei?.runStartEffects(p)
+//                it.activeEffects[ei]
+            }
         }
-        if (m.item.isCustom(nItem)) {
-            val ei = EngineItem.of(m, nItem, p.inventory) ?: return
-            ei.runStartEffects(p)
-        }
+
     }
 }

@@ -8,7 +8,6 @@ import org.bukkit.event.player.PlayerQuitEvent
 class PlayerLeave(val m: EngineManager) : Listener {
     @EventHandler
     fun onLeave(e: PlayerQuitEvent) {
-        m.profile.unload(e.player)
-        m.eco.unload(e.player.uniqueId)
+        m.user.unload(e.player.uniqueId)
     }
 }

@@ -5,19 +5,20 @@ import dev.triumphteam.cmd.core.annotation.Command
 import dev.triumphteam.cmd.core.annotation.Optional
 import dev.triumphteam.cmd.core.annotation.SubCommand
 import me.alexirving.core.economy.Economy
+import me.alexirving.core.utils.nB
 import org.bukkit.Bukkit
-
+import org.bukkit.command.CommandSender
 import org.bukkit.entity.Player
 
 @Command("economy", alias = ["eco"])
 class CMDEconomy : BaseCommand() {
     @SubCommand("bal", alias = ["balance"])
-    fun bal(sender: Player, economy: Economy, @Optional player: Player?) {
-        val m = if (player != null)
-            economy.getBal(player.uniqueId)
-        else
-            economy.getBal(sender.uniqueId)
-        sender.sendMessage("Balance: $m")
+    fun bal(sender: CommandSender, economy: Economy, @Optional player: Player?) {
+        val play = if (sender is Player) sender else player ?: throw NullPointerException("ERROR")
+        economy.getBal(play.uniqueId) {
+            sender.sendMessage("Balance: $it")
+        }
+
     }
 
     @SubCommand("set")
@@ -30,12 +31,14 @@ class CMDEconomy : BaseCommand() {
 
     @SubCommand("baltop")
     fun balTop(player: Player, economy: Economy) {
-        economy.m.database.getUsers { users ->
-            var b = "Balance top: "
-            users.map { user -> "${Bukkit.getPlayer(user.uuid)?.displayName}: ${user.ecos.filter { it.key == economy.id }.values.toList()[0]}" }
-                .forEach { b = "$b$it\n" }
-            player.sendMessage(b)
+        economy.balTop { users ->
+            val baltop = StringBuilder("Top balances of the server:")
+            users.map { "${Bukkit.getPlayer(it.uuid)?.displayName}: ${it.ecos[economy.id]}" }
+                .forEachIndexed { i, it -> baltop.append("\n#${i.nB(1)} $it") }
+            player.sendMessage(baltop.toString())
         }
+
     }
+
 
 }

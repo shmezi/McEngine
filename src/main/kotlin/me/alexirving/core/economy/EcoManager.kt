@@ -19,16 +19,7 @@ class EcoManager(val m: EngineManager) {
         return e
     }
 
-    fun load(uuid: UUID) {
-        for (e in ecos.values) {
-            e.load(uuid)
-        }
-    }
-    fun unload(uuid: UUID) {
-        for (e in ecos.values) {
-            e.unload(uuid)
-        }
-    }
+
     fun delete(id: String) {
         ecos.remove(id)
     }

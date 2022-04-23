@@ -10,7 +10,9 @@ import me.alexirving.core.utils.Colors
 import me.alexirving.core.utils.color
 import org.bson.UuidRepresentation
 import org.litote.kmongo.coroutine.coroutine
+import org.litote.kmongo.eq
 import org.litote.kmongo.reactivestreams.KMongo
+import org.litote.kmongo.replaceOne
 import java.util.*
 
 class MongoDb(connection: String) : Database {
@@ -33,7 +35,8 @@ class MongoDb(connection: String) : Database {
     override fun getUser(uuid: UUID, async: (userData: UserData) -> Unit) {
         runBlocking {
             val ud = userDataDb.findOneById(uuid.toString())
-            val u = UserData(uuid, mutableMapOf(), PrivateMineSettings.default(), null,
+            val u = UserData(
+                uuid, mutableMapOf(), PrivateMineSettings.default(), null,
                 autoSell = false,
                 autoBlocks = false
             )
@@ -53,6 +56,12 @@ class MongoDb(connection: String) : Database {
     override fun updateUser(userData: UserData) {
         runBlocking {
             userDataDb.replaceOneById(userData.uuid.toString(), userData)
+        }
+    }
+
+    override fun updateUsers(userData: List<UserData>) {
+        runBlocking {
+            userDataDb.bulkWrite(userData.map { replaceOne(UserData::id eq it.id, it) })
         }
     }
 

@@ -8,6 +8,7 @@
 package me.alexirving.core.economy
 
 import me.alexirving.core.EngineManager
+import me.alexirving.core.db.UserData
 import me.alexirving.core.utils.nBZ
 import java.util.*
 
@@ -15,9 +16,12 @@ import java.util.*
  * Represents an economy.
  */
 data class Economy(val id: String, val m: EngineManager) {
-    private val ecoMap = mutableMapOf<UUID, Double>()
 
-    fun balTop(): Map<UUID, Double> = ecoMap.toList().sortedBy { it.second }.toMap()
+    fun balTop(async: (balTop: List<UserData>) -> Unit) {
+        m.user.getUsers { users ->
+            async(users.sortedBy { it.ecos[id] })
+        }
+    }
 
     /**
      * Set the balance of a player
@@ -25,32 +29,11 @@ data class Economy(val id: String, val m: EngineManager) {
      * @param value The amount to set the balance to
      */
     fun setBal(uuid: UUID, value: Double) {
-        ecoMap[uuid] = value
-        m.database.getUser(uuid) {
-            val u = it
-            u.ecos[id] = value
-            m.database.updateUser(u)
+        m.user.getUser(uuid, true) {
+            it.ecos[id] = value
         }
     }
 
-    /**
-     * Load user balance from database to cache
-     */
-    fun load(uuid: UUID) {
-        m.database.getUser(uuid) {
-            val u = it.ecos[id]
-            if (u == null) {
-                it.ecos[this.id] = 0.0
-                m.database.updateUser(it)
-            }
-            ecoMap[it.uuid] = it.ecos[id] ?: 0.0
-        }
-    }
-
-    /**
-     * Unloads a user from the cache
-     */
-    fun unload(uuid: UUID) = ecoMap.remove(uuid)
 
     /**
      * Returns the balance of the specified user
@@ -58,14 +41,25 @@ data class Economy(val id: String, val m: EngineManager) {
      * @return The balance of the player
      * **REMEMBER TO LOAD THE USER BEFORE USING THIS FUNCTION
      */
-    fun getBal(uuid: UUID): Double = ecoMap[uuid] ?: 0.0
+    fun getBal(uuid: UUID, async: (balance: Double) -> Unit) = m.user.getUser(uuid) {
+        async(it.ecos[id] ?: 0.0)
+    }
 
     /**
      * Adds money to the specified player
      */
-    fun addBal(uuid: UUID, add: Double) = setBal(uuid, getBal(uuid) + add)
+    fun addBal(uuid: UUID, add: Double) {
+        getBal(uuid) {
+            setBal(uuid, it + add)
+        }
+    }
+
     /**
      * Removes money from the specified player
      */
-    fun subBal(uuid: UUID, remove: Double) = setBal(uuid, (getBal(uuid) - remove).nBZ())
+    fun subBal(uuid: UUID, remove: Double) {
+        getBal(uuid) {
+            setBal(uuid, (it - remove).nBZ())
+        }
+    }
 }

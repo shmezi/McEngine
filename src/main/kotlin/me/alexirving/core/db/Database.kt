@@ -28,4 +28,6 @@ interface Database {
      * Change values of a user
      */
     fun updateUser(userData: UserData)
+
+    fun updateUsers(userData: List<UserData>)
 }

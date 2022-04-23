@@ -1,6 +1,7 @@
 #Configurations
 Debug: off
 connection: "mongodb://localhost"
+AutoSave: 12000 # in ticks
 Ecos:
   - "Default"
   - "Tokens"

@@ -11,7 +11,6 @@ class PlayerJoin(val manager: EngineManager) : Listener {
     fun onJoin(e: PlayerJoinEvent) {
         if (manager.item.isCustom(e.player.itemInHand))
             EngineItem.of(manager, e.player.itemInHand, e.player.inventory)?.runStartEffects(e.player)
-        manager.eco.load(e.player.uniqueId)
     }
 
 }
