@@ -2,6 +2,7 @@ package me.alexirving.core.db
 
 import me.alexirving.core.exceptions.ShmeziFuckedUp
 import me.alexirving.core.utils.pq
+import org.bukkit.entity.Player
 import java.util.*
 
 /**
@@ -14,33 +15,38 @@ class UserManager(private val db: Database) {
     fun getUser(uuid: UUID, update: Boolean, async: (userData: UserData) -> Unit) {
         if (playerCache.containsKey(uuid)) async(playerCache[uuid] ?: throw  ShmeziFuckedUp("Not possible."))
         else
-            db.getUser(uuid) {
-                async(it)
+            db.dbGetUser(uuid) {
                 playerCache[uuid] = it
-                "RETRIEVE USER FROM DB!".pq()
+                async(it)
             }
         if (update)
             updateCache.add(uuid)
-        updateCache.pq("READ")
     }
 
     fun getUser(uuid: UUID, async: (userData: UserData) -> Unit) = getUser(uuid, false, async)
-    fun getUsers(async: (userData: List<UserData>) -> Unit) = db.getUsers { async(it) }
 
-    fun updateDb() {
+    fun getUser(player: Player, async: (userData: UserData) -> Unit) = getUser(player.uniqueId, async)
+    fun getUser(player: Player, update: Boolean, async: (userData: UserData) -> Unit) =
+        getUser(player.uniqueId, update, async)
+
+    fun getUsers(async: (userData: List<UserData>) -> Unit) = db.dbGetUsers { async(it) }
+
+    fun updateDb(reason: String) {
         if (updateCache.isEmpty()) return
-        db.updateUsers(updateCache.map { playerCache[it] ?: throw ShmeziFuckedUp("Not sure how..") })
+        db.dbUpdateUsers(updateCache.map { playerCache[it] ?: throw ShmeziFuckedUp("Not sure how..") })
+        "Now updating database! ${updateCache.size} items will be updated! for reason: $reason".pq()
         updateCache.clear()
     }
 
     fun clearCacheSafely() {
-        updateDb()
+        updateDb("Clear cache safely")
         playerCache.clear()
     }
 
     fun updateUser(userData: UserData) {
-        playerCache[userData.uuid] = userData
-        updateCache.add(userData.uuid)
+        "UPDATING USER with uuid of ${userData.uuid}".pq()
+        playerCache[userData.getId()] = userData
+        updateCache.add(userData.getId())
     }
 
     fun unload(uuid: UUID) {

@@ -1,12 +1,23 @@
 #Configurations
 Debug: off
-connection: "mongodb://localhost"
+AutoSave: 12000
+Connection: "mongodb://localhost"
 Ecos:
   - "Default"
   - "Tokens"
+DefaultEco: "Default"
+Prestiges:
+  A:
+    Price: 100
+    Name: "A"
+    Cmds:
+      - ""
 Mines:
   A:
-    Duration: 50
+    Duration: 5000
+    On-Reset:
+    On-Reset-Player:
+      - "msg %player% mine has been reset!"
     Location:
       World: "world"
       Spawn:
@@ -26,6 +37,9 @@ Mines:
     Private:
       Private-0:
         Duration: 50
+        On-Reset:
+          On-Reset-Player:
+            - "msg %player% mine has been reset!"
         World: "world"
         Spawn:
           X: -10.0

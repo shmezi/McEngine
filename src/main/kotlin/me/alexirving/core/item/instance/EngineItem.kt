@@ -133,11 +133,11 @@ class EngineItem {
         return levels
     }
 
-    fun forceSetLevel(section: String, attribute: String, level: Int) {
+    fun forceSetLevel(section: String, attribute: String, level: Int): EngineItem {
         val n = NBTItem(templateItem, true)
         var m = mutableMapOf<String, Int>()
         if (!n.hasKey("attributes")) {
-            if (level == 0) return
+            if (level == 0) return this
 
             m["$section.$attribute"] = level
 
@@ -149,6 +149,7 @@ class EngineItem {
                 m["$section.$attribute"] = level
         }
         n.setObject("attributes", m)
+        return this
     }
 
     fun levelUp(section: String, attribute: String): AttributeAddResponse {
@@ -210,14 +211,21 @@ class EngineItem {
     }
 
     fun runStartEffects(p: Player) {
-        for (e in getEffectLevels()) {
-            m.effect.onStart(p, m.effect.getEffectById(e.key) ?: continue, e.value)
+        m.user.getUser(p) {
+            for (e in getEffectLevels()) {
+                val effect = m.effect.getEffectById(e.key) ?: continue
+                m.effect.onStart(p, effect, e.value)
+                it.activeEffects[effect] = e.value
+            }
         }
+
     }
 
     fun runResetEffects(p: Player) {
-        for (e in getEffectLevels()) {
-            m.effect.onReset(p, m.effect.getEffectById(e.key) ?: continue)
+        m.user.getUser(p) {
+            for (e in getEffectLevels()) {
+                m.effect.onReset(p, m.effect.getEffectById(e.key) ?: continue)
+            }
         }
     }
 
@@ -237,6 +245,8 @@ class EngineItem {
     /**
      * Replaces all the placeholders of an item
      */
+    private val ma = "\\{\\{(.+)}}".toRegex()
+    private val pma = ma.toPattern()
     private fun replacePlaceHolders(item: ItemStack, placeholders: Map<String, String>) {
         val im = item.itemMeta
         for (pl in placeholders) {

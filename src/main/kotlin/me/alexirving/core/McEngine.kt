@@ -12,13 +12,14 @@ import me.alexirving.core.animation.objects.Animation
 import me.alexirving.core.commands.CMDAnimation
 import me.alexirving.core.commands.CMDEconomy
 import me.alexirving.core.commands.CMDEngine
-import me.alexirving.core.economy.Economy
+import me.alexirving.core.commands.CMDMine
 import me.alexirving.core.effects.Effect
 import me.alexirving.core.events.PlayerInteract
 import me.alexirving.core.events.PlayerJoin
 import me.alexirving.core.events.PlayerLeave
 import me.alexirving.core.hooks.HookPapi
 import me.alexirving.core.item.template.BaseItem
+import me.alexirving.core.points.Points
 import me.alexirving.core.utils.copyOver
 import me.alexirving.core.utils.registerListeners
 import org.bstats.bukkit.Metrics
@@ -31,15 +32,13 @@ class McEngine : JavaPlugin() {
 
     lateinit var manager: EngineManager
     override fun onEnable() {
+        manager = EngineManager(this)
         val cmm = BukkitCommandManager.create(this)
 
         /**
          * Basic startup
          */
-        System.setProperty(
-            "org.litote.mongo.test.mapping.service",
-            "org.litote.kmongo.jackson.JacksonClassMappingTypeService"
-        )
+
         saveDefaultConfig()
 
         McEngineAPI.instance = this
@@ -52,7 +51,7 @@ class McEngine : JavaPlugin() {
         /**
          * Command registering
          */
-        manager = EngineManager(this)
+
 
         val im = manager.item
         cmm.registerArgument(BaseItem::class.java) { _, itemId ->
@@ -61,12 +60,12 @@ class McEngine : JavaPlugin() {
         cmm.registerSuggestion(BaseItem::class.java) { _, _ ->
             im.bases.keys.toList()
         }
-        val ecoM = manager.eco
-        cmm.registerArgument(Economy::class.java) { _, eco ->
-            ecoM.getEco(eco)
+        val ecoM = manager.point
+        cmm.registerArgument(Points::class.java) { _, eco ->
+            ecoM.getPoints(eco)
         }
-        cmm.registerSuggestion(Economy::class.java) { _, _ ->
-            ecoM.getEcoIds().toList()
+        cmm.registerSuggestion(Points::class.java) { _, _ ->
+            ecoM.getPointsId().toList()
         }
         val ani = manager.animation
         cmm.registerArgument(Animation::class.java) { _, animation ->
@@ -87,17 +86,20 @@ class McEngine : JavaPlugin() {
         }
 
 
-        cmm.registerCommand(CMDEngine(manager), CMDEconomy(), CMDAnimation(this))
+        cmm.registerCommand(CMDEngine(manager), CMDEconomy(), CMDAnimation(this), CMDMine(manager))
 
 
 //        MongoDb.init(config.getString("MongoDb") ?: "mongodb://localhost")
 
         registerListeners(this, PlayerJoin(manager), PlayerInteract(), PlayerLeave(manager))
         Bukkit.getScheduler()
-            .scheduleSyncRepeatingTask(this, { manager.user.updateDb() }, 0L, config.getLong("AutoSave") ?: 12000L)
+            .scheduleSyncRepeatingTask(
+                this,
+                { manager.user.updateDb("Schedule") }, 0L, config.getLong("AutoSave") ?: 12000L
+            )
     }
 
     override fun onDisable() {
-        manager.user.updateDb()
+        manager.user.updateDb("Disable")
     }
 }

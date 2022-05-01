@@ -6,4 +6,3 @@
  * Written by Alex Irving <alexirving992@gmail.com>, day month year
  */
 rootProject.name = "McEngine"
-

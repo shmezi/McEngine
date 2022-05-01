@@ -6,16 +6,18 @@ import com.sk89q.worldedit.regions.CuboidRegion
 import me.alexirving.core.EngineManager
 import me.alexirving.core.utils.getLocation
 import org.bukkit.Bukkit
+import org.bukkit.Location
 import org.bukkit.Material
 import org.bukkit.entity.Player
 import org.bukkit.event.Listener
 import java.util.*
 
-class MineManager(val m: EngineManager) : Listener {
-    private val loadedMines = mutableMapOf<String, Mine>()
-    private val mineTasks = mutableMapOf<String, Int>()
+class MineManager(private val m: EngineManager) : Listener {
+    private val loadedMines = mutableMapOf<String, Mine>() //mines loaded in
+    private val mineTasks = mutableMapOf<String, Int>() //scheduler task ids
     private val freeMines = mutableMapOf<String, MutableList<PrivateMine>>()
     private val inuse = mutableMapOf<UUID, PrivateMine>()
+    private val inMine = mutableMapOf<Player, Mine>() //For faster searches duplicate list to store whos in a mine
 
     fun newPrivateMineSession(id: String, player: Player, success: (mine: PrivateMine) -> Unit, failure: () -> Unit) {
         val fMines = freeMines[id]
@@ -29,14 +31,53 @@ class MineManager(val m: EngineManager) : Listener {
             fMines.remove(mine)
             mine.settings = it.settings
             inuse[player.uniqueId] = mine
+            inMine[player] = mine
             success(mine)
         }
+    }
+
+    fun getCurrentMine(player: Player) = inMine[player]
+
+    fun isInPrivateMine(player: Player) = inMine[player] is PrivateMine
+
+    fun isOwnerOfMine(player: Player) =
+        if (isInPrivateMine(player))
+            (getCurrentMine(player) as PrivateMine).currentOwner == player
+        else false
+
+    fun joinMineById(id: String, player: Player) {
+        val m = getMine(id) ?: return
+        m.join(player)
+        inMine[player] = m
     }
 
     fun newPrivateMineSession(id: String, player: Player, success: (mine: PrivateMine) -> Unit) =
         newPrivateMineSession(id, player, success) {}
 
+
+    fun isPlayerInMine(player: Player): Boolean = m.mine.inMine.contains(player)
+
+    fun isInPlayerMine(player: Player, location: Location, async: (inMine: Boolean) -> Unit) {
+        m.mine.getPlayerMine(player) {
+            async(it?.region?.contains(BukkitAdapter.asBlockVector(location)) ?: false)
+        }
+    }
+
+    fun isInMine(location: Location): Boolean {
+        for (v in inuse.values)
+            if (v.region.contains(BukkitAdapter.asBlockVector(location))) return true
+        for (v in loadedMines.values)
+            if (v.region.contains(BukkitAdapter.asBlockVector(location))) return true
+        return false
+    }
+
     fun getMine(id: String) = loadedMines[id]
+
+    fun getPlayerMine(player: Player, async: (mine: Mine?) -> Unit) {
+        m.point.getPointTrack("PRESTIGE")?.getLevel(player.uniqueId) {
+            async(m.mine.getMine(it.id))
+        }
+    }
 
     init {
         reload()
@@ -50,7 +91,7 @@ class MineManager(val m: EngineManager) : Listener {
         mineTasks[mine.id] =
             Bukkit.getScheduler().scheduleSyncRepeatingTask(m.engine, {
                 mine.resetMine()
-                //TODO: REMEMBER TO TP PLAYER BACK TO TOP
+
             }, 0L, mine.duration)
     }
 
@@ -84,14 +125,14 @@ class MineManager(val m: EngineManager) : Listener {
                                 materials.getDouble(it)
                             )
                         }
-                    })
+                    }, mc.getStringList("On-Reset"), mc.getStringList("On-Reset-Player")
+                )
             )
             for (privateId in mc.getConfigurationSection("Private")?.getKeys(false) ?: continue) {
                 val pc = c.getConfigurationSection("$mineId.Private.$privateId") ?: continue
                 load(
                     PrivateMine(
-                        privateId,
-                        m,
+                        privateId,m,
                         pc.getLong("Duration"),
                         pc.getLocation("Spawn", w),
                         CuboidRegion(
@@ -107,11 +148,14 @@ class MineManager(val m: EngineManager) : Listener {
                                     materials.getDouble(it)
                                 )
                             }
-                        }, PrivateMineSettings.default()
+                        },
+                        PrisonSettings.default(),
+                        pc.getStringList("On-Reset"),
+                        mc.getStringList("On-Reset-Player")
                     )
                 )
             }
-        }///-< this arrow
+        }
 
     }
 

@@ -1,18 +1,20 @@
 package me.alexirving.core.effects
 
 import me.alexirving.core.EngineManager
+import me.alexirving.core.exceptions.AlreadyExists
 import me.alexirving.core.item.EngineItemListener
 import me.alexirving.core.item.instance.EngineItem
 import me.alexirving.core.utils.Colors
 import me.alexirving.core.utils.color
 import me.alexirving.core.utils.registerListeners
+import org.bukkit.Material
 import org.bukkit.entity.Player
 import org.bukkit.event.EventHandler
 import org.bukkit.event.Listener
 import org.bukkit.event.block.BlockBreakEvent
 import org.bukkit.event.player.PlayerInteractEvent
 
-class EffectManager(val m: EngineManager) : Listener {
+class EffectManager(private val m: EngineManager) : Listener {
     private val registeredEffects = mutableMapOf<String, Effect>()
     private val listens = mutableMapOf<Intent, MutableList<Effect>>()
 
@@ -25,10 +27,12 @@ class EffectManager(val m: EngineManager) : Listener {
 
     @EventHandler
     fun onPlayerMine(e: BlockBreakEvent) {
+        if (e.block.type == Material.WATER) return
         m.user.getUser(e.player.uniqueId) { userData ->
             val ae = userData.activeEffects
             listens[Intent.MINE]?.filter { ae.containsKey(it) }?.forEach {
                 it.onMine(e, ae[it] ?: 0)
+
             }
         }
     }
@@ -61,12 +65,10 @@ class EffectManager(val m: EngineManager) : Listener {
 
 
     fun register(vararg effects: Effect) = effects.forEach { effect ->
+        if (registeredEffects.containsKey(effect.id)) throw AlreadyExists("Effect of id ${effect.id} already exists!")
         registeredEffects[effect.id] = effect
         effect.listenTo.forEach {
-            if (listens.containsKey(it))
-                listens[it]?.add(effect)
-            else
-                listens[it] = mutableListOf(effect)
+            listens.getOrPut(it) { mutableListOf() }.add(effect)
         }
         println("Registered effect: \"${effect.id}\".".color(Colors.BLUE))
     }

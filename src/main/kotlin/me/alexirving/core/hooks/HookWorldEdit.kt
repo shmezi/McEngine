@@ -10,6 +10,7 @@ package me.alexirving.core.hooks
 import com.sk89q.worldedit.WorldEdit
 import com.sk89q.worldedit.function.pattern.Pattern
 import com.sk89q.worldedit.regions.CuboidRegion
+import org.bukkit.Material
 
 
 class HookWorldEdit : Hook("WorldEdit") {
@@ -30,6 +31,15 @@ class HookWorldEdit : Hook("WorldEdit") {
         we.newEditSession(region.world).use {
             it.setBlocks(region, pattern)
         }
+    }
+
+    fun getDistribution(region: CuboidRegion): MutableMap<Material, Int> {
+        we ?: error("World edit was not found!")
+        val count = mutableMapOf<Material, Int>()
+        we.newEditSession(region.world).use {
+            it.getBlockDistribution(region, false)
+        }.forEach { count[Material.valueOf(it.id.toBaseBlock().asString.substringAfter(':').uppercase())] = it.amount }
+        return count
     }
 
 

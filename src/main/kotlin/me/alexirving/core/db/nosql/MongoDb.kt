@@ -3,65 +3,130 @@ package me.alexirving.core.db.nosql
 import com.mongodb.ConnectionString
 import com.mongodb.MongoClientSettings
 import kotlinx.coroutines.runBlocking
+import me.alexirving.core.channels.ChannelData
 import me.alexirving.core.db.Database
 import me.alexirving.core.db.UserData
-import me.alexirving.core.mines.PrivateMineSettings
+import me.alexirving.core.exceptions.ShmeziFuckedUp
+import me.alexirving.core.gangs.GangData
+import me.alexirving.core.mines.PrisonSettings
 import me.alexirving.core.utils.Colors
 import me.alexirving.core.utils.color
 import org.bson.UuidRepresentation
+import org.litote.kmongo.coroutine.CoroutineClient
+import org.litote.kmongo.coroutine.CoroutineCollection
+import org.litote.kmongo.coroutine.CoroutineDatabase
 import org.litote.kmongo.coroutine.coroutine
 import org.litote.kmongo.eq
 import org.litote.kmongo.reactivestreams.KMongo
-import org.litote.kmongo.replaceOne
 import java.util.*
 
-class MongoDb(connection: String) : Database {
-    private var client = KMongo.createClient(
-        MongoClientSettings.builder().uuidRepresentation(UuidRepresentation.STANDARD)
-            .applyConnectionString(ConnectionString(connection)).build()
-    ).coroutine
+class MongoDb : Database {
+    private lateinit var client: CoroutineClient
 
-    private val db = client.getDatabase("UserData")
-    private val userDataDb = db.getCollection<UserData>("UserData")
-    override fun reload(connection: String) {
+    private lateinit var db: CoroutineDatabase
+    private lateinit var userDb: CoroutineCollection<UserData>
+    private lateinit var channelDb: CoroutineCollection<ChannelData>
+    private lateinit var gangDb: CoroutineCollection<GangData>
+
+    init {
+        System.setProperty(
+            "org.litote.mongo.test.mapping.service",
+            "org.litote.kmongo.jackson.JacksonClassMappingTypeService"
+        )
+    }
+
+    override fun dbReload(connection: String) {
+
         client = KMongo.createClient(
             MongoClientSettings.builder().uuidRepresentation(UuidRepresentation.STANDARD)
                 .applyConnectionString(ConnectionString(connection)).build()
         ).coroutine
-
-        println("Starting MongoDb".color(Colors.BLUE))
+        db = client.getDatabase("UserData")
+        userDb = db.getCollection("UserData")
+        channelDb = db.getCollection("ChannelData")
+        gangDb = db.getCollection("GangData")
+        runBlocking {
+            userDb.ensureUniqueIndex(UserData::uuid)
+            channelDb.ensureUniqueIndex(ChannelData::uuid)
+            gangDb.ensureUniqueIndex(GangData::uuid)
+        }
+        println("Reloading MongoDb".color(Colors.BLUE))
     }
 
-    override fun getUser(uuid: UUID, async: (userData: UserData) -> Unit) {
+    override fun dbGetUser(uuid: UUID, async: (userData: UserData) -> Unit) {
         runBlocking {
-            val ud = userDataDb.findOneById(uuid.toString())
-            val u = UserData(
-                uuid, mutableMapOf(), PrivateMineSettings.default(), null,
-                autoSell = false,
-                autoBlocks = false
-            )
-            if (ud == null)
-                userDataDb.insertOne(u)
-            async(ud ?: u)
+            val userDataResponse = userDb.findOne(UserData::uuid eq uuid.toString())
+            var user: UserData? = null
+            if (userDataResponse == null) {
+                user = UserData(
+                    uuid.toString(), mutableMapOf(), PrisonSettings.default(), null,
+                    channels = mutableSetOf()
+                )
+                userDb.insertOne(user)
+            }
+            async(userDataResponse ?: user ?: throw ShmeziFuckedUp("M8 I DONT KNOW..."))
         }
     }
 
-    override fun getUsers(async: (userData: List<UserData>) -> Unit) {
+    override fun dbGetChannel(uuid: UUID, success: (channel: ChannelData) -> Unit, failure: () -> Unit) {
         runBlocking {
-            async(userDataDb.find().toList())
+            val channel = channelDb.findOne(ChannelData::uuid eq uuid.toString())
+            if (channel != null)
+                success(channel)
+            else
+                failure()
+
+        }
+    }
+
+    override fun dbUpdateChannel(channel: ChannelData) {
+        runBlocking {
+            val c = userDb.findOneById(channel.uuid)
+            if (c == null)
+                channelDb.insertOne(channel)
+            else
+                channelDb.replaceOneById(channel.uuid, channel)
+        }
+    }
+
+    override fun dbUpdateGang(gang: GangData) {
+        runBlocking {
+            val c = userDb.findOneById(gang.uuid)
+            if (c == null)
+                gangDb.insertOne(gang)
+            else
+                gangDb.replaceOneById(gang.uuid, gang)
+        }
+
+    }
+
+    override fun dbGetGang(uuid: UUID, success: (channel: GangData) -> Unit, failure: () -> Unit) {
+        runBlocking {
+            val g = gangDb.findOne(GangData::uuid eq uuid.toString())
+            if (g != null)
+                success(g)
+            else
+                failure()
+
+        }
+    }
+
+    override fun dbGetUsers(async: (userData: List<UserData>) -> Unit) {
+        runBlocking {
+            async(userDb.find().toList())
         }
     }
 
 
-    override fun updateUser(userData: UserData) {
+    override fun dbUpdateUser(userData: UserData) {
         runBlocking {
-            userDataDb.replaceOneById(userData.uuid.toString(), userData)
+            userDb.replaceOneById(userData.uuid, userData)
         }
     }
 
-    override fun updateUsers(userData: List<UserData>) {
+    override fun dbUpdateUsers(users: List<UserData>) {
         runBlocking {
-            userDataDb.bulkWrite(userData.map { replaceOne(UserData::id eq it.id, it) })
+            users.forEach { userDb.replaceOne(UserData::uuid eq it.uuid, it) }
         }
     }
 
