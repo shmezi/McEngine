@@ -1,4 +1,4 @@
-package me.alexirving.core.utils
+package me.alexirving.core.utils.manager
 
 import me.alexirving.core.EngineManager
 

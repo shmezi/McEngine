@@ -9,6 +9,7 @@ package me.alexirving.core
 
 import dev.triumphteam.cmd.bukkit.BukkitCommandManager
 import me.alexirving.core.animation.objects.Animation
+import me.alexirving.core.channels.ChannelData
 import me.alexirving.core.commands.CMDAnimation
 import me.alexirving.core.commands.CMDEconomy
 import me.alexirving.core.commands.CMDEngine
@@ -25,6 +26,7 @@ import me.alexirving.core.utils.registerListeners
 import org.bstats.bukkit.Metrics
 import org.bukkit.Bukkit
 import org.bukkit.World
+import org.bukkit.entity.Player
 import org.bukkit.plugin.java.JavaPlugin
 
 
@@ -54,6 +56,17 @@ class McEngine : JavaPlugin() {
 
 
         val im = manager.item
+        cmm.registerArgument(ChannelData::class.java) { player, id ->
+            {
+                var cd: ChannelData? = null
+                if (player is Player) {
+                    manager.channel.queryChannel(player, id) {
+                        cd = it
+                    }
+                }
+                cd
+            }
+        }
         cmm.registerArgument(BaseItem::class.java) { _, itemId ->
             im.bases[itemId]
         }

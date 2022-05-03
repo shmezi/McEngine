@@ -5,9 +5,6 @@ import dev.triumphteam.cmd.core.BaseCommand
 import dev.triumphteam.cmd.core.annotation.Command
 import dev.triumphteam.cmd.core.annotation.SubCommand
 import me.alexirving.core.EngineManager
-import me.alexirving.core.mines.PrivateMine
-import org.bukkit.Bukkit
-import org.bukkit.Location
 import org.bukkit.entity.Player
 
 @Command("mine")
@@ -20,7 +17,7 @@ class CMDMine(val m: EngineManager) : BaseCommand() {
         }
     }
 
-    @SubCommand("private")
+    @SubCommand("private", alias = ["p"])
     @Permission("engine.mine.private")
     fun privateMine(player: Player) {
         m.point.getPointTrack("PRESTIGE")?.getLevel(player.uniqueId) {
@@ -29,16 +26,13 @@ class CMDMine(val m: EngineManager) : BaseCommand() {
         }
     }
 
-//    @SubCommand("invite")
-//    @Permission("engine.mine.invite")
-//    fun invite(player0: Player, player1: Player) {
-//        val pm = m.mine.getCurrentMine(player0)
-//        if (pm is PrivateMine)
-//            if (pm.isOwner(player1) && pm.players.size < 5)
-//    }
+    @SubCommand("invite")
+    @Permission("engine.mine.invite")
+    fun invite(inviter: Player, invited: Player) {
+    }
 
-    @SubCommand("test")
-    fun test(player: Player) {
-        m.mine.getMine("A")?.breakLayer(Location(Bukkit.getWorld("world")!!, 10.0, 100.0, 10.0), player)
+    @SubCommand("join")
+    @Permission("engine.mine.join")
+    fun join(player: Player, to: Player) {
     }
 }

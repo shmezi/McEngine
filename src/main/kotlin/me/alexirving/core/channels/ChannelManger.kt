@@ -2,7 +2,6 @@ package me.alexirving.core.channels
 
 import me.alexirving.core.EngineManager
 import me.alexirving.core.db.Database
-import me.alexirving.core.utils.pq
 import org.bukkit.entity.Player
 import org.bukkit.event.EventHandler
 import org.bukkit.event.Listener
@@ -11,8 +10,8 @@ import java.util.*
 
 
 class ChannelManger(private val db: Database, private val m: EngineManager) : Listener {
-    val channelCache = mutableMapOf<UUID, ChannelData>()
-    val online = mutableMapOf<UUID, MutableSet<Player>>()
+    private val channelCache = mutableMapOf<UUID, ChannelData>()
+    private val online = mutableMapOf<UUID, MutableSet<Player>>()
 
     fun loadFromPlayer(player: Player) {
         m.user.getUser(player.uniqueId) { user ->
@@ -88,7 +87,7 @@ class ChannelManger(private val db: Database, private val m: EngineManager) : Li
     }
 
     @EventHandler
-    fun onChat(e: AsyncPlayerChatEvent) {
+    private fun onChat(e: AsyncPlayerChatEvent) {
         if (e.isCancelled) return
 
         val player = e.player

@@ -7,6 +7,7 @@
  */
 package me.alexirving.core.commands
 
+import dev.triumphteam.cmd.bukkit.annotation.Permission
 import dev.triumphteam.cmd.core.BaseCommand
 import dev.triumphteam.cmd.core.annotation.Command
 import dev.triumphteam.cmd.core.annotation.Default
@@ -26,6 +27,7 @@ class CMDAnimation(val pl: McEngine) : BaseCommand() {
 
 
     @Default
+    @Permission("engine.animation.play")
     fun cmd(
         player: CommandSender,
         animation: Animation?,

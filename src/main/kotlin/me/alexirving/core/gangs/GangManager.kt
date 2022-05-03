@@ -4,7 +4,7 @@ import me.alexirving.core.EngineManager
 import me.alexirving.core.channels.ChannelData
 import me.alexirving.core.db.Database
 import me.alexirving.core.exceptions.ShmeziFuckedUp
-import me.alexirving.core.utils.DbManage
+import me.alexirving.core.utils.manager.DbManage
 import org.bukkit.entity.Player
 import java.util.*
 
@@ -32,6 +32,7 @@ class GangManager(override val m: EngineManager, override val db: Database) : Db
             val g = it.settings.gang ?: return@getUser
             if ((cachedGangs[g]?.players?.size ?: 0) <= 1)
                 cachedGangs.remove(g)
+            else cachedGangs[g]?.players?.remove(player.uniqueId)
         }
     }
 
@@ -56,11 +57,13 @@ class GangManager(override val m: EngineManager, override val db: Database) : Db
 
         m.channel.loadChannel(ChannelData.default(gang.owner).apply {
             name = "gang"
+            label = "g"
         }
         )
 
         m.channel.loadChannel(ChannelData.default(gang.owner).apply {
             name = "officer"
+            label = "o"
         }
         )
     }
