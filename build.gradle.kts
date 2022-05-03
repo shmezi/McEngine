@@ -70,6 +70,10 @@ tasks {
         relocate("org.bstats", "me.alexirving.core.depends.bstats")
         relocate("de.tr7zw.changeme.nbtapi", "me.alexirving.core.depends.nbtapi")
         relocate("net.kyori.adventure", "me.alexirving.core.depends.minimessages")
+        manifest {
+            attributes("Main-Class" to "me.alexirving.core.NotAProgramKt")
+        }
+
     }
     runServer {
         minecraftVersion("1.18.2")

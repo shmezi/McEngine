@@ -2,22 +2,33 @@ package me.alexirving.core
 
 import java.awt.Frame
 import java.awt.Label
-import java.awt.event.KeyListener
+import java.awt.Toolkit
 import java.awt.event.WindowAdapter
+import java.awt.event.WindowEvent
 
 class NotAProgram : Frame("This is not an application!") {
     private val s = Label("To install please drop in a bukkit/spigot server in the /plugins/ folder!")
 
     init {
-        s.setBounds(20, 50, 80, 20)
+        s.setBounds(width / 2, height / 2, 20, 20)
+
+        s.alignment = Label.CENTER
         add(s)
         isVisible = true
-        setSize(1000, 1000)
+        setSize(500, 150)
+        isResizable = false
+        iconImage =
+            Toolkit.getDefaultToolkit().createImage(Thread.currentThread().contextClassLoader.getResource("mc.png"))
+        addWindowListener(object : WindowAdapter() {
+            override fun windowClosing(e: WindowEvent) {
+                dispose()
+            }
+        })
     }
 
 
 }
 
 fun main() {
-    val s = NotAProgram()
+    NotAProgram()
 }
