@@ -1,0 +1,49 @@
+{
+  "id": "example",
+  "var": {
+    "x": 10
+  },
+  "entities": {
+    "A": "ARMOR_STAND"
+  },
+  "frames": [
+    [
+      {
+        "type": "SetItem",
+        "entity": "A",
+        "slot": 4,
+        "item": "Skull"
+      },
+      {
+        "type": "DrawLine",
+        "action": {
+          "type": "Tp",
+          "entity": "A",
+          "x": "X",
+          "y": "Y",
+          "z": "Z"
+        },
+        "frameCount": 9,
+        "from": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "to": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        }
+      }
+    ],
+    [
+      {
+        "type": "Loop",
+        "times": 10,
+        "action": {
+          "type": "Empty"
+        }
+      }
+    ]
+  ]
+}
