@@ -8,6 +8,7 @@
 package me.alexirving.core
 
 import dev.triumphteam.cmd.bukkit.BukkitCommandManager
+import dev.triumphteam.cmd.core.suggestion.SuggestionKey
 import me.alexirving.core.animation.objects.Animation
 import me.alexirving.core.channels.ChannelData
 import me.alexirving.core.commands.CMDAnimation
@@ -25,6 +26,7 @@ import me.alexirving.core.utils.copyOver
 import me.alexirving.core.utils.registerListeners
 import org.bstats.bukkit.Metrics
 import org.bukkit.Bukkit
+import org.bukkit.Material
 import org.bukkit.World
 import org.bukkit.entity.Player
 import org.bukkit.plugin.java.JavaPlugin
@@ -99,6 +101,25 @@ class McEngine : JavaPlugin() {
         }
 
 
+        cmm.registerSuggestion(SuggestionKey.of("player-x")) { sender, _ ->
+            if (sender is Player) {
+                mutableListOf(sender.player?.getTargetBlock(mutableSetOf(Material.AIR), 10)?.x.toString())
+            } else
+                mutableListOf()
+        }
+        cmm.registerSuggestion(SuggestionKey.of("player-y")) { sender, _ ->
+            if (sender is Player) {
+                mutableListOf(sender.player?.getTargetBlock(mutableSetOf(Material.AIR), 10)?.y.toString())
+            } else
+                mutableListOf()
+        }
+        cmm.registerSuggestion(SuggestionKey.of("player-z")) { sender, arg ->
+            if (sender is Player) {
+                mutableListOf(sender.player?.getTargetBlock(mutableSetOf(Material.AIR), 10)?.z.toString()
+                )
+            } else
+                mutableListOf()
+        }
         cmm.registerCommand(CMDEngine(manager), CMDEconomy(), CMDAnimation(this), CMDMine(manager))
 
 

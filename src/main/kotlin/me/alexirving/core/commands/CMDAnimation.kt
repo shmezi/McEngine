@@ -28,13 +28,14 @@ class CMDAnimation(val pl: McEngine) : BaseCommand() {
 
     @Default
     @Permission("engine.animation.play")
+
     fun cmd(
         player: CommandSender,
         animation: Animation?,
         world: World?,
-        x: Double?,
-        y: Double?,
-        z: Double?,
+        @Suggestion("player-x") x: Double?,
+        @Suggestion("player-y") y: Double?,
+        @Suggestion("player-z") z: Double?,
         @Optional direction: Direction?
     ) {
         AnimationSession(
@@ -43,7 +44,7 @@ class CMDAnimation(val pl: McEngine) : BaseCommand() {
             Location(world, x ?: return, y ?: return, z ?: return),
             animation ?: return,
             direction ?: Direction.NORTH
-        )
+        ).start { player.sendMessage("Packets have been sent!") }
     }
 
 

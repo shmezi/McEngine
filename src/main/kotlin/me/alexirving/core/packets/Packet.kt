@@ -11,7 +11,6 @@ import com.comphenix.protocol.PacketType
 import com.comphenix.protocol.ProtocolLibrary
 import com.comphenix.protocol.ProtocolManager
 import com.comphenix.protocol.events.PacketContainer
-import com.comphenix.protocol.utility.MinecraftVersion
 import com.comphenix.protocol.wrappers.WrappedDataWatcher
 import org.bukkit.entity.Player
 
@@ -26,9 +25,10 @@ abstract class Packet(val id: Int, val viewers: MutableList<Player>) {
 
     fun sendPackets(pac: PacketContainer) {
         for (viewer in viewers) {
+
             lib.sendServerPacket(viewer, pac)
         }
     }
 
-    fun getMetadata(): WrappedDataWatcher = WrappedDataWatcher()
+
 }

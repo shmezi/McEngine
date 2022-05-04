@@ -29,6 +29,8 @@ interface Database {
 
     fun dbGetGang(uuid: UUID, success: (channel: GangData) -> Unit, failure: () -> Unit)
 
+    fun dbDeleteGang(uuid: UUID)
+
     fun dbUpdateGang(gang: GangData)
 
     /**

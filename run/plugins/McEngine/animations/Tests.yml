@@ -1,0 +1,8 @@
+FrameDelay: 60 #Delay between each frame (In ticks)
+Stands:
+  A: ARMOR_STAND
+Frames:
+#  - "SetItem(A;4;Skull)"
+  - "Tp(A;[0,1,0])"
+  - "Tp(A;[0,2,0])"
+  - "Loop(Empty();5)"

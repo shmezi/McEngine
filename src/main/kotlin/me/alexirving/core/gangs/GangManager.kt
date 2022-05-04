@@ -4,14 +4,13 @@ import me.alexirving.core.EngineManager
 import me.alexirving.core.channels.ChannelData
 import me.alexirving.core.db.Database
 import me.alexirving.core.exceptions.ShmeziFuckedUp
-import me.alexirving.core.utils.manager.DbManage
 import org.bukkit.entity.Player
 import java.util.*
 
-class GangManager(override val m: EngineManager, override val db: Database) : DbManage {
+class GangManager(private val m: EngineManager, private val db: Database) {
     private val cachedGangs = mutableMapOf<UUID, GangData>() //GangID | Gang
-
-    fun getGang(id: UUID, async: (gang: GangData) -> Unit, update: Boolean) {
+    private val invited = mutableMapOf<UUID, MutableSet<Player>>()
+    fun getGang(id: UUID, update: Boolean, async: (gang: GangData) -> Unit) {
         if (cachedGangs.containsKey(id))
             async(cachedGangs[id] ?: throw ShmeziFuckedUp("Odd thing happen ig ?"))
         else {
@@ -25,7 +24,22 @@ class GangManager(override val m: EngineManager, override val db: Database) : Db
         }
     }
 
-    fun getGang(id: UUID, async: (gang: GangData) -> Unit) = getGang(id, async, false)
+    fun isInvited(player: Player, id: UUID) = invited[id]?.contains(player) ?: false
+    fun invite(player: Player, id: UUID) = invited.getOrPut(id) { mutableSetOf() }.add(player)
+    fun unInvite(player: Player, id: UUID) = invited[id]?.remove(player)
+    fun delete(id: UUID) {
+        getGang(id) { gang ->
+            gang.players.forEach { uuid ->
+                m.user.getUser(uuid, true) {
+                    it.settings.gang = null
+                }
+            }
+            cachedGangs.remove(id)
+            db.dbDeleteGang(id)
+        }
+    }
+
+    fun getGang(id: UUID, async: (gang: GangData) -> Unit) = getGang(id, false, async)
 
     fun unloadPlayer(player: Player) {
         m.user.getUser(player) {
@@ -42,6 +56,7 @@ class GangManager(override val m: EngineManager, override val db: Database) : Db
             if (cachedGangs.containsKey(g)) return@getUser
             getGang(g) {
                 cachedGangs[g] = it
+                player.sendMessage(it.motd)
             }
         }
     }

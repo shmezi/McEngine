@@ -8,7 +8,6 @@
 package me.alexirving.core.animation.actions.actionables
 
 import me.alexirving.core.EngineManager
-import me.alexirving.core.McEngine
 import me.alexirving.core.animation.actions.Action
 import me.alexirving.core.animation.objects.AnimationSession
 import me.alexirving.core.animation.utils.Direction
@@ -21,7 +20,7 @@ class SetItem(manager: EngineManager, args: List<String>) : Action(manager, args
         m.packet.setItem(
             session.standMap[args[0]]!!,
             args[1].toInt(),
-            m.item.bases[args[2]]?.buildSimple() ?: throw NotFoundException("Item ${args[2]} was not found!")
+            m.item.bases[args[2]]?.buildSimple() ?: throw NotFoundException("Item \"${args[2]}\" was not found!")
         )
 
     }

@@ -9,6 +9,7 @@ package me.alexirving.core.animation.objects
 
 import me.alexirving.core.McEngine
 import me.alexirving.core.animation.utils.Direction
+import me.alexirving.core.utils.AddBack
 import me.alexirving.core.utils.pq
 import org.bukkit.Location
 import org.bukkit.entity.Player
@@ -53,6 +54,7 @@ data class AnimationSession(
             }, timeStamp.toLong())
             timeStamp += animation.frameDelay
         }
+
         scheduler.runTaskLaterAsynchronously(pl, Runnable { stop(); done() }, timeStamp.toLong())
     }
 
@@ -62,6 +64,7 @@ data class AnimationSession(
     fun start() {
         start {}
     }
+
 
     private fun stop() {
         for (armor in animation.standNames.keys)

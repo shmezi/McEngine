@@ -9,7 +9,7 @@ data class PrisonSettings(
     val banned: MutableList<UUID>,
     val sell: Boolean,
     val block: Boolean,
-    val gang: UUID?
+    var gang: UUID?
 ) {
     companion object {
         fun default(): PrisonSettings = PrisonSettings(

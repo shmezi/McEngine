@@ -15,8 +15,8 @@ import java.util.*
 class MineManager(private val m: EngineManager) : Listener {
     private val loadedMines = mutableMapOf<String, Mine>() //mines loaded in
     private val mineTasks = mutableMapOf<String, Int>() //scheduler task ids
-    private val freeMines = mutableMapOf<String, MutableList<PrivateMine>>()
-    private val inuse = mutableMapOf<UUID, PrivateMine>()
+    private val freeMines =
+        mutableMapOf<String, MutableList<PrivateMine>>() //MineId - [ Private mines for specified id]
     private val inMine = mutableMapOf<Player, Mine>() //For faster searches duplicate list to store whos in a mine
 
     fun newPrivateMineSession(id: String, player: Player, success: (mine: PrivateMine) -> Unit, failure: () -> Unit) {
@@ -27,13 +27,21 @@ class MineManager(private val m: EngineManager) : Listener {
         }
         m.user.getUser(player.uniqueId) {
             val mine = fMines[0]
+            mine.resetMine()
             mine.join(player)
             fMines.remove(mine)
             mine.settings = it.settings
-            inuse[player.uniqueId] = mine
             inMine[player] = mine
             success(mine)
         }
+    }
+
+
+    fun unload(player: Player) {
+        val mine = inMine[player] ?: return
+        if (isInPrivateMine(player))
+            freeMines.getOrPut(mine.id) { mutableListOf() }.add(mine as PrivateMine)
+        inMine.remove(player)
     }
 
     fun getCurrentMine(player: Player) = inMine[player]
@@ -64,7 +72,7 @@ class MineManager(private val m: EngineManager) : Listener {
     }
 
     fun isInMine(location: Location): Boolean {
-        for (v in inuse.values)
+        for (v in inMine.values)
             if (v.region.contains(BukkitAdapter.asBlockVector(location))) return true
         for (v in loadedMines.values)
             if (v.region.contains(BukkitAdapter.asBlockVector(location))) return true
@@ -100,7 +108,7 @@ class MineManager(private val m: EngineManager) : Listener {
         mineTasks.clear()
         loadedMines.clear()
         freeMines.clear()
-        inuse.clear()
+        inMine.clear()
         val c = m.engine.config.getConfigurationSection("Mines")
         for (mineId in c?.getKeys(false) ?: return) {
             val mc = c.getConfigurationSection(mineId)
@@ -132,7 +140,7 @@ class MineManager(private val m: EngineManager) : Listener {
                 val pc = c.getConfigurationSection("$mineId.Private.$privateId") ?: continue
                 load(
                     PrivateMine(
-                        privateId,m,
+                        privateId, m,
                         pc.getLong("Duration"),
                         pc.getLocation("Spawn", w),
                         CuboidRegion(

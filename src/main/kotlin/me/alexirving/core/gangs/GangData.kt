@@ -6,17 +6,21 @@ import me.alexirving.core.points.Points
 import me.alexirving.core.utils.SimpleLocation
 import java.util.*
 
-class GangData(
-    val name: String,
-    val owner: UUID,
+data class GangData(
+    val uuid: String,
+    var name: String,
+    var motd: String,
+    var public: Boolean,
+    var owner: UUID,
     val players: MutableList<UUID>,
-    val cell: SimpleLocation,
+    var cell: SimpleLocation,
     val channels: MutableList<String>
 ) {
-    val uuid = UUID.randomUUID().toString()
+
 
     @JsonIgnore
     fun getId() = UUID.fromString(uuid)
+
     fun balance(e: Points, async: (amount: Double) -> Unit) = e.getPoints(getId(), async)
 
 

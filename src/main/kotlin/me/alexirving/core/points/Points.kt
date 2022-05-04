@@ -13,7 +13,7 @@ import me.alexirving.core.utils.nBZ
 import java.util.*
 
 /**
- * Represents an economy.
+ * Represents a points system such as an economy.
  */
 open class Points(val id: String, private val m: EngineManager) {
 
@@ -24,9 +24,9 @@ open class Points(val id: String, private val m: EngineManager) {
     }
 
     /**
-     * Set the balance of a player
+     * Set the points of a player
      * @param uuid The UUID of the player
-     * @param value The amount to set the balance to
+     * @param value The amount to set the player's points to
      */
     open fun setPoints(uuid: UUID, value: Double) {
         m.user.getUser(uuid, true) {
@@ -36,10 +36,9 @@ open class Points(val id: String, private val m: EngineManager) {
 
 
     /**
-     * Returns the balance of the specified user
+     * Returns the points of the specified user
      * @param uuid The UUID of the player
-     * @return The balance of the player
-     * **REMEMBER TO LOAD THE USER BEFORE USING THIS FUNCTION
+     * @return The points of the player
      */
     open fun getPoints(uuid: UUID, async: (balance: Double) -> Unit) = m.user.getUser(uuid) {
         async(it.points[id] ?: 0.0)

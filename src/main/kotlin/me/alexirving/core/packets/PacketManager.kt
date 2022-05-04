@@ -9,6 +9,8 @@ package me.alexirving.core.packets
 
 import com.comphenix.protocol.ProtocolLibrary
 import com.comphenix.protocol.utility.MinecraftVersion
+import com.comphenix.protocol.wrappers.EnumWrappers
+import me.alexirving.core.utils.AddBack
 import org.bukkit.Location
 import org.bukkit.entity.EntityType
 import org.bukkit.entity.Player
@@ -54,9 +56,10 @@ class PacketManager {
         (packetMap[id] as PacEntity? ?: return).setDisplayName(displayName)
     }
 
+    @AddBack("Basically just make it allow different slots again later")
     fun setItem(id: Int, slot: Int, item: ItemStack) {
 
-        (packetMap[id] as PacEntity? ?: return).setSlot(slot, item)
+        (packetMap[id] as PacEntity? ?: return).setSlot(EnumWrappers.ItemSlot.HEAD, item)
     }
 
 

@@ -27,6 +27,7 @@ import me.alexirving.core.points.track.PointsTrack
 import me.alexirving.core.utils.Colors
 import me.alexirving.core.utils.color
 import me.alexirving.core.utils.registerListeners
+import org.bukkit.entity.Player
 import org.bukkit.event.Listener
 import java.io.File
 
@@ -50,6 +51,19 @@ class EngineManager(val engine: McEngine) : Listener {
         effect.register(Speed(), Efficiency(), Fortune(), NighVision(), Nuke(this), Jackhammer(this), Laser(this))
         registerListeners(engine, effect, channel, this)
         reload()
+    }
+
+    fun loadPlayer(player: Player) {
+        channel.loadFromPlayer(player)
+        gang.loadPlayer(player)
+
+    }
+
+    fun unloadPlayer(player: Player) {
+        channel.unloadUser(player)
+        mine.unload(player)
+        user.unload(player.uniqueId)
+        gang.unloadPlayer(player)
     }
 
     fun reload() {

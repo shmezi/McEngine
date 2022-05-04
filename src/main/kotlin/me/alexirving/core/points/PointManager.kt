@@ -21,7 +21,6 @@ class PointManager(private val m: EngineManager) {
     }
 
     fun register(points: Points) {
-        "Cool".pq()
         if (points is PointsTrack)
             pointsTracks[points.id] = points
         else

@@ -60,7 +60,7 @@ dependencies {
     compileOnly("com.sk89q.worldguard:worldguard-bukkit:7.0.0")
     compileOnly("com.comphenix.protocol", "ProtocolLib", "4.7.0")
     compileOnly("me.clip:placeholderapi:2.11.1")
-    compileOnly("com.comphenix.protocol", "ProtocolLib", "4.7.0")
+    compileOnly("com.comphenix.protocol", "ProtocolLib", "4.8.0")
     compileOnly("com.github.MilkBowl:VaultAPI:1.7")
 }
 tasks {
