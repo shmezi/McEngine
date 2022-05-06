@@ -9,9 +9,11 @@ import org.bukkit.event.player.PlayerJoinEvent
 class PlayerJoin(val manager: EngineManager) : Listener {
     @EventHandler
     fun onJoin(e: PlayerJoinEvent) {
-        if (manager.item.isCustom(e.player.itemInHand))
-            EngineItem.of(manager, e.player.itemInHand, e.player.inventory)?.runStartEffects(e.player)
-        manager.loadPlayer(e.player)
+        val p = e.player
+        if (manager.item.isCustom(p.inventory.itemInMainHand))
+            EngineItem.of(manager, p.inventory.itemInMainHand, p.inventory)?.runStartEffects(p)
+        manager.loadPlayer(p)
+
     }
 
 }

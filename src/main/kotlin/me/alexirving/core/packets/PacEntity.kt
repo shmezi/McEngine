@@ -13,8 +13,12 @@ import com.comphenix.protocol.utility.MinecraftVersion
 import com.comphenix.protocol.wrappers.EnumWrappers
 import com.comphenix.protocol.wrappers.Pair
 import com.comphenix.protocol.wrappers.WrappedDataWatcher
+import com.github.retrooper.packetevents.protocol.entity.data.EntityData
+import com.github.retrooper.packetevents.protocol.entity.data.EntityDataTypes
+import com.github.retrooper.packetevents.wrapper.play.server.WrapperPlayServerEntityMetadata
 import me.alexirving.core.utils.AddBack
 import me.alexirving.core.utils.pq
+import net.kyori.adventure.text.Component
 import org.bukkit.Location
 import org.bukkit.entity.EntityType
 import org.bukkit.entity.Player
@@ -23,10 +27,12 @@ import java.util.*
 import kotlin.math.floor
 
 
-class PacEntity(id: Int, viewers: MutableList<Player>, val entity: EntityType) : Packet(id, viewers) {
+class PacEntity(id: Int, viewers: MutableList<Player>, val entity: EntityType) :
+    Packet(id, viewers) {
+    val options = mutableMapOf<PacEntityOption, Boolean>()
 
     fun tp(location: Location): PacEntity {
-        "Teleporting entity of id$id".pq()
+        "Teleporting entity of id$id to location $location".pq()
         val pac = buildBasic(PacketType.Play.Server.ENTITY_TELEPORT).apply {
             if (PacketManager.version.isAtLeast(MinecraftVersion.COMBAT_UPDATE))
                 doubles.apply {
@@ -47,7 +53,7 @@ class PacEntity(id: Int, viewers: MutableList<Player>, val entity: EntityType) :
                 write(1, (location.pitch * 256.0f / 360.0f).toInt().toByte())
             }
         }
-        sendPackets(pac)
+        send(pac)
         return this
     }
 
@@ -85,34 +91,27 @@ class PacEntity(id: Int, viewers: MutableList<Player>, val entity: EntityType) :
                 dataWatcherModifier.write(0, WrappedDataWatcher())
             }
         }
-        sendPackets(pac)
+        send(pac)
         return this
     }
 
-    fun setInvisible(): PacEntity {
-        val pac = buildBasic(PacketType.Play.Server.ENTITY_METADATA)
-        val watcher = WrappedDataWatcher()
-        watcher.setObject(0, WrappedDataWatcher.Registry.get(Byte::class.java), 1.toByte())
+    fun setInvisible(boolean: Boolean): PacEntity {
+        options[PacEntityOption.INVISIBLE] = boolean
 
-        pac.watchableCollectionModifier.write(0, watcher.watchableObjects)
-//        pac.modifier.write(0, watcher)
-//        val a = WrappedDataWatcher().apply {
-//            setObject(0, (0x20).toByte())
-//        }
-//        pac.setMeta("0x20", true)
-//        pac.watchableCollectionModifier.write(0, a.toMutableList())
-        sendPackets(pac)
+        send(WrapperPlayServerEntityMetadata(id, listOf(EntityData(0, EntityDataTypes.BYTE, 0x20.toByte()))))
         return this
     }
 
     fun setDisplayName(name: String): PacEntity {
-//        val pac = buildBasic(PacketType.Play.Server.ENTITY_METADATA)
-//        val a = getMetadata().apply {
-//            setObject(2, ChatColor.translateAlternateColorCodes('&', name))
-//            setObject(3, 1.toByte())
-//        }
-//        pac.watchableCollectionModifier.write(0, a.toList())
-//        sendPackets(pac)
+        send(
+            WrapperPlayServerEntityMetadata(
+                id,
+                listOf(
+                    EntityData(3, EntityDataTypes.BOOLEAN, true),
+                    EntityData(2, EntityDataTypes.OPTIONAL_COMPONENT, Optional.of(Component.text(name)))
+                )
+            )
+        )
         return this
     }
 
@@ -122,7 +121,7 @@ class PacEntity(id: Int, viewers: MutableList<Player>, val entity: EntityType) :
             pac.intLists.write(0, listOf(id))
         else
             pac.integerArrays.write(0, intArrayOf(id))
-        sendPackets(pac)
+        send(pac)
         return this
     }
 
@@ -135,7 +134,7 @@ class PacEntity(id: Int, viewers: MutableList<Player>, val entity: EntityType) :
             pac.itemModifier.writeSafely(0, item)
             pac.integers.writeSafely(1, slot.ordinal)
         }
-        sendPackets(pac)
+        send(pac)
         return this
     }
 

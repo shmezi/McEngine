@@ -62,7 +62,6 @@ class EngineManager(val engine: McEngine) : Listener {
     fun unloadPlayer(player: Player) {
         channel.unloadUser(player)
         mine.unload(player)
-        user.unload(player.uniqueId)
         gang.unloadPlayer(player)
     }
 

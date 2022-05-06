@@ -16,7 +16,7 @@ import org.bukkit.Location
 /**
  * Represents an action.
  */
-abstract class Action(val m: EngineManager, val args: List<String>) {
+abstract class Action(val m: EngineManager, val args: Map<String, Any>) {
     /**
      * Run when the action is executed
      */

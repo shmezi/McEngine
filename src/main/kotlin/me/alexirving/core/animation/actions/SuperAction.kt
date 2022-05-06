@@ -8,7 +8,6 @@
 package me.alexirving.core.animation.actions
 
 import me.alexirving.core.EngineManager
-import me.alexirving.core.McEngine
 
 /**
  * Represents a super action.
@@ -16,7 +15,7 @@ import me.alexirving.core.McEngine
  */
 abstract class SuperAction(
     val m: EngineManager,
-    val raw: String,
+    val args: Map<String, Any>,
     val start: Int
 ) {
     /**

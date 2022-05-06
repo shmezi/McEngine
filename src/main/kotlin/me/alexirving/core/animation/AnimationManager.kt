@@ -9,6 +9,7 @@
 package me.alexirving.core.animation
 
 import me.alexirving.core.EngineManager
+import me.alexirving.core.animation.loader.AniCompiler
 import me.alexirving.core.animation.objects.Animation
 import me.alexirving.core.utils.Colors
 import me.alexirving.core.utils.color
@@ -28,10 +29,9 @@ class AnimationManager(private val aniFolder: File, private val m: EngineManager
         if (!aniFolder.isDirectory)
             println("Animation folder is not a directory!")
         loadedAnimations.clear()
-        for (file in aniFolder.listFiles(FileExtensionFilter("yml")) ?: return) {
-            val a = YamlConfiguration().apply { load(file) }
+        for (file in aniFolder.listFiles(FileExtensionFilter("json")) ?: return) {
             val name = file.nameWithoutExtension
-            loadedAnimations[name] = AniCompiler.compileAnimation(m, a)
+            loadedAnimations[name] = AniCompiler.compileAnimation(m, file)
             println("Loaded animation: \"$name\".".color(Colors.CYAN))
         }
 

@@ -8,32 +8,26 @@
 package me.alexirving.core.animation.actions.actionables
 
 import me.alexirving.core.EngineManager
-import me.alexirving.core.McEngine
-import me.alexirving.core.animation.objects.AnimationSession
-import me.alexirving.core.animation.utils.Direction
-import me.alexirving.core.animation.objects.Offset
 import me.alexirving.core.animation.actions.Action
-import me.alexirving.core.animation.utils.toLocation
+import me.alexirving.core.animation.objects.AnimationSession
+import me.alexirving.core.animation.objects.Offset
+import me.alexirving.core.animation.utils.Direction
+import me.alexirving.core.utils.loc
 import org.bukkit.Location
 
-class Tp(manager: EngineManager, args: List<String>) : Action(manager, args) {
+class Tp(manager: EngineManager, args: Map<String, Any>) : Action(manager, args) {
 
     var offset: Offset? = null
 
     init {
-        val cords = toLocation(args[1])
-
-        if (cords != null) {
-            this.offset = Offset(cords[0], cords[1], cords[2])
-        } else
-            println("Error while compiling Tp, location is not correctly formatted! Given: \"$args\"")
+        this.offset = ((args["location"] as Map<String, Double>)).loc()
     }
 
 
     override fun run(session: AnimationSession, zeroPoint: Location, direction: Direction) {
-        val t = session.standMap[args[0]]
+        val t = session.standMap[args["entity"]] //Lol, note to self im kinda dumb used entity as key before lols!
         if (t == null) {
-            println("ERROR, stand \"${args[0]}\" was not found!")
+            println("ERROR, stand \"${args["entity"]}\" was not found!")
             return
         }
         val yaw = when (direction) {

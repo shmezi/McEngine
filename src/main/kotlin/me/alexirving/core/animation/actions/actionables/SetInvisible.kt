@@ -13,9 +13,9 @@ import me.alexirving.core.animation.objects.AnimationSession
 import me.alexirving.core.animation.utils.Direction
 import org.bukkit.Location
 
-class SetInvisible(manager: EngineManager, args: List<String>) : Action(manager, args) {
+class SetInvisible(manager: EngineManager, args: Map<String, Any>) : Action(manager, args) {
 
     override fun run(session: AnimationSession, zeroPoint: Location, direction: Direction) {
-        m.packet.setInvisible(session.standMap[args[0]]!!)
+        m.packet.setInvisible(session.standMap[args["entity"]]!!)
     }
 }

@@ -14,7 +14,7 @@ import me.alexirving.core.animation.utils.Direction
 import me.alexirving.core.animation.actions.Action
 import org.bukkit.Location
 
-class Empty(manager: EngineManager, args: List<String>) : Action(manager, args) {
+class Empty(manager: EngineManager, args: Map<String, Any>) : Action(manager, args) {
     override fun run(session: AnimationSession, zeroPoint: Location, direction: Direction) {
     }
 }

@@ -49,7 +49,7 @@ class PacketManager {
 
 
     fun setInvisible(id: Int) {
-        (packetMap[id] as PacEntity? ?: return).setInvisible()
+        (packetMap[id] as PacEntity? ?: return).setInvisible(true)
     }
 
     fun setDisplayName(id: Int, displayName: String) {

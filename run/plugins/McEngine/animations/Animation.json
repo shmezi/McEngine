@@ -1,0 +1,44 @@
+{
+  "id": "example",
+  "delay": 20,
+  "entities": {
+    "A": "ARMOR_STAND"
+  },
+  "frames": [
+    [{
+      "type": "SetInvisible",
+      "entity": "A"
+    },
+      {
+        "type": "SetDisplayName",
+        "entity": "A",
+        "name": "Test"
+      },
+      {
+        "type": "SetItem",
+        "entity": "A",
+        "slot": 4,
+        "itemId": "Skull"
+      },
+      {
+        "type": "DrawCircle",
+        "angle": 45.0,
+        "frameCount": 10,
+        "origin": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "action": {
+          "type": "Tp",
+          "entity": "A",
+          "location": {
+            "x": "X",
+            "y": "Y",
+            "z": "Z"
+          }
+        }
+      }
+    ]
+  ]
+}

@@ -1,4 +1,5 @@
 name: McEngine
+load: POSTWORLD
 main: me.alexirving.core.McEngine
 version: 1.0
 api-version: 1.13
@@ -10,3 +11,4 @@ softdepend:
   - "PlaceholderAPI"
   - "Vault"
   - "ShopGUIPlus"
+  - "packetevents"

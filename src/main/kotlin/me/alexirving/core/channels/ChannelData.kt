@@ -13,7 +13,6 @@ data class ChannelData(
     val uuid: String,
     var name: String,
     var label: String,
-    var tag: String,
     val groups: MutableList<Group>,
     var default: String,
     var owner: UUID,
@@ -32,8 +31,8 @@ data class ChannelData(
     fun getId() = UUID.fromString(uuid)
 
     companion object {
-        fun default(owner: UUID): ChannelData {
-            return ChannelData(UUID.randomUUID().toString(), "chat", "c", "", mutableListOf<Group>().apply {
+        fun default(owner: UUID,id:String): ChannelData {
+            return ChannelData(UUID.randomUUID().toString(), id, "c", mutableListOf<Group>().apply {
                 add(
                     Group(
                         "owner", "OWNER",

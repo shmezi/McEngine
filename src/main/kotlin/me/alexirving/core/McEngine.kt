@@ -7,14 +7,13 @@
  */
 package me.alexirving.core
 
+import com.github.retrooper.packetevents.PacketEvents
 import dev.triumphteam.cmd.bukkit.BukkitCommandManager
 import dev.triumphteam.cmd.core.suggestion.SuggestionKey
+import io.github.retrooper.packetevents.factory.spigot.SpigotPacketEventsBuilder
 import me.alexirving.core.animation.objects.Animation
 import me.alexirving.core.channels.ChannelData
-import me.alexirving.core.commands.CMDAnimation
-import me.alexirving.core.commands.CMDEconomy
-import me.alexirving.core.commands.CMDEngine
-import me.alexirving.core.commands.CMDMine
+import me.alexirving.core.commands.*
 import me.alexirving.core.effects.Effect
 import me.alexirving.core.events.PlayerInteract
 import me.alexirving.core.events.PlayerJoin
@@ -34,9 +33,17 @@ import org.bukkit.plugin.java.JavaPlugin
 
 class McEngine : JavaPlugin() {
 
-    lateinit var manager: EngineManager
+    override fun onLoad() {
+        PacketEvents.setAPI(SpigotPacketEventsBuilder.buildNoCache(this))
+        PacketEvents.getAPI().settings.debug(true).checkForUpdates(true)
+        PacketEvents.getAPI().load()
+
+    }
+
+    var manager: EngineManager? = null
     override fun onEnable() {
         manager = EngineManager(this)
+        val manager = manager ?: return
         val cmm = BukkitCommandManager.create(this)
 
         /**
@@ -115,15 +122,21 @@ class McEngine : JavaPlugin() {
         }
         cmm.registerSuggestion(SuggestionKey.of("player-z")) { sender, arg ->
             if (sender is Player) {
-                mutableListOf(sender.player?.getTargetBlock(mutableSetOf(Material.AIR), 10)?.z.toString()
+                mutableListOf(
+                    sender.player?.getTargetBlock(mutableSetOf(Material.AIR), 10)?.z.toString()
                 )
             } else
                 mutableListOf()
         }
-        cmm.registerCommand(CMDEngine(manager), CMDEconomy(), CMDAnimation(this), CMDMine(manager))
+        cmm.registerCommand(
+            CMDEngine(manager),
+            CMDEconomy(),
+            CMDAnimation(this),
+            CMDMine(manager),
+            CMDGang(manager)
+        )
 
 
-//        MongoDb.init(config.getString("MongoDb") ?: "mongodb://localhost")
 
         registerListeners(this, PlayerJoin(manager), PlayerInteract(), PlayerLeave(manager))
         Bukkit.getScheduler()
@@ -131,9 +144,10 @@ class McEngine : JavaPlugin() {
                 this,
                 { manager.user.updateDb("Schedule") }, 0L, config.getLong("AutoSave") ?: 12000L
             )
+        PacketEvents.getAPI().init()
     }
 
     override fun onDisable() {
-        manager.user.updateDb("Disable")
+        manager?.user?.updateDb("Disable")
     }
 }

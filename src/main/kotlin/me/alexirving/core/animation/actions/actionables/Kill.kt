@@ -14,9 +14,9 @@ import me.alexirving.core.animation.objects.AnimationSession
 import me.alexirving.core.animation.utils.Direction
 import org.bukkit.Location
 
-class Kill(manager: EngineManager, args: List<String>) : Action(manager, args) {
+class Kill(manager: EngineManager, args: Map<String, Any>) : Action(manager, args) {
     override fun run(session: AnimationSession, zeroPoint: Location, direction: Direction) {
-        session.pm.kill(session.standMap[args[0]]!!)
+        session.pm.kill(session.standMap[args["entity"]]!!)
     }
 
 

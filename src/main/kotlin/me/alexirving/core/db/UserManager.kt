@@ -2,6 +2,7 @@ package me.alexirving.core.db
 
 import me.alexirving.core.exceptions.ShmeziFuckedUp
 import me.alexirving.core.utils.pq
+import org.bukkit.Warning
 import org.bukkit.entity.Player
 import java.util.*
 
@@ -49,6 +50,7 @@ class UserManager(private val db: Database) {
         updateCache.add(userData.getId())
     }
 
+    @Deprecated("DO NOT USE, this will not save to db!")
     fun unload(uuid: UUID) {
         playerCache.remove(uuid)
     }

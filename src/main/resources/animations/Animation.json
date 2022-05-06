@@ -1,8 +1,6 @@
 {
   "id": "example",
-  "var": {
-    "x": 10
-  },
+  "delay": 20,
   "entities": {
     "A": "ARMOR_STAND"
   },
@@ -33,6 +31,21 @@
           "x": 0,
           "y": 0,
           "z": 0
+        }
+      },
+      {
+        "type": "DrawCircle",
+        "action": {
+          "type": "Tp",
+          "entity": "A",
+          "location": {
+            "x": "X",
+            "y": "Y",
+            "z": "Z"
+          },
+          "angle": 10,
+          "degrees": 10,
+          "frameCount": 10
         }
       }
     ],

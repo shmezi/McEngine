@@ -9,8 +9,6 @@ plugins {
     kotlin("jvm") version "1.6.10"
     id("com.github.johnrengelman.shadow") version "7.0.0"
     id("xyz.jpenilla.run-paper") version "1.0.6"
-
-
 }
 
 group = "me.alexirving.core"
@@ -32,15 +30,14 @@ repositories {
 }
 
 dependencies {
-    implementation("org.jetbrains.kotlin:kotlin-stdlib:1.6.0")
-    implementation("org.litote.kmongo:kmongo-coroutine:4.5.1")
-    implementation("org.reflections:reflections:0.10.2")
-    compileOnly("org.spigotmc", "spigot-api", "1.8.8-R0.1-SNAPSHOT")
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.1-native-mt")
-    implementation("org.litote.kmongo:kmongo-coroutine:4.5.1")
-    implementation("net.kyori:adventure-text-minimessage:4.10.1")
-    implementation("ch.qos.logback:logback-classic:1.2.11")
-
+    implementation("org.jetbrains.kotlin:kotlin-stdlib:1.6.0") /*STDLIB of kotlin*/
+    implementation("org.litote.kmongo:kmongo-coroutine:4.5.1")/*KMONGO - MONGODB DRIVER*/
+    implementation("org.reflections:reflections:0.10.2")/*REFLECTIONS - REFLECTIONS UTILS*/
+    compileOnly("org.spigotmc", "spigot-api", "1.8.8-R0.1-SNAPSHOT")/*SPIGOT 1.8 version*/
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.1-native-mt")/*CoRoutines - Used for async*/
+    implementation("net.kyori:adventure-text-minimessage:4.10.1") /*Adventure - Modern chat comp*/
+    implementation("ch.qos.logback:logback-classic:1.2.11") /*Logging framework*/
+    implementation("com.github.retrooper.packetevents:spigot:2.0-SNAPSHOT") /*PacketEvents - Used for handling all packet wrapping WITHOUT NMS*/
     /**
      * Frameworks
      */
@@ -52,24 +49,23 @@ dependencies {
      * Plugin hooks:
      */
     compileOnly("com.sk89q.worldedit", "worldedit-bukkit", "7.2.10")
-    compileOnly("com.sk89q.worldedit", "worldedit-core", "7.2.10")
     compileOnly("com.github.brcdev-minecraft:shopgui-api:2.4.0")
 
 
     implementation("org.bstats:bstats-bukkit:3.0.0")
     compileOnly("com.sk89q.worldguard:worldguard-bukkit:7.0.0")
-    compileOnly("com.comphenix.protocol", "ProtocolLib", "4.7.0")
     compileOnly("me.clip:placeholderapi:2.11.1")
     compileOnly("com.comphenix.protocol", "ProtocolLib", "4.8.0")
     compileOnly("com.github.MilkBowl:VaultAPI:1.7")
 }
 tasks {
     shadowJar {
-        relocate("dev.triumphteam.gui", "me.alexirving.core.depends.gui")
-        relocate("me.mattstudios.mf", "me.alexirving.core.depends.mf")
-        relocate("org.bstats", "me.alexirving.core.depends.bstats")
-        relocate("de.tr7zw.changeme.nbtapi", "me.alexirving.core.depends.nbtapi")
-        relocate("net.kyori.adventure", "me.alexirving.core.depends.minimessages")
+        relocate("dev.triumphteam.gui", "me.alexirving.core.libs.gui")
+        relocate("me.mattstudios.mf", "me.alexirving.core.libs.mf")
+        relocate("org.bstats", "me.alexirving.core.libs.bstats")
+        relocate("de.tr7zw.changeme.nbtapi", "me.alexirving.core.libs.nbtapi")
+        relocate("net.kyori.adventure", "me.alexirving.core.libs.minimessages")
+        relocate("com.github.retrooper", "me.alexirving.core.libs.packets")
         manifest {
             attributes("Main-Class" to "me.alexirving.core.NotAProgramKt")
         }

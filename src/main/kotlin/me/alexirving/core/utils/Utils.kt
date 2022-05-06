@@ -9,6 +9,7 @@ package me.alexirving.core.utils
 
 
 import me.alexirving.core.McEngine
+import me.alexirving.core.animation.objects.Offset
 import org.bukkit.Bukkit
 import org.bukkit.ChatColor
 import org.bukkit.Location
@@ -113,3 +114,4 @@ fun ConfigurationSection.getLocation(path: String, world: World): Location {
         float("Pitch")
     )
 }
+fun Map<String, Double>.loc() = Offset(this["x"] ?: 0.0, this["y"] ?: 0.0, this["z"] ?: 0.0)

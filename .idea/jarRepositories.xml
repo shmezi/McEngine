@@ -96,5 +96,10 @@
       <option name="name" value="maven11" />
       <option name="url" value="https://repo.triumphteam.dev/snapshots/" />
     </remote-repository>
+    <remote-repository>
+      <option name="id" value="maven12" />
+      <option name="name" value="maven12" />
+      <option name="url" value="https://maven.pkg.github.com/CC007/HeadsPluginAPI" />
+    </remote-repository>
   </component>
 </project>

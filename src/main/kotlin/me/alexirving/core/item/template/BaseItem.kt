@@ -7,19 +7,25 @@
  */
 package me.alexirving.core.item.template
 
+import com.comphenix.protocol.wrappers.WrappedGameProfile
 import com.google.gson.Gson
 import de.tr7zw.changeme.nbtapi.NBTItem
+import dev.triumphteam.gui.builder.item.SkullBuilder
 import dev.triumphteam.gui.components.util.Legacy
+import dev.triumphteam.gui.components.util.SkullUtil
 import me.alexirving.core.EngineManager
 import me.alexirving.core.item.instance.EngineItem
 import me.alexirving.core.item.instance.InventoryReference
 import net.kyori.adventure.text.minimessage.MiniMessage
+import org.bukkit.Bukkit
 import org.bukkit.Material
+import org.bukkit.block.Skull
 import org.bukkit.inventory.ItemFlag
 import org.bukkit.inventory.ItemStack
 import java.io.BufferedReader
 import java.io.File
 import java.io.FileReader
+import java.util.*
 
 /**
  * [BaseItem] represents an item template that can be easily modified.
@@ -43,7 +49,7 @@ class BaseItem(
 ) {
 
     private lateinit var template: ItemStack
-
+    var skullId: String? = null
 
     /**
      * Google serialization will not init everything smh

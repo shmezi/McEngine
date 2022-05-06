@@ -8,33 +8,28 @@
 package me.alexirving.core.animation.actions.actionables
 
 import me.alexirving.core.EngineManager
-import me.alexirving.core.McEngine
-import me.alexirving.core.animation.objects.AnimationSession
-import me.alexirving.core.animation.utils.Direction
-import me.alexirving.core.animation.objects.Offset
 import me.alexirving.core.animation.actions.Action
-import me.alexirving.core.animation.utils.validateLocation
+import me.alexirving.core.animation.objects.AnimationSession
+import me.alexirving.core.animation.objects.Offset
+import me.alexirving.core.animation.utils.Direction
+import me.alexirving.core.utils.loc
 import org.bukkit.Effect
 import org.bukkit.Location
 
-class Particle(manager: EngineManager, args: List<String>) : Action(manager, args) {
+class Particle(manager: EngineManager, args: Map<String, Any>) : Action(manager, args) {
     var offset: Offset? = null
 
     init {
-        val cords = validateLocation(args[0])
-        if (cords != null)
-            this.offset = Offset(cords[0], cords[1], cords[2])
-        else
-            println("ERROR, location is not correctly formatted! Given: \"${args[0]}\"")
+        this.offset = (args["location"] as Map<String, Double>).loc()
     }
 
 
     override fun run(session: AnimationSession, zeroPoint: Location, direction: Direction) {
         zeroPoint.world?.playEffect(
             offset!!.getOffset(zeroPoint, direction),
-            Effect.valueOf(args[1]),
-            args[2].toInt(),
-            args[3].toInt()
+            Effect.valueOf(args["effect"] as String),
+            args["data"] as Int,
+            args["radius"] as Int
         )
     }
 

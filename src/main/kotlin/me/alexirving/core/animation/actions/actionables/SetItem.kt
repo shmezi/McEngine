@@ -14,13 +14,14 @@ import me.alexirving.core.animation.utils.Direction
 import me.alexirving.core.exceptions.NotFoundException
 import org.bukkit.Location
 
-class SetItem(manager: EngineManager, args: List<String>) : Action(manager, args) {
+class SetItem(manager: EngineManager, args: Map<String, Any>) : Action(manager, args) {
 
     override fun run(session: AnimationSession, zeroPoint: Location, direction: Direction) {
         m.packet.setItem(
-            session.standMap[args[0]]!!,
-            args[1].toInt(),
-            m.item.bases[args[2]]?.buildSimple() ?: throw NotFoundException("Item \"${args[2]}\" was not found!")
+            session.standMap[args["entity"]]!!,
+            args["slot"] as Int,
+            m.item.bases[args["itemId"]]?.buildSimple()
+                ?: throw NotFoundException("Item \"${args["itemId"]}\" was not found!")
         )
 
     }

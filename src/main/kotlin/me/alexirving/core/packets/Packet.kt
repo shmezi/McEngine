@@ -11,7 +11,9 @@ import com.comphenix.protocol.PacketType
 import com.comphenix.protocol.ProtocolLibrary
 import com.comphenix.protocol.ProtocolManager
 import com.comphenix.protocol.events.PacketContainer
-import com.comphenix.protocol.wrappers.WrappedDataWatcher
+import com.github.retrooper.packetevents.PacketEvents
+import com.github.retrooper.packetevents.manager.player.PlayerManager
+import com.github.retrooper.packetevents.wrapper.PacketWrapper
 import org.bukkit.entity.Player
 
 abstract class Packet(val id: Int, val viewers: MutableList<Player>) {
@@ -23,11 +25,17 @@ abstract class Packet(val id: Int, val viewers: MutableList<Player>) {
         return c
     }
 
-    fun sendPackets(pac: PacketContainer) {
+    fun send(pac: PacketContainer) {
         for (viewer in viewers) {
 
             lib.sendServerPacket(viewer, pac)
         }
+    }
+
+    private val api: PlayerManager = PacketEvents.getAPI().playerManager
+    fun <T : PacketWrapper<*>> send(pac: PacketWrapper<T>) {
+        for (v in viewers)
+            api.sendPacket(v,pac)
     }
 
 

@@ -10,14 +10,12 @@ import java.util.*
 class GangManager(private val m: EngineManager, private val db: Database) {
     private val cachedGangs = mutableMapOf<UUID, GangData>() //GangID | Gang
     private val invited = mutableMapOf<UUID, MutableSet<Player>>()
-    fun getGang(id: UUID, update: Boolean, async: (gang: GangData) -> Unit) {
+    fun getGang(id: UUID, async: (gang: GangData) -> Unit) {
         if (cachedGangs.containsKey(id))
             async(cachedGangs[id] ?: throw ShmeziFuckedUp("Odd thing happen ig ?"))
         else {
             db.dbGetGang(id, {
                 async(it)
-                if (update)
-                    updateGang(it)
             }, {
 
             })
@@ -27,6 +25,22 @@ class GangManager(private val m: EngineManager, private val db: Database) {
     fun isInvited(player: Player, id: UUID) = invited[id]?.contains(player) ?: false
     fun invite(player: Player, id: UUID) = invited.getOrPut(id) { mutableSetOf() }.add(player)
     fun unInvite(player: Player, id: UUID) = invited[id]?.remove(player)
+
+    fun getGangOfPlayer(player: Player,  success: (gang: GangData) -> Unit, failure: () -> Unit) {
+        m.user.getUser(player) { user ->
+            val g = user.settings.gang
+            if (g == null)
+                failure()
+            else
+                getGang(g) {
+                    success(it)
+                }
+        }
+    }
+
+    fun getGangOfPlayer(player: Player, success: (gang: GangData) -> Unit) =
+        getGangOfPlayer(player, success) {}
+
     fun delete(id: UUID) {
         getGang(id) { gang ->
             gang.players.forEach { uuid ->
@@ -39,7 +53,6 @@ class GangManager(private val m: EngineManager, private val db: Database) {
         }
     }
 
-    fun getGang(id: UUID, async: (gang: GangData) -> Unit) = getGang(id, false, async)
 
     fun unloadPlayer(player: Player) {
         m.user.getUser(player) {
@@ -69,18 +82,20 @@ class GangManager(private val m: EngineManager, private val db: Database) {
 
     fun registerGang(gang: GangData) {
         m.point.getPoints("default")?.setPoints(gang.getId(), 0.0)
+        m.user.getUser(gang.owner, true) {
+            it.settings.gang = gang.getId()
+        }
 
-        m.channel.loadChannel(ChannelData.default(gang.owner).apply {
-            name = "gang"
+        m.channel.loadChannel(ChannelData.default(gang.getId(), "gang").apply {
             label = "g"
         }
         )
 
-        m.channel.loadChannel(ChannelData.default(gang.owner).apply {
-            name = "officer"
+        m.channel.loadChannel(ChannelData.default(gang.getId(), "officer").apply {
             label = "o"
         }
         )
+        updateGang(gang)
     }
 
 

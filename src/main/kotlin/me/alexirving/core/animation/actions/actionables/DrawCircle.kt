@@ -8,23 +8,25 @@
 package me.alexirving.core.animation.actions.actionables
 
 import me.alexirving.core.EngineManager
-import me.alexirving.core.animation.AniCompiler
 import me.alexirving.core.animation.actions.Action
 import me.alexirving.core.animation.actions.SuperAction
-import me.alexirving.core.animation.utils.toLocation
+import me.alexirving.core.animation.loader.AniCompiler
+import me.alexirving.core.animation.objects.Offset
+import me.alexirving.core.animation.objects.Offset.Companion.add
+import me.alexirving.core.animation.objects.Offset.Companion.cross
+import me.alexirving.core.animation.objects.Offset.Companion.normalize
+import me.alexirving.core.animation.objects.Offset.Companion.scale
+import me.alexirving.core.exceptions.CompileError
+import me.alexirving.core.utils.loc
+import me.alexirving.core.utils.pq
 import java.text.DecimalFormat
-import java.util.regex.Pattern
-import kotlin.math.asin
 import kotlin.math.cos
-import kotlin.math.pow
 import kotlin.math.sin
 
 
-class DrawCircle(manager: EngineManager, rawStatement: String, start: Int) : SuperAction(
-    manager, rawStatement, start
+class DrawCircle(manager: EngineManager, args: Map<String, String>, start: Int) : SuperAction(
+    manager, args, start
 ) {
-    private val pattern: Pattern =
-        Pattern.compile(".+\\((.+\\(.*\\));(\\[-?\\d+(\\.\\d+)?,-?\\d+(\\.\\d+)?,-?\\d+(\\.\\d+)?]);(\\[-?\\d+(\\.\\d+)?,-?\\d+(\\.\\d+)?,-?\\d+(\\.\\d+)?]);(-?\\d+(\\.\\d+)?);(\\d+)\\)")
 
     private val df = DecimalFormat("#.#")
 
@@ -33,71 +35,78 @@ class DrawCircle(manager: EngineManager, rawStatement: String, start: Int) : Sup
     }
 
     override fun build(): MutableMap<Int, Action> {
-        val args = pattern.matcher(raw)
-        if (!args.matches()) {
-            println("Error: Invalid DrawCircle statement \"$raw\"")
-            return mutableMapOf()
+        val frameChanges = mutableMapOf<Int, Action>()
+        val origin = (args["origin"] as Map<String, Double>).loc()
+        val degreesOfRotation = args["angle"] as Double
+        val numberOfFrames = args["frameCount"] as Int
+        val angleOfPlane = Math.toRadians(degreesOfRotation)
+        val currentX = origin.x
+        val currentY = origin.y
+        val currentZ = origin.z
+
+
+        //draw a vector from the origin to the current point to use as our radius vector
+        val radiusVector = origin.clone()
+        //project that vector onto the xz plane and take their cross product to get the vector perpendicular to the radius on the xz plane (N0)
+        //use N0 and N90 as unit vectors to define the span of all possible vectors perpendicular to the radius
+        //project that vector onto the xz plane and take their cross product to get the vector perpendicular to the radius on the xz plane (N0)
+        //use N0 and N90 as unit vectors to define the span of all possible vectors perpendicular to the radius
+        val radiusOnXZPlane = Offset(radiusVector.x, 0.0, radiusVector.z)
+        val normal0 = cross(radiusOnXZPlane, radiusVector)
+        val normal90 = cross(radiusVector, normal0)
+        normal0.normalize()
+        normal90.normalize()
+
+        //create the unit vectors of the plane of the circle, where the first axis of the plane is the radius vector normalized,
+        // and the second axis is a perpendicular normal vector such that the plane defined by these two vectors is at some angle theta+90 to the xz plane
+        // (where theta=0 would be a circle that is perpendicular to the xz plane)
+
+        //create the unit vectors of the plane of the circle, where the first axis of the plane is the radius vector normalized,
+        // and the second axis is a perpendicular normal vector such that the plane defined by these two vectors is at some angle theta+90 to the xz plane
+        // (where theta=0 would be a circle that is perpendicular to the xz plane)
+        val unitVectorR = normalize(radiusVector)
+        val unitVectorA = add(scale(normal0, cos(angleOfPlane)), scale(normal90, sin(angleOfPlane)))
+
+        //create variables for calculating the circle
+
+        //create variables for calculating the circle
+        val incrementThetaBy = Math.toRadians(degreesOfRotation / numberOfFrames)
+        var currentTheta = incrementThetaBy
+        val radiusLength = radiusVector.length()
+        var currentPoint: Offset
+
+        //scale the unit vectors, multiply by the length and respective trig function, add them, and add the origin vector to the result for each frame
+
+        //scale the unit vectors, multiply by the length and respective trig function, add them, and add the origin vector to the result for each frame
+        for (i in 0 until numberOfFrames) {
+            unitVectorR.pq(4)
+            unitVectorA.pq(3)
+
+            currentPoint = add(
+                scale(unitVectorR, radiusLength * cos(currentTheta)),
+                scale(unitVectorA, radiusLength * sin(currentTheta))
+            )
+            currentPoint.pq(1)
+            origin.pq(2)
+            currentPoint.add(origin)
+
+            frameChanges[i] = AniCompiler.compileAction(m, (args["action"] as Map<String, Any>).toMutableMap().apply {
+                currentPoint.pq("CURRENT")
+                val loc = (this["location"] as Map<String, String>).toMutableMap()
+                loc["x"] = currentPoint.x.toString()
+                loc["y"] = currentPoint.y.toString()
+                loc["z"] = currentPoint.x.toString()
+                loc.pq("NUMBER A")
+                this["location"] = loc.mapValues { it.value.toDouble() }
+                this.pq("NUMBERS")
+            }) ?: throw CompileError("Compile issues m8!")
+            //increment theta
+            currentTheta += incrementThetaBy
         }
-        val a = mutableMapOf<Int, Action>()
-        val l = toLocation(args.group(2))!!
-        val l1 = toLocation(args.group(6))!!
-        val originX = l[0]
-        val originY = l[1]
-        var currentX = l1[0]
-        var currentY = l1[1]
-        val frameCount = args.group(12).toInt() //Total frames
-        // calculate r and starting theta
-        //sqrt( (x1-x2)^2 + (y1-y2)^2) )
-        val radiusLength = ((currentX - originX).pow(2.0) + (currentY - originY).pow(2.0)).pow(1.0 / 2)
-        // theta = sin^-1(currentX/radiusLength) (in radians)
-        val startingTheta = asin(currentX / radiusLength)
-        //determine increment value of each frame in radians
-        val incrementThetaBy = Math.toRadians(args.group(10).toDouble() / frameCount)
-        val reverseSpinDirection = false
-
-        if (!reverseSpinDirection) {
-
-            var currentTheta = startingTheta + incrementThetaBy
-            for (i in start until (frameCount + start)) {
-                //update x and y to be r*sin/cos(theta) and offset by the origins coordinates
-                currentX = radiusLength * sin(currentTheta) + originX
-                currentY = radiusLength * cos(currentTheta) + originY
-                //add coordinates to list
-
-                a[i] = AniCompiler.compileAction(
-                    m, args.group(1)
-                        .replace("X", df.format(currentX)).replace("Y", df.format(currentY))
-                )
-
-                // increment currentTheta
-                currentTheta += incrementThetaBy
-            }
-        } else {
-            //initialize the first frames theta value
-            var currentTheta = startingTheta - incrementThetaBy
-            for (i in start until frameCount + start) {
-                //update x and y to be r*sin/cos(theta) and offset by the origins coordinates
-                currentX = radiusLength * sin(currentTheta) + originX
-                currentY = radiusLength * cos(currentTheta) + originY
-                //add coordinates to list
-
-                a[i] = AniCompiler.compileAction(
-                    m, args.group(1)
-                        .replace("X", df.format(currentX)).replace("Y", df.format(currentY))
-                )
-                // increment currentTheta
-                currentTheta -= incrementThetaBy
-            }
-        }
-
-//            a[current++] = AniCompiler.compileAction(pm, im, args.group(3)
-//                .replace("X",currentX.toString())
-//                .replace("Y",currentY.toString())
-//                .replace("Z",currentZ.toString()))
-
-
-        return a
+        return frameChanges
     }
+
+
 }
 
 

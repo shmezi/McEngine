@@ -32,7 +32,7 @@ object McEngineAPI {
     fun getMcEngine() = instance ?: throw IllegalStateException("McEngine has not been loaded yet")
 
 
-    fun getAm() = getMcEngine().manager.animation
+    fun getAm() = getMcEngine().manager?.animation
 
 
     /**
@@ -42,14 +42,14 @@ object McEngineAPI {
      * @param viewers Players to play animation to
      */
     fun playAnimation(animation: String, location: Location, viewers: MutableList<Player>) {
-        getAm().getAnimation(animation)
+        getAm()?.getAnimation(animation)
             ?: throw NullPointerException("Animation \"$animation\" does not exist.")
 
         AnimationSession(
             getMcEngine(),
             viewers,
             location,
-            getAm().getAnimation(animation)!!,
+            getAm()?.getAnimation(animation)!!,
             location.getFacing()
         )
     }

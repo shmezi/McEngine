@@ -11,6 +11,7 @@ import me.alexirving.core.gangs.GangData
 import me.alexirving.core.mines.PrisonSettings
 import me.alexirving.core.utils.Colors
 import me.alexirving.core.utils.color
+import me.alexirving.core.utils.pq
 import org.bson.UuidRepresentation
 import org.litote.kmongo.coroutine.CoroutineClient
 import org.litote.kmongo.coroutine.CoroutineCollection
@@ -90,12 +91,14 @@ class MongoDb : Database {
     }
 
     override fun dbUpdateGang(gang: GangData) {
+        "Creating a gang ${gang.uuid}".pq("COOL")
+
         runBlocking {
-            val c = userDb.findOneById(gang.uuid)
+            val c = gangDb.findOne(GangData::uuid eq gang.uuid)
             if (c == null)
                 gangDb.insertOne(gang)
             else
-                gangDb.replaceOneById(gang.uuid, gang)
+                gangDb.replaceOne(GangData::uuid eq gang.uuid, gang)
         }
 
     }
@@ -109,6 +112,10 @@ class MongoDb : Database {
                 failure()
 
         }
+    }
+
+    override fun dbDeleteGang(uuid: UUID) {
+        TODO("Not yet implemented")
     }
 
     override fun dbGetUsers(async: (userData: List<UserData>) -> Unit) {

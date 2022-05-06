@@ -14,13 +14,13 @@ import me.alexirving.core.animation.utils.Direction
 import org.bukkit.Bukkit
 import org.bukkit.Location
 
-class Command(manager: EngineManager, args: List<String>) : Action(manager, args) {
+class Command(manager: EngineManager, args: Map<String, String>) : Action(manager, args) {
     override fun run(session: AnimationSession, zeroPoint: Location, direction: Direction) {
         if (!Bukkit.isPrimaryThread())
             Bukkit.getScheduler().runTask(m.engine, Runnable {
-                Bukkit.getServer().dispatchCommand(Bukkit.getConsoleSender(), args[0])
+                Bukkit.getServer().dispatchCommand(Bukkit.getConsoleSender(), args["command"] as String? ?: "")
             })
         else
-            Bukkit.getServer().dispatchCommand(Bukkit.getConsoleSender(), args[0])
+            Bukkit.getServer().dispatchCommand(Bukkit.getConsoleSender(), args["command"] as String? ?: "")
     }
 }

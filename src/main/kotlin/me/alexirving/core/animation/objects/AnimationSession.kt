@@ -9,7 +9,7 @@ package me.alexirving.core.animation.objects
 
 import me.alexirving.core.McEngine
 import me.alexirving.core.animation.utils.Direction
-import me.alexirving.core.utils.AddBack
+import me.alexirving.core.exceptions.ShmeziFuckedUp
 import me.alexirving.core.utils.pq
 import org.bukkit.Location
 import org.bukkit.entity.Player
@@ -30,7 +30,7 @@ data class AnimationSession(
 ) {
     val standMap: MutableMap<String, Int> = mutableMapOf() //Map of stand name to stand id in the packetMap
     private val scheduler = pl.server.scheduler
-    val pm = pl.manager.packet
+    val pm = pl.manager?.packet ?: throw ShmeziFuckedUp("oop")
 
     /**
      * Starts the animation session.
@@ -45,8 +45,9 @@ data class AnimationSession(
         }
         val loc = location.clone()
         loc.yaw = yaw
-        for (name in animation.standNames)
+        for (name in animation.entities) {
             standMap[name.key] = pm.spawn(name.value, viewers, loc)
+        }
         var timeStamp = 0
         for (frame in animation.sequence) {
             scheduler.runTaskLaterAsynchronously(pl, Runnable {
@@ -67,7 +68,7 @@ data class AnimationSession(
 
 
     private fun stop() {
-        for (armor in animation.standNames.keys)
+        for (armor in animation.entities.keys)
             pm.kill(standMap[armor]!!)
     }
 
