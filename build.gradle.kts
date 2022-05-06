@@ -31,7 +31,7 @@ repositories {
 
 dependencies {
     implementation("org.jetbrains.kotlin:kotlin-stdlib:1.6.0") /*STDLIB of kotlin*/
-    implementation("org.litote.kmongo:kmongo-coroutine:4.5.1")/*KMONGO - MONGODB DRIVER*/
+    implementation("org.litote.kmongo:kmongo:4.5.1")
     implementation("org.reflections:reflections:0.10.2")/*REFLECTIONS - REFLECTIONS UTILS*/
     compileOnly("org.spigotmc", "spigot-api", "1.8.8-R0.1-SNAPSHOT")/*SPIGOT 1.8 version*/
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.1-native-mt")/*CoRoutines - Used for async*/

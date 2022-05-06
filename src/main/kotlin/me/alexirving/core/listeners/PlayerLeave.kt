@@ -1,4 +1,4 @@
-package me.alexirving.core.events
+package me.alexirving.core.listeners
 
 import me.alexirving.core.EngineManager
 import org.bukkit.event.EventHandler

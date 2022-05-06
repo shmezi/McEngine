@@ -8,7 +8,7 @@
 package me.alexirving.core.points
 
 import me.alexirving.core.EngineManager
-import me.alexirving.core.db.UserData
+import me.alexirving.core.database.structs.UserData
 import me.alexirving.core.utils.nBZ
 import java.util.*
 

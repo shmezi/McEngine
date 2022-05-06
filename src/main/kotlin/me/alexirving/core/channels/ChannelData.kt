@@ -1,6 +1,6 @@
 package me.alexirving.core.channels
 
-import com.fasterxml.jackson.annotation.JsonIgnore
+import me.alexirving.core.database.Cacheable
 import me.alexirving.core.exceptions.NotFoundException
 import java.util.*
 
@@ -10,14 +10,13 @@ import java.util.*
  * @param
  */
 data class ChannelData(
-    val uuid: String,
     var name: String,
     var label: String,
     val groups: MutableList<Group>,
     var default: String,
-    var owner: UUID,
+    var owner: UUID?,
     val participants: MutableMap<UUID, String>
-) {
+) : Cacheable() {
 
 
     fun getGroup(uuid: UUID) = groups.firstOrNull { it.id == (participants[uuid] ?: throw NotFoundException("")) }
@@ -27,12 +26,10 @@ data class ChannelData(
 
     fun getPrefix(uuid: UUID) = getGroup(uuid)?.prefix ?: ""
 
-    @JsonIgnore
-    fun getId() = UUID.fromString(uuid)
 
     companion object {
-        fun default(owner: UUID,id:String): ChannelData {
-            return ChannelData(UUID.randomUUID().toString(), id, "c", mutableListOf<Group>().apply {
+        fun default(owner: UUID?): ChannelData {
+            return ChannelData(UUID.randomUUID().toString(), "c", mutableListOf<Group>().apply {
                 add(
                     Group(
                         "owner", "OWNER",
@@ -52,7 +49,7 @@ data class ChannelData(
                         mutableSetOf()
                     )
                 )
-            }, "default", owner, mutableMapOf<UUID, String>().apply { this[owner] = "owner" })
+            }, "default", owner, mutableMapOf<UUID, String>().apply { this[owner ?: return@apply] = "owner" })
         }
     }
 }

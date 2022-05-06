@@ -15,9 +15,9 @@ import me.alexirving.core.animation.objects.Animation
 import me.alexirving.core.channels.ChannelData
 import me.alexirving.core.commands.*
 import me.alexirving.core.effects.Effect
-import me.alexirving.core.events.PlayerInteract
-import me.alexirving.core.events.PlayerJoin
-import me.alexirving.core.events.PlayerLeave
+import me.alexirving.core.listeners.PlayerInteract
+import me.alexirving.core.listeners.PlayerJoin
+import me.alexirving.core.listeners.PlayerLeave
 import me.alexirving.core.hooks.HookPapi
 import me.alexirving.core.item.template.BaseItem
 import me.alexirving.core.points.Points
@@ -64,18 +64,10 @@ class McEngine : JavaPlugin() {
          */
 
 
+
+
+
         val im = manager.item
-        cmm.registerArgument(ChannelData::class.java) { player, id ->
-            {
-                var cd: ChannelData? = null
-                if (player is Player) {
-                    manager.channel.queryChannel(player, id) {
-                        cd = it
-                    }
-                }
-                cd
-            }
-        }
         cmm.registerArgument(BaseItem::class.java) { _, itemId ->
             im.bases[itemId]
         }
@@ -142,12 +134,13 @@ class McEngine : JavaPlugin() {
         Bukkit.getScheduler()
             .scheduleSyncRepeatingTask(
                 this,
-                { manager.user.updateDb("Schedule") }, 0L, config.getLong("AutoSave") ?: 12000L
+                {         manager.updateDb()
+                }, 0L, config.getLong("AutoSave") ?: 12000L
             )
         PacketEvents.getAPI().init()
     }
 
     override fun onDisable() {
-        manager?.user?.updateDb("Disable")
+        manager?.updateDb()
     }
 }

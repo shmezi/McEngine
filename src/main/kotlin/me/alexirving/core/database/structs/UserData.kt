@@ -1,6 +1,7 @@
-package me.alexirving.core.db
+package me.alexirving.core.database.structs
 
 import com.fasterxml.jackson.annotation.JsonIgnore
+import me.alexirving.core.database.Cacheable
 import me.alexirving.core.effects.Effect
 import me.alexirving.core.mines.PrisonSettings
 import java.util.*
@@ -12,16 +13,11 @@ import java.util.*
  * @param currentChannel The player's selected channel to chat in, if any.
  */
 data class UserData(
-    val uuid: String,
     val points: MutableMap<String, Double>,
     val settings: PrisonSettings,
     var currentChannel: UUID?,
     val channels: MutableSet<UUID>,
-
-    ) {
+) : Cacheable() {
     @JsonIgnore
     val activeEffects = mutableMapOf<Effect, Int>()
-
-    @JsonIgnore
-    fun getId(): UUID = UUID.fromString(uuid)
 }

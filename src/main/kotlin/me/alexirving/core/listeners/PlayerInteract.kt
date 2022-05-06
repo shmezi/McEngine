@@ -1,4 +1,4 @@
-package me.alexirving.core.events
+package me.alexirving.core.listeners
 
 import de.tr7zw.changeme.nbtapi.NBTItem
 import org.bukkit.event.EventHandler

@@ -6,7 +6,7 @@ import dev.triumphteam.cmd.core.annotation.Command
 import dev.triumphteam.cmd.core.annotation.Optional
 import dev.triumphteam.cmd.core.annotation.SubCommand
 import me.alexirving.core.EngineManager
-import me.alexirving.core.gangs.GangData
+import me.alexirving.core.database.structs.GangData
 import org.bukkit.ChatColor
 import org.bukkit.entity.Player
 
