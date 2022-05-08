@@ -8,10 +8,9 @@
 package me.alexirving.core.animation.actions.actionables
 
 import me.alexirving.core.EngineManager
-import me.alexirving.core.McEngine
 import me.alexirving.core.animation.actions.Action
 import me.alexirving.core.animation.objects.AnimationSession
-import me.alexirving.core.animation.utils.Direction
+import me.alexirving.core.utils.Direction
 import org.bukkit.Location
 
 class Kill(manager: EngineManager, args: Map<String, Any>) : Action(manager, args) {

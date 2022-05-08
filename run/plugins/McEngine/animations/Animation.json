@@ -1,14 +1,15 @@
 {
   "id": "example",
-  "delay": 20,
+  "delay": 1,
   "entities": {
     "A": "ARMOR_STAND"
   },
   "frames": [
-    [{
-      "type": "SetInvisible",
-      "entity": "A"
-    },
+    [
+      {
+        "type": "SetInvisible",
+        "entity": "A"
+      },
       {
         "type": "SetDisplayName",
         "entity": "A",
@@ -21,13 +22,17 @@
         "itemId": "Skull"
       },
       {
-        "type": "DrawCircle",
-        "angle": 45.0,
-        "frameCount": 10,
-        "origin": {
+        "type": "DrawLine",
+        "frameCount": 600,
+        "from": {
           "x": 0.0,
           "y": 0.0,
           "z": 0.0
+        },
+        "to": {
+          "x": 10.0,
+          "y": 10.0,
+          "z": -3.0
         },
         "action": {
           "type": "Tp",

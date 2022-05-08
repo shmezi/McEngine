@@ -114,4 +114,24 @@ fun ConfigurationSection.getLocation(path: String, world: World): Location {
         float("Pitch")
     )
 }
+
+fun Location.getFacing(): Direction {
+    var rotation: Float = (yaw - 180) % 360
+    if (rotation < 0) {
+        rotation += 360.0f
+    }
+    return if (0 <= rotation && rotation < 22.5) {
+        Direction.NORTH
+    } else if (67.5 <= rotation && rotation < 112.5) {
+        Direction.EAST
+    } else if (157.5 <= rotation && rotation < 202.5) {
+        Direction.SOUTH
+    } else if (247.5 <= rotation && rotation < 292.5) {
+        Direction.WEST
+    } else {
+        Direction.NORTH
+    }
+
+}
+
 fun Map<String, Double>.loc() = Offset(this["x"] ?: 0.0, this["y"] ?: 0.0, this["z"] ?: 0.0)

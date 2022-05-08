@@ -5,7 +5,7 @@
  * Proprietary and confidential
  * Written by Alex Irving <alexirving992@gmail.com>, day month year
  */
-package me.alexirving.core.animation.utils
+package me.alexirving.core.utils
 
 enum class Direction {
     NORTH,

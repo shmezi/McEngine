@@ -8,7 +8,7 @@
 package me.alexirving.core.animation.objects
 
 import me.alexirving.core.animation.actions.Action
-import me.alexirving.core.animation.utils.Direction
+import me.alexirving.core.utils.Direction
 import org.bukkit.Location
 
 data class Frame(val actions: MutableList<Action>) {

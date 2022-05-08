@@ -12,7 +12,6 @@ import dev.triumphteam.cmd.bukkit.BukkitCommandManager
 import dev.triumphteam.cmd.core.suggestion.SuggestionKey
 import io.github.retrooper.packetevents.factory.spigot.SpigotPacketEventsBuilder
 import me.alexirving.core.animation.objects.Animation
-import me.alexirving.core.channels.ChannelData
 import me.alexirving.core.commands.*
 import me.alexirving.core.effects.Effect
 import me.alexirving.core.listeners.PlayerInteract
@@ -40,10 +39,10 @@ class McEngine : JavaPlugin() {
 
     }
 
-    var manager: EngineManager? = null
+    var m: EngineManager? = null
     override fun onEnable() {
-        manager = EngineManager(this)
-        val manager = manager ?: return
+        m = EngineManager(this)
+        val manager = m ?: return
         val cmm = BukkitCommandManager.create(this)
 
         /**
@@ -141,6 +140,6 @@ class McEngine : JavaPlugin() {
     }
 
     override fun onDisable() {
-        manager?.updateDb()
+        m?.updateDb()
     }
 }

@@ -1,0 +1,35 @@
+{
+  "id": "A",
+  "Duration": 10,
+  "world": "",
+  "Reset": {
+    "player": [
+      "msg %player% hey"
+    ],
+    "general": []
+  },
+  "spawn": {
+    "x": 0.0,
+    "y": 0.0,
+    "z": 0.0,
+    "pitch": 0.0,
+    "yaw": 0.0,
+    "world": "world"
+  },
+  "pos0": {
+    "x": 0.0,
+    "y": 0.0,
+    "z": 0.0
+  },
+  "pos1": {
+    "x": 0.0,
+    "y": 0.0,
+    "z": 0.0
+  },
+  "materials": {
+    "STONE": 10,
+    "DIAMOND_ORE": 50,
+    "GOLD_BLOCK": 30
+  },
+  "private": "A"
+}

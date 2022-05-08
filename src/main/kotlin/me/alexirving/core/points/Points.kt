@@ -18,9 +18,9 @@ import java.util.*
 open class Points(val id: String, private val m: EngineManager) {
 
     open fun pointTop(async: (pointTop: List<UserData>) -> Unit) {
-        m.user.getUsers { users ->
-            async(users.sortedBy { it.points[id] })
-        }
+//        m.user.getUsers { users ->
+//            async(users.sortedBy { it.points[id] })
+//        }
     }
 
     /**
@@ -29,7 +29,7 @@ open class Points(val id: String, private val m: EngineManager) {
      * @param value The amount to set the player's points to
      */
     open fun setPoints(uuid: UUID, value: Double) {
-        m.user.getUser(uuid, true) {
+        m.user.get(uuid, true) {
             it.points[id] = value
         }
     }
@@ -40,7 +40,7 @@ open class Points(val id: String, private val m: EngineManager) {
      * @param uuid The UUID of the player
      * @return The points of the player
      */
-    open fun getPoints(uuid: UUID, async: (balance: Double) -> Unit) = m.user.getUser(uuid) {
+    open fun getPoints(uuid: UUID, async: (balance: Double) -> Unit) = m.user.get(uuid) {
         async(it.points[id] ?: 0.0)
     }
 

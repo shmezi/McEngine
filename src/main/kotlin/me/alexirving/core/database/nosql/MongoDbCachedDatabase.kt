@@ -23,6 +23,10 @@ class MongoDbCachedDatabase<T : Cacheable>(val id: String, val type: Class<T>, c
     private lateinit var ec: MongoCollection<T>
 
     init {
+        System.setProperty(
+            "org.litote.mongo.test.mapping.service",
+            "org.litote.kmongo.jackson.JacksonClassMappingTypeService"
+        )
         dbReload(connection)
     }
 

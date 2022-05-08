@@ -8,7 +8,7 @@
 package me.alexirving.core
 
 import me.alexirving.core.animation.objects.AnimationSession
-import me.alexirving.core.animation.utils.getFacing
+import me.alexirving.core.utils.getFacing
 import org.bukkit.Location
 import org.bukkit.entity.Player
 
@@ -32,7 +32,7 @@ object McEngineAPI {
     fun getMcEngine() = instance ?: throw IllegalStateException("McEngine has not been loaded yet")
 
 
-    fun getAm() = getMcEngine().manager?.animation
+    fun getAm() = getMcEngine().m?.animation
 
 
     /**
@@ -54,5 +54,5 @@ object McEngineAPI {
         )
     }
 
-    fun reload() = instance?.manager?.reload()
+    fun reload() = instance?.m?.reload()
 }

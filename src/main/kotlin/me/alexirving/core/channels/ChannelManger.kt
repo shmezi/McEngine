@@ -12,7 +12,7 @@ import org.bukkit.event.player.AsyncPlayerChatEvent
 import java.util.*
 
 
-class ChannelManger(private val db: Database<Cacheable>, private val m: EngineManager) : Listener,
+class ChannelManger(db: Database<Cacheable>, private val m: EngineManager) : Listener,
     GroupCachedManager<ChannelData>(db, ChannelData.default(null)) {
 
     fun ChannelData.sendMessage(message: String) {
@@ -37,7 +37,7 @@ class ChannelManger(private val db: Database<Cacheable>, private val m: EngineMa
     }
 
     fun queryChannel(player: Player, name: String, result: (channelData: ChannelData?) -> Unit) {
-        if (m.channel.isUserCached(player.uniqueId)) {
+        if (isUserCached(player.uniqueId)) {
             var f = false
             m.user.get(player.uniqueId) { user ->
                 user.channels.firstOrNull { cId ->
@@ -49,26 +49,25 @@ class ChannelManger(private val db: Database<Cacheable>, private val m: EngineMa
     }
 
     fun queryPlayerChannels(player: Player, result: (channelData: MutableSet<ChannelData>) -> Unit) {
-        m.user.getUser(player.uniqueId) { user ->
-            result(
-                channelCache.filterKeys { user.channels.contains(it) }.values.toMutableSet()
-            )
-        }
+        if (isUserCached(player.uniqueId))
+            result(getAllOfUser(player.uniqueId))
+
     }
 
     @EventHandler
     private fun onChat(e: AsyncPlayerChatEvent) {
         if (e.isCancelled) return
-
         val player = e.player
         val uuid = player.uniqueId
-        m.user.getUser(uuid) {
-            val channel = channelCache[it.currentChannel] ?: return@getUser
-            e.isCancelled = true
-            if (channel.canWrite(uuid))
-                channel.sendMessage("[${channel.getPrefix(uuid)}] ${player.displayName}: ${e.message}")
-            else
-                player.sendMessage("Sorry you cannot write in chat of name ${channel.name}")
+        m.user.get(uuid) { user ->
+            get(user.currentChannel?:return@get){
+                e.isCancelled = true
+                if (it.canWrite(uuid))
+                    it.sendMessage("[${it.getPrefix(uuid)}] ${player.displayName}: ${e.message}")
+                else
+                    player.sendMessage("Sorry you cannot write in chat of name ${it.name}")
+            }
+
 
         }
 

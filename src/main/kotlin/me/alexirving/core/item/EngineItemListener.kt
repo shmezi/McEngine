@@ -14,7 +14,7 @@ class EngineItemListener(val m: EngineManager) : Listener {
         val p = e.player
         val pItem = p.inventory.getItem(e.previousSlot)
         val nItem = p.inventory.getItem(e.newSlot)
-        m.user.getUser(p.uniqueId) {
+        m.user.get(p.uniqueId) {
             if (m.item.isCustom(pItem)) {
                 val ei = EngineItem.of(m, pItem, p.inventory)
                 ei?.runResetEffects(p)
@@ -34,7 +34,7 @@ class EngineItemListener(val m: EngineManager) : Listener {
         val p = e.player
         val t = e.block.type
         if (p.hasPermission("engine.prison.autoblock"))
-            m.user.getUser(p) { user ->
+            m.user.get(p.uniqueId) { user ->
                 if (user.settings.block && BlockableItems.isBlockable(t) && e.player.inventory.contains(
                         t,
                         9

@@ -6,9 +6,9 @@ import dev.triumphteam.cmd.core.annotation.Command
 import dev.triumphteam.cmd.core.annotation.Optional
 import dev.triumphteam.cmd.core.annotation.SubCommand
 import me.alexirving.core.EngineManager
-import me.alexirving.core.database.structs.GangData
 import org.bukkit.ChatColor
 import org.bukkit.entity.Player
+import java.util.*
 
 @Command("gang")
 class CMDGang(val m: EngineManager) : BaseCommand() {
@@ -22,12 +22,11 @@ class CMDGang(val m: EngineManager) : BaseCommand() {
     @Permission("engine.gang.invite")
     fun invite(inviter: Player, invited: Player) {
         if (!invited.isOnline) return
-        m.user.getUser(invited) { invited ->
-            if (invited.settings.gang == null)
-                m.user.getUser(inviter) {
+        m.user.get(invited.uniqueId) { iUser ->
+            if (iUser.settings.gang == null)
+                m.user.get(inviter.uniqueId) {
                     if (it.settings.gang != null)
-                        m.gang.getGang(it.settings.gang ?: return@getUser) {
-
+                        m.gang.get(it.settings.gang ?: return@get) {
                         }
 
                 }
@@ -41,10 +40,10 @@ class CMDGang(val m: EngineManager) : BaseCommand() {
     @Permission("engine.gang.leave")
     fun leave(player: Player, @Optional confirm: String?) {
         if (confirm == "confirm")
-            m.user.getUser(player) { user ->
-                m.gang.getGang(user.settings.gang ?: return@getUser) {
+            m.user.get(player.uniqueId) { user ->
+                m.gang.get(user.settings.gang ?: return@get, true) {
                     it.players.remove(player.uniqueId)
-                    m.gang.updateGang(it)
+
                 }
             }
         else
@@ -54,10 +53,9 @@ class CMDGang(val m: EngineManager) : BaseCommand() {
     @SubCommand("public")
     @Permission("engine.gang.public")
     fun public(player: Player) {
-        m.user.getUser(player) { user ->
-            m.gang.getGang(user.settings.gang ?: return@getUser) {
+        m.user.get(player.uniqueId, true) { user ->
+            m.gang.get(user.settings.gang ?: return@get) {
                 it.public = !it.public
-                m.gang.updateGang(it)
             }
         }
     }
@@ -65,10 +63,9 @@ class CMDGang(val m: EngineManager) : BaseCommand() {
     @SubCommand("setmotd")
     @Permission("engine.gang.setmotd")
     fun setMotd(player: Player, motd: List<String>) {
-        m.user.getUser(player) { user ->
-            m.gang.getGang(user.settings.gang ?: return@getUser) {
+        m.user.get(player.uniqueId, true) { user ->
+            m.gang.get(user.settings.gang ?: return@get) {
                 it.motd = ChatColor.translateAlternateColorCodes('&', motd.joinToString(" "))
-                m.gang.updateGang(it)
             }
         }
     }
@@ -76,12 +73,6 @@ class CMDGang(val m: EngineManager) : BaseCommand() {
     @SubCommand("balance")
     @Permission("engine.gang.balance")
     fun balance(player: Player) {
-        m.gang.getGangOfPlayer(player) { gang ->
-            val points = m.point.getPoints("default") ?: return@getGangOfPlayer
-            gang.balance(points) {
-                player.sendMessage("The balance of your gang is $it")
-            }
-        }
     }
 
 
@@ -89,8 +80,8 @@ class CMDGang(val m: EngineManager) : BaseCommand() {
     @Permission("engine.gang.delete")
     fun delete(player: Player, @Optional confirm: String?) {
         if (confirm == "confirm")
-            m.gang.getGangOfPlayer(player) {
-                m.gang.delete(it.getId())
+            m.user.get(player.uniqueId, true) { user ->
+                m.gang.delete(user.settings.gang ?: return@get)
             }
         else
             player.sendMessage("Are you sure you want to delete your gang? if so type /gang delete confirm")
@@ -99,11 +90,14 @@ class CMDGang(val m: EngineManager) : BaseCommand() {
     @SubCommand("create")
     @Permission("engine.gang.create")
     fun create(player: Player, name: String) {
-        m.gang.getGangOfPlayer(player, {
-            player.sendMessage("You are already in a gang!")
-        }, {
-            m.gang.registerGang(GangData.default(m, player.uniqueId, name))
-        })
+        m.user.doesExist(player.uniqueId) {
+            if (it)
+                m.gang.get(
+                    UUID.randomUUID()
+                ){
+                    player.sendMessage("You are already in a gang!")
+                }
+        }
 
     }
 }

@@ -8,7 +8,7 @@
 package me.alexirving.core.animation.objects
 
 import me.alexirving.core.McEngine
-import me.alexirving.core.animation.utils.Direction
+import me.alexirving.core.utils.Direction
 import me.alexirving.core.exceptions.ShmeziFuckedUp
 import me.alexirving.core.utils.pq
 import org.bukkit.Location
@@ -30,7 +30,7 @@ data class AnimationSession(
 ) {
     val standMap: MutableMap<String, Int> = mutableMapOf() //Map of stand name to stand id in the packetMap
     private val scheduler = pl.server.scheduler
-    val pm = pl.manager?.packet ?: throw ShmeziFuckedUp("oop")
+    val pm = pl.m?.packet ?: throw ShmeziFuckedUp("oop")
 
     /**
      * Starts the animation session.

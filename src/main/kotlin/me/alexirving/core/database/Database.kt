@@ -4,7 +4,7 @@ import java.util.*
 
 /**
  * Represents an async database.
- * FYI all methods should have the prefix of db to show that this is for internal use and you should **NEVER** use it except in the userManager!
+ * All methods should have the prefix of db to show that this is for internal use and you should **NEVER** use it except in the userManager!
  */
 interface Database<T : Cacheable> {
     /**
@@ -18,8 +18,13 @@ interface Database<T : Cacheable> {
      */
     fun dbGet(key: UUID, async: (value: T?) -> Unit)
 
-
+    /**
+     * Update data in the database
+     */
     fun dbUpdate(value: T)
 
+    /**
+     * Delete data in the database
+     */
     fun dbDelete(key: UUID)
 }

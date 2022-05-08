@@ -224,6 +224,12 @@ world-settings:
       spawn-chance-min: 25
       spawn-chance-max: 75
     door-breaking-difficulty:
+      zombie_villager:
+      - HARD
+      husk:
+      - HARD
+      zombified_piglin:
+      - HARD
       zombie:
       - HARD
       vindicator:

@@ -7,7 +7,7 @@
  */
 package me.alexirving.core.animation.objects
 
-import me.alexirving.core.animation.utils.Direction
+import me.alexirving.core.utils.Direction
 import org.bukkit.Location
 import kotlin.math.pow
 

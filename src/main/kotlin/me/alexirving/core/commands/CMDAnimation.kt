@@ -16,7 +16,7 @@ import dev.triumphteam.cmd.core.annotation.Suggestion
 import me.alexirving.core.McEngine
 import me.alexirving.core.animation.objects.Animation
 import me.alexirving.core.animation.objects.AnimationSession
-import me.alexirving.core.animation.utils.Direction
+import me.alexirving.core.utils.Direction
 import org.bukkit.Bukkit
 import org.bukkit.Location
 import org.bukkit.World

@@ -1,0 +1,11 @@
+{
+  "Prestiges": [
+    {
+      "name": "A",
+      "price": 100,
+      "commands": [
+        "msg %player% hey"
+      ]
+    }
+  ]
+}

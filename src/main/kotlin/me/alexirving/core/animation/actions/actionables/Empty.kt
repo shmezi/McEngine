@@ -8,9 +8,8 @@
 package me.alexirving.core.animation.actions.actionables
 
 import me.alexirving.core.EngineManager
-import me.alexirving.core.McEngine
 import me.alexirving.core.animation.objects.AnimationSession
-import me.alexirving.core.animation.utils.Direction
+import me.alexirving.core.utils.Direction
 import me.alexirving.core.animation.actions.Action
 import org.bukkit.Location
 

@@ -23,12 +23,12 @@ class EffectManager(private val m: EngineManager) : Listener {
     }
 
     fun getEffectById(id: String) = registeredEffects[id]
-    fun getEffectIds() = registeredEffects.map { it.key }
+    fun getEffectIds() = registeredEffects.keys
 
     @EventHandler
     fun onPlayerMine(e: BlockBreakEvent) {
         if (e.block.type == Material.WATER) return
-        m.user.getUser(e.player.uniqueId) { userData ->
+        m.user.get(e.player.uniqueId) { userData ->
             val ae = userData.activeEffects
             listens[Intent.MINE]?.filter { ae.containsKey(it) }?.forEach {
                 it.onMine(e, ae[it] ?: 0)
@@ -39,7 +39,7 @@ class EffectManager(private val m: EngineManager) : Listener {
 
     @EventHandler
     fun onPlayerInteract(e: PlayerInteractEvent) {
-        m.user.getUser(e.player.uniqueId) { userData ->
+        m.user.get(e.player.uniqueId) { userData ->
             val ae = userData.activeEffects
             listens[Intent.INTERACT]?.filter { ae.containsKey(it) }?.forEach {
                 it.onInteract(e, ae[it] ?: 0)

@@ -25,7 +25,7 @@ class MineManager(private val m: EngineManager) : Listener {
             failure()
             return
         }
-        m.user.getUser(player.uniqueId) {
+        m.user.get(player.uniqueId) {
             val mine = fMines[0]
             mine.resetMine()
             mine.join(player)

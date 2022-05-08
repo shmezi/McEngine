@@ -48,7 +48,7 @@ class CMDEngine(private val m: EngineManager) : BaseCommand() {
     @SubCommand("forceDbUpdate", alias = ["dbUpdate"])
     @Permission("engine.core.dbupdate")
     fun dbUpdate(sender: CommandSender) {
-        m.user.updateDb("Boot")
+        m.user.update()
     }
 
     @SubCommand("enchant")

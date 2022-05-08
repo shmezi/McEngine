@@ -17,13 +17,15 @@ open class GroupCachedManager<T : Cacheable>(db: Database<Cacheable>, template: 
             }
     }
 
-    fun getOfUser(uuid: UUID) {
+
+    fun getAllOfUser(uuid: UUID): MutableSet<T> {
         val cached = mutableSetOf<T>()
         userCache[uuid]?.forEach { cId ->
             get(cId) {
                 cached.add(it)
             }
         }
+        return cached
     }
 
     fun unloadUser(groupId: UUID, userID: UUID) {

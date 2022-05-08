@@ -211,7 +211,7 @@ class EngineItem {
     }
 
     fun runStartEffects(p: Player) {
-        m.user.getUser(p) {
+        m.user.get(p.uniqueId) {
             for (e in getEffectLevels()) {
                 val effect = m.effect.getEffectById(e.key) ?: continue
                 m.effect.onStart(p, effect, e.value)
@@ -222,7 +222,7 @@ class EngineItem {
     }
 
     fun runResetEffects(p: Player) {
-        m.user.getUser(p) {
+        m.user.get(p.uniqueId) {
             for (e in getEffectLevels()) {
                 m.effect.onReset(p, m.effect.getEffectById(e.key) ?: continue)
             }

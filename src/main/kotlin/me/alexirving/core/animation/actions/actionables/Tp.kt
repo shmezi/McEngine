@@ -11,7 +11,7 @@ import me.alexirving.core.EngineManager
 import me.alexirving.core.animation.actions.Action
 import me.alexirving.core.animation.objects.AnimationSession
 import me.alexirving.core.animation.objects.Offset
-import me.alexirving.core.animation.utils.Direction
+import me.alexirving.core.utils.Direction
 import me.alexirving.core.utils.loc
 import org.bukkit.Location
 
