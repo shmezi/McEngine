@@ -8,8 +8,8 @@
 package me.alexirving.core.animation.objects
 
 import me.alexirving.core.McEngine
-import me.alexirving.core.utils.Direction
 import me.alexirving.core.exceptions.ShmeziFuckedUp
+import me.alexirving.core.utils.Direction
 import me.alexirving.core.utils.pq
 import org.bukkit.Location
 import org.bukkit.entity.Player
@@ -23,7 +23,7 @@ import org.bukkit.entity.Player
  */
 data class AnimationSession(
     private val pl: McEngine,
-    private val viewers: MutableList<Player>,
+    val viewers: MutableSet<Player>,
     private val location: Location,
     val animation: Animation,
     val direction: Direction
@@ -51,7 +51,7 @@ data class AnimationSession(
         var timeStamp = 0
         for (frame in animation.sequence) {
             scheduler.runTaskLaterAsynchronously(pl, Runnable {
-                frame.run(this, location, direction)
+                frame.run(this)
             }, timeStamp.toLong())
             timeStamp += animation.frameDelay
         }

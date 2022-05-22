@@ -5,17 +5,17 @@
  * Proprietary and confidential
  * Written by Alex Irving <alexirving992@gmail.com>, day month year
  */
-package me.alexirving.core.animation.actions.actionables
+package me.alexirving.core.actions.internal
 
 import me.alexirving.core.EngineManager
-import me.alexirving.core.animation.actions.Action
+import me.alexirving.core.actions.AniAction
 import me.alexirving.core.animation.objects.AnimationSession
-import me.alexirving.core.utils.Direction
-import org.bukkit.Location
 
-class SetInvisible(manager: EngineManager, args: Map<String, Any>) : Action(manager, args) {
+class PESetInvisible(manager: EngineManager, args: Map<String, Any>) : AniAction(manager, args) {
+    override val id = "SetInvisible"
 
-    override fun run(session: AnimationSession, zeroPoint: Location, direction: Direction) {
+
+    override fun run(session: AnimationSession, data: MutableMap<String, Any>) {
         m.packet.setInvisible(session.standMap[args["entity"]]!!)
     }
 }

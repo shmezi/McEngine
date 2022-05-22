@@ -7,14 +7,16 @@
  */
 package me.alexirving.core.animation.objects
 
-import me.alexirving.core.animation.actions.Action
+import me.alexirving.core.actions.Action
 import me.alexirving.core.utils.Direction
 import org.bukkit.Location
 
 data class Frame(val actions: MutableList<Action>) {
-    fun run(session: AnimationSession, zeroPoint: Location, direction: Direction) {
+    fun run(session: AnimationSession) {
         for (action in actions.withIndex())
-            action.value.run(session, zeroPoint, direction)
+            action.value.run(mutableMapOf<String, Any>().apply {
+                this["session"] = session
+            })
     }
 
 }

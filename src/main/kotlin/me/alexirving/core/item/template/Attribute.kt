@@ -25,12 +25,3 @@ class Attribute(
     val placeholders: Map<String, List<Int>>,
     val effects: List<Map<String, Int>>
 )
-
-fun main() {
-    val g = Gson()
-    val a = mutableListOf<MutableMap<String, Int>>()
-    val e = mutableMapOf<String, Int>()
-    e["shmezi"] = 100
-    a.add(e)
-    g.toJson(a).pq()
-}

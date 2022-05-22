@@ -3,6 +3,7 @@ package me.alexirving.core.effects
 import me.alexirving.core.item.instance.EngineItem
 import org.bukkit.entity.Player
 import org.bukkit.event.block.BlockBreakEvent
+import org.bukkit.event.block.BlockPlaceEvent
 import org.bukkit.event.player.PlayerInteractEvent
 
 
@@ -20,12 +21,12 @@ abstract class Effect(val id: String, vararg val listenTo: Intent) {
     /**
      * Run when effect ends
      */
-    open fun onReset(player: Player) {}
+    open fun onEnd(player: Player) {}
 
     /**
      * Run when player interacts
      *
-     * (Not recommended as this is pretty heavy.)
+     * (Not recommended as this can be pretty heavy.)
      */
     open fun onInteract(e: PlayerInteractEvent, level: Int) {}
 
@@ -35,9 +36,14 @@ abstract class Effect(val id: String, vararg val listenTo: Intent) {
     open fun onMine(e: BlockBreakEvent, level: Int) {}
 
     /**
-     * Run when engineItem is built
+     * Run when a player breaks a block
      */
-    open fun onBuild(item: EngineItem, level: Int) {}
+    open fun onPlace(e: BlockPlaceEvent, level: Int) {}
+
+    /**
+     * Run when an engineItem is built
+     */
+    open fun onEngineItemBuild(item: EngineItem, level: Int) {}
 
 }
 

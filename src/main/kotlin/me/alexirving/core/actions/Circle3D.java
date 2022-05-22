@@ -1,4 +1,4 @@
-package me.alexirving.core.animation.actions;
+package me.alexirving.core.actions;
 
 import me.alexirving.core.animation.objects.Offset;
 

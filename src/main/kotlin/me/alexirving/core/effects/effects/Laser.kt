@@ -14,7 +14,6 @@ class Laser(val m: EngineManager) : Effect("laser", Intent.MINE) {
             if (!inMine) return@isInPlayerMine
             val loc = e.block.location
 
-            e.player.sendMessage("MINED!")
             if (e.player.location.pitch > 90 || e.player.location.pitch < 90) {
                 loc.clone().add(0.0, 0.0, 1.0).block.type = Material.AIR
                 loc.clone().subtract(0.0, 0.0, 1.0).block.type = Material.AIR

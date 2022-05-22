@@ -5,11 +5,11 @@
  * Proprietary and confidential
  * Written by Alex Irving <alexirving992@gmail.com>, day month year
  */
-package me.alexirving.core.animation.actions.actionables
+package me.alexirving.core.actions.internal
 
 import me.alexirving.core.EngineManager
-import me.alexirving.core.animation.actions.Action
-import me.alexirving.core.animation.actions.SuperAction
+import me.alexirving.core.actions.Action
+import me.alexirving.core.actions.SuperAction
 import me.alexirving.core.animation.loader.AniCompiler
 import me.alexirving.core.exceptions.CompileError
 import me.alexirving.core.utils.loc
@@ -37,7 +37,7 @@ class DrawLine(manager: EngineManager, args: Map<String, Any>, start: Int) : Sup
             currentX += intX
             currentY += intY
             currentZ += intZ
-            a[current++] = AniCompiler.compileAction(m, (args["action"] as Map<String, Any>).toMutableMap().apply {
+            a[current++] = m.action.compileAction(m, (args["action"] as Map<String, Any>).toMutableMap().apply {
 
                 val loc = (this["location"] as Map<String, Double>).toMutableMap()
                 loc["x"] = currentX

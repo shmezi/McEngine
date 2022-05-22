@@ -5,13 +5,13 @@
  * Proprietary and confidential
  * Written by Alex Irving <alexirving992@gmail.com>, day month year
  */
-package me.alexirving.core.animation.actions
+package me.alexirving.core.actions
 
 import me.alexirving.core.EngineManager
 
 /**
  * Represents a super action.
- * A super action is a function that generates other actions. (Example: [DrawCircle])
+ * A super action is a function that generates other actions. (Example: )
  */
 abstract class SuperAction(
     val m: EngineManager,

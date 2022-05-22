@@ -53,8 +53,8 @@ fun copyOver(dataFolder: File, vararg fileNames: String) {
 /**
  * Guarantees a number above 0
  */
-fun Int.nBZ() = if (this < 0) 0 else this
-fun Double.nBZ() = if (this < 0) 0.0 else this
+fun Int?.nBZ() = if ((this ?: 0) < 0) 0 else this?:0
+fun Double?.nBZ() = if ((this ?: 0.0) < 0.0) 0.0 else this?:0.0
 
 fun Int.nB(value: Int) = if (this < value) value else this
 fun Double.nB(value: Double) = if (this < value) value else this
@@ -134,4 +134,5 @@ fun Location.getFacing(): Direction {
 
 }
 
-fun Map<String, Double>.loc() = Offset(this["x"] ?: 0.0, this["y"] ?: 0.0, this["z"] ?: 0.0)
+fun Map<String, Double>?.loc() =
+    if (this == null) Offset(0.0, 0.0, 0.0) else Offset(this["x"] ?: 0.0, this["y"] ?: 0.0, this["z"] ?: 0.0)

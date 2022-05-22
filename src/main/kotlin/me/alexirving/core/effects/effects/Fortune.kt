@@ -6,7 +6,7 @@ import me.alexirving.core.item.instance.EngineItem
 import org.bukkit.enchantments.Enchantment
 
 class Fortune : Effect("fortune", Intent.BUILD) {
-    override fun onBuild(item: EngineItem, level: Int) {
+    override fun onEngineItemBuild(item: EngineItem, level: Int) {
         item.addEnchant(Enchantment.LOOT_BONUS_BLOCKS, level)
     }
 }

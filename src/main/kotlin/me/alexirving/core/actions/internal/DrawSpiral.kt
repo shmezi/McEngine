@@ -5,12 +5,12 @@
 // * Proprietary and confidential
 // * Written by Alex Irving <alexirving992@gmail.com>, day month year
 // */
-//package me.alexirving.core.animation.actions.actionables
+//package me.alexirving.core.actions.actionables
 //
 //import me.alexirving.core.EngineManager
 //import me.alexirving.core.animation.loader.AniCompiler
-//import me.alexirving.core.animation.actions.Action
-//import me.alexirving.core.animation.actions.SuperAction
+//import me.alexirving.core.actions.Action
+//import me.alexirving.core.actions.SuperAction
 //import me.alexirving.core.animation.utils.toLocation
 //import java.text.DecimalFormat
 //import java.util.regex.Pattern

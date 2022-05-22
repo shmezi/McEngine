@@ -1,5 +1,5 @@
 package me.alexirving.core.manager
 
-interface Loadable {
+interface Loadable : Cloneable {
     val id: String
 }

@@ -16,7 +16,7 @@ import com.github.retrooper.packetevents.manager.player.PlayerManager
 import com.github.retrooper.packetevents.wrapper.PacketWrapper
 import org.bukkit.entity.Player
 
-abstract class Packet(val id: Int, val viewers: MutableList<Player>) {
+abstract class Packet(val id: Int, val viewers: MutableSet<Player>) {
     private val lib: ProtocolManager = ProtocolLibrary.getProtocolManager()
 
     fun buildBasic(packet: PacketType): PacketContainer {
@@ -26,16 +26,12 @@ abstract class Packet(val id: Int, val viewers: MutableList<Player>) {
     }
 
     fun send(pac: PacketContainer) {
-        for (viewer in viewers) {
-
-            lib.sendServerPacket(viewer, pac)
-        }
+        viewers.forEach { lib.sendServerPacket(it, pac) }
     }
 
     private val api: PlayerManager = PacketEvents.getAPI().playerManager
     fun <T : PacketWrapper<*>> send(pac: PacketWrapper<T>) {
-        for (v in viewers)
-            api.sendPacket(v,pac)
+        viewers.forEach { api.sendPacket(it, pac) }
     }
 
 

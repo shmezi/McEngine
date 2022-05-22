@@ -5,22 +5,21 @@
  * Proprietary and confidential
  * Written by Alex Irving <alexirving992@gmail.com>, day month year
  */
-package me.alexirving.core.animation.actions.actionables
+package me.alexirving.core.actions.internal
 
 import me.alexirving.core.EngineManager
-import me.alexirving.core.animation.actions.Action
-import me.alexirving.core.animation.actions.SuperAction
-import me.alexirving.core.animation.loader.AniCompiler
+import me.alexirving.core.actions.Action
+import me.alexirving.core.actions.SuperAction
 
-class Loop(manager: EngineManager, args: Map<String, Any>, start: Int) : SuperAction(
-    manager, args, start
+class Loop(m: EngineManager, args: Map<String, Any>, start: Int) : SuperAction(
+    m, args, start
 ) {
     override fun build(): MutableMap<Int, Action> {
 
         val a = mutableMapOf<Int, Action>()
 
         for (i in start until ((args["amount"] as Int?) ?: 0)) {
-            a[i] = AniCompiler.compileAction(m, args["action"] as Map<String, Any>)!!
+            a[i] = m.action.compileAction(m, args["action"] as Map<String, Any>)!!
         }
 
 

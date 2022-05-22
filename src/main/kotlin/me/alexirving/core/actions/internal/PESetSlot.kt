@@ -5,24 +5,21 @@
  * Proprietary and confidential
  * Written by Alex Irving <alexirving992@gmail.com>, day month year
  */
-package me.alexirving.core.animation.actions.actionables
+package me.alexirving.core.actions.internal
 
 import me.alexirving.core.EngineManager
-import me.alexirving.core.animation.actions.Action
+import me.alexirving.core.actions.AniAction
 import me.alexirving.core.animation.objects.AnimationSession
-import me.alexirving.core.utils.Direction
 import me.alexirving.core.exceptions.NotFoundException
-import org.bukkit.Location
 
-class SetItem(manager: EngineManager, args: Map<String, Any>) : Action(manager, args) {
+class PESetSlot(manager: EngineManager, args: Map<String, Any>) : AniAction(manager, args) {
+    override val id = "SetItem"
 
-    override fun run(session: AnimationSession, zeroPoint: Location, direction: Direction) {
+    override fun run(session: AnimationSession, data: MutableMap<String, Any>) {
         m.packet.setItem(
-            session.standMap[args["entity"]]!!,
+           session.standMap[args["entity"]]!!,
             args["slot"] as Int,
             m.item.bases[args["itemId"]]?.buildSimple()
                 ?: throw NotFoundException("Item \"${args["itemId"]}\" was not found!")
-        )
-
-    }
+        )    }
 }

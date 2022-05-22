@@ -27,12 +27,11 @@ import java.util.*
 import kotlin.math.floor
 
 
-class PacEntity(id: Int, viewers: MutableList<Player>, val entity: EntityType) :
+class PacEntity(id: Int, viewers: MutableSet<Player>, val entity: EntityType) :
     Packet(id, viewers) {
-    val options = mutableMapOf<PacEntityOption, Boolean>()
+    private val options = mutableMapOf<PacEntityOption, Boolean>()
 
     fun tp(location: Location): PacEntity {
-        "Teleporting entity of id$id to location $location".pq()
         val pac = buildBasic(PacketType.Play.Server.ENTITY_TELEPORT).apply {
             if (PacketManager.version.isAtLeast(MinecraftVersion.COMBAT_UPDATE))
                 doubles.apply {

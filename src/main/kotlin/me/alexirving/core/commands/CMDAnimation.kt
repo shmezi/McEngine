@@ -40,7 +40,7 @@ class CMDAnimation(val pl: McEngine) : BaseCommand() {
     ) {
         AnimationSession(
             pl,
-            Bukkit.getOnlinePlayers().toMutableList(),
+            Bukkit.getOnlinePlayers().toMutableSet(),
             Location(world, x ?: return, y ?: return, z ?: return),
             animation ?: return,
             direction ?: Direction.NORTH

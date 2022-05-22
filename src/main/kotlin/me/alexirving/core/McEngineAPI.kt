@@ -41,7 +41,7 @@ object McEngineAPI {
      * @param location Location to play animation at
      * @param viewers Players to play animation to
      */
-    fun playAnimation(animation: String, location: Location, viewers: MutableList<Player>) {
+    fun playAnimation(animation: String, location: Location, viewers: MutableSet<Player>) {
         getAm()?.getAnimation(animation)
             ?: throw NullPointerException("Animation \"$animation\" does not exist.")
 

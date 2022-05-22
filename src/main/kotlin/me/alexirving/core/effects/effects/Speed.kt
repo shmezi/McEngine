@@ -14,7 +14,7 @@ class Speed : Effect("speed", Intent.START, Intent.RESET) {
     }
 
 
-    override fun onReset(player: Player) {
+    override fun onEnd(player: Player) {
         player.removePotionEffect(PotionEffectType.SPEED)
     }
 }

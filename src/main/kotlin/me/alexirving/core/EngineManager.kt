@@ -8,6 +8,7 @@
 package me.alexirving.core
 
 import com.google.gson.Gson
+import me.alexirving.core.actions.ActionManager
 import me.alexirving.core.animation.AnimationManager
 import me.alexirving.core.channels.ChannelData
 import me.alexirving.core.channels.ChannelManger
@@ -42,7 +43,8 @@ class EngineManager(val engine: McEngine) : Listener {
     val effect = EffectManager(this)
     val packet = PacketManager()
     val channel = ChannelManger(
-        MongoDbCachedDatabase("Channel", ChannelData::class.java, connection),this)
+        MongoDbCachedDatabase("Channel", ChannelData::class.java, connection), this
+    )
     val mine = MineManager(this)
     val gson = Gson()
     val animation = AnimationManager(File(df, "animations"), this)
@@ -52,6 +54,7 @@ class EngineManager(val engine: McEngine) : Listener {
             PrisonSettings.default(), null, mutableSetOf()
         )
     )
+    val action = ActionManager(this)
     val gang = GroupCachedManager(
         MongoDbCachedDatabase("Gang", GangData::class.java, connection),
         GangData.default(null, "Gang")

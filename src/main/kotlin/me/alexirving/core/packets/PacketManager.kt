@@ -27,7 +27,7 @@ class PacketManager {
     }
 
     var idCounter = 0
-    fun spawn(type: EntityType, viewers: MutableList<Player>, location: Location): Int {
+    fun spawn(type: EntityType, viewers: MutableSet<Player>, location: Location): Int {
         packetMap[idCounter] = PacEntity(idCounter, viewers, type).spawn(location.clone().add(0.5, -1.2, 0.5))
         setInvisible(idCounter)
         return idCounter++

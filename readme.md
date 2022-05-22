@@ -20,6 +20,19 @@ Permissions:
 |/engine reload|Reload engine completely|none| engine.core.reload|
 |/engine forceDbUpdate|Force a database update|dbUpdate| engine.core.dbupdate|
 
-
 ---------
 When setting up prestiges in the config, you should be setting the id of each id to correspond with the one of the mine.
+---------
+
+Special thanks to the many open-source libs used:
+
+- KMongo
+- Reflections
+- Adventure-Chat
+- PacketEvents
+- NbtApi
+- Triumph-Frameworks
+- ProtocolLib
+- WorldEdit
+
+Witout these libs, this plugin would look way messier and perform way poorer

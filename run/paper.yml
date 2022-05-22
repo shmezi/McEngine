@@ -32,7 +32,7 @@ messages:
   no-permission: '&cI''m sorry, but you do not have permission to perform this command.
     Please contact the server administrators if you believe that this is in error.'
 use-display-name-in-quit-message: false
-config-version: 26
+config-version: 27
 effect-modifiers:
   strength: 1.3
   weakness: -0.5
@@ -154,7 +154,6 @@ world-settings:
     portal-search-vanilla-dimension-scaling: true
     fix-items-merging-through-walls: false
     armor-stands-tick: true
-    use-faster-eigencraft-redstone: false
     fixed-chunk-inhabited-time: -1
     grass-spread-tick-rate: 1
     map-item-frame-cursor-limit: 128
@@ -427,3 +426,4 @@ world-settings:
       underground_water_creature: -1
       water_creature: -1
       water_ambient: -1
+    redstone-implementation: vanilla

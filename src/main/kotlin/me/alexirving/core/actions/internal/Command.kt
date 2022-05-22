@@ -5,17 +5,21 @@
  * Proprietary and confidential
  * Written by Alex Irving <alexirving992@gmail.com>, day month year
  */
-package me.alexirving.core.animation.actions.actionables
+package me.alexirving.core.actions.internal
 
 import me.alexirving.core.EngineManager
-import me.alexirving.core.animation.actions.Action
+import me.alexirving.core.actions.Action
 import me.alexirving.core.animation.objects.AnimationSession
+import me.alexirving.core.animation.objects.Offset
 import me.alexirving.core.utils.Direction
 import org.bukkit.Bukkit
 import org.bukkit.Location
+import org.bukkit.entity.Player
 
-class Command(manager: EngineManager, args: Map<String, String>) : Action(manager, args) {
-    override fun run(session: AnimationSession, zeroPoint: Location, direction: Direction) {
+class Command(manager: EngineManager, args: Map<String, String> ) : Action(manager, args) {
+
+    override val id = "command"
+    override fun run(data: MutableMap<String, Any>) {
         if (!Bukkit.isPrimaryThread())
             Bukkit.getScheduler().runTask(m.engine, Runnable {
                 Bukkit.getServer().dispatchCommand(Bukkit.getConsoleSender(), args["command"] as String? ?: "")

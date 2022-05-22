@@ -14,11 +14,11 @@ import io.github.retrooper.packetevents.factory.spigot.SpigotPacketEventsBuilder
 import me.alexirving.core.animation.objects.Animation
 import me.alexirving.core.commands.*
 import me.alexirving.core.effects.Effect
+import me.alexirving.core.hooks.HookPapi
+import me.alexirving.core.item.template.BaseItem
 import me.alexirving.core.listeners.PlayerInteract
 import me.alexirving.core.listeners.PlayerJoin
 import me.alexirving.core.listeners.PlayerLeave
-import me.alexirving.core.hooks.HookPapi
-import me.alexirving.core.item.template.BaseItem
 import me.alexirving.core.points.Points
 import me.alexirving.core.utils.copyOver
 import me.alexirving.core.utils.registerListeners
@@ -63,9 +63,6 @@ class McEngine : JavaPlugin() {
          */
 
 
-
-
-
         val im = manager.item
         cmm.registerArgument(BaseItem::class.java) { _, itemId ->
             im.bases[itemId]
@@ -92,7 +89,7 @@ class McEngine : JavaPlugin() {
             manager.effect.getEffectById(effect)
         }
         cmm.registerSuggestion(Effect::class.java) { _, _ ->
-            manager.effect.getEffectIds()
+            manager.effect.getEffectIds().toMutableList()
         }
         cmm.registerSuggestion(World::class.java) { _, _ ->
             Bukkit.getWorlds().map { it.name }
@@ -133,7 +130,8 @@ class McEngine : JavaPlugin() {
         Bukkit.getScheduler()
             .scheduleSyncRepeatingTask(
                 this,
-                {         manager.updateDb()
+                {
+                    manager.updateDb()
                 }, 0L, config.getLong("AutoSave") ?: 12000L
             )
         PacketEvents.getAPI().init()

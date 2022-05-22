@@ -25,8 +25,6 @@ class NotAProgram : Frame("This is not an application!") {
             }
         })
     }
-
-
 }
 
 fun main() {

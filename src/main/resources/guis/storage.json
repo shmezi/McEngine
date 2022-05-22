@@ -1,0 +1,47 @@
+{
+  "id": "inventory",
+  "type": "CHEST",
+  "rows": 4,
+  "pages": 1,
+  "mutable": [
+    0,
+    "0-2"
+  ],
+  "variables": {
+    "warp-home": {
+      "type": "BUTTON",
+      "slots": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "itemId": "warpHome",
+      "actions": {
+        "commands": [
+          "msg %player% warped home!"
+        ]
+      }
+    },
+    "allow-friends": {
+      "type": "SWITCH",
+      "slots": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "states": [
+        {
+          "id": "true",
+          "itemId": "allowFriendsTrue",
+          "actions": {
+            "commands": [
+              "msg %player% toggled friend"
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

@@ -12,6 +12,7 @@ import org.bukkit.entity.Player
 import org.bukkit.event.EventHandler
 import org.bukkit.event.Listener
 import org.bukkit.event.block.BlockBreakEvent
+import org.bukkit.event.block.BlockPlaceEvent
 import org.bukkit.event.player.PlayerInteractEvent
 
 class EffectManager(private val m: EngineManager) : Listener {
@@ -47,9 +48,19 @@ class EffectManager(private val m: EngineManager) : Listener {
         }
     }
 
+    @EventHandler
+    fun onPlayerPlace(e: BlockPlaceEvent) {
+        m.user.get(e.player.uniqueId) { userData ->
+            val ae = userData.activeEffects
+            listens[Intent.PLACE]?.filter { ae.containsKey(it) }?.forEach {
+                it.onPlace(e, ae[it] ?: 0)
+            }
+        }
+    }
+
     fun onBuild(item: EngineItem, effect: Effect, level: Int) {
         if (effect.listenTo.contains(Intent.BUILD))
-            effect.onBuild(item, level)
+            effect.onEngineItemBuild(item, level)
 
     }
 
@@ -60,7 +71,7 @@ class EffectManager(private val m: EngineManager) : Listener {
 
     fun onReset(player: Player, effect: Effect) {
         if (effect.listenTo.contains(Intent.RESET))
-            effect.onReset(player)
+            effect.onEnd(player)
     }
 
 

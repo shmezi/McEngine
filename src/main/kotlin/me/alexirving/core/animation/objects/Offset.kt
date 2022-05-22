@@ -12,7 +12,7 @@ import org.bukkit.Location
 import kotlin.math.pow
 
 /**
- * Represents an offset from a [Location]
+ * Represents an offset in space, basically defining a coordinate system from a location
  */
 class Offset : Cloneable {
     var x: Double = 0.0
