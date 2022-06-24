@@ -27,6 +27,7 @@ class Particle(manager: EngineManager, args: Map<String, Any>) : Action(manager,
                 Effect.valueOf(args["effect"] as String),
                 args["data"] as Byte
             )
+
         }
 
 

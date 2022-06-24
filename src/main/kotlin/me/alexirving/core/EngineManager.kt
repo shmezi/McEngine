@@ -31,6 +31,7 @@ import me.alexirving.core.points.track.PointsTrack
 import me.alexirving.core.utils.Colors
 import me.alexirving.core.utils.color
 import me.alexirving.core.utils.registerListeners
+import org.bukkit.Location
 import org.bukkit.entity.Player
 import org.bukkit.event.Listener
 import java.io.File
@@ -47,6 +48,7 @@ class EngineManager(val engine: McEngine) : Listener {
     )
     val mine = MineManager(this)
     val gson = Gson()
+    val action = ActionManager(this)
     val animation = AnimationManager(File(df, "animations"), this)
     val user = CachedManager(
         MongoDbCachedDatabase("User", UserData::class.java, connection), UserData(
@@ -54,7 +56,6 @@ class EngineManager(val engine: McEngine) : Listener {
             PrisonSettings.default(), null, mutableSetOf()
         )
     )
-    val action = ActionManager(this)
     val gang = GroupCachedManager(
         MongoDbCachedDatabase("Gang", GangData::class.java, connection),
         GangData.default(null, "Gang")
@@ -67,6 +68,7 @@ class EngineManager(val engine: McEngine) : Listener {
         registerListeners(engine, effect, this)
         reload()
     }
+
 
     fun loadPlayer(player: Player) {
         user.get(player.uniqueId) { user ->

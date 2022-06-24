@@ -33,7 +33,7 @@ dependencies {
     implementation("org.jetbrains.kotlin:kotlin-stdlib:1.6.0") /*STDLIB of kotlin*/
     implementation("org.litote.kmongo:kmongo:4.5.1")
     implementation("org.reflections:reflections:0.10.2")/*REFLECTIONS - REFLECTIONS UTILS*/
-    compileOnly("org.spigotmc", "spigot-api", "1.8.8-R0.1-SNAPSHOT")/*SPIGOT 1.8 version*/
+    compileOnly("org.spigotmc:spigot-api:1.19-R0.1-SNAPSHOT")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.1-native-mt")/*CoRoutines - Used for async*/
     implementation("net.kyori:adventure-text-minimessage:4.10.1") /*Adventure - Modern chat comp*/
     implementation("ch.qos.logback:logback-classic:1.2.11") /*Logging framework*/
@@ -43,7 +43,7 @@ dependencies {
      */
     implementation("dev.triumphteam", "triumph-gui", "3.1.1")
     implementation("dev.triumphteam:triumph-cmd-bukkit:2.0.0-SNAPSHOT")
-    implementation("de.tr7zw:item-nbt-api:2.9.2")
+    implementation("de.tr7zw:item-nbt-api:2.10.0")
 
     /**
      * Plugin hooks:
@@ -72,6 +72,6 @@ tasks {
 
     }
     runServer {
-        minecraftVersion("1.18.2")
+        minecraftVersion("1.19")
     }
 }

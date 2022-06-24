@@ -76,6 +76,7 @@ stats:
   forced-stats: {}
 world-settings:
   default:
+    hopper-can-load-chunks: false
     below-zero-generation-in-existing-chunks: true
     trident-despawn-rate: 1200
     view-distance: default

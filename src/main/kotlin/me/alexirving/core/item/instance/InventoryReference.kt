@@ -7,6 +7,10 @@ import org.bukkit.inventory.Inventory
 import org.bukkit.inventory.ItemStack
 import java.util.*
 
+/**
+ * A reference to an item inside an inventory, this is used to be efficient however switching inventories has not been implemented.
+ * This is also where the uuid of the item is stored, other then in the nbt data
+ */
 data class InventoryReference(var inventory: Inventory, private val baseItem: BaseItem, val id: UUID) {
 
     fun getStack(): ItemStack {

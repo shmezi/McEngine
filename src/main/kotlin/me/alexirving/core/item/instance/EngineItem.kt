@@ -24,7 +24,7 @@ import org.bukkit.inventory.ItemStack
 class EngineItem {
     private val baseItem: BaseItem
     private var reference: InventoryReference
-    private var templateItem: ItemStack
+    private var templateItem: ItemStack //The template item is an item that is built once and is then cloned to reduce overhead.
     private var isBuilt = false
     private val m: EngineManager
 
@@ -36,7 +36,6 @@ class EngineItem {
         templateItem = baseItem.getTemplate()
         NBTItem(templateItem, true).apply {
             setUUID("uuid", reference.id)
-
         }
         if (isBuilt) {
             NBTItem(reference.getStack(), true).mergeCustomNBT(templateItem)

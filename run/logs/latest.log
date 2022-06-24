@@ -1,4 +1,361 @@
-[10:27:00] [Server thread/WARN]: Can't keep up! Is the server overloaded? Running 38547200ms or 770944 ticks behind
-[10:36:23] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
-[10:36:23] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
-[10:36:23] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[00:01:19] [Server thread/INFO]: No player was found
+[00:05:29] [Server thread/INFO]: No player was found
+[00:05:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[00:05:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[00:05:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[00:09:39] [Server thread/INFO]: No player was found
+[00:13:49] [Server thread/INFO]: No player was found
+[00:15:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[00:15:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[00:15:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[00:17:59] [Server thread/INFO]: No player was found
+[00:22:09] [Server thread/INFO]: No player was found
+[00:25:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[00:25:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[00:25:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[00:26:19] [Server thread/INFO]: No player was found
+[00:30:29] [Server thread/INFO]: No player was found
+[00:34:39] [Server thread/INFO]: No player was found
+[00:35:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[00:35:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[00:35:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[00:38:49] [Server thread/INFO]: No player was found
+[00:42:59] [Server thread/INFO]: No player was found
+[00:45:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[00:45:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[00:45:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[00:47:09] [Server thread/INFO]: No player was found
+[00:51:19] [Server thread/INFO]: No player was found
+[00:55:29] [Server thread/INFO]: No player was found
+[00:55:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[00:55:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[00:55:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[00:59:39] [Server thread/INFO]: No player was found
+[01:03:49] [Server thread/INFO]: No player was found
+[01:05:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[01:05:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[01:05:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[01:07:59] [Server thread/INFO]: No player was found
+[01:12:09] [Server thread/INFO]: No player was found
+[01:15:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[01:15:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[01:15:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[01:16:19] [Server thread/INFO]: No player was found
+[01:20:29] [Server thread/INFO]: No player was found
+[01:24:39] [Server thread/INFO]: No player was found
+[01:25:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[01:25:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[01:25:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[01:28:49] [Server thread/INFO]: No player was found
+[01:32:59] [Server thread/INFO]: No player was found
+[01:35:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[01:35:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[01:35:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[01:37:09] [Server thread/INFO]: No player was found
+[01:41:19] [Server thread/INFO]: No player was found
+[01:45:29] [Server thread/INFO]: No player was found
+[01:45:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[01:45:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[01:45:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[01:49:39] [Server thread/INFO]: No player was found
+[01:53:49] [Server thread/INFO]: No player was found
+[01:55:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[01:55:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[01:55:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[01:57:59] [Server thread/INFO]: No player was found
+[02:02:09] [Server thread/INFO]: No player was found
+[02:05:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[02:05:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[02:05:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[02:06:19] [Server thread/INFO]: No player was found
+[02:10:29] [Server thread/INFO]: No player was found
+[02:14:39] [Server thread/INFO]: No player was found
+[02:15:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[02:15:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[02:15:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[02:18:49] [Server thread/INFO]: No player was found
+[02:22:59] [Server thread/INFO]: No player was found
+[02:25:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[02:25:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[02:25:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[02:27:09] [Server thread/INFO]: No player was found
+[02:31:19] [Server thread/INFO]: No player was found
+[02:35:29] [Server thread/INFO]: No player was found
+[02:35:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[02:35:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[02:35:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[02:39:39] [Server thread/INFO]: No player was found
+[02:43:49] [Server thread/INFO]: No player was found
+[02:45:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[02:45:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[02:45:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[02:47:59] [Server thread/INFO]: No player was found
+[02:52:09] [Server thread/INFO]: No player was found
+[02:55:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[02:55:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[02:55:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[02:56:19] [Server thread/INFO]: No player was found
+[03:00:29] [Server thread/INFO]: No player was found
+[03:04:39] [Server thread/INFO]: No player was found
+[03:05:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[03:05:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[03:05:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[03:08:49] [Server thread/INFO]: No player was found
+[03:12:59] [Server thread/INFO]: No player was found
+[03:15:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[03:15:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[03:15:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[03:17:09] [Server thread/INFO]: No player was found
+[03:21:19] [Server thread/INFO]: No player was found
+[03:25:29] [Server thread/INFO]: No player was found
+[03:25:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[03:25:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[03:25:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[03:29:39] [Server thread/INFO]: No player was found
+[03:33:49] [Server thread/INFO]: No player was found
+[03:35:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[03:35:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[03:35:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[03:37:59] [Server thread/INFO]: No player was found
+[03:42:09] [Server thread/INFO]: No player was found
+[03:45:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[03:45:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[03:45:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[03:46:19] [Server thread/INFO]: No player was found
+[03:50:29] [Server thread/INFO]: No player was found
+[03:54:39] [Server thread/INFO]: No player was found
+[03:55:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[03:55:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[03:55:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[03:58:49] [Server thread/INFO]: No player was found
+[04:02:59] [Server thread/INFO]: No player was found
+[04:05:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[04:05:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[04:05:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[04:07:09] [Server thread/INFO]: No player was found
+[04:11:19] [Server thread/INFO]: No player was found
+[04:15:29] [Server thread/INFO]: No player was found
+[04:15:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[04:15:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[04:15:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[04:19:39] [Server thread/INFO]: No player was found
+[04:23:49] [Server thread/INFO]: No player was found
+[04:25:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[04:25:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[04:25:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[04:27:59] [Server thread/INFO]: No player was found
+[04:32:09] [Server thread/INFO]: No player was found
+[04:35:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[04:35:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[04:35:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[04:36:19] [Server thread/INFO]: No player was found
+[04:40:29] [Server thread/INFO]: No player was found
+[04:44:39] [Server thread/INFO]: No player was found
+[04:45:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[04:45:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[04:45:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[04:48:49] [Server thread/INFO]: No player was found
+[04:52:59] [Server thread/INFO]: No player was found
+[04:55:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[04:55:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[04:55:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[04:57:09] [Server thread/INFO]: No player was found
+[05:01:19] [Server thread/INFO]: No player was found
+[05:05:29] [Server thread/INFO]: No player was found
+[05:05:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[05:05:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[05:05:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[05:09:39] [Server thread/INFO]: No player was found
+[05:13:49] [Server thread/INFO]: No player was found
+[05:15:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[05:15:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[05:15:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[05:17:59] [Server thread/INFO]: No player was found
+[05:22:09] [Server thread/INFO]: No player was found
+[05:25:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[05:25:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[05:25:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[05:26:19] [Server thread/INFO]: No player was found
+[05:30:29] [Server thread/INFO]: No player was found
+[05:34:39] [Server thread/INFO]: No player was found
+[05:35:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[05:35:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[05:35:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[05:38:49] [Server thread/INFO]: No player was found
+[05:42:59] [Server thread/INFO]: No player was found
+[05:45:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[05:45:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[05:45:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[05:47:09] [Server thread/INFO]: No player was found
+[05:51:19] [Server thread/INFO]: No player was found
+[05:55:29] [Server thread/INFO]: No player was found
+[05:55:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[05:55:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[05:55:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[05:59:39] [Server thread/INFO]: No player was found
+[06:03:49] [Server thread/INFO]: No player was found
+[06:05:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[06:05:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[06:05:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[06:07:59] [Server thread/INFO]: No player was found
+[06:12:09] [Server thread/INFO]: No player was found
+[06:15:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[06:15:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[06:15:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[06:16:19] [Server thread/INFO]: No player was found
+[06:20:29] [Server thread/INFO]: No player was found
+[06:24:39] [Server thread/INFO]: No player was found
+[06:25:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[06:25:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[06:25:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[06:28:49] [Server thread/INFO]: No player was found
+[06:32:59] [Server thread/INFO]: No player was found
+[06:35:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[06:35:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[06:35:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[06:37:09] [Server thread/INFO]: No player was found
+[06:41:19] [Server thread/INFO]: No player was found
+[06:45:29] [Server thread/INFO]: No player was found
+[06:45:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[06:45:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[06:45:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[06:49:39] [Server thread/INFO]: No player was found
+[06:53:49] [Server thread/INFO]: No player was found
+[06:55:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[06:55:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[06:55:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[06:57:59] [Server thread/INFO]: No player was found
+[07:02:09] [Server thread/INFO]: No player was found
+[07:05:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[07:05:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[07:05:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[07:06:19] [Server thread/INFO]: No player was found
+[07:10:29] [Server thread/INFO]: No player was found
+[07:14:39] [Server thread/INFO]: No player was found
+[07:15:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[07:15:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[07:15:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[07:18:49] [Server thread/INFO]: No player was found
+[07:22:59] [Server thread/INFO]: No player was found
+[07:25:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[07:25:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[07:25:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[07:27:09] [Server thread/INFO]: No player was found
+[07:31:19] [Server thread/INFO]: No player was found
+[07:35:29] [Server thread/INFO]: No player was found
+[07:35:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[07:35:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[07:35:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[07:39:39] [Server thread/INFO]: No player was found
+[07:43:49] [Server thread/INFO]: No player was found
+[07:45:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[07:45:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[07:45:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[07:47:59] [Server thread/INFO]: No player was found
+[07:52:09] [Server thread/INFO]: No player was found
+[07:55:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[07:55:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[07:55:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[07:56:19] [Server thread/INFO]: No player was found
+[08:00:29] [Server thread/INFO]: No player was found
+[08:04:39] [Server thread/INFO]: No player was found
+[08:05:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[08:05:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[08:05:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[08:08:49] [Server thread/INFO]: No player was found
+[08:12:59] [Server thread/INFO]: No player was found
+[08:15:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[08:15:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[08:15:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[08:17:09] [Server thread/INFO]: No player was found
+[08:21:19] [Server thread/INFO]: No player was found
+[08:25:29] [Server thread/INFO]: No player was found
+[08:25:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[08:25:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[08:25:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[08:29:39] [Server thread/INFO]: No player was found
+[08:33:49] [Server thread/INFO]: No player was found
+[08:35:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[08:35:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[08:35:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[08:37:59] [Server thread/INFO]: No player was found
+[08:42:09] [Server thread/INFO]: No player was found
+[08:45:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[08:45:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[08:45:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[08:46:19] [Server thread/INFO]: No player was found
+[08:50:29] [Server thread/INFO]: No player was found
+[08:54:39] [Server thread/INFO]: No player was found
+[08:55:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[08:55:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[08:55:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[08:58:49] [Server thread/INFO]: No player was found
+[09:02:59] [Server thread/INFO]: No player was found
+[09:05:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[09:05:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[09:05:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[09:07:09] [Server thread/INFO]: No player was found
+[09:11:19] [Server thread/INFO]: No player was found
+[09:15:29] [Server thread/INFO]: No player was found
+[09:15:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[09:15:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[09:15:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[09:19:39] [Server thread/INFO]: No player was found
+[09:23:49] [Server thread/INFO]: No player was found
+[09:25:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[09:25:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[09:25:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[09:27:59] [Server thread/INFO]: No player was found
+[09:32:09] [Server thread/INFO]: No player was found
+[09:35:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[09:35:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[09:35:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[09:36:19] [Server thread/INFO]: No player was found
+[09:40:29] [Server thread/INFO]: No player was found
+[09:44:39] [Server thread/INFO]: No player was found
+[09:45:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[09:45:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[09:45:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[09:48:49] [Server thread/INFO]: No player was found
+[09:52:59] [Server thread/INFO]: No player was found
+[09:55:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[09:55:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[09:55:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[09:57:09] [Server thread/INFO]: No player was found
+[10:01:19] [Server thread/INFO]: No player was found
+[10:05:29] [Server thread/INFO]: No player was found
+[10:05:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[10:05:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[10:05:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[10:09:39] [Server thread/INFO]: No player was found
+[10:13:49] [Server thread/INFO]: No player was found
+[10:15:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[10:15:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[10:15:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[10:17:59] [Server thread/INFO]: No player was found
+[10:22:09] [Server thread/INFO]: No player was found
+[10:25:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[10:25:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[10:25:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[10:26:19] [Server thread/INFO]: No player was found
+[10:30:29] [Server thread/INFO]: No player was found
+[10:34:39] [Server thread/INFO]: No player was found
+[10:35:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[10:35:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[10:35:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[10:38:49] [Server thread/INFO]: No player was found
+[10:42:59] [Server thread/INFO]: No player was found
+[10:45:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[10:45:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[10:45:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[10:47:09] [Server thread/INFO]: No player was found
+[10:51:19] [Server thread/INFO]: No player was found
+[10:55:29] [Server thread/INFO]: No player was found
+[10:55:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[10:55:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[10:55:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[10:59:39] [Server thread/INFO]: No player was found
+[11:03:49] [Server thread/INFO]: No player was found
+[11:05:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[11:05:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
+[11:05:29] [Server thread/INFO]: [34mRunning db update, updating 0 items![0m
