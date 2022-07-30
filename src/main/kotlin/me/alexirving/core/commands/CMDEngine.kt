@@ -14,6 +14,7 @@ import dev.triumphteam.cmd.core.annotation.Optional
 import dev.triumphteam.cmd.core.annotation.SubCommand
 import me.alexirving.core.EngineManager
 import me.alexirving.core.effects.Effect
+import me.alexirving.core.item.ItemManager
 import me.alexirving.core.item.instance.EngineItem
 import me.alexirving.core.item.instance.InventoryReference
 import me.alexirving.core.item.template.BaseItem
@@ -54,7 +55,7 @@ class CMDEngine(private val m: EngineManager) : BaseCommand() {
     @SubCommand("enchant")
     @Permission("engine.core.enchant")
     fun enchant(player: Player, effect: Effect, level: Int) {
-        if (m.item.isCustom(player.inventory.itemInMainHand))
+        if (ItemManager.isCustom(player.inventory.itemInMainHand))
             EngineItem.of(m, player.inventory.itemInMainHand, player.inventory)
                 ?.forceSetLevel("enchants", effect.id, level)?.updateItem()
     }

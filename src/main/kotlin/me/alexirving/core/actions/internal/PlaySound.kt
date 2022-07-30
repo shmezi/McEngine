@@ -16,7 +16,7 @@ import org.bukkit.Location
 import org.bukkit.Sound
 import org.bukkit.entity.Player
 
-class PlaySound(manager: EngineManager, args: Map<String, Any>) : Action(manager, args) {
+class PlaySound(args: Map<String, Any>) : Action( args) {
     override val id = "playSound"
     val offset = (args["offset"] as Map<String, Double>?).loc()
 

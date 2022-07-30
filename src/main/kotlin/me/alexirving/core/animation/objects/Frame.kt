@@ -8,15 +8,15 @@
 package me.alexirving.core.animation.objects
 
 import me.alexirving.core.actions.Action
-import me.alexirving.core.utils.Direction
-import org.bukkit.Location
 
+/**
+ * Represents an animation frame in an [Animation], please be aware that stuff like commands are run per player in the [AnimationSession]
+ * @param actions The actions to be run when the frame is run
+ * */
 data class Frame(val actions: MutableList<Action>) {
-    fun run(session: AnimationSession) {
+    fun run(data:MutableMap<String,Any>) {
         for (action in actions.withIndex())
-            action.value.run(mutableMapOf<String, Any>().apply {
-                this["session"] = session
-            })
+            action.value.run(data)
     }
 
 }

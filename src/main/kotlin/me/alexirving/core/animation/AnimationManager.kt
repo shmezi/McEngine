@@ -17,21 +17,22 @@ import me.alexirving.core.utils.filters.FileExtensionFilter
 import org.bukkit.configuration.file.YamlConfiguration
 import java.io.File
 
-class AnimationManager(private val aniFolder: File, private val m: EngineManager) {
+/**
+ * Handles [Animation]s
+ */
+object AnimationManager {
     private val loadedAnimations = HashMap<String, Animation>()
 
 
-    init {
-        reload()
-    }
 
-    fun reload() {
+
+    fun reload(aniFolder: File) {
         if (!aniFolder.isDirectory)
             println("Animation folder is not a directory!")
         loadedAnimations.clear()
         for (file in aniFolder.listFiles(FileExtensionFilter("json")) ?: return) {
             val name = file.nameWithoutExtension
-            loadedAnimations[name] = AniCompiler.compileAnimation(m, file)
+            loadedAnimations[name] = AniCompiler.compileAnimation(file)
             println("Loaded animation: \"$name\".".color(Colors.CYAN))
         }
 

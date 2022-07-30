@@ -101,5 +101,15 @@
       <option name="name" value="maven12" />
       <option name="url" value="https://maven.pkg.github.com/CC007/HeadsPluginAPI" />
     </remote-repository>
+    <remote-repository>
+      <option name="id" value="maven10" />
+      <option name="name" value="maven10" />
+      <option name="url" value="https://ci.codemc.io/job/retrooper/job/packetevents/" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="maven10" />
+      <option name="name" value="maven10" />
+      <option name="url" value="https://repo.codemc.io/repository/maven-snapshots/" />
+    </remote-repository>
   </component>
 </project>

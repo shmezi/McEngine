@@ -7,58 +7,64 @@
  */
 package me.alexirving.core
 
-import com.google.gson.Gson
-import me.alexirving.core.actions.ActionManager
 import me.alexirving.core.animation.AnimationManager
 import me.alexirving.core.channels.ChannelData
 import me.alexirving.core.channels.ChannelManger
-import me.alexirving.core.database.CachedManager
-import me.alexirving.core.database.GroupCachedManager
-import me.alexirving.core.database.nosql.MongoDbCachedDatabase
-import me.alexirving.core.database.structs.GangData
-import me.alexirving.core.database.structs.UserData
 import me.alexirving.core.effects.EffectManager
 import me.alexirving.core.effects.effects.*
 import me.alexirving.core.exceptions.NotFoundException
 import me.alexirving.core.hooks.HookWorldEdit
-import me.alexirving.core.item.ItemManager
 import me.alexirving.core.mines.MineManager
 import me.alexirving.core.mines.PrisonSettings
-import me.alexirving.core.packets.PacketManager
 import me.alexirving.core.points.PointManager
 import me.alexirving.core.points.track.Level
 import me.alexirving.core.points.track.PointsTrack
+import me.alexirving.core.structs.GangData
+import me.alexirving.core.structs.UserData
 import me.alexirving.core.utils.Colors
 import me.alexirving.core.utils.color
+import me.alexirving.core.utils.pq
 import me.alexirving.core.utils.registerListeners
-import org.bukkit.Location
+import me.alexirving.lib.database.GroupCachedManager
+import me.alexirving.lib.database.nosql.MongoConnection
+import me.alexirving.lib.database.nosql.MongoDbCachedCollection
+import me.alexirving.lib.database.nosql.MongoUtils
 import org.bukkit.entity.Player
 import org.bukkit.event.Listener
 import java.io.File
+import java.util.*
 
 class EngineManager(val engine: McEngine) : Listener {
-    private var connection: String = "mongodb://localhost"
+    private val config = engine.config
     private val df = engine.dataFolder
-    val item = ItemManager(File(df, "items"))
+    val itemFolder = File(df, "items")
+    val aniFolder = File(df, "animations")
+
+    //    val item = ItemManager.reload(itemFolder)
     val point = PointManager(this)
     val effect = EffectManager(this)
-    val packet = PacketManager()
+
+    private val connection = MongoConnection(
+        if (config.getBoolean("HasLogin")) MongoUtils.defaultClient(
+            config.getString("Connection") ?: "mongodb://localhost",
+            config.getString("User").pq("DB username found") ?: "",
+            config.getString("Pass").pq("DB pass found") ?: ""
+        )
+        else MongoUtils.defaultClient(config.getString("Connection") ?: "mongodb://localhost"), "McEngine"
+    )
+
     val channel = ChannelManger(
-        MongoDbCachedDatabase("Channel", ChannelData::class.java, connection), this
+        MongoDbCachedCollection("Channels", ChannelData.default(null), connection), this
     )
     val mine = MineManager(this)
-    val gson = Gson()
-    val action = ActionManager(this)
-    val animation = AnimationManager(File(df, "animations"), this)
-    val user = CachedManager(
-        MongoDbCachedDatabase("User", UserData::class.java, connection), UserData(
-            mutableMapOf(),
-            PrisonSettings.default(), null, mutableSetOf()
-        )
-    )
-    val gang = GroupCachedManager(
-        MongoDbCachedDatabase("Gang", GangData::class.java, connection),
-        GangData.default(null, "Gang")
+
+    val user = MongoDbCachedCollection(
+        "User", UserData(UUID.randomUUID(), mutableMapOf(), PrisonSettings.default(), null, mutableSetOf()), connection
+    ).getManager()
+
+
+    val gang = GroupCachedManager<UUID, UUID, GangData>(
+        MongoDbCachedCollection("Gang", GangData.default(null, "gang"), connection), GangData.default(null, "gang")
     )
     val weHook = HookWorldEdit()
 
@@ -80,8 +86,6 @@ class EngineManager(val engine: McEngine) : Listener {
 
     fun updateDb() {
         user.update()
-        channel.update()
-        gang.update()
     }
 
     fun unloadPlayer(player: Player) {
@@ -95,9 +99,9 @@ class EngineManager(val engine: McEngine) : Listener {
     fun reload() {
 
         engine.reloadConfig()
+        AnimationManager.reload(aniFolder)
         mine.reload()
-        item.reload()
-        animation.reload()
+//        ItemManager.reload(itemFolder)
 
         for (e in engine.config.getStringList("Ecos")) {
             println("Loading eco of id \"$e\":".color(Colors.BLUE))
@@ -109,14 +113,12 @@ class EngineManager(val engine: McEngine) : Listener {
             for (m in pc.getKeys(false)) {
                 this.add(
                     Level(
-                        m,
-                        pc.getString("$m.Name") ?: continue,
-                        pc.getStringList("$m.Cmds"),
-                        pc.getDouble("$m.Price")
+                        m, pc.getString("$m.Name") ?: continue, pc.getStringList("$m.Cmds"), pc.getDouble("$m.Price")
                     )
                 )
             }
         }))
 
     }
+
 }

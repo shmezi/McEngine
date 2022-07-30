@@ -8,20 +8,19 @@
 
 package me.alexirving.core.actions
 
-import me.alexirving.core.EngineManager
 import me.alexirving.core.animation.objects.Offset
-import me.alexirving.core.manager.Loadable
 
 /**
  * Represents an action.
- * @param m Main EngineManger passing for information
  * @param args The arguments to build this action, such as an [AnimationSession] or an offset [Offset]
  */
-abstract class Action(protected val m: EngineManager, val args: Map<String, Any>) : Loadable {
+abstract class Action(val args: Map<String, Any>) {
+    abstract val id: String
+
     /**
      * Run when the action is executed
      * @param data The data that should be used to execure the action such as a [Player] or a [Location].
      *
      */
-    abstract fun run(data: MutableMap<String, Any>)
+    abstract fun run(data: MutableMap<String, Any> = mutableMapOf())
 }

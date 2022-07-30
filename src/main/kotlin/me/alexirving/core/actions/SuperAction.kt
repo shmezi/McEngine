@@ -14,12 +14,11 @@ import me.alexirving.core.EngineManager
  * A super action is a function that generates other actions. (Example: )
  */
 abstract class SuperAction(
-    val m: EngineManager,
     val args: Map<String, Any>,
     val start: Int
 ) {
     /**
-     * Run when the action is executed
+     * Run when the super action builds other actions
      */
     abstract fun build(): MutableMap<Int, Action>
 }

@@ -7,19 +7,19 @@
  */
 package me.alexirving.core.actions.internal
 
-import me.alexirving.core.EngineManager
 import me.alexirving.core.actions.Action
+import me.alexirving.core.actions.ActionManager
 import me.alexirving.core.actions.SuperAction
 
-class Loop(m: EngineManager, args: Map<String, Any>, start: Int) : SuperAction(
-    m, args, start
+class Loop(args: Map<String, Any>, start: Int) : SuperAction(
+    args, start
 ) {
     override fun build(): MutableMap<Int, Action> {
 
         val a = mutableMapOf<Int, Action>()
 
         for (i in start until ((args["amount"] as Int?) ?: 0)) {
-            a[i] = m.action.compileAction(m, args["action"] as Map<String, Any>)!!
+            a[i] = ActionManager.compileAction(args["action"] as Map<String, Any>)!!
         }
 
 

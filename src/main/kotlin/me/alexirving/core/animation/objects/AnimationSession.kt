@@ -9,28 +9,28 @@ package me.alexirving.core.animation.objects
 
 import me.alexirving.core.McEngine
 import me.alexirving.core.exceptions.ShmeziFuckedUp
+import me.alexirving.core.packets.PacketManager
 import me.alexirving.core.utils.Direction
 import me.alexirving.core.utils.pq
 import org.bukkit.Location
 import org.bukkit.entity.Player
 
 /**
- * An animation session represents a session of an [Animation] playing for a [Player].
- * @param pl The plugin that this session belongs to.
+ * An animation session represents a running session of an [Animation] playing for a list of [Player]s.
+ * @param engine The plugin that this session belongs to.
  * @param viewers The players that this session belongs to.
  * @param location The [Location] that this session is playing at.
  * @param animation The [Animation] that this session is playing.
  */
 data class AnimationSession(
-    private val pl: McEngine,
+    private val engine: McEngine,
     val viewers: MutableSet<Player>,
     private val location: Location,
     val animation: Animation,
     val direction: Direction
 ) {
     val standMap: MutableMap<String, Int> = mutableMapOf() //Map of stand name to stand id in the packetMap
-    private val scheduler = pl.server.scheduler
-    val pm = pl.m?.packet ?: throw ShmeziFuckedUp("oop")
+    private val scheduler = engine.server.scheduler
 
     /**
      * Starts the animation session.
@@ -46,17 +46,21 @@ data class AnimationSession(
         val loc = location.clone()
         loc.yaw = yaw
         for (name in animation.entities) {
-            standMap[name.key] = pm.spawn(name.value, viewers, loc)
+            standMap[name.key] = PacketManager.spawn(name.value, viewers, loc)
         }
         var timeStamp = 0
+        val data = mutableMapOf<String, Any>().apply {
+            this["session"] = this
+            this["players"] = viewers
+        }
         for (frame in animation.sequence) {
-            scheduler.runTaskLaterAsynchronously(pl, Runnable {
-                frame.run(this)
+            scheduler.runTaskLaterAsynchronously(engine, Runnable {
+                frame.run(data)
             }, timeStamp.toLong())
             timeStamp += animation.frameDelay
         }
 
-        scheduler.runTaskLaterAsynchronously(pl, Runnable { stop(); done() }, timeStamp.toLong())
+        scheduler.runTaskLaterAsynchronously(engine, Runnable { stop(); done() }, timeStamp.toLong())
     }
 
     /**
@@ -69,7 +73,7 @@ data class AnimationSession(
 
     private fun stop() {
         for (armor in animation.entities.keys)
-            pm.kill(standMap[armor]!!)
+            PacketManager.kill(standMap[armor]!!)
     }
 
 }

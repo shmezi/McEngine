@@ -11,11 +11,12 @@ import me.alexirving.core.EngineManager
 import me.alexirving.core.actions.AniAction
 import me.alexirving.core.animation.objects.AnimationSession
 import me.alexirving.core.animation.objects.Offset
+import me.alexirving.core.packets.PacketManager
 import me.alexirving.core.utils.Direction
 import me.alexirving.core.utils.loc
 import org.bukkit.Location
 
-class Tp(manager: EngineManager, args: Map<String, Any>) : AniAction(manager, args) {
+class Tp(manager: EngineManager, args: Map<String, Any>) : AniAction( args) {
     override val id = "Tp"
     var offset: Offset? = null
 
@@ -38,7 +39,7 @@ class Tp(manager: EngineManager, args: Map<String, Any>) : AniAction(manager, ar
         }
         val loc = (data["location"] as Location).clone()
         loc.yaw = yaw
-        session.pm.tp(t, offset!!.getOffset(loc, session.direction).add(0.5, -1.2, 0.5))
+        PacketManager.tp(t, offset!!.getOffset(loc, session.direction).add(0.5, -1.2, 0.5))
 
     }
 

@@ -7,24 +7,19 @@
  */
 package me.alexirving.core.actions.internal
 
-import me.alexirving.core.EngineManager
 import me.alexirving.core.actions.Action
-import me.alexirving.core.animation.objects.AnimationSession
-import me.alexirving.core.animation.objects.Offset
-import me.alexirving.core.utils.Direction
 import org.bukkit.Bukkit
-import org.bukkit.Location
+import org.bukkit.Bukkit.getServer
 import org.bukkit.entity.Player
 
-class Command(manager: EngineManager, args: Map<String, String> ) : Action(manager, args) {
+class Command(args: Map<String, String>) : Action(args) {
 
     override val id = "command"
     override fun run(data: MutableMap<String, Any>) {
-        if (!Bukkit.isPrimaryThread())
-            Bukkit.getScheduler().runTask(m.engine, Runnable {
-                Bukkit.getServer().dispatchCommand(Bukkit.getConsoleSender(), args["command"] as String? ?: "")
-            })
-        else
-            Bukkit.getServer().dispatchCommand(Bukkit.getConsoleSender(), args["command"] as String? ?: "")
+        for (p in data["players"] as Set<Player>)
+            getServer().dispatchCommand(
+                Bukkit.getConsoleSender(),
+                (args["command"] as String?)?.replace("%player%", p.name) ?: ""
+            )
     }
 }

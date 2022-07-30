@@ -7,7 +7,6 @@
  */
 package me.alexirving.core.actions.internal
 
-import me.alexirving.core.EngineManager
 import me.alexirving.core.actions.Action
 import me.alexirving.core.utils.Direction
 import me.alexirving.core.utils.loc
@@ -15,7 +14,7 @@ import org.bukkit.Effect
 import org.bukkit.Location
 import org.bukkit.entity.Player
 
-class Particle(manager: EngineManager, args: Map<String, Any>) : Action(manager, args) {
+class Particle(args: Map<String, Any>) : Action(args) {
     override val id = "Particle"
     val offset = (args["offset"] as Map<String, Double>?).loc()
 

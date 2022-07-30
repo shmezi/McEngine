@@ -6,6 +6,7 @@ import me.alexirving.core.item.EngineItemListener
 import me.alexirving.core.item.instance.EngineItem
 import me.alexirving.core.utils.Colors
 import me.alexirving.core.utils.color
+import me.alexirving.core.utils.pq
 import me.alexirving.core.utils.registerListeners
 import org.bukkit.Material
 import org.bukkit.entity.Player
@@ -33,7 +34,6 @@ class EffectManager(private val m: EngineManager) : Listener {
             val ae = userData.activeEffects
             listens[Intent.MINE]?.filter { ae.containsKey(it) }?.forEach {
                 it.onMine(e, ae[it] ?: 0)
-
             }
         }
     }
@@ -81,7 +81,11 @@ class EffectManager(private val m: EngineManager) : Listener {
         effect.listenTo.forEach {
             listens.getOrPut(it) { mutableListOf() }.add(effect)
         }
-        println("Registered effect: \"${effect.id}\".".color(Colors.BLUE))
+        println(
+            "Registered effect: \"${effect.id}\" that include the intents: [${effect.listenTo.joinToString(", ")}].".color(
+                Colors.BLUE
+            )
+        )
     }
 
     fun unRegister(id: String) {

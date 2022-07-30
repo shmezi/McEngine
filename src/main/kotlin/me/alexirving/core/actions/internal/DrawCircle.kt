@@ -9,8 +9,8 @@ package me.alexirving.core.actions.internal
 
 import me.alexirving.core.EngineManager
 import me.alexirving.core.actions.Action
+import me.alexirving.core.actions.ActionManager
 import me.alexirving.core.actions.SuperAction
-import me.alexirving.core.animation.loader.AniCompiler
 import me.alexirving.core.animation.objects.Offset
 import me.alexirving.core.animation.objects.Offset.Companion.add
 import me.alexirving.core.animation.objects.Offset.Companion.cross
@@ -25,7 +25,7 @@ import kotlin.math.sin
 
 
 class DrawCircle(manager: EngineManager, args: Map<String, String>, start: Int) : SuperAction(
-    manager, args, start
+    args, start
 ) {
 
     private val df = DecimalFormat("#.#")
@@ -90,7 +90,7 @@ class DrawCircle(manager: EngineManager, args: Map<String, String>, start: Int) 
             origin.pq(2)
             currentPoint.add(origin)
 
-            frameChanges[i] = m.action.compileAction(m, (args["action"] as Map<String, Any>).toMutableMap().apply {
+            frameChanges[i] = ActionManager.compileAction((args["action"] as Map<String, Any>).toMutableMap().apply {
                 currentPoint.pq("CURRENT")
                 val loc = (this["location"] as Map<String, String>).toMutableMap()
                 loc["x"] = currentPoint.x.toString()

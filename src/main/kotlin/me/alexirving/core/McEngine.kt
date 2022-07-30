@@ -11,10 +11,12 @@ import com.github.retrooper.packetevents.PacketEvents
 import dev.triumphteam.cmd.bukkit.BukkitCommandManager
 import dev.triumphteam.cmd.core.suggestion.SuggestionKey
 import io.github.retrooper.packetevents.factory.spigot.SpigotPacketEventsBuilder
+import me.alexirving.core.animation.AnimationManager
 import me.alexirving.core.animation.objects.Animation
 import me.alexirving.core.commands.*
 import me.alexirving.core.effects.Effect
 import me.alexirving.core.hooks.HookPapi
+import me.alexirving.core.item.ItemManager
 import me.alexirving.core.item.template.BaseItem
 import me.alexirving.core.listeners.PlayerInteract
 import me.alexirving.core.listeners.PlayerJoin
@@ -41,6 +43,7 @@ class McEngine : JavaPlugin() {
 
     var m: EngineManager? = null
     override fun onEnable() {
+        saveDefaultConfig()
         m = EngineManager(this)
         val manager = m ?: return
         val cmm = BukkitCommandManager.create(this)
@@ -49,7 +52,6 @@ class McEngine : JavaPlugin() {
          * Basic startup
          */
 
-        saveDefaultConfig()
 
         McEngineAPI.instance = this
         Metrics(this, 14580)
@@ -63,12 +65,12 @@ class McEngine : JavaPlugin() {
          */
 
 
-        val im = manager.item
-        cmm.registerArgument(BaseItem::class.java) { _, itemId ->
-            im.bases[itemId]
-        }
+//        val im = manager.item
+//        cmm.registerArgument(BaseItem::class.java) { _, itemId ->
+//            ItemManager.bases[itemId]
+//        }
         cmm.registerSuggestion(BaseItem::class.java) { _, _ ->
-            im.bases.keys.toList()
+            ItemManager.bases.keys.toList()
         }
         val ecoM = manager.point
         cmm.registerArgument(Points::class.java) { _, eco ->
@@ -77,12 +79,11 @@ class McEngine : JavaPlugin() {
         cmm.registerSuggestion(Points::class.java) { _, _ ->
             ecoM.getPointsId().toList()
         }
-        val ani = manager.animation
         cmm.registerArgument(Animation::class.java) { _, animation ->
-            ani.getAnimation(animation)
+            AnimationManager.getAnimation(animation)
         }
         cmm.registerSuggestion(Animation::class.java) { _, _ ->
-            ani.getAnimationNames().toList()
+            AnimationManager.getAnimationNames().toList()
         }
 
         cmm.registerArgument(Effect::class.java) { _, effect ->
@@ -116,13 +117,13 @@ class McEngine : JavaPlugin() {
             } else
                 mutableListOf()
         }
-        cmm.registerCommand(
-            CMDEngine(manager),
-            CMDEconomy(),
-            CMDAnimation(this),
-            CMDMine(manager),
-            CMDGang(manager)
-        )
+//        cmm.registerCommand(
+//            CMDEngine(manager),
+//            CMDEconomy(),
+//            CMDAnimation(this),
+//            CMDMine(manager),
+//            CMDGang(manager)
+//        )
 
 
 

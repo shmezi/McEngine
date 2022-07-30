@@ -25,6 +25,7 @@ repositories {
     maven("https://repo.codemc.org/repository/maven-public/")
     maven("https://repo.extendedclip.com/content/repositories/placeholderapi/")
     maven("https://jitpack.io")
+    maven("https://repo.codemc.io/repository/maven-snapshots/")
     maven("https://s01.oss.sonatype.org/content/repositories/snapshots/")
     maven("https://repo.triumphteam.dev/snapshots/")
 }
@@ -34,16 +35,19 @@ dependencies {
     implementation("org.litote.kmongo:kmongo:4.5.1")
     implementation("org.reflections:reflections:0.10.2")/*REFLECTIONS - REFLECTIONS UTILS*/
     compileOnly("org.spigotmc:spigot-api:1.19-R0.1-SNAPSHOT")
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.1-native-mt")/*CoRoutines - Used for async*/
-    implementation("net.kyori:adventure-text-minimessage:4.10.1") /*Adventure - Modern chat comp*/
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.2")/*CoRoutines - Used for async*/
+    implementation("net.kyori:adventure-text-minimessage:4.11.0") /*Adventure - Modern chat comp*/
     implementation("ch.qos.logback:logback-classic:1.2.11") /*Logging framework*/
-    implementation("com.github.retrooper.packetevents:spigot:2.0-SNAPSHOT") /*PacketEvents - Used for handling all packet wrapping WITHOUT NMS*/
+    implementation("com.github.retrooper.packetevents:spigot:2.0.0-SNAPSHOT") /*PacketEvents - Used for handling all packet wrapping WITHOUT NMS*/
     /**
      * Frameworks
      */
     implementation("dev.triumphteam", "triumph-gui", "3.1.1")
     implementation("dev.triumphteam:triumph-cmd-bukkit:2.0.0-SNAPSHOT")
     implementation("de.tr7zw:item-nbt-api:2.10.0")
+
+    implementation("com.github.shmezi:AlexLib:1.0")
+
 
     /**
      * Plugin hooks:

@@ -11,6 +11,7 @@ import de.tr7zw.changeme.nbtapi.NBTItem
 import me.alexirving.core.EngineManager
 import me.alexirving.core.exceptions.NotFoundException
 import me.alexirving.core.item.AttributeAddResponse
+import me.alexirving.core.item.ItemManager
 import me.alexirving.core.item.template.BaseItem
 import me.alexirving.core.utils.nBZ
 import org.bukkit.enchantments.Enchantment
@@ -19,35 +20,16 @@ import org.bukkit.inventory.Inventory
 import org.bukkit.inventory.ItemStack
 
 /**
- * Wraps an [ItemStack] for use of a baseItem, to change stuff like lore.
+ * Acts as an instance for [BaseItem] that references the actual item and does the changes.
  */
-class EngineItem {
-    private val baseItem: BaseItem
-    private var reference: InventoryReference
-    private var templateItem: ItemStack //The template item is an item that is built once and is then cloned to reduce overhead.
-    private var isBuilt = false
-    private val m: EngineManager
+class EngineItem(
+    private val manager: EngineManager,
+    private val baseItem: BaseItem,
+    private var reference: InventoryReference,
+    private var isBuilt: Boolean = false
+) {
 
-    constructor(m: EngineManager, baseItem: BaseItem, reference: InventoryReference, built: Boolean) {
-        isBuilt = built // DO NOT FUCKING MOVE ANYWHERE U FUCKING MORON!
-        this.baseItem = baseItem
-        this.reference = reference
-        this.m = m
-        templateItem = baseItem.getTemplate()
-        NBTItem(templateItem, true).apply {
-            setUUID("uuid", reference.id)
-        }
-        if (isBuilt) {
-            NBTItem(reference.getStack(), true).mergeCustomNBT(templateItem)
-        }
-    }
-
-    constructor(m: EngineManager, baseItem: BaseItem, reference: InventoryReference) : this(
-        m,
-        baseItem,
-        reference,
-        false
-    )
+    private var templateItem = baseItem.getTemplate()
 
 
     /**
@@ -56,8 +38,7 @@ class EngineItem {
     private fun getAttributeLevels(): Map<String, Int> {
         val a = if (isBuilt) {
             (NBTItem(templateItem).getObject(
-                "attributes",
-                Map::class.java
+                "attributes", Map::class.java
             ) as Map<String, Double>?)?.mapValues { it.value.toInt() } ?: mutableMapOf()
         } else mutableMapOf()
 
@@ -67,10 +48,8 @@ class EngineItem {
     private fun getActiveAttributes(): List<String> {
         val a = if (isBuilt) {
             (NBTItem(templateItem).getObject(
-                "attributes",
-                Map::class.java
-            ) as Map<String, Double>?)?.map { it.key }
-                ?: mutableListOf()
+                "attributes", Map::class.java
+            ) as Map<String, Double>?)?.map { it.key } ?: mutableListOf()
         } else mutableListOf()
 
         return a
@@ -83,38 +62,51 @@ class EngineItem {
     private fun getGroupCount(): Map<String, Int> {
         val gc = mutableMapOf<String, Int>()
         fun add(key: String) = if (gc.containsKey(key)) gc[key] = gc[key]!! + 1 else gc[key] = 1
-        for (a in getAttributeLevels())
-            baseItem.sections[a.key.substringBefore('.')]?.firstOrNull { it.id == a.key.substringAfter('.') }?.groups?.forEach {
-                add(it)
-            }
+        for (a in getAttributeLevels()) baseItem.sections[a.key.substringBefore('.')]?.firstOrNull {
+            it.id == a.key.substringAfter(
+                '.'
+            )
+        }?.groups?.forEach {
+            add(it)
+        }
         return gc
     }
 
 
     private fun getReplacements(): Map<String, String> {
         val replacers = mutableMapOf<String, String>()
-        val levels = mutableMapOf<String, Int>()
-        for (a in getAttributeLevels()) { //Loop through attribute levels | Attributes are stored in nbt data in a fomrat of sectionId.attributeId
-            val sectionId = a.key.substringBefore('.')
-            val attributeId = a.key.substringAfter('.')
+        val placeHolderLevels = mutableMapOf<String, Int>()
+        for (attributeLevel in getAttributeLevels()) { //Loop through attribute levels | Attributes are stored in nbt data in a format of sectionId.attributeId
+            val sectionId = attributeLevel.key.substringBefore('.')
+            val attributeId = attributeLevel.key.substringAfter('.')
             val attribute = baseItem.sections[sectionId]?.firstOrNull { it.id == attributeId }
                 ?: continue //Getting the attribute from the id in the loop
-            for (p in attribute.placeholders) //Looping over placeholders, if the level is higher then previous itll be repalced
-                if (levels.containsKey(p.key)) {
-                    if ((levels[p.key] ?: continue) < p.value[(a.value - 1).nBZ()])
-                        levels[p.key] = p.value[(a.value - 1).nBZ()]
-                } else levels[p.key] = p.value[(a.value - 1).nBZ()]
+            /**Looping over placeholders, if the level is higher then previous itll be replaced
+             * !! PLEASE REMEMBER PLACEHOLDERS CAN BE CONTROLLED BY MULTIPLE ATTRIBUTES AND THUS WE NEED TO SEE WHAT THE HIGHEST LEVEL IS.!!
+             */
+            for (placeholder in attribute.placeholders) {
+                val currentLevel = when {
+                    placeholder.value.isEmpty() -> continue
+                    placeholder.value.size > attributeLevel.value - 1 -> placeholder.value[(attributeLevel.value - 1).nBZ()]
+
+                    else -> placeholder.value[placeholder.value.size - 1]
+                }
+                if (placeHolderLevels.containsKey(placeholder.key)) {
+
+                    if ((placeHolderLevels[placeholder.key]
+                            ?: continue) < placeholder.value[currentLevel]
+                    ) placeHolderLevels[placeholder.key] = placeholder.value[currentLevel]
+                } else placeHolderLevels[placeholder.key] = placeholder.value[currentLevel]
+            }
         }
-        for (l in levels) { //Declaring what needs to be replaced from the levels
+        for (l in placeHolderLevels) { //Declaring what needs to be replaced from the levels
             replacers[l.key] =
-                if (baseItem.placeholders[l.key]!!.size > l.value)
-                    baseItem.placeholders[l.key]!![l.value]
+                if (baseItem.placeholders[l.key]!!.size > l.value) baseItem.placeholders[l.key]!![l.value]
                 else baseItem.placeholders[l.key]!![0]
 
         }
         for (r in this.baseItem.placeholders) //Removing blank placeholders TODO: Make all placeholders start from 0 to allow use of 0 for here.
-            if (!replacers.containsKey(r.key))
-                replacers[r.key] = ""
+            if (!replacers.containsKey(r.key)) replacers[r.key] = ""
         return replacers
     }
 
@@ -124,10 +116,18 @@ class EngineItem {
             val sectionId = a.key.substringBefore('.')
             val attributeId = a.key.substringAfter('.')
             val attribute = baseItem.sections[sectionId]?.firstOrNull { it.id == attributeId } ?: continue
-            attribute.effects[(a.value - 1).nBZ()].forEach {
-                if (!levels.containsKey(it.key) || it.value > (levels[it.key] ?: 0))
-                    levels[it.key] = it.value
+
+            when {
+                attribute.effects.size > a.value - 1 -> attribute.effects[(a.value - 1).nBZ()].forEach {
+                    if (!levels.containsKey(it.key) || it.value > (levels[it.key] ?: 0)) levels[it.key] = it.value
+                }
+
+                attribute.effects.size < a.value - 1 && attribute.effects.isNotEmpty() -> attribute.effects[attribute.effects.size - 1].forEach {
+                    if (!levels.containsKey(it.key) || it.value > (levels[it.key] ?: 0)) levels[it.key] = it.value
+                }
             }
+
+
         }
         return levels
     }
@@ -142,10 +142,8 @@ class EngineItem {
 
         } else {
             m = n.getObject("attributes", MutableMap::class.java) as MutableMap<String, Int>
-            if (level == 0)
-                m.remove("$section.$attribute")
-            else
-                m["$section.$attribute"] = level
+            if (level == 0) m.remove("$section.$attribute")
+            else m["$section.$attribute"] = level
         }
         n.setObject("attributes", m)
         return this
@@ -158,11 +156,9 @@ class EngineItem {
             ?: throw NotFoundException("$attribute is not an upgrade that can be done on item: `${baseItem.id}`")
 
         when {
-            level == 0 ->
-                for (group in a.groups)
-                    if (/*Current group count + 1*/(getGroupCount()[group] ?: 0) + 1 > (baseItem.groups[group]
-                            ?: 0)/*Max allowed of group*/)
-                        return AttributeAddResponse.GROUP
+            level == 0 -> for (group in a.groups) if (/*Current group count + 1*/(getGroupCount()[group]
+                    ?: 0) + 1 > (baseItem.groups[group] ?: 0)/*Max allowed of group*/) return AttributeAddResponse.GROUP
+
             level + 1 > a.max -> return AttributeAddResponse.MAX
         }
 
@@ -172,8 +168,7 @@ class EngineItem {
 
     fun levelDown(section: String, attribute: String): AttributeAddResponse {
         val level = getAttributeLevels()["$section.$attribute"] ?: 0
-        if (level == 0)
-            return AttributeAddResponse.MIN
+        if (level == 0) return AttributeAddResponse.MIN
         forceSetLevel(section, attribute, level - 1)
         return AttributeAddResponse.SUCCESSFUL
     }
@@ -200,7 +195,7 @@ class EngineItem {
      */
     fun build(): ItemStack {
         for (e in getEffectLevels()) //Don't move to allow editing of template before cloning it :)
-            m.effect.onBuild(this, m.effect.getEffectById(e.key) ?: continue, e.value)
+            manager.effect.onBuild(this, manager.effect.getEffectById(e.key) ?: continue, e.value)
 
         val ti = templateItem.clone().apply {
             replacePlaceHolders(this, getReplacements())
@@ -210,10 +205,10 @@ class EngineItem {
     }
 
     fun runStartEffects(p: Player) {
-        m.user.get(p.uniqueId) {
+        manager.user.get(p.uniqueId) {
             for (e in getEffectLevels()) {
-                val effect = m.effect.getEffectById(e.key) ?: continue
-                m.effect.onStart(p, effect, e.value)
+                val effect = manager.effect.getEffectById(e.key) ?: continue
+                manager.effect.onStart(p, effect, e.value)
                 it.activeEffects[effect] = e.value
             }
         }
@@ -221,9 +216,9 @@ class EngineItem {
     }
 
     fun runResetEffects(p: Player) {
-        m.user.get(p.uniqueId) {
+        manager.user.get(p.uniqueId) {
             for (e in getEffectLevels()) {
-                m.effect.onReset(p, m.effect.getEffectById(e.key) ?: continue)
+                manager.effect.onReset(p, manager.effect.getEffectById(e.key) ?: continue)
             }
         }
     }
@@ -261,8 +256,17 @@ class EngineItem {
         fun of(m: EngineManager, item: ItemStack?, inventory: Inventory): EngineItem? {
             val nbt = NBTItem(item ?: return null)
             if (!nbt.hasNBTData()) return null
-            val a = m.item.bases[nbt.getString("id")] ?: return null
+            val a = ItemManager.bases[nbt.getString("id")] ?: return null
             return EngineItem(m, a, InventoryReference(inventory, a, nbt.getUUID("uuid")), true)
+        }
+    }
+
+    init {
+        NBTItem(templateItem, true).apply {
+            setUUID("uuid", reference.id)
+        }
+        if (isBuilt) {
+            NBTItem(reference.getStack(), true).mergeCustomNBT(templateItem)
         }
     }
 }

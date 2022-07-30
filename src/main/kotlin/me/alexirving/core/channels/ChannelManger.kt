@@ -1,9 +1,9 @@
 package me.alexirving.core.channels
 
 import me.alexirving.core.EngineManager
-import me.alexirving.core.database.Cacheable
-import me.alexirving.core.database.Database
-import me.alexirving.core.database.GroupCachedManager
+import me.alexirving.lib.database.Cacheable
+import me.alexirving.lib.database.Database
+import me.alexirving.lib.database.GroupCachedManager
 import org.bukkit.Bukkit
 import org.bukkit.entity.Player
 import org.bukkit.event.EventHandler
@@ -12,11 +12,11 @@ import org.bukkit.event.player.AsyncPlayerChatEvent
 import java.util.*
 
 
-class ChannelManger(db: Database<Cacheable>, private val m: EngineManager) : Listener,
-    GroupCachedManager<ChannelData>(db, ChannelData.default(null)) {
+class ChannelManger(db: Database<UUID, Cacheable<UUID>>, private val m: EngineManager) : Listener,
+    GroupCachedManager<UUID, UUID, ChannelData>(db, ChannelData.default(null)) {
 
     fun ChannelData.sendMessage(message: String) {
-        this@ChannelManger.groups[this.getUUID()]?.forEach { Bukkit.getPlayer(it)?.sendMessage(message) }
+        this@ChannelManger.groups[this.identifier]?.forEach { Bukkit.getPlayer(it)?.sendMessage(message) }
 
     }
 
@@ -60,7 +60,7 @@ class ChannelManger(db: Database<Cacheable>, private val m: EngineManager) : Lis
         val player = e.player
         val uuid = player.uniqueId
         m.user.get(uuid) { user ->
-            get(user.currentChannel?:return@get){
+            get(user.currentChannel ?: return@get) {
                 e.isCancelled = true
                 if (it.canWrite(uuid))
                     it.sendMessage("[${it.getPrefix(uuid)}] ${player.displayName}: ${e.message}")

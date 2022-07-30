@@ -14,7 +14,8 @@ import org.bukkit.entity.EntityType
  * An animation that can be played with an [AnimationSession].
  * @param frameDelay The delay between each frame in milliseconds.
  * @param sequence The frames of the animation.
- * @param entities The names of the armor stands to be used in the animation.
+ * @param entities The names and types for the entities to be used in the [AnimationSession]
+ *
  */
 data class Animation(
     val entities: MutableMap<String, EntityType>,

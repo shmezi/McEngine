@@ -15,11 +15,11 @@ class EngineItemListener(val m: EngineManager) : Listener {
         val pItem = p.inventory.getItem(e.previousSlot)
         val nItem = p.inventory.getItem(e.newSlot)
         m.user.get(p.uniqueId) {
-            if (m.item.isCustom(pItem)) {
+            if (ItemManager.isCustom(pItem)) {
                 val ei = EngineItem.of(m, pItem, p.inventory)
                 ei?.runResetEffects(p)
             }
-            if (m.item.isCustom(nItem)) {
+            if (ItemManager.isCustom(nItem)) {
                 val ei = EngineItem.of(m, nItem, p.inventory)
                 ei?.runStartEffects(p)
             }

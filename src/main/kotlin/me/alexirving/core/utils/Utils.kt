@@ -53,8 +53,8 @@ fun copyOver(dataFolder: File, vararg fileNames: String) {
 /**
  * Guarantees a number above 0
  */
-fun Int?.nBZ() = if ((this ?: 0) < 0) 0 else this?:0
-fun Double?.nBZ() = if ((this ?: 0.0) < 0.0) 0.0 else this?:0.0
+fun Int?.nBZ() = if ((this ?: 0) < 0) 0 else this ?: 0
+fun Double?.nBZ() = if ((this ?: 0.0) < 0.0) 0.0 else this ?: 0.0
 
 fun Int.nB(value: Int) = if (this < value) value else this
 fun Double.nB(value: Double) = if (this < value) value else this
@@ -68,20 +68,34 @@ fun asyncNonBukkit(task: Runnable) {
     exe.submit(task)
 }
 
-fun Any?.print() = println(this)
+fun <T> T?.print(): T? {
+    println(this)
+    return this
+}
 
-fun Any?.printAsString() = println(this.toString())
-fun Any?.printAsString(prefix: String) = println("$prefix${this.toString()}")
+
 var c = 0
-fun Any?.pq() = this.pq(null)
-fun Any?.pqr() = pq(Random.nextInt(0, 100))
-fun Any?.pq(number: Int) = this.pq("$number")
-fun Any?.pq(prefix: String?) {
+fun <T> T?.pq(): T? {
+    this.pq(null)
+    return this
+}
+
+fun <T> T?.pqr(): T? {
+    pq(Random.nextInt(0, 100))
+    return this
+}
+
+fun <T> T?.pq(number: Int): T? {
+    this.pq("$number")
+    return this
+}
+
+fun <T> T?.pq(prefix: String?): T? {
 
     val p = (prefix ?: "PRINTED").apply { replace(this[0], this[0].uppercaseChar()) }
     if (this == null) {
         println("[$p] null".color(Colors.RED))
-        return
+        return null
     }
     when (c) {
         0 -> println("[$p] $this".color(Colors.RED))
@@ -96,6 +110,7 @@ fun Any?.pq(prefix: String?) {
     c++
     if (c > 5)
         c = 0
+    return this
 }
 
 fun ConfigurationSection.getLocation(path: String): Location? {
@@ -134,5 +149,45 @@ fun Location.getFacing(): Direction {
 
 }
 
+enum class RomanNumerals(val amount: Int) {
+    M(1000),
+    CM(900),
+    D(500),
+    CD(400),
+    C(100),
+    XC(90),
+    L(50),
+    XL(40),
+    X(10),
+    IX(9),
+    V(5),
+    IV(4),
+    I(1)
+}
+
+fun Int.toRoman(): String {
+    var current = this
+    val appendable = StringBuilder()
+    for (r in RomanNumerals.values()) {
+        val remove = current.floorDiv(r.amount)
+        appendable.append(r.name.repeat(remove))
+        current -= (r.amount * remove)
+        if (current <= 0)
+            return appendable.toString()
+    }
+    return appendable.toString()
+}
+
 fun Map<String, Double>?.loc() =
     if (this == null) Offset(0.0, 0.0, 0.0) else Offset(this["x"] ?: 0.0, this["y"] ?: 0.0, this["z"] ?: 0.0)
+
+/**
+ * Replaces a map of placeholders from a string.
+ */
+fun String.replacePH(map: Map<String, String>): String {
+    var replaceMe = this
+    map.forEach {
+        replaceMe = replaceMe.replace(it.key, it.value)
+    }
+    return replaceMe
+}

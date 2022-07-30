@@ -15,7 +15,7 @@ import org.bukkit.Material
 import org.bukkit.inventory.ItemStack
 import java.io.File
 
-class ItemManager(private val dataFolder: File) {
+object ItemManager {
     val bases = mutableMapOf<String, BaseItem>()
     private val materialSet = mutableSetOf<Material>()
     private val idSet = mutableSetOf<String>()
@@ -31,7 +31,7 @@ class ItemManager(private val dataFolder: File) {
     }
 
 
-    fun reload() {
+    fun reload(dataFolder: File) {
         bases.clear()
         materialSet.clear()
         idSet.clear()

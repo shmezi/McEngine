@@ -19,91 +19,43 @@
     "enchant": 10
   },
   "placeholders": {
-    "speed": [
-      "SPEED-I",
-      "SPEED-II",
-      "SPEED-III",
-      "SPEED-IV",
-      "SPEED-V"
-    ],
+    "speed": "SPEED-$",
     "nuke": [
-      "NUKE-I",
-      "NUKE-II",
-      "NUKE-III",
-      "NUKE-IV",
-      "NUKE-V"
+      "NUKE-$"
     ],
     "key_finder": [
-      "KEY_FINDER-I",
-      "KEY_FINDER-II",
-      "KEY_FINDER-III",
-      "KEY_FINDER-IV",
-      "KEY_FINDER-V"
+      "KEY_FINDER-$"
     ],
     "detonate": [
-      "DETONATE-I",
-      "DETONATE-II",
-      "DETONATE-III",
-      "DETONATE-IV",
-      "DETONATE-V"
+      "DETONATE-$"
     ],
     "jack_hammer": [
-      "JACK_HAMMER-I",
-      "JACK_HAMMER-II",
-      "JACK_HAMMER-III",
-      "JACK_HAMMER-IV",
-      "JACK_HAMMER-V"
+      "JACK_HAMMER-$"
     ],
     "laser": [
-      "LASER-I",
-      "LASER-II",
-      "LASER-III",
-      "LASER-IV",
-      "LASER-V"
+      "LASER-$"
     ],
     "fortune": [
-      "FORTUNE-I",
-      "FORTUNE-II",
-      "FORTUNE-III",
-      "FORTUNE-IV",
-      "FORTUNE-V"
+      "FORTUNE-$"
     ],
     "efficiency": [
-      "EFFICIENCY-I",
-      "EFFICIENCY-II",
-      "EFFICIENCY-III",
-      "EFFICIENCY-IV",
-      "EFFICIENCY-V"
+      "EFFICIENCY-$"
     ],
     "token_miner": [
-      "TOKEN_MINER-I",
-      "TOKEN_MINER-II",
-      "TOKEN_MINER-III",
-      "TOKEN_MINER-IV",
-      "TOKEN_MINER-V"
+      "TOKEN_MINER-$"
     ],
     "lightning_bolt": [
-      "LIGHTNING_BOLT-I",
-      "LIGHTNING_BOLT-II",
-      "LIGHTNING_BOLT-III",
-      "LIGHTNING_BOLT-IV",
-      "LIGHTNING_BOLT-V"
+      "LIGHTNING_BOLT-$"
     ]
   },
   "sections": {
     "enchants": [
+
+
       {
         "id": "speed",
         "max": 5,
-        "placeholders": {
-          "speed": [
-            0,
-            1,
-            2,
-            3,
-            4
-          ]
-        },
+
         "groups": [
           "enchant"
         ],
@@ -125,6 +77,10 @@
           }
         ]
       },
+
+
+
+
       {
         "id": "nuke",
         "max": 5,

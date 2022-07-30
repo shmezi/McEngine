@@ -48,7 +48,7 @@ class CMDEconomy : BaseCommand() {
     @Permission("engine.eco.balancetop")
     fun balTop(player: Player, points: Points) {
         points.pointTop { users ->
-            player.sendMessage(users.map { "${Bukkit.getPlayer(it.uuid)?.displayName}: ${it.points[points.id]}" }
+            player.sendMessage(users.map { "${Bukkit.getPlayer(it.identifier)?.displayName}: ${it.points[points.id]}" }
                 .joinToString("\n", "Top balances of the server:") { it })
         }
 

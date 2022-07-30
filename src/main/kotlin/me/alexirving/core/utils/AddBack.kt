@@ -1,5 +1,6 @@
 package me.alexirving.core.utils
 
-annotation class AddBack(val reason: String){
+@Retention(AnnotationRetention.RUNTIME)
+annotation class AddBack(val reason: String) {
 
 }

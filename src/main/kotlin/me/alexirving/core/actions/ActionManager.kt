@@ -1,10 +1,8 @@
 package me.alexirving.core.actions
 
-import me.alexirving.core.EngineManager
-import me.alexirving.core.manager.LoaderManager
 import org.reflections.Reflections
 
-class ActionManager(val m: EngineManager) : LoaderManager<Action>("actionManager") {
+object ActionManager  {
 
     private val reflections = Reflections("me.alexirving.core.actions.actionables")
     private val actions: MutableSet<Class<out Action>> = reflections.getSubTypesOf(Action::class.java)
@@ -36,20 +34,18 @@ class ActionManager(val m: EngineManager) : LoaderManager<Action>("actionManager
         return !superActions.none { it.simpleName == name }
     }
 
-    fun compileAction(m: EngineManager, data: Map<String, Any>): Action? {
+    fun compileAction(data: Map<String, Any>): Action? {
         return getActionClassFromName(data["type"] as String? ?: return null).getDeclaredConstructor(
-            EngineManager::class.java,
             Map::class.java
-        ).newInstance(m, data)
+        ).newInstance(data)
     }
 
 
-    fun compileSuperAction(m: EngineManager, data: Map<String, Any>, start: Int): SuperAction? {
+    fun compileSuperAction(data: Map<String, Any>, start: Int): SuperAction? {
 
         return getSuperActionClassFromName(data["type"] as String? ?: return null).getDeclaredConstructor(
-            EngineManager::class.java,
             Map::class.java,
             Int::class.java
-        ).newInstance(m, data, start)
+        ).newInstance(data, start)
     }
 }

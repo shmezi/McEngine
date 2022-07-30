@@ -6,6 +6,9 @@ import java.awt.Toolkit
 import java.awt.event.WindowAdapter
 import java.awt.event.WindowEvent
 
+/**
+ * Simple script letting user know this is a plugin and not an application :)
+ */
 class NotAProgram : Frame("This is not an application!") {
     private val s = Label("To install please drop in a bukkit/spigot server in the /plugins/ folder!")
 

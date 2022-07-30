@@ -1,0 +1,70 @@
+{
+  "id": "backpack",
+  "type": "CHEST",
+  "title": "%player%'s Backpack",
+  "mutability": "ALWAYS",
+  "rows": 6,
+  "interactions": [
+    "ALL"
+  ],
+  "variables": {
+    "contents": []
+  },
+  "slots": {
+    "0": {
+      "type": "STATIC",
+      "dynamic": true,
+      "itemId": "BackButton",
+      "actions": [
+        {
+          "type": "GUI",
+          "action": "BACK"
+        }
+      ]
+    },
+    "1": {
+      "type": "STATIC",
+      "itemId": "Garbage",
+      "actions": [
+        {
+          "type": "GUI",
+          "action": "OPEN",
+          "id": "Garbage"
+        }
+      ]
+    },
+    "2": {
+      "type": "SWITCH",
+      "states": {
+        "ON": {
+          "itemId": "OnItem",
+          "actions": [
+          ]
+        },
+        "OFF": {
+          "itemId": "OffItem",
+          "actions": [
+          ]
+        }
+      }
+    },
+    "8": {
+      "type": "STATIC",
+      "itemId": "Close",
+      "actions": [
+        {
+          "type": "GUI",
+          "action": "CLOSE"
+        }
+      ]
+    },
+    "9-53": {
+      "type": "ARRAY",
+      "of": "contents"
+    },
+    "filler": {
+      "type": "STATIC",
+      "itemId": "FillerItem"
+    }
+  }
+}

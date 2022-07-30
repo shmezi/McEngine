@@ -19,12 +19,11 @@ import org.bukkit.inventory.ItemStack
 /**
  * PacketManager is a class that manages the packets that are sent to the client.
  */
-class PacketManager {
+object PacketManager {
     private val packetMap = mutableMapOf<Int, Packet>() //A map to reference the packets by their id
+    val version: MinecraftVersion = ProtocolLibrary.getProtocolManager().minecraftVersion
 
-    companion object {
-        val version: MinecraftVersion = ProtocolLibrary.getProtocolManager().minecraftVersion
-    }
+
 
     var idCounter = 0
     fun spawn(type: EntityType, viewers: MutableSet<Player>, location: Location): Int {

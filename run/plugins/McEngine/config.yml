@@ -2,6 +2,9 @@
 Debug: off
 AutoSave: 12000
 Connection: "mongodb://localhost"
+HasLogin: false
+User: ""
+Pass: ""
 Ecos:
   - "Default"
   - "Tokens"
