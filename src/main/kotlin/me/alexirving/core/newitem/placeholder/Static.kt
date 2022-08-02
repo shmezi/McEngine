@@ -1,5 +1,6 @@
 package me.alexirving.core.newitem.placeholder
 
+import me.alexirving.core.newitem.placeholder.PlaceHolder.Companion.formatLevel
 import me.alexirving.core.utils.nBZ
 
 class Static(
@@ -14,7 +15,7 @@ class Static(
             levels[temp]
         else
             levels[levels.size - 1]
-                ).format(level)
+                ).formatLevel(level)
 
     }
 }

@@ -9,7 +9,7 @@ interface PlaceHolder {
         private val replaceNormal = "(?<!\\\\)\\\$".toRegex()
         private val replaceBackSpace = "\\\\(?=[^\\\\,^ ])".toRegex()
 
-        fun String.format(level: Int) =
+        fun String.formatLevel(level: Int) =
             this.replace(replaceNormal, level.toString()).replace(replaceRoman, level.toRoman())
                 .replace(replaceBackSpace, "")
     }

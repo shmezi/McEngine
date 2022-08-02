@@ -7,6 +7,9 @@
  */
 package me.alexirving.core
 
+import com.google.gson.GsonBuilder
+import com.google.gson.JsonDeserializer
+import com.google.gson.JsonObject
 import me.alexirving.core.animation.AnimationManager
 import me.alexirving.core.channels.ChannelData
 import me.alexirving.core.channels.ChannelManger
@@ -16,6 +19,10 @@ import me.alexirving.core.exceptions.NotFoundException
 import me.alexirving.core.hooks.HookWorldEdit
 import me.alexirving.core.mines.MineManager
 import me.alexirving.core.mines.PrisonSettings
+import me.alexirving.core.newitem.ItemManager
+import me.alexirving.core.newitem.placeholder.Dynamic
+import me.alexirving.core.newitem.placeholder.PlaceHolder
+import me.alexirving.core.newitem.placeholder.Static
 import me.alexirving.core.points.PointManager
 import me.alexirving.core.points.track.Level
 import me.alexirving.core.points.track.PointsTrack
@@ -36,14 +43,7 @@ import java.util.*
 
 class EngineManager(val engine: McEngine) : Listener {
     private val config = engine.config
-    private val df = engine.dataFolder
-    val itemFolder = File(df, "items")
-    val aniFolder = File(df, "animations")
-
-    //    val item = ItemManager.reload(itemFolder)
-    val point = PointManager(this)
-    val effect = EffectManager(this)
-
+    val df = engine.dataFolder
     private val connection = MongoConnection(
         if (config.getBoolean("HasLogin")) MongoUtils.defaultClient(
             config.getString("Connection") ?: "mongodb://localhost",
@@ -53,19 +53,28 @@ class EngineManager(val engine: McEngine) : Listener {
         else MongoUtils.defaultClient(config.getString("Connection") ?: "mongodb://localhost"), "McEngine"
     )
 
+    val item = ItemManager(connection)
+    val itemFolder = File(df, "items")
+    val aniFolder = File(df, "animations")
+
+    //    val item = ItemManager.reload(itemFolder)
+    val point = PointManager(this)
+    val effect = EffectManager(this)
+
+
     val channel = ChannelManger(
-        MongoDbCachedCollection("Channels", ChannelData.default(null), connection), this
+        MongoDbCachedCollection("Channels", ChannelData::class.java, connection), this
     )
     val mine = MineManager(this)
 
     val user = MongoDbCachedCollection(
-        "User", UserData(UUID.randomUUID(), mutableMapOf(), PrisonSettings.default(), null, mutableSetOf()), connection
-    ).getManager()
+        "User", UserData::class.java, connection
+    ).getManager(UserData(UUID.randomUUID(), mutableMapOf(), PrisonSettings.default(), null, mutableSetOf()))
 
 
     val gang = GroupCachedManager<UUID, UUID, GangData>(
-        MongoDbCachedCollection("Gang", GangData.default(null, "gang"), connection), GangData.default(null, "gang")
-    )
+        MongoDbCachedCollection("Gang", GangData::class.java, connection), GangData.default(null, "gang"))
+
     val weHook = HookWorldEdit()
 
     init {
@@ -75,6 +84,16 @@ class EngineManager(val engine: McEngine) : Listener {
         reload()
     }
 
+    companion object {
+        val gson = GsonBuilder().registerTypeAdapter(PlaceHolder::class.java, JsonDeserializer<Any?> { json, _, c ->
+            val obj: JsonObject = json.asJsonObject
+            when (obj.get("mode").asString) {
+                "STATIC" -> Static(c.deserialize(obj.get("values").asJsonArray, List::class.java))
+                "DYNAMIC" -> Dynamic(obj.get("format").asString)
+                else -> throw NotFoundException("No placeholder mode of ${obj.get("mode").asString}")
+            }
+        }).create()
+    }
 
     fun loadPlayer(player: Player) {
         user.get(player.uniqueId) { user ->

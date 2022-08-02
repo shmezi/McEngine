@@ -13,7 +13,7 @@ import dev.triumphteam.cmd.core.suggestion.SuggestionKey
 import io.github.retrooper.packetevents.factory.spigot.SpigotPacketEventsBuilder
 import me.alexirving.core.animation.AnimationManager
 import me.alexirving.core.animation.objects.Animation
-import me.alexirving.core.commands.*
+import me.alexirving.core.commands.CMDTest
 import me.alexirving.core.effects.Effect
 import me.alexirving.core.hooks.HookPapi
 import me.alexirving.core.item.ItemManager
@@ -117,6 +117,8 @@ class McEngine : JavaPlugin() {
             } else
                 mutableListOf()
         }
+        cmm.registerCommand(CMDTest(manager))
+
 //        cmm.registerCommand(
 //            CMDEngine(manager),
 //            CMDEconomy(),
@@ -124,7 +126,6 @@ class McEngine : JavaPlugin() {
 //            CMDMine(manager),
 //            CMDGang(manager)
 //        )
-
 
 
         registerListeners(this, PlayerJoin(manager), PlayerInteract(), PlayerLeave(manager))

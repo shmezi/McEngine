@@ -68,17 +68,12 @@ fun asyncNonBukkit(task: Runnable) {
     exe.submit(task)
 }
 
-fun <T> T?.print(): T? {
-    println(this)
-    return this
-}
-
-
 var c = 0
 fun <T> T?.pq(): T? {
     this.pq(null)
     return this
 }
+
 
 fun <T> T?.pqr(): T? {
     pq(Random.nextInt(0, 100))
@@ -190,4 +185,20 @@ fun String.replacePH(map: Map<String, String>): String {
         replaceMe = replaceMe.replace(it.key, it.value)
     }
     return replaceMe
+}
+
+fun <T> List<T>.getOrLast(index: Int): T {
+    return if (this.size > index)
+        this[index]
+    else
+        this[this.size - 1]
+
+}
+
+fun <T> List<T>.getOrFirst(index: Int): T {
+    return if (0 > index)
+        this[0]
+    else
+        this[index]
+
 }

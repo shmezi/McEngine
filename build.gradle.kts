@@ -46,7 +46,7 @@ dependencies {
     implementation("dev.triumphteam:triumph-cmd-bukkit:2.0.0-SNAPSHOT")
     implementation("de.tr7zw:item-nbt-api:2.10.0")
 
-    implementation("com.github.shmezi:AlexLib:1.0")
+    implementation("com.github.shmezi:AlexLib:1.4")
 
 
     /**

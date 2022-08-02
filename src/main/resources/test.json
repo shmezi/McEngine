@@ -1,0 +1,24 @@
+{
+  "players": {
+    "uuid": {
+      "jobId": "police",
+      "sex": "MALE"
+    }
+  },
+  "jobs": [
+    {
+      "id": "police",
+      "prefix": "POLICE",
+      "skin": {
+        "MALE": "https://www.minecraftskins.com/skin/20646526/police-man-4/",
+        "FEMALE": "https://www.minecraftskins.com/skin/17426005/female-police-officer/"
+      }
+    },
+    {
+      "id": "paramedic"
+    },
+    {
+      "id": "farmer"
+    }
+  ]
+}
