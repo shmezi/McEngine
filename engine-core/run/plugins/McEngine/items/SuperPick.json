@@ -1,0 +1,73 @@
+{
+  "id": "pickaxe_of_god",
+  "material": "%MATERIAL%_PICKAXE",
+  "name": "%player%'s Pickaxe",
+  "properties": {
+    "PLACE": false,
+    "THROW": false,
+    "CONSUME": false,
+    "INVENTORY": false,
+    "ALWAYS_KEEP": false
+  },
+  "lore": [
+    "A pickaxe given by god or something like that..",
+    "%speed%"
+  ],
+  "groupLimits": {
+    "enchant": 10
+  },
+  "placeholders": {
+    "MATERIAL": {
+      "mode": "STATIC",
+      "values": [
+        "WOODEN",
+        "STONE",
+        "IRON",
+        "GOLDEN",
+        "DIAMOND"
+      ]
+    },
+    "speed": {
+      "mode": "DYNAMIC",
+      "format": "LEVEL-*"
+    }
+  },
+  "defaults": {
+    "enchants.speed": 1
+  },
+  "sections": {
+    "enchants": {
+      "speed": {
+        "id": "speed",
+        "max": -1,
+        "placeholders": [
+          {
+            "speed": -1,
+            "MATERIAL": 3
+          }
+        ],
+        "actions": [
+          [
+            {
+              "type": "Effect",
+              "data": {
+                "effect": ""
+              }
+            }
+          ]
+        ],
+        "groups": [
+          {
+            "enchant": 1
+          },
+          {
+            "enchant": 2
+          },
+          {
+            "enchant": 0
+          }
+        ]
+      }
+    }
+  }
+}

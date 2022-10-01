@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="CompilerConfiguration">
-    <bytecodeTargetLevel target="17" />
+    <bytecodeTargetLevel target="1.6">
+      <module name="engine-core.mc-engine.engine-core.main" target="17" />
+      <module name="engine-core.mc-engine.engine-core.test" target="17" />
+      <module name="mc-engine.buildSrc" target="17" />
+      <module name="mc-engine.buildSrc.main" target="17" />
+      <module name="mc-engine.buildSrc.test" target="17" />
+    </bytecodeTargetLevel>
   </component>
 </project>
