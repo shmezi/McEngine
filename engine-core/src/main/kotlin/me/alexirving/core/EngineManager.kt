@@ -14,11 +14,12 @@ import me.alexirving.core.animation.AnimationManager
 import me.alexirving.core.channels.ChannelData
 import me.alexirving.core.channels.ChannelManger
 import me.alexirving.core.effects.EffectManager
-import me.alexirving.core.effects.effects.*
+import me.alexirving.core.effects.effects.Efficiency
+import me.alexirving.core.effects.effects.Fortune
+import me.alexirving.core.effects.effects.NighVision
+import me.alexirving.core.effects.effects.Speed
 import me.alexirving.core.exceptions.NotFoundException
 import me.alexirving.core.hooks.HookWorldEdit
-import me.alexirving.core.mines.MineManager
-import me.alexirving.core.mines.PrisonSettings
 import me.alexirving.core.newitem.ItemManager
 import me.alexirving.core.newitem.placeholder.Dynamic
 import me.alexirving.core.newitem.placeholder.PlaceHolder
@@ -31,7 +32,6 @@ import me.alexirving.core.structs.UserData
 import me.alexirving.core.utils.Colors
 import me.alexirving.core.utils.color
 import me.alexirving.core.utils.pq
-import me.alexirving.core.utils.registerListeners
 import me.alexirving.lib.database.GroupCachedManager
 import me.alexirving.lib.database.nosql.MongoConnection
 import me.alexirving.lib.database.nosql.MongoDbCachedCollection
@@ -42,6 +42,8 @@ import java.io.File
 import java.util.*
 
 class EngineManager(val engine: McEngine) : Listener {
+
+
     private val config = engine.config
     val df = engine.dataFolder
     private val connection = MongoConnection(
@@ -66,11 +68,11 @@ class EngineManager(val engine: McEngine) : Listener {
     val channel = ChannelManger(
         MongoDbCachedCollection("Channels", ChannelData::class.java, connection), this
     )
-    val mine = MineManager(this)
+
 
     val user = MongoDbCachedCollection(
         "User", UserData::class.java, connection
-    ).getManager(UserData(UUID.randomUUID(), mutableMapOf(), PrisonSettings(), null, mutableSetOf()))
+    ).getManager(UserData(UUID.randomUUID(), mutableMapOf(), null, mutableSetOf()))
 
 
     val gang = GroupCachedManager<UUID, UUID, GangData>(
@@ -81,8 +83,7 @@ class EngineManager(val engine: McEngine) : Listener {
 
     init {
         println("Registering internal effects:".color(Colors.BLUE))
-        effect.register(Speed(), Efficiency(), Fortune(), NighVision(), Nuke(this), Jackhammer(this), Laser(this))
-        registerListeners(engine, effect, this)
+        effect.register(Speed(), Efficiency(), Fortune(), NighVision())
         reload()
     }
 
@@ -100,7 +101,7 @@ class EngineManager(val engine: McEngine) : Listener {
     fun loadPlayer(player: Player) {
         user.get(player.uniqueId) { user ->
             user.channels.forEach { channel.loadUser(it, player.uniqueId) }
-            gang.loadUser(user.settings.gang ?: return@get, player.uniqueId)
+            user.pq()
         }
 
     }
@@ -112,7 +113,6 @@ class EngineManager(val engine: McEngine) : Listener {
     fun unloadPlayer(player: Player) {
         user.get(player.uniqueId) { user ->
             user.channels.forEach { channel.unloadUser(it, player.uniqueId) }
-            gang.unloadUser(user.settings.gang ?: return@get, player.uniqueId)
         }
         user.unload(player.uniqueId)
     }
@@ -121,7 +121,6 @@ class EngineManager(val engine: McEngine) : Listener {
 
         engine.reloadConfig()
         AnimationManager.reload(aniFolder)
-        mine.reload()
         item.reload(File(df, "items"))
 //        ItemManager.reload(itemFolder)
 

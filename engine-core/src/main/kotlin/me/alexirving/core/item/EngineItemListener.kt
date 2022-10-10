@@ -30,31 +30,28 @@ class EngineItemListener(val m: EngineManager) : Listener {
 
     @EventHandler
     fun onMine(e: BlockBreakEvent) {
-        if (e.isCancelled) return
-        val p = e.player
-        val t = e.block.type
-        if (p.hasPermission("engine.prison.autoblock"))
-            m.user.get(p.uniqueId) { user ->
-                if (user.settings.block && BlockableItems.isBlockable(t) && e.player.inventory.contains(
-                        t,
-                        9
-                    )
-                ) {
-                    var counter = 9
-                    for (item in p.inventory.filter { it.type == t }) {
-                        if (item.amount == counter)
-                            p.inventory.remove(item)
-                        else {
-                            val ia = item.amount
-                            item.amount -= counter.nBZ()
-                            counter -= ia
-                            if (item.amount > counter)
-                                break
-                        }
-                    }
-                    p.updateInventory()
-                }
-            }
-
+//        if (e.isCancelled) return
+//        val player = e.player
+//        val brokenType = e.block.type
+//        if (player.hasPermission("engine.prison.autoblock"))
+//            m.user.get(player.uniqueId) { user ->
+//                if (user.settings.block && BlockableItems.isBlockable(brokenType) && e.player.inventory.contains(
+//                        brokenType, 9)
+//                ) {
+//                    var counter = 9
+//                    for (item in player.inventory.filter { it.type == brokenType }) {
+//                        if (item.amount == counter)
+//                            player.inventory.remove(item)
+//                        else {
+//                            val ia = item.amount
+//                            item.amount -= counter.nBZ()
+//                            counter -= ia
+//                            if (item.amount > counter)
+//                                break
+//                        }
+//                    }
+//                    player.updateInventory()
+//                }
+//            }
     }
 }

@@ -1,4 +1,4 @@
-package me.alexirving.core.mines
+package me.alexirving.prison
 
 import com.sk89q.worldedit.bukkit.BukkitAdapter
 import com.sk89q.worldedit.function.pattern.RandomPattern
@@ -10,9 +10,8 @@ import org.bukkit.Location
 import org.bukkit.Material
 import org.bukkit.entity.Player
 import org.bukkit.event.Listener
-import java.util.*
 
-class MineManager(private val m: EngineManager) : Listener {
+class MineManager( val engine: EngineManager) : Listener {
     private val loadedMines = mutableMapOf<String, Mine>() //mines loaded in
     private val mineTasks = mutableMapOf<String, Int>() //scheduler task ids
     private val freeMines =
@@ -25,12 +24,11 @@ class MineManager(private val m: EngineManager) : Listener {
             failure()
             return
         }
-        m.user.get(player.uniqueId) {
+        engine.user.get(player.uniqueId) {
             val mine = fMines[0]
             mine.resetMine()
             mine.join(player)
             fMines.remove(mine)
-            mine.settings = it.settings
             inMine[player] = mine
             success(mine)
         }
@@ -63,10 +61,11 @@ class MineManager(private val m: EngineManager) : Listener {
         newPrivateMineSession(id, player, success) {}
 
 
-    fun isPlayerInMine(player: Player): Boolean = m.mine.inMine.contains(player)
+    fun isPlayerInMine(player: Player): Boolean = inMine.contains(player)
 
     fun isInPlayerMine(player: Player, location: Location, async: (inMine: Boolean) -> Unit) {
-        m.mine.getPlayerMine(player) {
+
+        getPlayerMine(player) {
             async(it?.region?.contains(BukkitAdapter.asBlockVector(location)) ?: false)
         }
     }
@@ -82,8 +81,8 @@ class MineManager(private val m: EngineManager) : Listener {
     fun getMine(id: String) = loadedMines[id]
 
     fun getPlayerMine(player: Player, async: (mine: Mine?) -> Unit) {
-        m.point.getPointTrack("PRESTIGE")?.getLevel(player.uniqueId) {
-            async(m.mine.getMine(it.id))
+        engine.point.getPointTrack("PRESTIGE")?.getLevel(player.uniqueId) {
+            async(getMine(it.id))
         }
     }
 
@@ -97,7 +96,7 @@ class MineManager(private val m: EngineManager) : Listener {
 
         } else loadedMines[mine.id] = mine
         mineTasks[mine.id] =
-            Bukkit.getScheduler().scheduleSyncRepeatingTask(m.engine, {
+            Bukkit.getScheduler().scheduleSyncRepeatingTask(engine.engine, {
                 mine.resetMine()
 
             }, 0L, mine.duration)
@@ -109,7 +108,7 @@ class MineManager(private val m: EngineManager) : Listener {
         loadedMines.clear()
         freeMines.clear()
         inMine.clear()
-        val c = m.engine.config.getConfigurationSection("Mines")
+        val c = engine.engine.config.getConfigurationSection("Mines")
         for (mineId in c?.getKeys(false) ?: return) {
             val mc = c.getConfigurationSection(mineId)
             val lmc = mc?.getConfigurationSection("Location")
@@ -117,7 +116,7 @@ class MineManager(private val m: EngineManager) : Listener {
             load(
                 Mine(
                     mineId,
-                    m,
+                    engine,
                     mc.getLong("Duration"),
                     lmc.getLocation("Spawn", w),
                     CuboidRegion(
@@ -140,7 +139,7 @@ class MineManager(private val m: EngineManager) : Listener {
                 val pc = c.getConfigurationSection("$mineId.Private.$privateId") ?: continue
                 load(
                     PrivateMine(
-                        privateId, m,
+                        privateId, engine,
                         pc.getLong("Duration"),
                         pc.getLocation("Spawn", w),
                         CuboidRegion(

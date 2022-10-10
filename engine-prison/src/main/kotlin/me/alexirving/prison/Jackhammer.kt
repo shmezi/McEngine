@@ -1,4 +1,4 @@
-package me.alexirving.core.effects.effects
+package me.alexirving.prison
 
 import me.alexirving.core.EngineManager
 import me.alexirving.core.effects.Effect
@@ -8,13 +8,13 @@ import org.bukkit.event.block.BlockBreakEvent
 import kotlin.random.Random
 import kotlin.random.nextInt
 
-class Jackhammer(val m: EngineManager) : Effect("jackhammer", Intent.MINE) {
+class Jackhammer(val m: MineManager) : Effect("jackhammer", Intent.MINE) {
     override fun onMine(e: BlockBreakEvent, level: Int) {
         val player = e.player
-        m.mine.isInPlayerMine(player, e.block.location) { inMine ->
+        m.isInPlayerMine(player, e.block.location) { inMine ->
             if (!inMine) return@isInPlayerMine
             if ((0..(level - 1).nBZ()).contains(Random.nextInt(0..100))) {
-                m.mine.getPlayerMine(player) {
+                m.getPlayerMine(player) {
                     it?.breakMine(player)
                 }
             }

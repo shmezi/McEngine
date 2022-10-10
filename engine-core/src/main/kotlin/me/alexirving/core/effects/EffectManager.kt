@@ -21,7 +21,7 @@ class EffectManager(private val m: EngineManager) : Listener {
     private val listens = mutableMapOf<Intent, MutableList<Effect>>()
 
     init {
-        registerListeners(m.engine, EngineItemListener(m))
+//        registerListeners(m.engine, EngineItemListener(m))
     }
 
     fun getEffectById(id: String) = registeredEffects[id]

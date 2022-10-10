@@ -1,426 +1,73 @@
 {
-  "id": "SuperPickaxe",
-  "displayName": "<dark_gray>┏<st>----</st><light_purple><bold>Statistics</bold><dark_gray><st>--------</st>┒",
+  "id": "pickaxe_of_god",
+  "material": "%MATERIAL%_PICKAXE",
+  "name": "%player%'s Pickaxe",
+  "properties": {
+    "PLACE": false,
+    "THROW": false,
+    "CONSUME": false,
+    "INVENTORY": false,
+    "ALWAYS_KEEP": false
+  },
   "lore": [
-    "A cool pickaxe!",
-    "%nuke%",
-    "%speed%",
-    "%key_finder%",
-    "%detonate%",
-    "%jack_hammer%",
-    "%laser%",
-    "%fortune%",
-    "%efficiency%",
-    "%token_miner%",
-    "%lightning_bolt%"
+    "A pickaxe given by god or something like that..",
+    "%speed%"
   ],
-  "material": "DIAMOND_PICKAXE",
-  "groups": {
+  "groupLimits": {
     "enchant": 10
   },
   "placeholders": {
-    "speed": [
-      "SPEED-I",
-      "SPEED-II",
-      "SPEED-III",
-      "SPEED-IV",
-      "SPEED-V"
-    ],
-    "nuke": [
-      "NUKE-I",
-      "NUKE-II",
-      "NUKE-III",
-      "NUKE-IV",
-      "NUKE-V"
-    ],
-    "key_finder": [
-      "KEY_FINDER-I",
-      "KEY_FINDER-II",
-      "KEY_FINDER-III",
-      "KEY_FINDER-IV",
-      "KEY_FINDER-V"
-    ],
-    "detonate": [
-      "DETONATE-I",
-      "DETONATE-II",
-      "DETONATE-III",
-      "DETONATE-IV",
-      "DETONATE-V"
-    ],
-    "jack_hammer": [
-      "JACK_HAMMER-I",
-      "JACK_HAMMER-II",
-      "JACK_HAMMER-III",
-      "JACK_HAMMER-IV",
-      "JACK_HAMMER-V"
-    ],
-    "laser": [
-      "LASER-I",
-      "LASER-II",
-      "LASER-III",
-      "LASER-IV",
-      "LASER-V"
-    ],
-    "fortune": [
-      "FORTUNE-I",
-      "FORTUNE-II",
-      "FORTUNE-III",
-      "FORTUNE-IV",
-      "FORTUNE-V"
-    "efficiency": [
-      "EFFICIENCY-I",
-      "EFFICIENCY-II",
-      "EFFICIENCY-III",
-      "EFFICIENCY-IV",
-      "EFFICIENCY-V"
-    ],
-    "token_miner": [
-      "TOKEN_MINER-I",
-      "TOKEN_MINER-II",
-      "TOKEN_MINER-III",
-      "TOKEN_MINER-IV",
-      "TOKEN_MINER-V"
-    ],
-    "lightning_bolt": [
-      "LIGHTNING_BOLT-I",
-      "LIGHTNING_BOLT-II",
-      "LIGHTNING_BOLT-III",
-      "LIGHTNING_BOLT-IV",
-      "LIGHTNING_BOLT-V"
-    ]
+    "MATERIAL": {
+      "mode": "STATIC",
+      "values": [
+        "WOODEN",
+        "STONE",
+        "IRON",
+        "GOLDEN",
+        "DIAMOND"
+      ]
+    },
+    "speed": {
+      "mode": "DYNAMIC",
+      "format": "LEVEL-*"
+    }
+  },
+  "defaults": {
+    "enchants.speed": 1
   },
   "sections": {
-    "enchants": [
-      {
+    "enchants": {
+      "speed": {
         "id": "speed",
-        "max": 5,
-        "placeholders": {
-          "speed": [
-            0,
-            1,
-            2,
-            3,
-            4
-          ]
-        },
-        "groups": [
-          "enchant"
-        ],
-        "effects": [
+        "max": -1,
+        "placeholders": [
           {
-            "speed": 1
-          },
-          {
-            "speed": 2
-          },
-          {
-            "speed": 3
-          },
-          {
-            "speed": 4
-          },
-          {
-            "speed": 5
+            "speed": -1,
+            "MATERIAL": 3
           }
-        ]
-      },
-      {
-        "id": "nuke",
-        "max": 5,
-        "groups": [
-          "enchant"
         ],
-        "placeholders": {
-          "nuke": [
-            0,
-            1,
-            2,
-            3,
-            4
+        "actions": [
+          [
+            {
+              "type": "Effect",
+              "data": {
+                "effect": ""
+              }
+            }
           ]
-        },
-        "effects": [
-          {
-            "nuke": 1
-          },
-          {
-            "nuke": 2
-          },
-          {
-            "nuke": 3
-          },
-          {
-            "nuke": 4
-          },
-          {
-            "nuke": 5
-          }
-        ]
-      },
-      {
-        "id": "key_finder",
-        "max": 5,
-        "groups": [
-          "enchant"
         ],
-        "placeholders": {
-          "key_finder": [
-            0,
-            1,
-            2,
-            3,
-            4
-          ]
-        },
-        "effects": [
-          {
-            "key_finder": 1
-          },
-          {
-            "key_finder": 2
-          },
-          {
-            "key_finder": 3
-          },
-          {
-            "key_finder": 4
-          },
-          {
-            "key_finder": 5
-          }
-        ]
-      },
-      {
-        "id": "detonate",
-        "max": 5,
         "groups": [
-          "enchant"
-        ],
-        "placeholders": {
-          "detonate": [
-            0,
-            1,
-            2,
-            3,
-            4
-          ]
-        },
-        "effects": [
           {
-            "detonate": 1
+            "enchant": 1
           },
           {
-            "detonate": 2
+            "enchant": 2
           },
           {
-            "detonate": 3
-          },
-          {
-            "detonate": 4
-          },
-          {
-            "detonate": 5
-          }
-        ]
-      },
-      {
-        "id": "jack_hammer",
-        "max": 5,
-        "groups": [
-          "enchant"
-        ],
-        "placeholders": {
-          "jack_hammer": [
-            0,
-            1,
-            2,
-            3,
-            4
-          ]
-        },
-        "effects": [
-          {
-            "jack_hammer": 1
-          },
-          {
-            "jack_hammer": 2
-          },
-          {
-            "jack_hammer": 3
-          },
-          {
-            "jack_hammer": 4
-          },
-          {
-            "jack_hammer": 5
-          }
-        ]
-      },
-      {
-        "id": "laser",
-        "max": 5,
-        "groups": [
-          "enchant"
-        ],
-        "placeholders": {
-          "laser": [
-            0,
-            1,
-            2,
-            3,
-            4
-          ]
-        },
-        "effects": [
-          {
-            "laser": 1
-          },
-          {
-            "laser": 2
-          },
-          {
-            "laser": 3
-          },
-          {
-            "laser": 4
-          },
-          {
-            "laser": 5
-          }
-        ]
-      },
-      {
-        "id": "fortune",
-        "max": 5,
-        "groups": [
-          "enchant"
-        ],
-        "placeholders": {
-          "fortune": [
-            0,
-            1,
-            2,
-            3,
-            4
-          ]
-        },
-        "effects": [
-          {
-            "fortune": 1
-          },
-          {
-            "fortune": 2
-          },
-          {
-            "fortune": 3
-          },
-          {
-            "fortune": 4
-          },
-          {
-            "fortune": 5
-          }
-        ]
-      },
-      {
-        "id": "efficiency",
-        "max": 5,
-        "groups": [
-          "enchant"
-        ],
-        "placeholders": {
-          "efficiency": [
-            0,
-            1,
-            2,
-            3,
-            4
-          ]
-        },
-        "effects": [
-          {
-            "efficiency": 1
-          },
-          {
-            "efficiency": 2
-          },
-          {
-            "efficiency": 3
-          },
-          {
-            "efficiency": 4
-          },
-          {
-            "efficiency": 5
-          }
-        ]
-      },
-      {
-        "id": "token_miner",
-        "max": 5,
-        "groups": [
-          "enchant"
-        ],
-        "placeholders": {
-          "token_miner": [
-            0,
-            1,
-            2,
-            3,
-            4
-          ]
-        },
-        "effects": [
-          {
-            "token_miner": 1
-          },
-          {
-            "token_miner": 2
-          },
-          {
-            "token_miner": 3
-          },
-          {
-            "token_miner": 4
-          },
-          {
-            "token_miner": 5
-          }
-        ]
-      },
-      {
-        "id": "lightning_bolt",
-        "max": 5,
-        "groups": [
-          "enchant"
-        ],
-        "placeholders": {
-          "lightning_bolt": [
-            0,
-            1,
-            2,
-            3,
-            4
-          ]
-        },
-        "effects": [
-          {
-            "lightning_bolt": 1
-          },
-          {
-            "lightning_bolt": 2
-          },
-          {
-            "lightning_bolt": 3
-          },
-          {
-            "lightning_bolt": 4
-          },
-          {
-            "lightning_bolt": 5
+            "enchant": 0
           }
         ]
       }
-    ]
+    }
   }
 }

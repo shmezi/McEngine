@@ -56,18 +56,15 @@ dependencies {
     testImplementation("com.github.seeseemelk:MockBukkit-v1.19:2.29.0")
 }
 tasks {
-//    shadowJar {
-//        relocate("dev.triumphteam.gui", "me.alexirving.core.libs.gui")
-//        relocate("me.mattstudios.mf", "me.alexirving.core.libs.mf")
-//        relocate("org.bstats", "me.alexirving.core.libs.bstats")
-//        relocate("de.tr7zw.changeme.nbtapi", "me.alexirving.core.libs.nbtapi")
-//        relocate("net.kyori.adventure", "me.alexirving.core.libs.minimessages")
-//        relocate("com.github.retrooper", "me.alexirving.core.libs.packets")
-//        manifest {
-//            attributes("Main-Class" to "me.alexirving.core.NotAProgramKt")
-//        }
-//    }
-//    runServer {
-//        minecraftVersion("1.19")
-//    }
+    shadowJar {
+        relocate("dev.triumphteam.gui", "me.alexirving.libs.libs.gui")
+        relocate("me.mattstudios.mf", "me.alexirving.libs.libs.mf")
+        relocate("org.bstats", "me.alexirving.libs.bstats")
+        relocate("de.tr7zw.changeme.nbtapi", "me.alexirving.libs.nbtapi")
+        relocate("net.kyori.adventure", "me.alexirving.libs.minimessages")
+        relocate("com.github.retrooper", "me.alexirving.libs.packets")
+        manifest {
+            attributes("Main-Class" to "me.alexirving.core.NotAProgramKt")
+        }
+    }
 }

@@ -1,94 +1,103 @@
-[21:49:55] [ServerMain/INFO]: Building unoptimized datafixer
-[21:49:56] [ServerMain/INFO]: Environment: authHost='https://authserver.mojang.com', accountsHost='https://api.mojang.com', sessionHost='https://sessionserver.mojang.com', servicesHost='https://api.minecraftservices.com', name='PROD'
-[21:49:56] [ServerMain/INFO]: Found new data pack file/bukkit, loading it automatically
-[21:49:57] [ServerMain/INFO]: Loaded 7 recipes
-[21:49:58] [Server thread/INFO]: Starting minecraft server version 1.19
-[21:49:58] [Server thread/INFO]: Loading properties
-[21:49:58] [Server thread/INFO]: This server is running Paper version git-Paper-81 (MC: 1.19) (Implementing API version 1.19-R0.1-SNAPSHOT) (Git: 86f87ba)
-[21:49:58] [Server thread/INFO]: Server Ping Player Sample Count: 12
-[21:49:58] [Server thread/INFO]: Using 4 threads for Netty based IO
-[21:49:59] [Server thread/INFO]: Default game type: SURVIVAL
-[21:49:59] [Server thread/INFO]: Generating keypair
-[21:49:59] [Server thread/INFO]: Starting Minecraft server on *:25565
-[21:49:59] [Server thread/INFO]: Using default channel type
-[21:49:59] [Server thread/INFO]: Paper: Using Java 11 compression from Velocity.
-[21:49:59] [Server thread/INFO]: Paper: Using Java cipher from Velocity.
-[21:49:59] [Server thread/INFO]: [WorldEdit] Loading WorldEdit v7.2.11-beta-01+6200-0877589
-[21:50:00] [Server thread/INFO]: Got request to register class com.sk89q.worldedit.bukkit.BukkitServerInterface with WorldEdit [com.sk89q.worldedit.extension.platform.PlatformManager@10a56a87]
-[21:50:00] [Server thread/INFO]: [ViaVersion] Loading ViaVersion v4.2.1
-[21:50:00] [Server thread/INFO]: [ViaVersion] ViaVersion 4.2.1 is now loaded, injecting!
-[21:50:00] [Via-Mappingloader-0/INFO]: [ViaVersion] Loading 1.12 -> 1.13 mappings...
-[21:50:00] [Via-Mappingloader-1/INFO]: [ViaVersion] Loading 1.13 -> 1.13.2 mappings...
-[21:50:00] [Via-Mappingloader-2/INFO]: [ViaVersion] Loading 1.13.2 -> 1.14 mappings...
-[21:50:00] [Via-Mappingloader-3/INFO]: [ViaVersion] Loading 1.14 -> 1.15 mappings...
-[21:50:00] [Via-Mappingloader-4/INFO]: [ViaVersion] Loading 1.15 -> 1.16 mappings...
-[21:50:00] [Via-Mappingloader-5/INFO]: [ViaVersion] Loading 1.16 -> 1.16.2 mappings...
-[21:50:00] [Server thread/INFO]: [ViaBackwards] Loading ViaBackwards v4.2.1
-[21:50:00] [Server thread/INFO]: [ViaBackwards] Loading translations...
-[21:50:00] [Via-Mappingloader-6/INFO]: [ViaVersion] Loading 1.16.2 -> 1.17 mappings...
-[21:50:00] [Via-Mappingloader-0/INFO]: [ViaVersion] Loading block connection mappings ...
-[21:50:00] [Via-Mappingloader-10/INFO]: [ViaBackwards] Loading 1.12 -> 1.11 mappings...
-[21:50:00] [Via-Mappingloader-2/INFO]: [ViaBackwards] Loading 1.13.2 -> 1.13 mappings...
-[21:50:00] [Via-Mappingloader-2/INFO]: [ViaBackwards] Loading 1.14 -> 1.13.2 mappings...
-[21:50:00] [Via-Mappingloader-7/INFO]: [ViaVersion] Loading 1.17 -> 1.18 mappings...
-[21:50:00] [Via-Mappingloader-8/INFO]: [ViaBackwards] Loading 1.10 -> 1.9.4 mappings...
-[21:50:00] [Via-Mappingloader-5/INFO]: [ViaBackwards] Loading 1.15 -> 1.14 mappings...
-[21:50:00] [Via-Mappingloader-9/INFO]: [ViaBackwards] Loading 1.11 -> 1.10 mappings...
-[21:50:00] [Via-Mappingloader-9/INFO]: [ViaBackwards] Loading 1.16 -> 1.15 mappings...
-[21:50:00] [Via-Mappingloader-5/INFO]: [ViaBackwards] Loading 1.16.2 -> 1.16 mappings...
-[21:50:00] [Via-Mappingloader-6/INFO]: [ViaBackwards] Loading 1.17 -> 1.16.2 mappings...
-[21:50:00] [Via-Mappingloader-9/INFO]: [ViaBackwards] Loading 1.13 -> 1.12 mappings...
-[21:50:00] [Via-Mappingloader-7/INFO]: [ViaBackwards] Loading 1.18 -> 1.17 mappings...
-[21:50:00] [Server thread/INFO]: [ProtocolLib] Loading ProtocolLib v5.0.0-SNAPSHOT-b569
-[21:50:01] [Server thread/INFO]: [McEngine] Loading McEngine v1.0
-[21:50:02] [Server thread/INFO]: [WorldEdit] Enabling WorldEdit v7.2.11-beta-01+6200-0877589
-[21:50:02] [Server thread/INFO]: Registering commands with com.sk89q.worldedit.bukkit.BukkitServerInterface
-[21:50:02] [Server thread/INFO]: WEPIF: Updated config file
-[21:50:02] [Server thread/INFO]: WEPIF: Using the Bukkit Permissions API.
-[21:50:02] [Server thread/INFO]: Using com.sk89q.worldedit.bukkit.adapter.impl.v1_19_R1.PaperweightAdapter as the Bukkit adapter
-[21:50:02] [Server thread/INFO]: [ProtocolLib] Enabling ProtocolLib v5.0.0-SNAPSHOT-b569
-[21:50:02] [Server thread/INFO]: [ProtocolLib] Started structure compiler thread.
-[21:50:02] [Server thread/INFO]: Preparing level "world"
-[21:50:17] [Server thread/INFO]: Preparing start region for dimension minecraft:overworld
-[21:50:17] [Server thread/INFO]: Time elapsed: 289 ms
-[21:50:17] [Server thread/INFO]: Preparing start region for dimension minecraft:the_nether
-[21:50:17] [Worker-Main-2/INFO]: Preparing spawn area: 0%
-[21:50:18] [Server thread/INFO]: Time elapsed: 391 ms
-[21:50:18] [Server thread/INFO]: Preparing start region for dimension minecraft:the_end
-[21:50:18] [Server thread/INFO]: Time elapsed: 257 ms
-[21:50:18] [Server thread/INFO]: [ViaVersion] Enabling ViaVersion v4.2.1
-[21:50:18] [Server thread/INFO]: [ViaBackwards] Enabling ViaBackwards v4.2.1
-[21:50:18] [Server thread/INFO]: [McEngine] Enabling McEngine v1.0
-[21:50:19] [Server thread/INFO]: [org.mongodb.driver.client] MongoClient with metadata {"driver": {"name": "mongo-java-driver|sync", "version": "4.7.1"}, "os": {"type": "Windows", "name": "Windows 10", "architecture": "amd64", "version": "10.0"}, "platform": "Java/BellSoft/17.0.1+12-LTS"} created with settings MongoClientSettings{readPreference=primary, writeConcern=WriteConcern{w=null, wTimeout=null ms, journal=null}, retryWrites=true, retryReads=true, readConcern=ReadConcern{level=null}, credential=null, streamFactoryFactory=null, commandListeners=[], codecRegistry=ProvidersCodecRegistry{codecProviders=[OverridableUuidRepresentationCodecRegistry{wrapped=ProvidersCodecRegistry{codecProviders=[ValueCodecProvider{}, BsonValueCodecProvider{}, DBRefCodecProvider{}, DBObjectCodecProvider{}, DocumentCodecProvider{}, IterableCodecProvider{}, MapCodecProvider{}, GeoJsonCodecProvider{}, GridFSFileCodecProvider{}, Jsr310CodecProvider{}, JsonObjectCodecProvider{}, BsonCodecProvider{}, EnumCodecProvider{}, com.mongodb.Jep395RecordCodecProvider@7115e601]}, uuidRepresentation=STANDARD}, org.litote.kmongo.service.CustomCodecProvider@45cfe240, ProvidersCodecRegistry{codecProviders=[org.litote.kmongo.jackson.JacksonCodecProvider@71ffbf7f]}]}, clusterSettings={hosts=[localhost:27017], srvServiceName=mongodb, mode=SINGLE, requiredClusterType=UNKNOWN, requiredReplicaSetName='null', serverSelector='null', clusterListeners='[]', serverSelectionTimeout='30000 ms', localThreshold='30000 ms'}, socketSettings=SocketSettings{connectTimeoutMS=10000, readTimeoutMS=0, receiveBufferSize=0, sendBufferSize=0}, heartbeatSocketSettings=SocketSettings{connectTimeoutMS=10000, readTimeoutMS=10000, receiveBufferSize=0, sendBufferSize=0}, connectionPoolSettings=ConnectionPoolSettings{maxSize=100, minSize=0, maxWaitTimeMS=120000, maxConnectionLifeTimeMS=0, maxConnectionIdleTimeMS=0, maintenanceInitialDelayMS=0, maintenanceFrequencyMS=60000, connectionPoolListeners=[], maxConnecting=2}, serverSettings=ServerSettings{heartbeatFrequencyMS=10000, minHeartbeatFrequencyMS=500, serverListeners='[]', serverMonitorListeners='[]'}, sslSettings=SslSettings{enabled=false, invalidHostNameAllowed=false, context=null}, applicationName='null', compressorList=[], uuidRepresentation=STANDARD, serverApi=null, autoEncryptionSettings=null, contextProvider=null}
-[21:50:19] [cluster-ClusterId{value='6334976bfe51083283059e59', description='null'}-localhost:27017/INFO]: [org.mongodb.driver.connection] Opened connection [connectionId{localValue:2, serverValue:68}] to localhost:27017
-[21:50:19] [cluster-rtt-ClusterId{value='6334976bfe51083283059e59', description='null'}-localhost:27017/INFO]: [org.mongodb.driver.connection] Opened connection [connectionId{localValue:1, serverValue:69}] to localhost:27017
-[21:50:19] [cluster-ClusterId{value='6334976bfe51083283059e59', description='null'}-localhost:27017/INFO]: [org.mongodb.driver.cluster] Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=13, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=18735200}
-[21:50:19] [Server thread/INFO]: [org.mongodb.driver.connection] Opened connection [connectionId{localValue:3, serverValue:70}] to localhost:27017
-[21:50:19] [Server thread/INFO]: [34mRegistering internal effects:[0m
-[21:50:19] [Server thread/INFO]: [34mRegistered effect: "speed" that include the intents: [START, RESET].[0m
-[21:50:19] [Server thread/INFO]: [34mRegistered effect: "efficiency" that include the intents: [BUILD].[0m
-[21:50:19] [Server thread/INFO]: [34mRegistered effect: "fortune" that include the intents: [BUILD].[0m
-[21:50:19] [Server thread/INFO]: [34mRegistered effect: "night_vision" that include the intents: [START, RESET].[0m
-[21:50:19] [Server thread/INFO]: [34mRegistered effect: "nuke" that include the intents: [MINE].[0m
-[21:50:19] [Server thread/INFO]: [34mRegistered effect: "jackhammer" that include the intents: [MINE].[0m
-[21:50:19] [Server thread/INFO]: [34mRegistered effect: "laser" that include the intents: [MINE].[0m
-[21:50:19] [Server thread/INFO]: [org.reflections.Reflections] Reflections took 63 ms to scan 113 urls, producing 0 keys and 0 values
-[21:50:19] [Server thread/INFO]: [36mLoaded animation: "Animation".[0m
-[21:50:19] [Server thread/INFO]: [36mLoaded item: SuperPick (Id: pickaxe_of_god) successfully[0m
-[21:50:19] [Server thread/INFO]: [34mLoading eco of id "Default":[0m
-[21:50:19] [Server thread/INFO]: [34mLoading eco of id "Tokens":[0m
-[21:50:19] [packetevents-update-check-thread/INFO]: [packetevents] Checking for an update, please wait...
-[21:50:19] [Server thread/INFO]: Running delayed init tasks
-[21:50:19] [Server thread/INFO]: [ViaVersion] ViaVersion detected server version: Unknown (759) (759)
-[21:50:19] [Server thread/WARN]: [ViaVersion] ViaVersion does not have any compatible versions for this server version!
-[21:50:19] [Server thread/WARN]: [ViaVersion] Please remember that ViaVersion only adds support for versions newer than the server version.
-[21:50:19] [Server thread/WARN]: [ViaVersion] If you need support for older versions you may need to use one or more ViaVersion addons too.
-[21:50:19] [Server thread/WARN]: [ViaVersion] In that case please read the ViaVersion resource page carefully or use https://jo0001.github.io/ViaSetup
-[21:50:19] [Server thread/WARN]: [ViaVersion] and if you're still unsure, feel free to join our Discord-Server for further assistance.
-[21:50:20] [packetevents-update-check-thread/INFO]: [packetevents] You are on a dev or pre released build of packetevents. Your build: (2.0.0) | Latest released build: (1.8.4)
-[21:50:26] [Server thread/INFO]: [32mRunning DB update on "User", No update issued[0m
-[21:50:26] [Server thread/INFO]: [ViaVersion] Finished mapping loading, shutting down loader executor!
-[21:50:26] [Server thread/WARN]: [ViaVersion] There is a newer plugin version available: 4.4.2, you're on: 4.2.1
-[21:50:26] [Server thread/INFO]: Done (27.766s)! For help, type "help"
-[21:50:26] [Server thread/WARN]: Can't keep up! Is the server overloaded? Running 6869ms or 137 ticks behind
-[21:50:26] [Server thread/INFO]: Timings Reset
+[19:42:19] [ServerMain/INFO]: Building unoptimized datafixer
+[19:42:20] [ServerMain/INFO]: Environment: authHost='https://authserver.mojang.com', accountsHost='https://api.mojang.com', sessionHost='https://sessionserver.mojang.com', servicesHost='https://api.minecraftservices.com', name='PROD'
+[19:42:20] [ServerMain/INFO]: Found new data pack file/bukkit, loading it automatically
+[19:42:21] [ServerMain/INFO]: Loaded 7 recipes
+[19:42:22] [Server thread/INFO]: Starting minecraft server version 1.19
+[19:42:22] [Server thread/INFO]: Loading properties
+[19:42:22] [Server thread/INFO]: This server is running Paper version git-Paper-81 (MC: 1.19) (Implementing API version 1.19-R0.1-SNAPSHOT) (Git: 86f87ba)
+[19:42:22] [Server thread/INFO]: Server Ping Player Sample Count: 12
+[19:42:22] [Server thread/INFO]: Using 4 threads for Netty based IO
+[19:42:23] [Server thread/INFO]: Default game type: SURVIVAL
+[19:42:23] [Server thread/INFO]: Generating keypair
+[19:42:23] [Server thread/INFO]: Starting Minecraft server on *:25565
+[19:42:23] [Server thread/INFO]: Using default channel type
+[19:42:23] [Server thread/INFO]: Paper: Using Java 11 compression from Velocity.
+[19:42:23] [Server thread/INFO]: Paper: Using Java cipher from Velocity.
+[19:42:24] [Server thread/INFO]: [org.mongodb.driver.client] MongoClient with metadata {"driver": {"name": "mongo-java-driver|sync", "version": "4.7.1"}, "os": {"type": "Windows", "name": "Windows 10", "architecture": "amd64", "version": "10.0"}, "platform": "Java/BellSoft/17.0.1+12-LTS"} created with settings MongoClientSettings{readPreference=primary, writeConcern=WriteConcern{w=null, wTimeout=null ms, journal=null}, retryWrites=true, retryReads=true, readConcern=ReadConcern{level=null}, credential=null, streamFactoryFactory=null, commandListeners=[], codecRegistry=ProvidersCodecRegistry{codecProviders=[OverridableUuidRepresentationCodecRegistry{wrapped=ProvidersCodecRegistry{codecProviders=[ValueCodecProvider{}, BsonValueCodecProvider{}, DBRefCodecProvider{}, DBObjectCodecProvider{}, DocumentCodecProvider{}, IterableCodecProvider{}, MapCodecProvider{}, GeoJsonCodecProvider{}, GridFSFileCodecProvider{}, Jsr310CodecProvider{}, JsonObjectCodecProvider{}, BsonCodecProvider{}, EnumCodecProvider{}, com.mongodb.Jep395RecordCodecProvider@1caddd49]}, uuidRepresentation=STANDARD}, org.litote.kmongo.service.CustomCodecProvider@2f959619, ProvidersCodecRegistry{codecProviders=[org.litote.kmongo.jackson.JacksonCodecProvider@7187001b]}]}, clusterSettings={hosts=[localhost:27017], srvServiceName=mongodb, mode=SINGLE, requiredClusterType=UNKNOWN, requiredReplicaSetName='null', serverSelector='null', clusterListeners='[]', serverSelectionTimeout='30000 ms', localThreshold='30000 ms'}, socketSettings=SocketSettings{connectTimeoutMS=10000, readTimeoutMS=0, receiveBufferSize=0, sendBufferSize=0}, heartbeatSocketSettings=SocketSettings{connectTimeoutMS=10000, readTimeoutMS=10000, receiveBufferSize=0, sendBufferSize=0}, connectionPoolSettings=ConnectionPoolSettings{maxSize=100, minSize=0, maxWaitTimeMS=120000, maxConnectionLifeTimeMS=0, maxConnectionIdleTimeMS=0, maintenanceInitialDelayMS=0, maintenanceFrequencyMS=60000, connectionPoolListeners=[], maxConnecting=2}, serverSettings=ServerSettings{heartbeatFrequencyMS=10000, minHeartbeatFrequencyMS=500, serverListeners='[]', serverMonitorListeners='[]'}, sslSettings=SslSettings{enabled=false, invalidHostNameAllowed=false, context=null}, applicationName='null', compressorList=[], uuidRepresentation=STANDARD, serverApi=null, autoEncryptionSettings=null, contextProvider=null}
+[19:42:24] [cluster-ClusterId{value='6341a870e51e3e307fe9f87d', description='null'}-localhost:27017/INFO]: [org.mongodb.driver.connection] Opened connection [connectionId{localValue:2, serverValue:37}] to localhost:27017
+[19:42:24] [cluster-rtt-ClusterId{value='6341a870e51e3e307fe9f87d', description='null'}-localhost:27017/INFO]: [org.mongodb.driver.connection] Opened connection [connectionId{localValue:1, serverValue:38}] to localhost:27017
+[19:42:24] [cluster-ClusterId{value='6341a870e51e3e307fe9f87d', description='null'}-localhost:27017/INFO]: [org.mongodb.driver.cluster] Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=13, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=46840600}
+[19:42:24] [Server thread/INFO]: [org.mongodb.driver.connection] Opened connection [connectionId{localValue:3, serverValue:39}] to localhost:27017
+[19:42:24] [Server thread/ERROR]: Could not load 'C:\Users\ezra\IdeaProjects\mc-engine\engine-core\build\libs\engine-core-all.jar' in folder 'C:\Users\ezra\IdeaProjects\mc-engine\engine-core\build\libs'
+org.bukkit.plugin.InvalidPluginException: org.bukkit.plugin.IllegalPluginAccessException: Plugin attempted to register me.alexirving.core.item.EngineItemListener@66f8ebc3 while not enabled
+	at org.bukkit.plugin.java.JavaPluginLoader.loadPlugin(JavaPluginLoader.java:157) ~[paper-api-1.19-R0.1-SNAPSHOT.jar:?]
+	at org.bukkit.plugin.SimplePluginManager.loadPlugin(SimplePluginManager.java:411) ~[paper-api-1.19-R0.1-SNAPSHOT.jar:?]
+	at org.bukkit.plugin.SimplePluginManager.loadPlugins(SimplePluginManager.java:319) ~[paper-api-1.19-R0.1-SNAPSHOT.jar:?]
+	at org.bukkit.craftbukkit.v1_19_R1.CraftServer.loadPlugins(CraftServer.java:421) ~[paper-1.19.jar:git-Paper-81]
+	at net.minecraft.server.dedicated.DedicatedServer.initServer(DedicatedServer.java:278) ~[paper-1.19.jar:git-Paper-81]
+	at net.minecraft.server.MinecraftServer.runServer(MinecraftServer.java:1122) ~[paper-1.19.jar:git-Paper-81]
+	at net.minecraft.server.MinecraftServer.lambda$spin$0(MinecraftServer.java:303) ~[paper-1.19.jar:git-Paper-81]
+	at java.lang.Thread.run(Thread.java:833) ~[?:?]
+Caused by: org.bukkit.plugin.IllegalPluginAccessException: Plugin attempted to register me.alexirving.core.item.EngineItemListener@66f8ebc3 while not enabled
+	at org.bukkit.plugin.SimplePluginManager.registerEvents(SimplePluginManager.java:699) ~[paper-api-1.19-R0.1-SNAPSHOT.jar:?]
+	at me.alexirving.core.utils.UtilsKt.registerListeners(Utils.kt:28) ~[engine-core-all.jar:?]
+	at me.alexirving.core.effects.EffectManager.<init>(EffectManager.kt:24) ~[engine-core-all.jar:?]
+	at me.alexirving.core.EngineManager.<init>(EngineManager.kt:67) ~[engine-core-all.jar:?]
+	at me.alexirving.core.McEngine.<init>(McEngine.kt:45) ~[engine-core-all.jar:?]
+	at jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77) ~[?:?]
+	at jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45) ~[?:?]
+	at java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499) ~[?:?]
+	at java.lang.reflect.ReflectAccess.newInstance(ReflectAccess.java:128) ~[?:?]
+	at jdk.internal.reflect.ReflectionFactory.newInstance(ReflectionFactory.java:347) ~[?:?]
+	at java.lang.Class.newInstance(Class.java:645) ~[?:?]
+	at org.bukkit.plugin.java.PluginClassLoader.<init>(PluginClassLoader.java:83) ~[paper-api-1.19-R0.1-SNAPSHOT.jar:?]
+	at org.bukkit.plugin.java.JavaPluginLoader.loadPlugin(JavaPluginLoader.java:153) ~[paper-api-1.19-R0.1-SNAPSHOT.jar:?]
+	... 7 more
+[19:42:24] [Server thread/INFO]: [WorldEdit] Loading WorldEdit v7.2.11-beta-01+6200-0877589
+[19:42:25] [Server thread/INFO]: Got request to register class com.sk89q.worldedit.bukkit.BukkitServerInterface with WorldEdit [com.sk89q.worldedit.extension.platform.PlatformManager@7e91cc1a]
+[19:42:25] [Server thread/INFO]: [ViaVersion] Loading ViaVersion v4.2.1
+[19:42:25] [Server thread/INFO]: [ViaVersion] ViaVersion 4.2.1 is now loaded, injecting!
+[19:42:25] [Via-Mappingloader-0/INFO]: [ViaVersion] Loading 1.12 -> 1.13 mappings...
+[19:42:25] [Via-Mappingloader-1/INFO]: [ViaVersion] Loading 1.13 -> 1.13.2 mappings...
+[19:42:25] [Via-Mappingloader-3/INFO]: [ViaVersion] Loading 1.14 -> 1.15 mappings...
+[19:42:25] [Via-Mappingloader-4/INFO]: [ViaVersion] Loading 1.15 -> 1.16 mappings...
+[19:42:25] [Via-Mappingloader-5/INFO]: [ViaVersion] Loading 1.16 -> 1.16.2 mappings...
+[19:42:25] [Server thread/INFO]: [ViaBackwards] Loading ViaBackwards v4.2.1
+[19:42:25] [Server thread/INFO]: [ViaBackwards] Loading translations...
+[19:42:25] [Via-Mappingloader-6/INFO]: [ViaVersion] Loading 1.16.2 -> 1.17 mappings...
+[19:42:25] [Via-Mappingloader-2/INFO]: [ViaVersion] Loading 1.13.2 -> 1.14 mappings...
+[19:42:25] [Via-Mappingloader-8/INFO]: [ViaBackwards] Loading 1.10 -> 1.9.4 mappings...
+[19:42:25] [Via-Mappingloader-7/INFO]: [ViaVersion] Loading 1.17 -> 1.18 mappings...
+[19:42:25] [Via-Mappingloader-8/INFO]: [ViaBackwards] Loading 1.11 -> 1.10 mappings...
+[19:42:25] [Via-Mappingloader-3/INFO]: [ViaBackwards] Loading 1.12 -> 1.11 mappings...
+[19:42:25] [Via-Mappingloader-0/INFO]: [ViaVersion] Loading block connection mappings ...
+[19:42:25] [Via-Mappingloader-1/INFO]: [ViaBackwards] Loading 1.13.2 -> 1.13 mappings...
+[19:42:25] [Via-Mappingloader-1/INFO]: [ViaBackwards] Loading 1.14 -> 1.13.2 mappings...
+[19:42:25] [Via-Mappingloader-2/INFO]: [ViaBackwards] Loading 1.15 -> 1.14 mappings...
+[19:42:25] [Via-Mappingloader-4/INFO]: [ViaBackwards] Loading 1.16 -> 1.15 mappings...
+[19:42:25] [Via-Mappingloader-6/INFO]: [ViaBackwards] Loading 1.16.2 -> 1.16 mappings...
+[19:42:25] [Via-Mappingloader-5/INFO]: [ViaBackwards] Loading 1.17 -> 1.16.2 mappings...
+[19:42:26] [Via-Mappingloader-3/INFO]: [ViaBackwards] Loading 1.18 -> 1.17 mappings...
+[19:42:26] [Server thread/INFO]: [ProtocolLib] Loading ProtocolLib v5.0.0-SNAPSHOT-b569
+[19:42:26] [Via-Mappingloader-4/INFO]: [ViaBackwards] Loading 1.13 -> 1.12 mappings...
+[19:42:27] [Server thread/INFO]: Server permissions file permissions.yml is empty, ignoring it
+[19:42:27] [Server thread/INFO]: [WorldEdit] Enabling WorldEdit v7.2.11-beta-01+6200-0877589
+[19:42:27] [Server thread/INFO]: Registering commands with com.sk89q.worldedit.bukkit.BukkitServerInterface
+[19:42:27] [Server thread/INFO]: WEPIF: Using the Bukkit Permissions API.
+[19:42:27] [Server thread/INFO]: Using com.sk89q.worldedit.bukkit.adapter.impl.v1_19_R1.PaperweightAdapter as the Bukkit adapter
+[19:42:28] [Server thread/INFO]: [ProtocolLib] Enabling ProtocolLib v5.0.0-SNAPSHOT-b569
+[19:42:28] [Server thread/INFO]: [ProtocolLib] Started structure compiler thread.
+[19:42:28] [Server thread/INFO]: Preparing level "world"
+[19:42:44] [Server thread/INFO]: Preparing start region for dimension minecraft:overworld
+[19:42:45] [Server thread/INFO]: Time elapsed: 384 ms
+[19:42:45] [Server thread/INFO]: Preparing start region for dimension minecraft:the_nether
+[19:42:45] [Worker-Main-2/INFO]: Preparing spawn area: 0%
+[19:42:45] [Worker-Main-1/INFO]: Preparing spawn area: 0%
+[19:42:45] [Worker-Main-1/INFO]: Preparing spawn area: 0%
+[19:42:46] [Server thread/INFO]: Time elapsed: 894 ms
+[19:42:46] [Server thread/INFO]: Preparing start region for dimension minecraft:the_end
+[19:42:46] [Server thread/INFO]: Time elapsed: 107 ms
+[19:42:46] [Server thread/INFO]: [ViaVersion] Enabling ViaVersion v4.2.1
+[19:42:46] [Server thread/INFO]: [ViaBackwards] Enabling ViaBackwards v4.2.1
+[19:42:46] [Server thread/INFO]: Running delayed init tasks
+[19:42:46] [Server thread/INFO]: [ViaVersion] ViaVersion detected server version: Unknown (759) (759)
+[19:42:46] [Server thread/WARN]: [ViaVersion] ViaVersion does not have any compatible versions for this server version!
+[19:42:46] [Server thread/WARN]: [ViaVersion] Please remember that ViaVersion only adds support for versions newer than the server version.
+[19:42:46] [Server thread/WARN]: [ViaVersion] If you need support for older versions you may need to use one or more ViaVersion addons too.
+[19:42:46] [Server thread/WARN]: [ViaVersion] In that case please read the ViaVersion resource page carefully or use https://jo0001.github.io/ViaSetup
+[19:42:46] [Server thread/WARN]: [ViaVersion] and if you're still unsure, feel free to join our Discord-Server for further assistance.
+[19:42:46] [Server thread/INFO]: [ViaVersion] Finished mapping loading, shutting down loader executor!
+[19:42:46] [Server thread/INFO]: Done (23.784s)! For help, type "help"
+[19:42:46] [Server thread/INFO]: Timings Reset
+[19:42:47] [Server thread/WARN]: [ViaVersion] There is a newer plugin version available: 4.4.2, you're on: 4.2.1

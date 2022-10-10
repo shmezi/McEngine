@@ -12,7 +12,7 @@ import java.util.*
 
 @Command("gang")
 class CMDGang(val m: EngineManager) : BaseCommand() {
-    @SubCommand("join")
+   /* @SubCommand("join")
     @Permission("engine.gang.join")
     fun join(player: Player) {
 
@@ -99,5 +99,5 @@ class CMDGang(val m: EngineManager) : BaseCommand() {
                 }
         }
 
-    }
+    }*/
 }

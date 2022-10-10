@@ -1,4 +1,4 @@
-package me.alexirving.core.mines
+package me.alexirving.prison
 
 import com.sk89q.worldedit.function.pattern.Pattern
 import com.sk89q.worldedit.regions.CuboidRegion

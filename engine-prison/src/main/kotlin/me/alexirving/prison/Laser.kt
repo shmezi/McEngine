@@ -1,4 +1,4 @@
-package me.alexirving.core.effects.effects
+package me.alexirving.prison
 
 import me.alexirving.core.EngineManager
 import me.alexirving.core.effects.Effect
@@ -7,10 +7,10 @@ import org.bukkit.Material
 import org.bukkit.block.BlockFace
 import org.bukkit.event.block.BlockBreakEvent
 
-class Laser(val m: EngineManager) : Effect("laser", Intent.MINE) {
+class Laser(val m: MineManager) : Effect("laser", Intent.MINE) {
 
     override fun onMine(e: BlockBreakEvent, level: Int) {
-        m.mine.isInPlayerMine(e.player, e.block.location) { inMine ->
+        m.isInPlayerMine(e.player, e.block.location) { inMine ->
             if (!inMine) return@isInPlayerMine
             val loc = e.block.location
 

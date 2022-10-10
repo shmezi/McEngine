@@ -1,4 +1,4 @@
-package me.alexirving.core.effects.effects
+package me.alexirving.prison
 
 import me.alexirving.core.EngineManager
 import me.alexirving.core.effects.Effect
@@ -9,12 +9,12 @@ import org.bukkit.event.block.BlockBreakEvent
 import kotlin.random.Random
 import kotlin.random.nextInt
 
-class Nuke(val m: EngineManager) : Effect("nuke", Intent.MINE) {
+class Nuke(val m: MineManager) : Effect("nuke", Intent.MINE) {
     override fun onMine(e: BlockBreakEvent, level: Int) {
-        m.mine.isInPlayerMine(e.player, e.block.location) { inMine ->
+        m.isInPlayerMine(e.player, e.block.location) { inMine ->
             if (!inMine) return@isInPlayerMine
             if ((0..(level - 1).nBZ()).contains(Random.nextInt(0..100))) {
-                m.mine.getPlayerMine(e.player) {
+                m.getPlayerMine(e.player) {
                     it?.breakLayer(e.block.location, e.player)
                 }
             }

@@ -1,4 +1,4 @@
-package me.alexirving.core.mines
+package me.alexirving.prison
 
 import java.util.*
 

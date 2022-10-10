@@ -1,4 +1,4 @@
-package me.alexirving.core.commands
+package me.alexirving.prison
 
 import dev.triumphteam.cmd.bukkit.annotation.Permission
 import dev.triumphteam.cmd.core.BaseCommand
@@ -8,20 +8,20 @@ import me.alexirving.core.EngineManager
 import org.bukkit.entity.Player
 
 @Command("mine")
-class CMDMine(val m: EngineManager) : BaseCommand() {
+class CMDMine(val m: MineManager) : BaseCommand() {
     @SubCommand("tp")
     @Permission("engine.mine.tp")
     fun tp(player: Player) {
-        m.point.getPointTrack("PRESTIGE")?.getLevel(player.uniqueId) {
-            m.mine.getMine(it.id)?.join(player)?.tpToSpawn(player)
+        m.engine.point.getPointTrack("PRESTIGE")?.getLevel(player.uniqueId) {
+            m.getMine(it.id)?.join(player)?.tpToSpawn(player)
         }
     }
 
     @SubCommand("private", alias = ["p"])
     @Permission("engine.mine.private")
     fun privateMine(player: Player) {
-        m.point.getPointTrack("PRESTIGE")?.getLevel(player.uniqueId) {
-            m.mine.newPrivateMineSession(it.id, player, { player.sendMessage("Sent you to your private mine!") },
+        m.engine.point.getPointTrack("PRESTIGE")?.getLevel(player.uniqueId) {
+            m.newPrivateMineSession(it.id, player, { player.sendMessage("Sent you to your private mine!") },
                 { player.sendMessage("No private mine for prestige of ${it.id}") })
         }
     }

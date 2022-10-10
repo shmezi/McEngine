@@ -55,5 +55,5 @@ object McEngineAPI {
         )
     }
 
-    fun reload() = instance?.m?.reload()
+    fun reload() = instance?.manager?.reload()
 }

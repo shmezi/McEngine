@@ -13,7 +13,10 @@ import dev.triumphteam.cmd.core.suggestion.SuggestionKey
 import io.github.retrooper.packetevents.factory.spigot.SpigotPacketEventsBuilder
 import me.alexirving.core.animation.AnimationManager
 import me.alexirving.core.animation.objects.Animation
-import me.alexirving.core.commands.*
+import me.alexirving.core.commands.CMDAnimation
+import me.alexirving.core.commands.CMDEconomy
+import me.alexirving.core.commands.CMDEngine
+import me.alexirving.core.commands.CMDTest
 import me.alexirving.core.effects.Effect
 import me.alexirving.core.hooks.HookPapi
 import me.alexirving.core.listeners.PlayerInteract
@@ -32,38 +35,34 @@ import org.bukkit.plugin.java.JavaPlugin
 
 
 class McEngine : JavaPlugin() {
+    init {
+        McEngineAPI.instance = this
+    }
 
     override fun onLoad() {
         PacketEvents.setAPI(SpigotPacketEventsBuilder.buildNoCache(this))
         PacketEvents.getAPI().settings.debug(true).checkForUpdates(true)
         PacketEvents.getAPI().load()
-
+        saveDefaultConfig()
     }
 
-    var m: EngineManager? = null
+    var manager: EngineManager = EngineManager(this)
     override fun onEnable() {
-        saveDefaultConfig()
-        m = EngineManager(this)
-        val manager = m ?: return
+        "coolade".pq(123)
         val cmm = BukkitCommandManager.create(this)
+        registerListeners(this, manager, manager.effect)
 
         /**
          * Basic startup
          */
-
-
-        McEngineAPI.instance = this
         Metrics(this, 14580)
         copyOver(dataFolder, "animations", "items", "animations/Default.yml", "items/SuperPick.json")
-        if (server.pluginManager.getPlugin("PlaceholderAPI") != null)
-            HookPapi(this).register()
+        if (server.pluginManager.getPlugin("PlaceholderAPI") != null) HookPapi(this).register()
 
 
         /**
          * Command registering
          */
-
-
         cmm.registerArgument(me.alexirving.core.newitem.BaseItem::class.java) { _, itemId ->
             manager.item.bases[itemId].pq("ITEM")
         }
@@ -71,7 +70,7 @@ class McEngine : JavaPlugin() {
             manager.item.bases.keys.toList()
         }
         val ecoM = manager.point
-            cmm.registerArgument(Points::class.java) { _, eco ->
+        cmm.registerArgument(Points::class.java) { _, eco ->
             ecoM.getPoints(eco)
         }
         cmm.registerSuggestion(Points::class.java) { _, _ ->
@@ -98,46 +97,37 @@ class McEngine : JavaPlugin() {
         cmm.registerSuggestion(SuggestionKey.of("player-x")) { sender, _ ->
             if (sender is Player) {
                 mutableListOf(sender.player?.getTargetBlock(mutableSetOf(Material.AIR), 10)?.x.toString())
-            } else
-                mutableListOf()
+            } else mutableListOf()
         }
         cmm.registerSuggestion(SuggestionKey.of("player-y")) { sender, _ ->
             if (sender is Player) {
                 mutableListOf(sender.player?.getTargetBlock(mutableSetOf(Material.AIR), 10)?.y.toString())
-            } else
-                mutableListOf()
+            } else mutableListOf()
         }
         cmm.registerSuggestion(SuggestionKey.of("player-z")) { sender, arg ->
             if (sender is Player) {
                 mutableListOf(
                     sender.player?.getTargetBlock(mutableSetOf(Material.AIR), 10)?.z.toString()
                 )
-            } else
-                mutableListOf()
+            } else mutableListOf()
         }
         cmm.registerCommand(CMDTest(manager))
 
         cmm.registerCommand(
-            CMDEngine(manager),
-            CMDEconomy(),
-            CMDAnimation(this),
-            CMDMine(manager),
-            CMDGang(manager)
+            CMDEngine(manager), CMDEconomy(), CMDAnimation(this)
         )
 
 
         registerListeners(this, PlayerJoin(manager), PlayerInteract(), PlayerLeave(manager))
-        Bukkit.getScheduler()
-            .scheduleSyncRepeatingTask(
-                this,
-                {
-                    manager.updateDb()
-                }, 0L, config.getLong("AutoSave") ?: 12000L
-            )
+        Bukkit.getScheduler().scheduleSyncRepeatingTask(
+            this, {
+                manager.updateDb()
+            }, 0L, config.getLong("AutoSave") ?: 12000L
+        )
         PacketEvents.getAPI().init()
     }
 
     override fun onDisable() {
-        m?.updateDb()
+        manager.updateDb()
     }
 }
