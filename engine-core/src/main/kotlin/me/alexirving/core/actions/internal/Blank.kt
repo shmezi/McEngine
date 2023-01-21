@@ -7,13 +7,11 @@
  */
 package me.alexirving.core.actions.internal
 
-import me.alexirving.core.EngineManager
 import me.alexirving.core.actions.Action
-import me.alexirving.core.animation.objects.Offset
-import org.bukkit.entity.Player
+import me.alexirving.core.actions.data.ActionData
 
-class Blank(args: Map<String, Any>) : Action(args) {
+class Blank(args: ActionData) : Action(args) {
     override val id = "blank"
-    override fun run(data: MutableMap<String, Any>) {
+    override fun run(data: ActionData) {
     }
 }

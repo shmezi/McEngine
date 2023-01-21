@@ -7,16 +7,15 @@
  */
 package me.alexirving.core.actions.internal
 
-import me.alexirving.core.EngineManager
-import me.alexirving.core.actions.AniAction
-import me.alexirving.core.animation.objects.AnimationSession
+import me.alexirving.core.actions.animations.AniAction
+import me.alexirving.core.actions.animations.AniData
 import me.alexirving.core.packets.PacketManager
 
-class PESetInvisible(args: Map<String, Any>) : AniAction(args) {
+class PESetInvisible(args: AniData) : AniAction(args) {
     override val id = "SetInvisible"
 
 
-    override fun run(session: AnimationSession, data: MutableMap<String, Any>) {
-       PacketManager.setInvisible(session.standMap[args["entity"]]!!)
+    override fun run(data: AniData) {
+        PacketManager.setInvisible(data.getSession().standMap[args["entity"]?.asString()] ?: return)
     }
 }

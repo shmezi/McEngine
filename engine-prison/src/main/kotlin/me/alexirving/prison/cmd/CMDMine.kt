@@ -1,14 +1,14 @@
-package me.alexirving.prison
+package me.alexirving.prison.cmd
 
 import dev.triumphteam.cmd.bukkit.annotation.Permission
 import dev.triumphteam.cmd.core.BaseCommand
 import dev.triumphteam.cmd.core.annotation.Command
 import dev.triumphteam.cmd.core.annotation.SubCommand
-import me.alexirving.core.EngineManager
+import me.alexirving.prison.mines.MineManager
 import org.bukkit.entity.Player
 
 @Command("mine")
-class CMDMine(val m: MineManager) : BaseCommand() {
+class CMDMine(private val m: MineManager) : BaseCommand() {
     @SubCommand("tp")
     @Permission("engine.mine.tp")
     fun tp(player: Player) {

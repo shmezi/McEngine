@@ -8,18 +8,19 @@
 
 package me.alexirving.core.actions.internal
 
-import me.alexirving.core.actions.AniAction
-import me.alexirving.core.animation.objects.AnimationSession
+import me.alexirving.core.actions.animations.AniAction
+import me.alexirving.core.actions.animations.AniData
 import me.alexirving.core.packets.PacketManager
 
-class PESetDisplayName(args: Map<String, Any>) : AniAction(args) {
+class PESetDisplayName(args: AniData) : AniAction(args) {
     override val id = "SetDisplayName"
 
 
-    override fun run(session: AnimationSession, data: MutableMap<String, Any>) {
+    override fun run(data: AniData) {
+
         PacketManager.setDisplayName(
-            session.standMap[args["entity"]]!!,
-            args["name"] as String
+            data.getstandMap()[args["entity"]?.asString()] ?: return,
+            args["name"]?.asString() ?: return
         )
     }
 }

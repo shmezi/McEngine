@@ -8,7 +8,10 @@
 package me.alexirving.core
 
 import com.github.retrooper.packetevents.PacketEvents
+import com.github.retrooper.packetevents.PacketEvents.getAPI
+import com.github.retrooper.packetevents.PacketEvents.setAPI
 import dev.triumphteam.cmd.bukkit.BukkitCommandManager
+import dev.triumphteam.cmd.core.BaseCommand
 import dev.triumphteam.cmd.core.suggestion.SuggestionKey
 import io.github.retrooper.packetevents.factory.spigot.SpigotPacketEventsBuilder
 import me.alexirving.core.animation.AnimationManager
@@ -35,21 +38,21 @@ import org.bukkit.plugin.java.JavaPlugin
 
 
 class McEngine : JavaPlugin() {
-    init {
-        McEngineAPI.instance = this
-    }
+
 
     override fun onLoad() {
-        PacketEvents.setAPI(SpigotPacketEventsBuilder.buildNoCache(this))
-        PacketEvents.getAPI().settings.debug(true).checkForUpdates(true)
-        PacketEvents.getAPI().load()
+        setAPI(SpigotPacketEventsBuilder.buildNoCache(this))
+        getAPI().settings.debug(true).checkForUpdates(true)
+        getAPI().load()
         saveDefaultConfig()
     }
 
     var manager: EngineManager = EngineManager(this)
+    private val cmm = BukkitCommandManager.create(this)
+
+
+    fun registerCommand(vararg commands: BaseCommand) = commands.forEach { cmm.registerCommand(it) }
     override fun onEnable() {
-        "coolade".pq(123)
-        val cmm = BukkitCommandManager.create(this)
         registerListeners(this, manager, manager.effect)
 
         /**
@@ -69,6 +72,7 @@ class McEngine : JavaPlugin() {
         cmm.registerSuggestion(me.alexirving.core.newitem.BaseItem::class.java) { _, _ ->
             manager.item.bases.keys.toList()
         }
+
         val ecoM = manager.point
         cmm.registerArgument(Points::class.java) { _, eco ->
             ecoM.getPoints(eco)
@@ -104,7 +108,7 @@ class McEngine : JavaPlugin() {
                 mutableListOf(sender.player?.getTargetBlock(mutableSetOf(Material.AIR), 10)?.y.toString())
             } else mutableListOf()
         }
-        cmm.registerSuggestion(SuggestionKey.of("player-z")) { sender, arg ->
+        cmm.registerSuggestion(SuggestionKey.of("player-z")) { sender, _ ->
             if (sender is Player) {
                 mutableListOf(
                     sender.player?.getTargetBlock(mutableSetOf(Material.AIR), 10)?.z.toString()
@@ -122,9 +126,9 @@ class McEngine : JavaPlugin() {
         Bukkit.getScheduler().scheduleSyncRepeatingTask(
             this, {
                 manager.updateDb()
-            }, 0L, config.getLong("AutoSave") ?: 12000L
+            }, 0L, config.getLong("AutoSave")
         )
-        PacketEvents.getAPI().init()
+        getAPI().init()
     }
 
     override fun onDisable() {

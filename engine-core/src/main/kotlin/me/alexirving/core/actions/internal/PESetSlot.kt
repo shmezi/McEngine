@@ -7,20 +7,20 @@
  */
 package me.alexirving.core.actions.internal
 
-import me.alexirving.core.actions.AniAction
-import me.alexirving.core.animation.objects.AnimationSession
+import me.alexirving.core.actions.animations.AniAction
+import me.alexirving.core.actions.animations.AniData
 import me.alexirving.core.exceptions.NotFoundException
 import me.alexirving.core.item.ItemManager
 import me.alexirving.core.packets.PacketManager
 
-class PESetSlot(args: Map<String, Any>) : AniAction(args) {
+class PESetSlot(args: AniData) : AniAction(args) {
     override val id = "SetItem"
 
-    override fun run(session: AnimationSession, data: MutableMap<String, Any>) {
+    override fun run(data: AniData) {
         PacketManager.setItem(
-            session.standMap[args["entity"]]!!,
-            args["slot"] as Int,
-            ItemManager.bases[args["itemId"]]?.buildSimple()
+            data.getSession().standMap[args["entity"]?.asString()]!!,
+            args["slot"]?.asInt() ?: return,
+            ItemManager.bases[args["itemId"]?.asString()]?.buildSimple()
                 ?: throw NotFoundException("Item \"${args["itemId"]}\" was not found!")
         )
     }

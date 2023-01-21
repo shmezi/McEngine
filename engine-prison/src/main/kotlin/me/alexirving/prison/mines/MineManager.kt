@@ -1,4 +1,4 @@
-package me.alexirving.prison
+package me.alexirving.prison.mines
 
 import com.sk89q.worldedit.bukkit.BukkitAdapter
 import com.sk89q.worldedit.function.pattern.RandomPattern

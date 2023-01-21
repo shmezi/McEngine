@@ -8,12 +8,12 @@
 package me.alexirving.core.actions.internal
 
 import me.alexirving.core.actions.Action
+import me.alexirving.core.actions.data.ActionData
 import me.alexirving.core.gui.GuiManager
-import org.bukkit.entity.Player
 
-class GuiClose(args: Map<String, Any>) : Action(args) {
+class GuiClose(args:ActionData) : Action(args) {
     override val id = "blank"
-    override fun run(data: MutableMap<String, Any>) {
-        GuiManager.close((data["viewers"] as List<Player>?) ?: return)
+    override fun run(data: ActionData) {
+        GuiManager.close(data["players"]?.asPlayers() ?: return)
     }
 }

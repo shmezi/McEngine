@@ -1,4 +1,6 @@
 name: PrisonCore
 main: me.alexirving.prison.PrisonCore
 version: 1.0
-depend: [McEngine]
+api-version: 1.13
+depend: [ McEngine ]
+loadbefore: [ McEngine ]

@@ -7,14 +7,14 @@
  */
 package me.alexirving.core.actions.internal
 
-import me.alexirving.core.actions.AniAction
-import me.alexirving.core.animation.objects.AnimationSession
+import me.alexirving.core.actions.animations.AniAction
+import me.alexirving.core.actions.animations.AniData
 import me.alexirving.core.packets.PacketManager
 
-class PEKill(args: Map<String, Any>) : AniAction(args) {
+class PEKill(args:AniData) : AniAction(args) {
     override val id = "KillPacket"
-    override fun run(session: AnimationSession, data: MutableMap<String, Any>) {
-        PacketManager.kill(session.standMap[args["entity"]] ?: return)
+    override fun run(data: AniData) {
+        PacketManager.kill(data.getSession().standMap[args["entity"]?.asString() ?: return] ?: return)
     }
 
 

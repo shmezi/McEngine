@@ -57,14 +57,11 @@ dependencies {
 }
 tasks {
     shadowJar {
-        relocate("dev.triumphteam.gui", "me.alexirving.libs.libs.gui")
-        relocate("me.mattstudios.mf", "me.alexirving.libs.libs.mf")
-        relocate("org.bstats", "me.alexirving.libs.bstats")
-        relocate("de.tr7zw.changeme.nbtapi", "me.alexirving.libs.nbtapi")
-        relocate("net.kyori.adventure", "me.alexirving.libs.minimessages")
-        relocate("com.github.retrooper", "me.alexirving.libs.packets")
-        manifest {
-            attributes("Main-Class" to "me.alexirving.core.NotAProgramKt")
-        }
+        relocate("dev.triumphteam.gui", "${project.group}.libs.gui")
+        relocate("me.mattstudios.mf", "${project.group}.libs.mf")
+        relocate("org.bstats", "${project.group}.libs.bstats")
+        relocate("de.tr7zw.changeme.nbtapi", "${project.group}.libs.nbtapi")
+        relocate("net.kyori.adventure", "${project.group}.libs.minimessages")
+        relocate("com.github.retrooper", "${project.group}.libs.packets")
     }
 }

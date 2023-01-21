@@ -8,7 +8,7 @@
 package me.alexirving.core.animation.objects
 
 import me.alexirving.core.McEngine
-import me.alexirving.core.exceptions.ShmeziFuckedUp
+import me.alexirving.core.actions.data.ActionData
 import me.alexirving.core.packets.PacketManager
 import me.alexirving.core.utils.Direction
 import me.alexirving.core.utils.pq
@@ -49,10 +49,7 @@ data class AnimationSession(
             standMap[name.key] = PacketManager.spawn(name.value, viewers, loc)
         }
         var timeStamp = 0
-        val data = mutableMapOf<String, Any>().apply {
-            this["session"] = this
-            this["players"] = viewers
-        }
+        val data = ActionData().set("session", this).set("players", viewers)
         for (frame in animation.sequence) {
             scheduler.runTaskLaterAsynchronously(engine, Runnable {
                 frame.run(data)

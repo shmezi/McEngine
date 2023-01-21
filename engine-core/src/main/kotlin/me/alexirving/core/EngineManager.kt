@@ -10,6 +10,7 @@ package me.alexirving.core
 import com.google.gson.GsonBuilder
 import com.google.gson.JsonDeserializer
 import com.google.gson.JsonObject
+import dev.triumphteam.cmd.core.BaseCommand
 import me.alexirving.core.animation.AnimationManager
 import me.alexirving.core.channels.ChannelData
 import me.alexirving.core.channels.ChannelManger
@@ -56,6 +57,8 @@ class EngineManager(val engine: McEngine) : Listener {
         else MongoUtils.defaultClient(config.getString("Connection") ?: "mongodb://localhost"), "McEngine"
     )
 
+    fun registerCommand(vararg commands: BaseCommand) = commands.forEach { engine.registerCommand(it) }
+
     val item = ItemManager(connection)
     val itemFolder = File(df, "items")
     val aniFolder = File(df, "animations")
@@ -74,6 +77,7 @@ class EngineManager(val engine: McEngine) : Listener {
         "User", UserData::class.java, connection
     ).getManager(UserData(UUID.randomUUID(), mutableMapOf(), null, mutableSetOf()))
 
+    
 
     val gang = GroupCachedManager<UUID, UUID, GangData>(
         MongoDbCachedCollection("Gang", GangData::class.java, connection), GangData.default(null, "gang")

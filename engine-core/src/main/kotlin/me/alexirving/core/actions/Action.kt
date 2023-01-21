@@ -8,13 +8,14 @@
 
 package me.alexirving.core.actions
 
+import me.alexirving.core.actions.data.ActionData
 import me.alexirving.core.animation.objects.Offset
 
 /**
  * Represents an action.
  * @param args The arguments to build this action, such as an [AnimationSession] or an offset [Offset]
  */
-abstract class Action(val args: Map<String, Any>) {
+abstract class Action(val args: ActionData) {
     abstract val id: String
 
     /**
@@ -22,5 +23,5 @@ abstract class Action(val args: Map<String, Any>) {
      * @param data The data that should be used to execure the action such as a [Player] or a [Location].
      *
      */
-    abstract fun run(data: MutableMap<String, Any> = mutableMapOf())
+    abstract fun run(data: ActionData = ActionData())
 }

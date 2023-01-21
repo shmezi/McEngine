@@ -1,24 +1,20 @@
-import gradle.kotlin.dsl.accessors._889a49815d7b5aa8c7375876ff7f4048.shadowJar
 
 plugins {
     `java-library`
     id("com.github.johnrengelman.shadow")
     id("xyz.jpenilla.run-paper")
+    kotlin("jvm")
 }
-val buildGroups = "Engine Build"
+val buildGroup = "Engine Tasks"
 tasks {
     named<TaskReportTask>("tasks") {
-        displayGroup = buildGroups
+        displayGroup = buildGroup
     }
-
-    tasks {
-        clean {
-            group = buildGroups
-        }
-        shadowJar {
-            group = buildGroups
-        }
+    tasks.all {
+        this.group = "other"
     }
+    listOf<TaskProvider<*>>(clean, shadowJar, runServer)
+        .forEach { it { this.group = buildGroup } }
 
 
 }

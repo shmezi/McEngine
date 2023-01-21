@@ -8,23 +8,23 @@
 package me.alexirving.core.actions.internal
 
 import me.alexirving.core.actions.Action
-import me.alexirving.core.utils.Direction
+import me.alexirving.core.actions.data.ActionData
 import me.alexirving.core.utils.loc
-import org.bukkit.Effect
-import org.bukkit.Location
-import org.bukkit.entity.Player
 
-class Particle(args: Map<String, Any>) : Action(args) {
+class Particle(args: ActionData) : Action(args) {
     override val id = "Particle"
-    val offset = (args["offset"] as Map<String, Double>?).loc()
+    private val offset = (args["offset"]?.asType<Map<String, Double>>()).loc()
 
 
-    override fun run(data: MutableMap<String, Any>) {
-        (data["players"] as Set<Player>?)?.forEach {
+    override fun run(data: ActionData) {
+        data["players"]?.asPlayers()?.forEach {
             it.playEffect(
-                offset.getOffset(data["location"] as Location, data["direction"] as Direction),
-                Effect.valueOf(args["effect"] as String),
-                args["data"] as Byte
+                offset.getOffset(
+                    data["location"]?.asLocation() ?: return,
+                    data["direction"]?.asDirection() ?: return
+                ),
+                args["effect"]?.asEffect() ?: return,
+                args["data"]?.asByte()
             )
 
         }
